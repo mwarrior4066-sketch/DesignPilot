@@ -1,0 +1,26 @@
+{
+  "run_id": "benchmark-run-001",
+  "prompt_id": "Prompt 01",
+  "task_type": "case_study_rewrite",
+  "baseline_system": "generic_ai",
+  "pack_system": "design_expert_pack_2_2_0",
+  "baseline_score": 0.58,
+  "pack_score": 0.84,
+  "score_delta": 0.26,
+  "time_delta_seconds": 3.4,
+  "timing_seconds": {
+    "baseline": 11.2,
+    "pack": 14.6
+  },
+  "reviewer_note": "The pack answer made proof boundaries visible and reordered the narrative around problem, method, and honest outcome language.",
+  "unresolved_weakness": "Still depends on internal comparative proof rather than external trust proof.",
+  "win_type": "structural and evidentiary",
+  "bias_controls": [
+    "same prompt",
+    "shared rubric",
+    "A/B order swapped"
+  ],
+  "evidence_gap": "external trust signal still missing",
+  "next_move": "capture one external reviewer confidence score against the same prompt",
+  "summary": "The pack answer was more explicit about proof limits and sequencing. This is still internal comparative evidence, not a production outcome claim."
+}

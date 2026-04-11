@@ -1,0 +1,370 @@
+{
+  "version": "1.1.0",
+  "pack_version": "2.5.0",
+  "routes": {
+    "rt_ui_structure_critique": {
+      "primary_runtime_summaries": [
+        "knowledge-base/runtime-summaries/ui-system-summary.md",
+        "knowledge-base/runtime-summaries/grid-mediums-summary.md"
+      ],
+      "secondary_runtime_summaries": [
+        "knowledge-base/runtime-summaries/typography-summary.md",
+        "knowledge-base/runtime-summaries/typeface-database-summary.md",
+        "knowledge-base/runtime-summaries/accessibility-and-feedback-summary.md"
+      ],
+      "forbidden_unrelated_summaries": [],
+      "escalation_fallback": {
+        "full_summaries": [
+          "knowledge-base/summaries/ui-system-summary.md",
+          "knowledge-base/summaries/grid-mediums-summary.md",
+          "knowledge-base/summaries/typography-summary.md",
+          "knowledge-base/summaries/typeface-database-summary.md",
+          "knowledge-base/summaries/accessibility-and-feedback-summary.md"
+        ],
+        "canonical_route": "schemas/routing_registry.json"
+      }
+    },
+    "rt_component_spec": {
+      "primary_runtime_summaries": [
+        "knowledge-base/runtime-summaries/component-systems-summary.md",
+        "knowledge-base/runtime-summaries/front-end-handoff-summary.md",
+        "knowledge-base/runtime-summaries/front-end-architecture-summary.md"
+      ],
+      "secondary_runtime_summaries": [
+        "knowledge-base/runtime-summaries/accessibility-and-feedback-summary.md",
+        "knowledge-base/runtime-summaries/color-and-accessibility-summary.md"
+      ],
+      "forbidden_unrelated_summaries": [],
+      "escalation_fallback": {
+        "full_summaries": [
+          "knowledge-base/summaries/component-systems-summary.md",
+          "knowledge-base/summaries/front-end-handoff-summary.md",
+          "knowledge-base/summaries/front-end-architecture-summary.md",
+          "knowledge-base/summaries/accessibility-and-feedback-summary.md",
+          "knowledge-base/summaries/color-and-accessibility-summary.md"
+        ],
+        "canonical_route": "schemas/routing_registry.json"
+      }
+    },
+    "rt_dashboard_audit": {
+      "primary_runtime_summaries": [
+        "knowledge-base/runtime-summaries/dashboard-and-density-summary.md",
+        "knowledge-base/runtime-summaries/ui-system-summary.md"
+      ],
+      "secondary_runtime_summaries": [
+        "knowledge-base/runtime-summaries/accessibility-and-feedback-summary.md",
+        "knowledge-base/runtime-summaries/color-and-accessibility-summary.md"
+      ],
+      "forbidden_unrelated_summaries": [],
+      "escalation_fallback": {
+        "full_summaries": [
+          "knowledge-base/summaries/dashboard-and-density-summary.md",
+          "knowledge-base/summaries/ui-system-summary.md",
+          "knowledge-base/summaries/accessibility-and-feedback-summary.md",
+          "knowledge-base/summaries/color-and-accessibility-summary.md"
+        ],
+        "canonical_route": "schemas/routing_registry.json"
+      }
+    },
+    "rt_backend_feasibility": {
+      "primary_runtime_summaries": [
+        "knowledge-base/runtime-summaries/backend-planning-summary.md",
+        "knowledge-base/runtime-summaries/back-end-systems-architecture-summary.md",
+        "knowledge-base/runtime-summaries/api-reliability-security-summary.md",
+        "knowledge-base/runtime-summaries/front-end-handoff-summary.md",
+        "knowledge-base/runtime-summaries/front-end-architecture-summary.md"
+      ],
+      "secondary_runtime_summaries": [
+        "knowledge-base/runtime-summaries/component-systems-summary.md"
+      ],
+      "forbidden_unrelated_summaries": [],
+      "escalation_fallback": {
+        "full_summaries": [
+          "knowledge-base/summaries/backend-planning-summary.md",
+          "knowledge-base/summaries/back-end-systems-architecture-summary.md",
+          "knowledge-base/summaries/api-reliability-security-summary.md",
+          "knowledge-base/summaries/front-end-handoff-summary.md",
+          "knowledge-base/summaries/front-end-architecture-summary.md",
+          "knowledge-base/summaries/component-systems-summary.md"
+        ],
+        "canonical_route": "schemas/routing_registry.json"
+      }
+    },
+    "rt_pdf_remediation": {
+      "primary_runtime_summaries": [
+        "knowledge-base/runtime-summaries/pdf-document-accessibility-summary.md",
+        "knowledge-base/runtime-summaries/pdf-layout-summary.md"
+      ],
+      "secondary_runtime_summaries": [
+        "knowledge-base/runtime-summaries/layout-reconstruction-summary.md",
+        "knowledge-base/runtime-summaries/color-and-accessibility-summary.md"
+      ],
+      "forbidden_unrelated_summaries": [],
+      "escalation_fallback": {
+        "full_summaries": [
+          "knowledge-base/summaries/pdf-document-accessibility-summary.md",
+          "knowledge-base/summaries/pdf-layout-summary.md",
+          "knowledge-base/summaries/layout-reconstruction-summary.md",
+          "knowledge-base/summaries/color-and-accessibility-summary.md"
+        ],
+        "canonical_route": "schemas/routing_registry.json"
+      }
+    },
+    "rt_brand_positioning": {
+      "primary_runtime_summaries": [
+        "knowledge-base/runtime-summaries/audience-and-industry-summary.md",
+        "knowledge-base/runtime-summaries/writing-and-case-study-summary.md"
+      ],
+      "secondary_runtime_summaries": [
+        "knowledge-base/runtime-summaries/ux-roadmap-summary.md",
+        "knowledge-base/runtime-summaries/ux-cognition-summary.md"
+      ],
+      "forbidden_unrelated_summaries": [],
+      "escalation_fallback": {
+        "full_summaries": [
+          "knowledge-base/summaries/audience-and-industry-summary.md",
+          "knowledge-base/summaries/writing-and-case-study-summary.md",
+          "knowledge-base/summaries/ux-roadmap-summary.md",
+          "knowledge-base/summaries/ux-cognition-summary.md"
+        ],
+        "canonical_route": "schemas/routing_registry.json"
+      }
+    },
+    "rt_case_study_rewrite": {
+      "primary_runtime_summaries": [
+        "knowledge-base/runtime-summaries/writing-and-case-study-summary.md"
+      ],
+      "secondary_runtime_summaries": [
+        "knowledge-base/runtime-summaries/audience-and-industry-summary.md",
+        "knowledge-base/runtime-summaries/ux-roadmap-summary.md",
+        "knowledge-base/runtime-summaries/ux-cognition-summary.md"
+      ],
+      "forbidden_unrelated_summaries": [],
+      "escalation_fallback": {
+        "full_summaries": [
+          "knowledge-base/summaries/writing-and-case-study-summary.md",
+          "knowledge-base/summaries/audience-and-industry-summary.md",
+          "knowledge-base/summaries/ux-roadmap-summary.md",
+          "knowledge-base/summaries/ux-cognition-summary.md"
+        ],
+        "canonical_route": "schemas/routing_registry.json"
+      }
+    },
+    "rt_accessibility_feedback_audit": {
+      "primary_runtime_summaries": [
+        "knowledge-base/runtime-summaries/accessibility-and-feedback-summary.md",
+        "knowledge-base/runtime-summaries/ui-system-summary.md"
+      ],
+      "secondary_runtime_summaries": [
+        "knowledge-base/runtime-summaries/color-and-accessibility-summary.md",
+        "knowledge-base/runtime-summaries/component-systems-summary.md"
+      ],
+      "forbidden_unrelated_summaries": [],
+      "escalation_fallback": {
+        "full_summaries": [
+          "knowledge-base/summaries/accessibility-and-feedback-summary.md",
+          "knowledge-base/summaries/ui-system-summary.md",
+          "knowledge-base/summaries/color-and-accessibility-summary.md",
+          "knowledge-base/summaries/component-systems-summary.md"
+        ],
+        "canonical_route": "schemas/routing_registry.json"
+      }
+    },
+    "rt_color_system_spec": {
+      "primary_runtime_summaries": [
+        "knowledge-base/runtime-summaries/color-and-accessibility-summary.md",
+        "knowledge-base/runtime-summaries/accessibility-and-feedback-summary.md"
+      ],
+      "secondary_runtime_summaries": [
+        "knowledge-base/runtime-summaries/component-systems-summary.md",
+        "knowledge-base/runtime-summaries/audience-and-industry-summary.md"
+      ],
+      "forbidden_unrelated_summaries": [],
+      "escalation_fallback": {
+        "full_summaries": [
+          "knowledge-base/summaries/color-and-accessibility-summary.md",
+          "knowledge-base/summaries/accessibility-and-feedback-summary.md",
+          "knowledge-base/summaries/component-systems-summary.md",
+          "knowledge-base/summaries/audience-and-industry-summary.md"
+        ],
+        "canonical_route": "schemas/routing_registry.json"
+      }
+    },
+    "rt_graphic_critique": {
+      "primary_runtime_summaries": [
+        "knowledge-base/runtime-summaries/graphic-design-format-summary.md",
+        "knowledge-base/runtime-summaries/typography-summary.md",
+        "knowledge-base/runtime-summaries/typeface-database-summary.md"
+      ],
+      "secondary_runtime_summaries": [
+        "knowledge-base/runtime-summaries/audience-and-industry-summary.md",
+        "knowledge-base/runtime-summaries/color-and-accessibility-summary.md"
+      ],
+      "forbidden_unrelated_summaries": [],
+      "escalation_fallback": {
+        "full_summaries": [
+          "knowledge-base/summaries/graphic-design-format-summary.md",
+          "knowledge-base/summaries/typography-summary.md",
+          "knowledge-base/summaries/typeface-database-summary.md",
+          "knowledge-base/summaries/audience-and-industry-summary.md",
+          "knowledge-base/summaries/color-and-accessibility-summary.md"
+        ],
+        "canonical_route": "schemas/routing_registry.json"
+      }
+    },
+    "rt_layout_reconstruction_plan": {
+      "primary_runtime_summaries": [
+        "knowledge-base/runtime-summaries/layout-reconstruction-summary.md",
+        "knowledge-base/runtime-summaries/grid-mediums-summary.md"
+      ],
+      "secondary_runtime_summaries": [
+        "knowledge-base/runtime-summaries/pdf-layout-summary.md",
+        "knowledge-base/runtime-summaries/pdf-document-accessibility-summary.md"
+      ],
+      "forbidden_unrelated_summaries": [],
+      "escalation_fallback": {
+        "full_summaries": [
+          "knowledge-base/summaries/layout-reconstruction-summary.md",
+          "knowledge-base/summaries/grid-mediums-summary.md",
+          "knowledge-base/summaries/pdf-layout-summary.md",
+          "knowledge-base/summaries/pdf-document-accessibility-summary.md"
+        ],
+        "canonical_route": "schemas/routing_registry.json"
+      }
+    },
+    "rt_type_system_recommendation": {
+      "primary_runtime_summaries": [
+        "knowledge-base/runtime-summaries/typography-summary.md",
+        "knowledge-base/runtime-summaries/typeface-database-summary.md",
+        "knowledge-base/runtime-summaries/accessibility-and-feedback-summary.md"
+      ],
+      "secondary_runtime_summaries": [
+        "knowledge-base/runtime-summaries/graphic-design-format-summary.md",
+        "knowledge-base/runtime-summaries/ui-system-summary.md"
+      ],
+      "forbidden_unrelated_summaries": [],
+      "escalation_fallback": {
+        "full_summaries": [
+          "knowledge-base/summaries/typography-summary.md",
+          "knowledge-base/summaries/typeface-database-summary.md",
+          "knowledge-base/summaries/accessibility-and-feedback-summary.md",
+          "knowledge-base/summaries/graphic-design-format-summary.md",
+          "knowledge-base/summaries/ui-system-summary.md"
+        ],
+        "canonical_route": "schemas/routing_registry.json"
+      }
+    },
+    "rt_ux_research_gap_map": {
+      "primary_runtime_summaries": [
+        "knowledge-base/runtime-summaries/ux-roadmap-summary.md",
+        "knowledge-base/runtime-summaries/ux-cognition-summary.md",
+        "knowledge-base/runtime-summaries/writing-and-case-study-summary.md"
+      ],
+      "secondary_runtime_summaries": [
+        "knowledge-base/runtime-summaries/audience-and-industry-summary.md"
+      ],
+      "forbidden_unrelated_summaries": [],
+      "escalation_fallback": {
+        "full_summaries": [
+          "knowledge-base/summaries/ux-roadmap-summary.md",
+          "knowledge-base/summaries/ux-cognition-summary.md",
+          "knowledge-base/summaries/writing-and-case-study-summary.md",
+          "knowledge-base/summaries/audience-and-industry-summary.md"
+        ],
+        "canonical_route": "schemas/routing_registry.json"
+      }
+    },
+    "rt_frontend_architecture": {
+      "primary_runtime_summaries": [
+        "knowledge-base/runtime-summaries/front-end-architecture-summary.md",
+        "knowledge-base/runtime-summaries/front-end-handoff-summary.md",
+        "knowledge-base/runtime-summaries/accessibility-and-feedback-summary.md"
+      ],
+      "secondary_runtime_summaries": [
+        "knowledge-base/runtime-summaries/component-systems-summary.md",
+        "knowledge-base/runtime-summaries/backend-planning-summary.md",
+        "knowledge-base/runtime-summaries/back-end-systems-architecture-summary.md",
+        "knowledge-base/runtime-summaries/api-reliability-security-summary.md"
+      ],
+      "forbidden_unrelated_summaries": [],
+      "escalation_fallback": {
+        "full_summaries": [
+          "knowledge-base/summaries/front-end-architecture-summary.md",
+          "knowledge-base/summaries/front-end-handoff-summary.md",
+          "knowledge-base/summaries/accessibility-and-feedback-summary.md",
+          "knowledge-base/summaries/component-systems-summary.md",
+          "knowledge-base/summaries/backend-planning-summary.md",
+          "knowledge-base/summaries/back-end-systems-architecture-summary.md",
+          "knowledge-base/summaries/api-reliability-security-summary.md"
+        ],
+        "canonical_route": "schemas/routing_registry.json"
+      }
+    },
+    "rt_backend_systems_architecture": {
+      "primary_runtime_summaries": [
+        "knowledge-base/runtime-summaries/back-end-systems-architecture-summary.md",
+        "knowledge-base/runtime-summaries/backend-planning-summary.md",
+        "knowledge-base/runtime-summaries/api-reliability-security-summary.md"
+      ],
+      "secondary_runtime_summaries": [
+        "knowledge-base/runtime-summaries/dashboard-and-density-summary.md",
+        "knowledge-base/runtime-summaries/front-end-handoff-summary.md",
+        "knowledge-base/runtime-summaries/front-end-architecture-summary.md"
+      ],
+      "forbidden_unrelated_summaries": [],
+      "escalation_fallback": {
+        "full_summaries": [
+          "knowledge-base/summaries/back-end-systems-architecture-summary.md",
+          "knowledge-base/summaries/backend-planning-summary.md",
+          "knowledge-base/summaries/api-reliability-security-summary.md",
+          "knowledge-base/summaries/dashboard-and-density-summary.md",
+          "knowledge-base/summaries/front-end-handoff-summary.md",
+          "knowledge-base/summaries/front-end-architecture-summary.md"
+        ],
+        "canonical_route": "schemas/routing_registry.json"
+      }
+    },
+    "rt_api_reliability_security": {
+      "primary_runtime_summaries": [
+        "knowledge-base/runtime-summaries/api-reliability-security-summary.md",
+        "knowledge-base/runtime-summaries/back-end-systems-architecture-summary.md",
+        "knowledge-base/runtime-summaries/backend-planning-summary.md"
+      ],
+      "secondary_runtime_summaries": [
+        "knowledge-base/runtime-summaries/front-end-handoff-summary.md",
+        "knowledge-base/runtime-summaries/front-end-architecture-summary.md",
+        "knowledge-base/runtime-summaries/pdf-document-accessibility-summary.md"
+      ],
+      "forbidden_unrelated_summaries": [],
+      "escalation_fallback": {
+        "full_summaries": [
+          "knowledge-base/summaries/api-reliability-security-summary.md",
+          "knowledge-base/summaries/back-end-systems-architecture-summary.md",
+          "knowledge-base/summaries/backend-planning-summary.md",
+          "knowledge-base/summaries/front-end-handoff-summary.md",
+          "knowledge-base/summaries/front-end-architecture-summary.md",
+          "knowledge-base/summaries/pdf-document-accessibility-summary.md"
+        ],
+        "canonical_route": "schemas/routing_registry.json"
+      }
+    },
+    "rt_text_humanization": {
+      "primary_runtime_summaries": [
+        "knowledge-base/runtime-summaries/text-humanization-summary.md",
+        "knowledge-base/runtime-summaries/writing-and-case-study-summary.md"
+      ],
+      "secondary_runtime_summaries": [
+        "knowledge-base/runtime-summaries/audience-and-industry-summary.md"
+      ],
+      "forbidden_unrelated_summaries": [],
+      "escalation_fallback": {
+        "full_summaries": [
+          "knowledge-base/summaries/text-humanization-summary.md",
+          "knowledge-base/summaries/writing-and-case-study-summary.md",
+          "knowledge-base/summaries/audience-and-industry-summary.md"
+        ],
+        "canonical_route": "schemas/routing_registry.json"
+      }
+    }
+  }
+}

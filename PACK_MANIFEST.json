@@ -1,0 +1,185 @@
+{
+  "pack_name": "Design Expert Pack",
+  "version": "2.5.0",
+  "release_date": "2026-04-11",
+  "canonical_entrypoint": "MASTER_CHAT_OPERATOR.md",
+  "canonical_release_source": "PACK_MANIFEST.json",
+  "core_control_files": [
+    "MASTER_CHAT_OPERATOR.md",
+    "TASK_ROUTER.md",
+    "SESSION_CONTEXT.md",
+    "ADAPTIVE_EXPLANATION_PROTOCOL.md",
+    "DESIGNER_RESPONSE_FILTER_PROTOCOL.md",
+    "ROUTE_CATALOG.md",
+    "OUTPUT_CONTRACTS_BY_TASK.md",
+    "RUNTIME_VALIDATION_LAYER.md",
+    "PACK_QUALITY_RUBRIC.md",
+    "CONTROL_AUTHORITY_MAP.md",
+    "PROJECT_FILE_SYSTEM_PROTOCOL.md",
+    "PROJECT_STATE_PROTOCOL.md",
+    "PROJECT_LOGGING_PROTOCOL.md",
+    "DEGRADED_MODE_PROTOCOL.md",
+    "VISUAL_INPUT_PROTOCOL.md",
+    "LIGHTWEIGHT_RESPONSE_PROTOCOL.md",
+    "QUICKSTART.md",
+    "SESSION_CONTEXT_DEFAULTS.md"
+  ],
+  "active_skills": [
+    "accessibility-feedback-expert.md",
+    "api-reliability-security-expert.md",
+    "back-end-aware-planner.md",
+    "back-end-systems-architect.md",
+    "brand-strategy-expert.md",
+    "color-system-expert.md",
+    "component-systems-expert.md",
+    "content-and-case-study-expert.md",
+    "dashboard-data-expert.md",
+    "document-accessibility-expert.md",
+    "front-end-architecture-expert.md",
+    "front-end-handoff-expert.md",
+    "graphic-design-expert.md",
+    "grid-system-expert.md",
+    "layout-reconstruction-expert.md",
+    "pdf-layout-expert.md",
+    "text-humanization-expert.md",
+    "type-system-expert.md",
+    "ui-system-expert.md",
+    "ux-research-expert.md"
+  ],
+  "template_registry": [
+    "api-reliability-security-review-template.md",
+    "backend-architecture-spec-template.md",
+    "backend-feasibility-template.md",
+    "case-study-structure-template.md",
+    "color-spec-template.md",
+    "component-registry-template.md",
+    "component-state-matrix-template.md",
+    "dashboard-spec-template.md",
+    "design-audit-template.md",
+    "design-system-component-spec-template.md",
+    "document-accessibility-audit-template.md",
+    "frontend-implementation-review-template.md",
+    "graphic-critique-template.md",
+    "layout-reconstruction-brief-template.md",
+    "positioning-contract-template.md",
+    "prd-template.md",
+    "project-brief-template.md",
+    "project-roadmap-template.md",
+    "research-prompt-pack-template.md",
+    "style-guide-template.md",
+    "text-humanization-template.md",
+    "type-spec-template.md",
+    "user-journey-map-template.md",
+    "user-persona-template.md",
+    "validation-report-template.md",
+    "wireframe-spec-template.md"
+  ],
+  "project_workspace_requirements": {
+    "required_directories": [
+      "process",
+      "finalized",
+      "problems_and_solutions",
+      "context",
+      "handoff"
+    ],
+    "required_context_files": [
+      "PROJECT_OVERVIEW.md",
+      "ACTIVE_STATE.md",
+      "TASK_QUEUE.md",
+      "WORKSPACE_MODE.md",
+      "CASE_STUDY_ROADMAP.md"
+    ],
+    "required_problem_files": [
+      "PROBLEM_LOG.md",
+      "DECISION_LOG.md",
+      "PROJECT_SPECIFIC_ERRORS.md"
+    ],
+    "required_process_subdirectories": [
+      "briefs",
+      "research",
+      "strategy",
+      "structure",
+      "design",
+      "specs",
+      "reviews",
+      "iterations",
+      "assets"
+    ],
+    "required_finalized_subdirectories": [
+      "deliverables",
+      "exports",
+      "approved_specs",
+      "release_notes"
+    ],
+    "required_handoff_files": [
+      "HANDOFF_NOTES.md",
+      "IMPLEMENTATION_CHECKLIST.md",
+      "OPEN_QUESTIONS.md",
+      "DOWNLOAD_BUNDLE_MANIFEST.md"
+    ],
+    "required_root_files": [
+      "README.md"
+    ],
+    "disallow_noncanonical_immediate_children": true
+  },
+  "compatibility_notes": [
+    "portable workspace mode mirrors the exact canonical project schema when direct filesystem access is unavailable",
+    "run lint_pack.py, run_regression_suite.py, and validate_project_workspace.py before release",
+    "public-facing version strings should match this manifest exactly",
+    "legacy v8.2.x history is normalized into the v1.2.x line; this release begins v2.x.x",
+    "v2.1.0 adds executable schemas, runtime validation, worked examples, and release packaging gates",
+    "v2.2.0 expands direct task coverage, proof artifacts, eval realism, and regression depth",
+    "v2.4.0 adds a front-end and back-end capability cluster on top of the stable v2.3 proof and continuity base: front-end architecture, backend systems architecture, deeper accessibility behavior ownership, and API reliability/security.",
+    "v2.4.2 adds a generated runtime overlay layer, indexed source-doc section escalation, and capability-preserving low-token hydration rules without removing any canonical skills, routes, summaries, or source docs.",
+    "v2.5.0 unifies startup authority, adds degraded-mode behavior, adds visual-input routing support, and adds lightweight execution rules.",
+    "v2.5.0 knowledge refresh adds a dedicated digital color library plus stronger typography, localization, and implementation guidance without changing the routed control surface."
+  ],
+  "version_policy": "VERSIONING_POLICY.md",
+  "version_scheme": "X.Y.Z semver-style release weights (1.00 / 0.10 / 0.01)",
+  "legacy_version_normalization": {
+    "rule": "legacy v8.2.x release names normalize to v1.2.x for historical reference",
+    "examples": {
+      "v8.2": "v1.2.0",
+      "v8.2.7": "v1.2.7",
+      "v8.2.12": "v1.2.12"
+    }
+  },
+  "version_increment_rules": {
+    "major_x": "breaking compatibility, canonical control/file-system changes, entrypoint changes, or release-line resets",
+    "minor_y": "backward-compatible capability growth such as new skills, validators, templates, or materially stronger domain logic",
+    "patch_z": "bug fixes, editorial cleanup, metadata corrections, and nonbreaking hardening"
+  },
+  "schema_registry": [
+    "schemas/task_contracts.json",
+    "schemas/routing_registry.json",
+    "schemas/validation_rules.json"
+  ],
+  "validation_entrypoints": [
+    "generate_runtime_overlay.py",
+    "runtime_validator.py",
+    "validate_examples.py",
+    "refresh_project_continuity.py",
+    "lint_pack.py",
+    "run_regression_suite.py",
+    "validate_project_workspace.py",
+    "package_release.py"
+  ],
+  "example_registry": [
+    "examples/accessibility-feedback-pass.md",
+    "examples/api-reliability-security-review.md",
+    "examples/backend-architecture-spec.md",
+    "examples/backend-feasibility-review.md",
+    "examples/brand-positioning-pass.md",
+    "examples/case-study-rewrite.md",
+    "examples/color-system-pass.md",
+    "examples/component-spec.md",
+    "examples/dashboard-audit.md",
+    "examples/frontend-implementation-review.md",
+    "examples/graphic-critique-pass.md",
+    "examples/layout-reconstruction-pass.md",
+    "examples/pdf-remediation-plan.md",
+    "examples/type-system-pass.md",
+    "examples/ui-structure-critique.md",
+    "examples/ux-research-pass.md"
+  ]
+}
