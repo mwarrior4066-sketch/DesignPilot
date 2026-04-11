@@ -1,7 +1,7 @@
 ---
 summary_version: 1.0.0
 source_reference:
-  - knowledge-base/source-docs/Brand Strategy Expert for a Modular AI Design Operator Pack.md
+  - knowledge-base/source-docs/Brand Strategy Expert for DesignPilot.md
   - knowledge-base/source-docs/Industry & Demographic Encompassing Design Toolkit.md
 last_updated: 2026-04-09
 synchronized: true

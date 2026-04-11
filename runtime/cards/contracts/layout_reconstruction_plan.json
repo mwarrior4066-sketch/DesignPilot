@@ -1,0 +1,47 @@
+{
+  "task_id": "layout_reconstruction_plan",
+  "title": "Layout Reconstruction Plan",
+  "required_sections": [
+    "Source constraints",
+    "Reconstruction assumptions",
+    "Rebuild sequence",
+    "Verification checkpoints"
+  ],
+  "required_evidence_types": [
+    "grid inference",
+    "preservation boundary",
+    "verification checkpoint"
+  ],
+  "required_decisions": [
+    "preserved_elements",
+    "inference_boundary",
+    "reconstruction_order",
+    "verification_method",
+    "visual_confidence_boundary"
+  ],
+  "hard_fail_patterns": [
+    "redraw it from scratch",
+    "eyeball the spacing",
+    "just clean it up"
+  ],
+  "soft_fail_patterns": [
+    "approximate it",
+    "close enough"
+  ],
+  "required_skills": [
+    "layout-reconstruction-expert.md",
+    "grid-system-expert.md"
+  ],
+  "allowed_modes": [
+    "REBUILD",
+    "PEER"
+  ],
+  "allowed_phases": [
+    "implementation",
+    "structure"
+  ],
+  "canonical_contract": "schemas/task_contracts.json#layout_reconstruction_plan",
+  "task_weight_default": "compound",
+  "supports_lightweight_response": false,
+  "trace_visibility_default": "recoverable"
+}

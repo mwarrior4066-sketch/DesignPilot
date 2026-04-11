@@ -1,0 +1,51 @@
+{
+  "route_id": "rt_text_humanization",
+  "task_id": "text_humanization_revision",
+  "trigger_summary": "Use when the governing need is prose-quality revision rather than structural rewriting or route-level diagnosis.",
+  "governing_skills": [
+    "text-humanization-expert.md",
+    "content-and-case-study-expert.md"
+  ],
+  "supporting_skills": [
+    "brand-strategy-expert.md"
+  ],
+  "required_summary_ids": [
+    "knowledge-base/runtime-summaries/text-humanization-summary.md",
+    "knowledge-base/runtime-summaries/writing-and-case-study-summary.md",
+    "knowledge-base/runtime-summaries/audience-and-industry-summary.md"
+  ],
+  "escalation_conditions": [
+    "runtime summary lacks measurable thresholds",
+    "validator flags insufficient evidence",
+    "high-stakes or standards-grade task",
+    "user explicitly requests deeper source synthesis",
+    "route conflict or canonical ambiguity appears"
+  ],
+  "fallback_route": "rt_case_study_rewrite",
+  "known_tensions": [
+    "natural texture vs semantic drift",
+    "voice preservation vs generic polish"
+  ],
+  "handoff_targets": [
+    "brand_positioning_pass",
+    "case_study_rewrite",
+    "rt_case_study_rewrite",
+    "text_humanization_revision",
+    "ux_research_gap_map"
+  ],
+  "overlay_safe_fallback": {
+    "routing": "schemas/routing_registry.json",
+    "skills": [
+      "text-humanization-expert.md",
+      "content-and-case-study-expert.md"
+    ],
+    "summaries": [
+      "text-humanization-summary.md",
+      "writing-and-case-study-summary.md",
+      "audience-and-industry-summary.md"
+    ]
+  },
+  "task_weight_default": "lightweight",
+  "lightweight_eligible": true,
+  "visual_input_supported": false
+}

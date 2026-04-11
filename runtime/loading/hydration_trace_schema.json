@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0.0",
+  "description": "Records runtime hydration choices by layer so the overlay can be audited for token efficiency.",
+  "required_fields": [
+    "task_id",
+    "route_card",
+    "contract_card",
+    "skill_cards",
+    "runtime_summaries",
+    "deep_summaries_loaded",
+    "source_doc_sections_loaded",
+    "full_source_docs_loaded",
+    "estimated_token_budget",
+    "justification_notes"
+  ],
+  "field_types": {
+    "task_id": "string",
+    "route_card": "string",
+    "contract_card": "string",
+    "skill_cards": "array[string]",
+    "runtime_summaries": "array[string]",
+    "deep_summaries_loaded": "array[string]",
+    "source_doc_sections_loaded": "array[object]",
+    "full_source_docs_loaded": "array[string]",
+    "estimated_token_budget": "object",
+    "justification_notes": "array[string]"
+  }
+}

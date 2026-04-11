@@ -1,0 +1,16 @@
+{
+  "example": "text-humanization-pass",
+  "task_contract": "text_humanization_revision",
+  "validator_decision": "PASS",
+  "rubric_scores": {
+    "intent_alignment": 5,
+    "actionability": 4,
+    "structural_rigor": 5,
+    "evidence_use": 4,
+    "implementation_realism": 4
+  },
+  "strongest_dimension": "structural_rigor",
+  "weakest_dimension": "implementation_realism",
+  "pass_justification": "Passed because it named the meaning guard, diagnosed machine-shaped patterns, and revised the prose without changing the claims.",
+  "residual_reviewer_doubt": "A reviewer could still want source-and-revision side-by-side diffing for higher-risk editorial use."
+}

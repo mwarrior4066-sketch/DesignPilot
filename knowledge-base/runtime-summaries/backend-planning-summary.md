@@ -4,7 +4,7 @@ canonical_summary: knowledge-base/summaries/backend-planning-summary.md
 last_generated: 2026-04-11
 overlay: true
 source_reference:
-  - knowledge-base/source-docs/Back-End Aware Planner for a Modular AI Design Operator Pack.md
+  - knowledge-base/source-docs/Back-End Aware Planner for DesignPilot.md
   - knowledge-base/source-docs/Back-End Systems Architecture Knowledge Base.md
   - knowledge-base/source-docs/API Reliability and Security Research Report.md
 ---
@@ -32,6 +32,6 @@ source_reference:
 
 ## Canonical fallback
 - `knowledge-base/summaries/backend-planning-summary.md`
-- `knowledge-base/source-docs/Back-End Aware Planner for a Modular AI Design Operator Pack.md`
+- `knowledge-base/source-docs/Back-End Aware Planner for DesignPilot.md`
 - `knowledge-base/source-docs/Back-End Systems Architecture Knowledge Base.md`
 - `knowledge-base/source-docs/API Reliability and Security Research Report.md`

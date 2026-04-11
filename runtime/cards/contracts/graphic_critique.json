@@ -1,0 +1,46 @@
+{
+  "task_id": "graphic_critique",
+  "title": "Graphic Critique",
+  "required_sections": [
+    "Communication goal",
+    "Composition failures",
+    "Rebuild moves",
+    "Distance and emphasis tradeoff"
+  ],
+  "required_evidence_types": [
+    "focal rule",
+    "distance legibility rule",
+    "type/image balance"
+  ],
+  "required_decisions": [
+    "focal_winner",
+    "distance_legibility",
+    "composition_rule",
+    "emphasis_tradeoff"
+  ],
+  "hard_fail_patterns": [
+    "make it pop",
+    "looks cool",
+    "be more bold"
+  ],
+  "soft_fail_patterns": [
+    "could be cleaner",
+    "feels off"
+  ],
+  "required_skills": [
+    "graphic-design-expert.md",
+    "type-system-expert.md"
+  ],
+  "allowed_modes": [
+    "AUDIT",
+    "PEER"
+  ],
+  "allowed_phases": [
+    "brand",
+    "communication"
+  ],
+  "canonical_contract": "schemas/task_contracts.json#graphic_critique",
+  "task_weight_default": "standard",
+  "supports_lightweight_response": true,
+  "trace_visibility_default": "recoverable"
+}

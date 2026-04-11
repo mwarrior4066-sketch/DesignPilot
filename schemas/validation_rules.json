@@ -1,0 +1,245 @@
+{
+  "schema_version": "1.2.0",
+  "pack_version": "2.5.0",
+  "hard_rules": [
+    {
+      "rule_id": "hr_accessibility_floor",
+      "title": "Accessibility minimums cannot be knowingly violated",
+      "applies_to": [
+        "ui_structure_critique",
+        "dashboard_audit",
+        "component_spec",
+        "pdf_remediation_plan",
+        "frontend_implementation_review",
+        "accessibility_feedback_audit"
+      ],
+      "failure_trigger": "Response recommends unreadable text, inaccessible color, missing keyboard coverage, or destructive PDF repair as the primary solution.",
+      "remediation": "Replace with a structurally safe alternative and name the violated floor."
+    },
+    {
+      "rule_id": "hr_wrong_mode",
+      "title": "Wrong mode cannot pass",
+      "applies_to": [
+        "all"
+      ],
+      "failure_trigger": "Audit requested but answer rebuilds only, or rebuild requested but answer diagnoses only.",
+      "remediation": "Reroute and regenerate under the correct mode."
+    },
+    {
+      "rule_id": "hr_unsupported_superlative",
+      "title": "Unsupported proof language is blocked",
+      "applies_to": [
+        "all"
+      ],
+      "failure_trigger": "Uses validated, proven, certified, best-in-class, compliant, or similar proof language without the required evidence class.",
+      "remediation": "Either add evidence or downgrade the claim to hypothesis language."
+    },
+    {
+      "rule_id": "hr_missing_route_decision",
+      "title": "Required task decisions must be visible",
+      "applies_to": [
+        "all"
+      ],
+      "failure_trigger": "The output omits one of the route-specific decisions that the task contract says must be made.",
+      "remediation": "Add the missing governing decision instead of broadening the response."
+    },
+    {
+      "rule_id": "hr_continuity_stale",
+      "title": "Major project updates require fresh continuity files",
+      "applies_to": [
+        "project_bundle"
+      ],
+      "failure_trigger": "Roadmap or project-specific errors file is stale compared with project artifacts.",
+      "remediation": "Refresh roadmap and error log before export."
+    },
+    {
+      "rule_id": "hr_below_minimum_viable_load",
+      "title": "Below-minimum viable load cannot continue silently",
+      "applies_to": [
+        "all"
+      ],
+      "failure_trigger": "Required startup or canonical routing authority is missing and the system continues as if fully hydrated.",
+      "remediation": "Stop routing and request reload or the missing files."
+    }
+  ],
+  "semantic_rules": [
+    {
+      "rule_id": "sr_information_density",
+      "title": "Thin but compliant outputs should fail",
+      "applies_to": [
+        "all"
+      ],
+      "failure_trigger": "Required headings exist but section substance or information density falls below contract threshold.",
+      "remediation": "Add decisions, thresholds, rationale, and evidence."
+    },
+    {
+      "rule_id": "sr_prompt_restatement",
+      "title": "Prompt restatement is not reasoning",
+      "applies_to": [
+        "all"
+      ],
+      "failure_trigger": "Output mostly repeats the prompt with minimal transformation or decision-making.",
+      "remediation": "Force explicit recommendations, tradeoffs, or routed constraints."
+    },
+    {
+      "rule_id": "sr_tradeoff_visibility",
+      "title": "High-stakes structural recommendations require tradeoff language",
+      "applies_to": [
+        "ui_structure_critique",
+        "dashboard_audit",
+        "backend_feasibility_review",
+        "pdf_remediation_plan",
+        "brand_positioning_pass",
+        "case_study_rewrite",
+        "frontend_implementation_review",
+        "backend_architecture_spec",
+        "api_reliability_security_review",
+        "accessibility_feedback_audit"
+      ],
+      "failure_trigger": "Recommendation picks a direction without naming what is preserved, sacrificed, or constrained.",
+      "remediation": "Add one tradeoff node and ranked intervention order."
+    },
+    {
+      "rule_id": "sr_typed_evidence_coverage",
+      "title": "Claims must connect to the right evidence class",
+      "applies_to": [
+        "all"
+      ],
+      "failure_trigger": "The output names proof or certainty but does not cover the evidence classes required by the contract.",
+      "remediation": "Add the missing evidence class instead of repeating generic proof language."
+    },
+    {
+      "rule_id": "sr_false_specificity",
+      "title": "Unsupported specificity should fail",
+      "applies_to": [
+        "all"
+      ],
+      "failure_trigger": "The output introduces thresholds, scores, or precise-seeming numbers without a source, standard, receipt, or explicit inference label.",
+      "remediation": "Tie the number to a standard, artifact, or clearly label it as an assumption or inference."
+    },
+    {
+      "rule_id": "sr_route_bleed",
+      "title": "Adjacent-domain drift should be caught",
+      "applies_to": [
+        "all"
+      ],
+      "failure_trigger": "The output drifts into styling, brand, or implementation language without satisfying the governing route decisions.",
+      "remediation": "Bring the answer back to the governing route and keep adjacent domains in support only."
+    },
+    {
+      "rule_id": "sr_frontend_boundary_visibility",
+      "title": "Front-end architecture routes need explicit boundary choices",
+      "applies_to": [
+        "frontend_implementation_review"
+      ],
+      "failure_trigger": "The answer discusses implementation but never chooses rendering, state ownership, or server/client boundary posture.",
+      "remediation": "Add the missing architecture choice before offering framework tips."
+    },
+    {
+      "rule_id": "sr_backend_authority_visibility",
+      "title": "Backend architecture must expose authority and consistency",
+      "applies_to": [
+        "backend_architecture_spec"
+      ],
+      "failure_trigger": "The answer names technologies or endpoints without making authority, source-of-truth, and consistency posture explicit.",
+      "remediation": "Add the authority model, consistency stance, and delivery pattern."
+    },
+    {
+      "rule_id": "sr_api_contract_visibility",
+      "title": "API review must expose failure and retry contracts",
+      "applies_to": [
+        "api_reliability_security_review"
+      ],
+      "failure_trigger": "The answer talks about reliability or security without naming problem details, idempotency, or async lifecycle behavior.",
+      "remediation": "Define the explicit API contract rather than generic best practices."
+    },
+    {
+      "rule_id": "sr_tier_compliance",
+      "title": "Explanation tier should match the active comprehension tier",
+      "applies_to": [
+        "all"
+      ],
+      "failure_trigger": "Functional outputs use dense unexplained jargon, Integrative outputs hide cross-functional rationale, or Strategic outputs overexplain obvious material.",
+      "remediation": "Re-shape the explanation surface using the active tier without changing route ownership."
+    },
+    {
+      "rule_id": "sr_missing_next_step_guidance",
+      "title": "Designer-readable answers need a next move",
+      "applies_to": [
+        "all"
+      ],
+      "failure_trigger": "The answer explains the issue but never directs the user toward the next practical move when the tier expects guidance.",
+      "remediation": "Add the next useful move at the right depth for the active tier."
+    },
+    {
+      "rule_id": "sr_filter_faithfulness",
+      "title": "Response filtering cannot erase technical truth",
+      "applies_to": [
+        "all"
+      ],
+      "failure_trigger": "The answer becomes easier to read by removing constraints, implementation realism, or proof boundaries that still matter.",
+      "remediation": "Restore the hidden constraint and re-filter the wording instead of simplifying the substance."
+    },
+    {
+      "rule_id": "sr_meaning_guard_visibility",
+      "title": "Humanization requires a visible meaning guard",
+      "applies_to": [
+        "text_humanization_revision"
+      ],
+      "failure_trigger": "The rewrite claims to sound more human but never states what meaning, claims, or voice boundaries were preserved.",
+      "remediation": "Add an explicit meaning-preservation guard and drift-risk note before presenting the revision."
+    },
+    {
+      "rule_id": "sr_hollow_compliance",
+      "title": "Complete-looking but unlinked recommendations should fail",
+      "applies_to": [
+        "all"
+      ],
+      "failure_trigger": "Recommendations do not map back to named failures, or tradeoff language is decorative rather than real.",
+      "remediation": "Reconnect each recommendation to a named problem and state the real gain and sacrifice."
+    },
+    {
+      "rule_id": "sr_visual_boundary_honesty",
+      "title": "Visual claims must respect observed vs inferred boundaries",
+      "applies_to": [
+        "ui_structure_critique",
+        "dashboard_audit",
+        "layout_reconstruction_plan",
+        "pdf_remediation_plan",
+        "graphic_critique",
+        "accessibility_feedback_audit"
+      ],
+      "failure_trigger": "The answer implies certainty about unseen interaction, semantics, or structure from a static visual artifact alone.",
+      "remediation": "Downgrade the claim to observation, inference, or unknown and state confidence."
+    }
+  ],
+  "integrity_rules": [
+    {
+      "rule_id": "ir_contradiction",
+      "title": "Contradictions must be resolved before pass",
+      "applies_to": [
+        "all"
+      ],
+      "failure_trigger": "Output carries mutually exclusive recommendations forward without deciding which wins.",
+      "remediation": "Resolve the conflict and state the governing rule."
+    },
+    {
+      "rule_id": "ir_route_traceability",
+      "title": "The selected route must stay visible",
+      "applies_to": [
+        "all"
+      ],
+      "failure_trigger": "Task type, phase, route, or loaded skills are hidden in a way that makes debugging difficult.",
+      "remediation": "Expose route metadata in the visible header block or route section."
+    },
+    {
+      "rule_id": "ir_release_gate",
+      "title": "Release packaging requires complete quality signals",
+      "applies_to": [
+        "release"
+      ],
+      "failure_trigger": "Examples, mirrors, source registry, or benchmark coverage are incomplete.",
+      "remediation": "Fix blockers before packaging."
+    }
+  ]
+}

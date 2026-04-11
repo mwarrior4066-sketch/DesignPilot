@@ -1,0 +1,16 @@
+{
+  "example": "backend-feasibility-review",
+  "task_contract": "backend_feasibility_review",
+  "validator_decision": "PASS",
+  "rubric_scores": {
+    "intent_alignment": 5,
+    "actionability": 4,
+    "structural_rigor": 4,
+    "evidence_use": 4,
+    "implementation_realism": 5
+  },
+  "strongest_dimension": "implementation_realism",
+  "weakest_dimension": "actionability",
+  "pass_justification": "Passed because it exposed auth, data, and release-safe boundaries before UI polish.",
+  "residual_reviewer_doubt": "An infrastructure lead might still want more explicit failure-mode handling."
+}

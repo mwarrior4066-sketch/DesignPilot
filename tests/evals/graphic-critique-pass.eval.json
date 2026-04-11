@@ -1,0 +1,16 @@
+{
+  "example": "graphic-critique-pass",
+  "task_contract": "graphic_critique",
+  "validator_decision": "PASS",
+  "rubric_scores": {
+    "intent_alignment": 5,
+    "actionability": 4,
+    "structural_rigor": 5,
+    "evidence_use": 4,
+    "implementation_realism": 4
+  },
+  "strongest_dimension": "structural_rigor",
+  "weakest_dimension": "implementation_realism",
+  "pass_justification": "Passed because it diagnosed focal order and distance-legibility rather than giving taste commentary.",
+  "residual_reviewer_doubt": "A production designer could still want actual size comps before final approval."
+}

@@ -1,0 +1,1 @@
+Create a reconstruction plan for a legacy brochure spread where the original working files are gone. Preserve the current image placements and caption order, but recover a clean grid and verify that the rebuilt layout still matches the source.

@@ -1,0 +1,816 @@
+{
+  "schema_version": "1.2.0",
+  "pack_version": "2.5.0",
+  "routes": [
+    {
+      "route_id": "rt_ui_structure_critique",
+      "task_id": "ui_structure_critique",
+      "trigger_conditions": [
+        "user asks for critique of a UI, layout, flow, or hierarchy problem",
+        "request mentions confusion, clutter, weak hierarchy, or unclear primary action"
+      ],
+      "preconditions": [
+        "problem artifact or description is available",
+        "task is diagnostic rather than full build"
+      ],
+      "selection_logic": "Prefer this route when the user wants structural diagnosis before polish.",
+      "loaded_skills": [
+        "ui-system-expert.md",
+        "grid-system-expert.md"
+      ],
+      "primary_mode": "AUDIT",
+      "primary_phase": "structure",
+      "fallback_route_id": "rt_case_study_rewrite",
+      "exit_conditions": [
+        "user receives ranked findings and a safe rebuild order"
+      ],
+      "known_tensions": [
+        "density vs readability",
+        "brand expression vs task clarity"
+      ],
+      "supporting_skills": [
+        "type-system-expert.md when hierarchy or readability is the structural bottleneck",
+        "accessibility-feedback-expert.md when state visibility or focus behavior contributes to the failure"
+      ],
+      "adjacent_route_confusions": [
+        "graphic styling critique when the real issue is decorative treatment, not task structure",
+        "brand positioning when the user is actually asking who the screen is for"
+      ],
+      "compound_notes": [
+        "Can govern compound UI critiques when hierarchy and action clarity are the core failure.",
+        "Should yield to rt_backend_feasibility when permissions, exports, live data, or storage constraints drive the screen."
+      ],
+      "task_weight_default": "standard",
+      "lightweight_eligible": true,
+      "visual_input_supported": true,
+      "visual_prepass_fields": [
+        "layout_type",
+        "visible_components",
+        "hierarchy_cues",
+        "probable_grid",
+        "approximate_type_scale",
+        "mismatch_check",
+        "confidence_level"
+      ]
+    },
+    {
+      "route_id": "rt_component_spec",
+      "task_id": "component_spec",
+      "trigger_conditions": [
+        "user asks for a component spec, state matrix, anatomy, props, or implementation handoff"
+      ],
+      "preconditions": [
+        "component scope is known or can be bounded"
+      ],
+      "selection_logic": "Use when a reusable system component needs state-safe documentation.",
+      "loaded_skills": [
+        "component-systems-expert.md",
+        "front-end-handoff-expert.md"
+      ],
+      "primary_mode": "REBUILD",
+      "primary_phase": "specs",
+      "fallback_route_id": "rt_ui_structure_critique",
+      "exit_conditions": [
+        "component purpose, anatomy, states, and accessibility expectations are explicit"
+      ],
+      "known_tensions": [
+        "flexibility vs implementation simplicity",
+        "expressiveness vs token consistency"
+      ],
+      "supporting_skills": [
+        "accessibility-feedback-expert.md when keyboard, focus, or motion states need explicit rules",
+        "color-system-expert.md when semantic color roles are intrinsic to state behavior"
+      ],
+      "adjacent_route_confusions": [
+        "UI critique that never becomes reusable component logic",
+        "front-end implementation advice with no component governance"
+      ],
+      "compound_notes": [
+        "Can govern when the artifact must become a reusable system component.",
+        "Should yield to rt_backend_feasibility when the component promise depends on permissions, exports, or system-owned data."
+      ],
+      "task_weight_default": "standard",
+      "lightweight_eligible": true,
+      "visual_input_supported": false
+    },
+    {
+      "route_id": "rt_dashboard_audit",
+      "task_id": "dashboard_audit",
+      "trigger_conditions": [
+        "user asks about dashboard layout, KPI order, chart choice, or density"
+      ],
+      "preconditions": [
+        "dashboard type or usage context is known"
+      ],
+      "selection_logic": "Use for KPI hierarchy and chart-logic evaluation, not generic screen cleanup.",
+      "loaded_skills": [
+        "dashboard-data-expert.md",
+        "ui-system-expert.md"
+      ],
+      "primary_mode": "AUDIT",
+      "primary_phase": "strategy",
+      "fallback_route_id": "rt_ui_structure_critique",
+      "exit_conditions": [
+        "dashboard role, failure points, and rebuild order are explicit"
+      ],
+      "known_tensions": [
+        "information richness vs scan time",
+        "executive overview vs operational drill-down"
+      ],
+      "supporting_skills": [
+        "accessibility-feedback-expert.md when chart readability or focus interaction matters",
+        "color-system-expert.md when status or series colors affect comprehension"
+      ],
+      "adjacent_route_confusions": [
+        "generic UI cleanup that ignores dashboard type",
+        "brand or presentation critique that never resolves KPI order"
+      ],
+      "compound_notes": [
+        "Govern dashboard + accessibility asks when KPI hierarchy and scan time remain central.",
+        "Should yield to rt_backend_feasibility when live data, permissions, or export rules govern the dashboard promise."
+      ],
+      "task_weight_default": "standard",
+      "lightweight_eligible": true,
+      "visual_input_supported": true,
+      "visual_prepass_fields": [
+        "layout_type",
+        "visible_components",
+        "hierarchy_cues",
+        "probable_grid",
+        "approximate_type_scale",
+        "mismatch_check",
+        "confidence_level"
+      ]
+    },
+    {
+      "route_id": "rt_backend_feasibility",
+      "task_id": "backend_feasibility_review",
+      "trigger_conditions": [
+        "request includes sharing, permissions, exports, live data, APIs, uploads, automation, or storage"
+      ],
+      "preconditions": [
+        "feature request implies hidden system behavior"
+      ],
+      "selection_logic": "Reveal back-end implications before treating the request as visual-only.",
+      "loaded_skills": [
+        "back-end-aware-planner.md",
+        "front-end-handoff-expert.md"
+      ],
+      "primary_mode": "PEER",
+      "primary_phase": "strategy",
+      "fallback_route_id": "rt_component_spec",
+      "exit_conditions": [
+        "hidden dependencies and safer sequencing are visible"
+      ],
+      "known_tensions": [
+        "speed vs correctness",
+        "frontend promise vs backend feasibility"
+      ],
+      "supporting_skills": [
+        "front-end-handoff-expert.md when a release-safe UI boundary must be defined",
+        "component-systems-expert.md when the technical constraint changes reusable state coverage"
+      ],
+      "adjacent_route_confusions": [
+        "UI critique that treats system risk as a visual issue",
+        "product strategy writing that never maps the feature to auth, data, or storage"
+      ],
+      "compound_notes": [
+        "Govern compound asks whenever hidden system behavior determines what can honestly be promised.",
+        "Often supports rt_component_spec or rt_dashboard_audit after the feasibility surface is exposed."
+      ],
+      "task_weight_default": "compound",
+      "lightweight_eligible": false,
+      "visual_input_supported": false
+    },
+    {
+      "route_id": "rt_pdf_remediation",
+      "task_id": "pdf_remediation_plan",
+      "trigger_conditions": [
+        "request involves fixing PDFs, tags, reading order, extraction, copy-paste, OCR, or accessibility"
+      ],
+      "preconditions": [
+        "document file or described failure state exists"
+      ],
+      "selection_logic": "Prioritize semantic preservation and verification over surface patching.",
+      "loaded_skills": [
+        "document-accessibility-expert.md",
+        "pdf-layout-expert.md"
+      ],
+      "primary_mode": "REBUILD",
+      "primary_phase": "implementation",
+      "fallback_route_id": "rt_ui_structure_critique",
+      "exit_conditions": [
+        "remediation sequence and verification rules are explicit"
+      ],
+      "known_tensions": [
+        "visual fidelity vs semantic repair",
+        "speed vs safe preservation"
+      ],
+      "supporting_skills": [
+        "layout-reconstruction-expert.md when legacy structure must be inferred safely",
+        "color-system-expert.md when contrast or print behavior affects remediation decisions"
+      ],
+      "adjacent_route_confusions": [
+        "visual cleanup advice that ignores tagging or reading order",
+        "OCR-only suggestions that destroy recoverable structure"
+      ],
+      "compound_notes": [
+        "Govern PDF + accessibility asks when semantic integrity is at risk.",
+        "Should not be replaced by generic layout critique once extraction or tagging is part of the failure."
+      ],
+      "task_weight_default": "compound",
+      "lightweight_eligible": false,
+      "visual_input_supported": true,
+      "visual_prepass_fields": [
+        "layout_type",
+        "visible_components",
+        "hierarchy_cues",
+        "probable_grid",
+        "approximate_type_scale",
+        "mismatch_check",
+        "confidence_level"
+      ]
+    },
+    {
+      "route_id": "rt_brand_positioning",
+      "task_id": "brand_positioning_pass",
+      "trigger_conditions": [
+        "user asks for positioning, audience fit, tone, trust signals, or differentiation"
+      ],
+      "preconditions": [
+        "brand question is strategic rather than purely visual"
+      ],
+      "selection_logic": "Use when the system must decide who the brand is for and how it earns trust.",
+      "loaded_skills": [
+        "brand-strategy-expert.md",
+        "content-and-case-study-expert.md"
+      ],
+      "primary_mode": "PEER",
+      "primary_phase": "strategy",
+      "fallback_route_id": "rt_case_study_rewrite",
+      "exit_conditions": [
+        "audience, frame of reference, and proof burden are explicit"
+      ],
+      "known_tensions": [
+        "distinctiveness vs usability",
+        "expressive tone vs credibility"
+      ],
+      "supporting_skills": [
+        "ux-research-expert.md when audience or market evidence is thin",
+        "content-and-case-study-expert.md when the positioning must translate into message behavior"
+      ],
+      "adjacent_route_confusions": [
+        "case-study rewriting where proof order matters more than tone",
+        "graphic styling advice with no audience or trust logic"
+      ],
+      "compound_notes": [
+        "Govern when the main decision is who the offer is for and how it earns trust.",
+        "Should yield to rt_case_study_rewrite when the artifact is a narrative proof object rather than a strategic frame."
+      ],
+      "task_weight_default": "standard",
+      "lightweight_eligible": true,
+      "visual_input_supported": false
+    },
+    {
+      "route_id": "rt_case_study_rewrite",
+      "task_id": "case_study_rewrite",
+      "trigger_conditions": [
+        "user asks to rewrite a case study, project explanation, rationale doc, or portfolio narrative"
+      ],
+      "preconditions": [
+        "existing project material or proof state exists"
+      ],
+      "selection_logic": "Use when communication quality depends on narrative order and proof clarity, not just editing.",
+      "loaded_skills": [
+        "content-and-case-study-expert.md"
+      ],
+      "primary_mode": "REBUILD",
+      "primary_phase": "communication",
+      "fallback_route_id": "rt_brand_positioning",
+      "exit_conditions": [
+        "problem, process, solution, and outcome are rebuilt with evidence links"
+      ],
+      "known_tensions": [
+        "story flow vs proof density",
+        "confidence vs honesty about open gaps"
+      ],
+      "supporting_skills": [
+        "brand-strategy-expert.md when audience framing changes the case-study emphasis",
+        "ux-research-expert.md when the proof story depends on research framing"
+      ],
+      "adjacent_route_confusions": [
+        "brand messaging critique that never rebuilds narrative order",
+        "portfolio polish advice that never calibrates claims to proof"
+      ],
+      "compound_notes": [
+        "Govern when the artifact is a case study, rationale doc, or proof-sensitive narrative.",
+        "Can absorb brand or strategy context, but proof honesty and ordering remain the governing burden."
+      ],
+      "task_weight_default": "standard",
+      "lightweight_eligible": true,
+      "visual_input_supported": false
+    },
+    {
+      "route_id": "rt_accessibility_feedback_audit",
+      "task_id": "accessibility_feedback_audit",
+      "trigger_conditions": [
+        "user asks for an accessibility review, focus/keyboard audit, screen-reader behavior review, or error-state accessibility critique"
+      ],
+      "preconditions": [
+        "the artifact or interaction pattern is known or described"
+      ],
+      "selection_logic": "Use when a user task is blocked or degraded by semantic, focus, keyboard, or announcement failures.",
+      "loaded_skills": [
+        "accessibility-feedback-expert.md",
+        "ui-system-expert.md"
+      ],
+      "primary_mode": "AUDIT",
+      "primary_phase": "accessibility",
+      "fallback_route_id": "rt_ui_structure_critique",
+      "exit_conditions": [
+        "blocked behaviors, repair order, and verification steps are explicit"
+      ],
+      "known_tensions": [
+        "strict repair vs release speed",
+        "visual cleanliness vs semantic clarity"
+      ],
+      "supporting_skills": [
+        "color-system-expert.md when contrast or status color rules are part of the failure",
+        "component-systems-expert.md when the issue belongs to a reusable state pattern"
+      ],
+      "adjacent_route_confusions": [
+        "generic usability feedback that never names semantic or keyboard failure",
+        "color contrast comments with no behavior diagnosis"
+      ],
+      "compound_notes": [
+        "Govern compound UI + accessibility asks when blocked behavior is the highest-risk issue.",
+        "Should yield to rt_pdf_remediation when the failure lives inside a PDF/document workflow."
+      ],
+      "task_weight_default": "standard",
+      "lightweight_eligible": true,
+      "visual_input_supported": true,
+      "visual_prepass_fields": [
+        "layout_type",
+        "visible_components",
+        "hierarchy_cues",
+        "probable_grid",
+        "approximate_type_scale",
+        "mismatch_check",
+        "confidence_level"
+      ]
+    },
+    {
+      "route_id": "rt_color_system_spec",
+      "task_id": "color_system_spec",
+      "trigger_conditions": [
+        "user asks for a semantic color system, palette-to-token mapping, status colors, or theme-safe color roles"
+      ],
+      "preconditions": [
+        "the artifact needs more than one-off palette advice"
+      ],
+      "selection_logic": "Use when the job is to define roles, tokens, and state behavior for color rather than pick nicer hues.",
+      "loaded_skills": [
+        "color-system-expert.md",
+        "accessibility-feedback-expert.md"
+      ],
+      "primary_mode": "REBUILD",
+      "primary_phase": "tokens",
+      "fallback_route_id": "rt_component_spec",
+      "exit_conditions": [
+        "semantic roles, contrast boundaries, and migration rules are explicit"
+      ],
+      "known_tensions": [
+        "brand expression vs semantic clarity",
+        "vividness vs contrast safety"
+      ],
+      "supporting_skills": [
+        "component-systems-expert.md when state tokens are component-owned",
+        "brand-strategy-expert.md when brand constraints drive token tradeoffs"
+      ],
+      "adjacent_route_confusions": [
+        "graphic styling feedback with no role model",
+        "brand palette advice that never defines UI behavior"
+      ],
+      "compound_notes": [
+        "Can support accessibility or component work, but should govern when the core deliverable is a semantic color system."
+      ],
+      "task_weight_default": "standard",
+      "lightweight_eligible": true,
+      "visual_input_supported": false
+    },
+    {
+      "route_id": "rt_graphic_critique",
+      "task_id": "graphic_critique",
+      "trigger_conditions": [
+        "user asks for a poster, campaign graphic, presentation slide, or editorial layout critique"
+      ],
+      "preconditions": [
+        "the artifact is communication-led rather than interaction-led"
+      ],
+      "selection_logic": "Use when the key problem is focal structure, type/image balance, or distance legibility.",
+      "loaded_skills": [
+        "graphic-design-expert.md",
+        "type-system-expert.md"
+      ],
+      "primary_mode": "AUDIT",
+      "primary_phase": "communication",
+      "fallback_route_id": "rt_brand_positioning",
+      "exit_conditions": [
+        "communication goal, focal winner, and rebuild moves are explicit"
+      ],
+      "known_tensions": [
+        "expressiveness vs legibility",
+        "brand tone vs message clarity"
+      ],
+      "supporting_skills": [
+        "brand-strategy-expert.md when audience trust signals drive the composition",
+        "color-system-expert.md when color hierarchy is the real structural lever"
+      ],
+      "adjacent_route_confusions": [
+        "UI critique for interactive screens",
+        "brand strategy advice with no compositional diagnosis"
+      ],
+      "compound_notes": [
+        "Govern when the artifact is primarily visual communication, not system interaction."
+      ],
+      "task_weight_default": "standard",
+      "lightweight_eligible": true,
+      "visual_input_supported": true,
+      "visual_prepass_fields": [
+        "layout_type",
+        "visible_components",
+        "hierarchy_cues",
+        "probable_grid",
+        "approximate_type_scale",
+        "mismatch_check",
+        "confidence_level"
+      ]
+    },
+    {
+      "route_id": "rt_layout_reconstruction_plan",
+      "task_id": "layout_reconstruction_plan",
+      "trigger_conditions": [
+        "user asks to rebuild or recover a layout from an existing artifact, screenshot, PDF, or legacy file"
+      ],
+      "preconditions": [
+        "source artifact exists and preservation matters"
+      ],
+      "selection_logic": "Use when structure must be inferred from an existing artifact instead of redesigned from scratch.",
+      "loaded_skills": [
+        "layout-reconstruction-expert.md",
+        "grid-system-expert.md"
+      ],
+      "primary_mode": "REBUILD",
+      "primary_phase": "implementation",
+      "fallback_route_id": "rt_pdf_remediation",
+      "exit_conditions": [
+        "preservation boundaries, inference labels, and verification checkpoints are explicit"
+      ],
+      "known_tensions": [
+        "exact preservation vs practical reconstruction",
+        "speed vs verification rigor"
+      ],
+      "supporting_skills": [
+        "pdf-layout-expert.md when the source is PDF-bound",
+        "document-accessibility-expert.md when reconstruction must preserve semantics"
+      ],
+      "adjacent_route_confusions": [
+        "new-grid design advice when preservation is required",
+        "visual cleanup that never labels inference"
+      ],
+      "compound_notes": [
+        "Beats new-grid or generic layout advice whenever the user is reconstructing from a source artifact."
+      ],
+      "task_weight_default": "compound",
+      "lightweight_eligible": false,
+      "visual_input_supported": true,
+      "visual_prepass_fields": [
+        "layout_type",
+        "visible_components",
+        "hierarchy_cues",
+        "probable_grid",
+        "approximate_type_scale",
+        "mismatch_check",
+        "confidence_level"
+      ]
+    },
+    {
+      "route_id": "rt_type_system_recommendation",
+      "task_id": "type_system_recommendation",
+      "trigger_conditions": [
+        "user asks for a type scale, typography system, reading hierarchy, or readability-driven type recommendation"
+      ],
+      "preconditions": [
+        "reading context or artifact type is known"
+      ],
+      "selection_logic": "Use when the job is to define a repeatable type system instead of suggest a single font.",
+      "loaded_skills": [
+        "type-system-expert.md",
+        "accessibility-feedback-expert.md"
+      ],
+      "primary_mode": "REBUILD",
+      "primary_phase": "tokens",
+      "fallback_route_id": "rt_ui_structure_critique",
+      "exit_conditions": [
+        "reading context, role map, and readability rules are explicit"
+      ],
+      "known_tensions": [
+        "brand personality vs reading efficiency",
+        "density vs legibility"
+      ],
+      "supporting_skills": [
+        "graphic-design-expert.md when expressive editorial hierarchy is the main concern",
+        "ui-system-expert.md when the type system must support dense interface flows"
+      ],
+      "adjacent_route_confusions": [
+        "graphic critique that never becomes a reusable type rule set",
+        "brand font advice with no reading-context logic"
+      ],
+      "compound_notes": [
+        "Govern when live readability and role hierarchy are the primary deliverable."
+      ],
+      "task_weight_default": "standard",
+      "lightweight_eligible": true,
+      "visual_input_supported": false
+    },
+    {
+      "route_id": "rt_ux_research_gap_map",
+      "task_id": "ux_research_gap_map",
+      "trigger_conditions": [
+        "user asks what research is missing, what to validate next, or how to map evidence gaps before design decisions"
+      ],
+      "preconditions": [
+        "project scope or audience assumption exists"
+      ],
+      "selection_logic": "Use when the answer must separate known evidence from assumptions and map the next studies.",
+      "loaded_skills": [
+        "ux-research-expert.md",
+        "content-and-case-study-expert.md"
+      ],
+      "primary_mode": "PEER",
+      "primary_phase": "research",
+      "fallback_route_id": "rt_brand_positioning",
+      "exit_conditions": [
+        "known evidence, critical gaps, and study-to-decision links are explicit"
+      ],
+      "known_tensions": [
+        "research depth vs team speed",
+        "breadth of curiosity vs decision-critical unknowns"
+      ],
+      "supporting_skills": [
+        "brand-strategy-expert.md when audience fit is the core unknown",
+        "content-and-case-study-expert.md when narrative proof limits must be explained"
+      ],
+      "adjacent_route_confusions": [
+        "generic research advice that never ranks gaps",
+        "strategy writing that pretends evidence already exists"
+      ],
+      "compound_notes": [
+        "Govern when the main deliverable is a ranked research gap map rather than a finished design recommendation."
+      ],
+      "task_weight_default": "standard",
+      "lightweight_eligible": true,
+      "visual_input_supported": false
+    },
+    {
+      "route_id": "rt_frontend_architecture",
+      "task_id": "frontend_implementation_review",
+      "trigger_conditions": [
+        "request asks for front-end architecture, rendering model, state ownership, server/client boundary, or implementation review",
+        "screen or component is failing structurally because state, hydration, or mutation logic is weak"
+      ],
+      "preconditions": [
+        "some product, screen, component, or architecture context is available"
+      ],
+      "selection_logic": "Use when the governing decision is front-end architecture rather than generic handoff or UI critique.",
+      "loaded_skills": [
+        "front-end-architecture-expert.md",
+        "front-end-handoff-expert.md",
+        "accessibility-feedback-expert.md"
+      ],
+      "primary_mode": "AUDIT",
+      "primary_phase": "implementation",
+      "fallback_route_id": "rt_component_spec",
+      "exit_conditions": [
+        "rendering, boundary, and state decisions are explicit and the safer implementation path is named"
+      ],
+      "known_tensions": [
+        "server-first performance vs client-side flexibility",
+        "semantic integrity vs custom-widget ambition",
+        "optimistic speed vs rollback safety"
+      ],
+      "supporting_skills": [
+        "component-systems-expert.md when the answer must become a reusable component contract",
+        "back-end-aware-planner.md when data, auth, or async system constraints drive the implementation"
+      ],
+      "adjacent_route_confusions": [
+        "front-end handoff when the real issue is architecture rather than translation",
+        "UI structure critique when the real failure is state ownership or rendering strategy"
+      ],
+      "compound_notes": [
+        "Can govern compound UI + implementation asks when state architecture and boundary placement are the real bottleneck.",
+        "Should yield to rt_api_reliability_security when the core risk is API failure semantics, retries, or long-running job behavior."
+      ],
+      "task_weight_default": "compound",
+      "lightweight_eligible": false,
+      "visual_input_supported": false
+    },
+    {
+      "route_id": "rt_backend_systems_architecture",
+      "task_id": "backend_architecture_spec",
+      "trigger_conditions": [
+        "request asks for backend architecture, authority boundaries, consistency, multi-tenancy, pagination, events, or webhook design",
+        "the answer must specify system shape rather than only feasibility"
+      ],
+      "preconditions": [
+        "workflow, product, or system scope is known enough to model actors and resources"
+      ],
+      "selection_logic": "Use when the governing decision is the structure of the backend system itself.",
+      "loaded_skills": [
+        "back-end-systems-architect.md",
+        "back-end-aware-planner.md",
+        "api-reliability-security-expert.md"
+      ],
+      "primary_mode": "STRUCTURE",
+      "primary_phase": "specs",
+      "fallback_route_id": "rt_backend_feasibility",
+      "exit_conditions": [
+        "authority model, consistency stance, delivery pattern, and observability posture are explicit"
+      ],
+      "known_tensions": [
+        "consistency vs latency",
+        "real-time freshness vs replayable sanity",
+        "authority precision vs implementation complexity"
+      ],
+      "supporting_skills": [
+        "dashboard-data-expert.md when analytics freshness or real-time reporting is central",
+        "front-end-handoff-expert.md when the UI must expose freshness, progress, or degraded-state rules"
+      ],
+      "adjacent_route_confusions": [
+        "backend feasibility review when the user actually needs a system spec",
+        "API reliability review when the system shape is central and failure semantics are only one part of it"
+      ],
+      "compound_notes": [
+        "Can govern compound backend + dashboard + eventing asks when system shape is the main decision.",
+        "Should yield to rt_api_reliability_security when structured errors, retries, or async job contracts are the primary failure."
+      ],
+      "task_weight_default": "compound",
+      "lightweight_eligible": false,
+      "visual_input_supported": false
+    },
+    {
+      "route_id": "rt_api_reliability_security",
+      "task_id": "api_reliability_security_review",
+      "trigger_conditions": [
+        "request asks for API reliability, RFC 9457, idempotency, retries, async jobs, quotas, BOLA/BFLA, or resilience",
+        "agentic or API workflow risks duplicate work, opaque failures, or unauthorized access"
+      ],
+      "preconditions": [
+        "api, tool, gateway, or job semantics are part of the request"
+      ],
+      "selection_logic": "Use when the governing decision is failure, retry, authorization, or resilience semantics for APIs or tools.",
+      "loaded_skills": [
+        "api-reliability-security-expert.md",
+        "back-end-systems-architect.md",
+        "back-end-aware-planner.md"
+      ],
+      "primary_mode": "AUDIT",
+      "primary_phase": "implementation",
+      "fallback_route_id": "rt_backend_systems_architecture",
+      "exit_conditions": [
+        "problem-details, authorization, idempotency, async lifecycle, and resilience posture are explicit"
+      ],
+      "known_tensions": [
+        "strict safety vs fast delivery",
+        "synchronous convenience vs retry-safe async workflows",
+        "graceful degradation vs exact freshness"
+      ],
+      "supporting_skills": [
+        "front-end-handoff-expert.md when the client must express problem details, progress, or degraded states safely",
+        "document-accessibility-expert.md when document-export jobs create additional accessibility or extraction constraints"
+      ],
+      "adjacent_route_confusions": [
+        "backend systems architecture when the real risk is API contract behavior",
+        "backend feasibility review when the user actually needs explicit failure and retry semantics"
+      ],
+      "compound_notes": [
+        "Govern API + tool + queue asks when reliability and security semantics are the central risk.",
+        "Should support rt_backend_systems_architecture when authority and storage architecture are primary and API behavior is downstream."
+      ],
+      "task_weight_default": "compound",
+      "lightweight_eligible": false,
+      "visual_input_supported": false
+    },
+    {
+      "route_id": "rt_text_humanization",
+      "task_id": "text_humanization_revision",
+      "trigger_conditions": [
+        "user asks to humanize, naturalize, de-mechanize, or make writing sound less AI-shaped",
+        "prose-heavy output is structurally correct but still reads formulaically or mechanically"
+      ],
+      "preconditions": [
+        "source prose exists"
+      ],
+      "selection_logic": "Use when the governing need is prose-quality revision rather than structural rewriting or route-level diagnosis.",
+      "loaded_skills": [
+        "text-humanization-expert.md",
+        "content-and-case-study-expert.md"
+      ],
+      "primary_mode": "REBUILD",
+      "primary_phase": "communication",
+      "fallback_route_id": "rt_case_study_rewrite",
+      "exit_conditions": [
+        "revised prose reads more authored while meaning and claims remain stable"
+      ],
+      "known_tensions": [
+        "natural texture vs semantic drift",
+        "voice preservation vs generic polish"
+      ],
+      "supporting_skills": [
+        "brand-strategy-expert.md when tone must align to a named brand voice"
+      ],
+      "adjacent_route_confusions": [
+        "case-study rewrite when the real need is prose quality only",
+        "copy polish that changes the argument instead of the texture"
+      ],
+      "compound_notes": [
+        "Should support the designer response filter when prose still feels stiff after explanation shaping.",
+        "Should not govern code, schema, or strict spec artifacts."
+      ],
+      "task_weight_default": "lightweight",
+      "lightweight_eligible": true,
+      "visual_input_supported": false
+    }
+  ],
+  "compound_route_policy": {
+    "governing_route_rule": "Choose one governing route based on the primary failure, decision burden, or risk surface. Supporting skills may widen the lens, but they must not replace the governing evidence burden.",
+    "selection_order": [
+      "Name the user-facing failure or decision that must be solved first.",
+      "Choose the route whose contract owns that failure.",
+      "Load supporting skills only when they sharpen the governing route.",
+      "Keep one evidence burden owned by the governing route.",
+      "State why adjacent routes are support, not the main task, when the ask is compound."
+    ],
+    "conflict_rules": [
+      {
+        "rule_id": "cr_existing_layout_beats_new_grid",
+        "when": "The task infers or extends an existing artifact rather than creating a new scaffold.",
+        "winner": "layout reconstruction pathway",
+        "loser": "new-layout grid pathway",
+        "reason": "Preservation and inference rules matter more than fresh grid invention."
+      },
+      {
+        "rule_id": "cr_backend_risk_forces_support",
+        "when": "Permissions, exports, live data, storage, uploads, automation, or APIs appear.",
+        "winner": "rt_backend_feasibility",
+        "loser": "purely visual routes",
+        "reason": "Hidden system constraints must be exposed before UI promises harden."
+      },
+      {
+        "rule_id": "cr_pdf_semantics_beats_visual_cleanup",
+        "when": "The artifact is a PDF or document whose tags, reading order, or extraction fidelity are at risk.",
+        "winner": "rt_pdf_remediation",
+        "loser": "generic layout or styling critique",
+        "reason": "Semantic preservation outranks surface cleanup."
+      },
+      {
+        "rule_id": "cr_case_study_proof_beats_brand_tone",
+        "when": "The user is rebuilding a narrative artifact whose truthfulness depends on proof calibration.",
+        "winner": "rt_case_study_rewrite",
+        "loser": "rt_brand_positioning",
+        "reason": "Proof order and claim calibration are the governing risk."
+      },
+      {
+        "rule_id": "cr_dashboard_governs_accessibility_support",
+        "when": "A dashboard ask also contains chart readability, density, or interaction problems.",
+        "winner": "rt_dashboard_audit",
+        "loser": "standalone accessibility route",
+        "reason": "Dashboard type and KPI logic remain the governing frame; accessibility supports it."
+      },
+      {
+        "rule_id": "cf_frontend_architecture_over_handoff",
+        "when": "rendering, hydration, state ownership, or server/client boundary placement is the real issue",
+        "winner": "rt_frontend_architecture",
+        "loser": "rt_component_spec / handoff-style treatment",
+        "reason": "translation cannot replace architecture decisions"
+      },
+      {
+        "rule_id": "cf_api_reliability_over_backend_feasibility",
+        "when": "RFC 9457, idempotency, retries, quotas, or async job semantics are central to the ask",
+        "winner": "rt_api_reliability_security",
+        "loser": "rt_backend_feasibility",
+        "reason": "feasibility gating does not own reliability contract detail"
+      },
+      {
+        "rule_id": "cf_backend_architecture_over_feasibility",
+        "when": "multi-tenancy, consistency, pagination, eventing, or observability shape the solution itself",
+        "winner": "rt_backend_systems_architecture",
+        "loser": "rt_backend_feasibility",
+        "reason": "the route must specify system shape, not only hidden risk"
+      }
+    ],
+    "governing_notes": [
+      "Designer comprehension layer is cross-cutting: explanation calibration and response filtering shape delivery without changing route ownership."
+    ]
+  }
+}

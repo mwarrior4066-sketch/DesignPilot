@@ -1,0 +1,45 @@
+{
+  "task_id": "backend_feasibility_review",
+  "title": "Back-End Feasibility Review",
+  "required_sections": [
+    "Requested capability",
+    "Hidden system requirements",
+    "Feasibility assessment",
+    "Safer implementation path"
+  ],
+  "required_evidence_types": [
+    "auth rule",
+    "data model need",
+    "integration risk"
+  ],
+  "required_decisions": [
+    "data_dependency",
+    "permissions_dependency",
+    "system_surface_dependency",
+    "blocking_constraint"
+  ],
+  "hard_fail_patterns": [
+    "purely visual change",
+    "no backend impact"
+  ],
+  "soft_fail_patterns": [
+    "should be straightforward"
+  ],
+  "required_skills": [
+    "back-end-aware-planner.md",
+    "front-end-handoff-expert.md"
+  ],
+  "allowed_modes": [
+    "AUDIT",
+    "PEER",
+    "STRUCTURE"
+  ],
+  "allowed_phases": [
+    "strategy",
+    "specs"
+  ],
+  "canonical_contract": "schemas/task_contracts.json#backend_feasibility_review",
+  "task_weight_default": "compound",
+  "supports_lightweight_response": false,
+  "trace_visibility_default": "recoverable"
+}

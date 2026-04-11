@@ -1,4 +1,6 @@
-# Design Expert Pack v2.5.0
+# DesignPilot v2.5.0
+
+This repository keeps the README close to the top of the GitHub page by grouping operator authority files under `operator/` and automation under `scripts/`.
 
 This release revises the v2.4.2 runtime-overlay system so it is faster, less over-scaffolded, safer under partial loads, and more credible when working from screenshots or other visual inputs.
 
@@ -12,30 +14,31 @@ This release revises the v2.4.2 runtime-overlay system so it is faster, less ove
 - hardened `runtime_validator.py` against hollow compliance, fake tradeoffs, and overconfident visual claims
 - added `QUICKSTART.md` and live-eval scaffolding
 
-## Core directories
+## Repo map
+- `operator/` — startup authority, route docs, governance, and project protocols
+- `scripts/` — maintenance, packaging, validation, and continuity automation
 - `schemas/` — canonical machine-readable contracts and route maps
 - `runtime/` — token-efficient boot aides, cards, and loading metadata
 - `examples/` — worked examples that double as trust and regression artifacts
-- `tests/fixtures/` — prompt and artifact fixtures
-- `tests/scorecards/` — rubric definitions
-- `tests/live_evals/` — blinded comparative evaluation scaffolding
-- `tests/evals/` — stored evaluation results and benchmark traces
-- `projects/` — canonical project workspaces
+- `tests/` — fixtures, evals, live-eval scaffolding, scorecards, and regression suites
+- `projects/` — canonical project workspaces, including `projects/designpilot/`
+- `knowledge-base/` — source docs, indices, summaries, and runtime summaries
+- `skills/`, `templates/`, `libraries/` — capability, templates, and reference libraries
 
 ## Getting started
 Read `QUICKSTART.md` first.
-Then start from `MASTER_CHAT_OPERATOR.md`.
+Then start from `operator/core/MASTER_CHAT_OPERATOR.md`.
 
 ## Release flow
 Run these before packaging:
 ```bash
-python3 generate_runtime_overlay.py
-python3 generate_human_mirrors.py
-python3 refresh_source_registry.py
-python3 refresh_project_continuity.py
-python3 validate_examples.py
-python3 lint_pack.py . --strict
-python3 run_regression_suite.py
-python3 validate_project_workspace.py
-python3 package_release.py
+python3 scripts/generate_runtime_overlay.py
+python3 scripts/generate_human_mirrors.py
+python3 scripts/refresh_source_registry.py
+python3 scripts/refresh_project_continuity.py
+python3 scripts/validate_examples.py
+python3 scripts/lint_pack.py . --strict
+python3 scripts/run_regression_suite.py
+python3 scripts/validate_project_workspace.py
+python3 scripts/package_release.py
 ```

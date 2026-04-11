@@ -1,0 +1,27 @@
+{
+  "route_id": "rt_visual_input",
+  "task_id": "visual_input_prepass",
+  "role": "prepass",
+  "purpose": "Extract visual evidence before governing route selection.",
+  "required_fields": [
+    "artifact_type",
+    "layout_type",
+    "visible_components",
+    "hierarchy_cues",
+    "probable_grid",
+    "approximate_type_scale",
+    "density_and_grouping",
+    "state_cues",
+    "mismatch_check",
+    "confidence_level"
+  ],
+  "claim_boundary": "Observed, inferred, and unverified claims must stay separated.",
+  "handoff_routes": [
+    "rt_ui_structure_critique",
+    "rt_dashboard_audit",
+    "rt_layout_reconstruction_plan",
+    "rt_pdf_remediation",
+    "rt_accessibility_feedback_audit",
+    "rt_graphic_critique"
+  ]
+}

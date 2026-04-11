@@ -4,7 +4,7 @@ canonical_summary: knowledge-base/summaries/graphic-design-format-summary.md
 last_generated: 2026-04-11
 overlay: true
 source_reference:
-  - knowledge-base/source-docs/Strict Graphic Design Expert for a Modular AI Design Operator Pack.md
+  - knowledge-base/source-docs/Strict Graphic Design Expert for DesignPilot.md
 ---
 # Graphic Design Format Summary Runtime Summary
 
@@ -38,4 +38,4 @@ source_reference:
 
 ## Canonical fallback
 - `knowledge-base/summaries/graphic-design-format-summary.md`
-- `knowledge-base/source-docs/Strict Graphic Design Expert for a Modular AI Design Operator Pack.md`
+- `knowledge-base/source-docs/Strict Graphic Design Expert for DesignPilot.md`

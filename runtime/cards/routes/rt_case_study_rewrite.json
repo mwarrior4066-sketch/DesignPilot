@@ -1,0 +1,52 @@
+{
+  "route_id": "rt_case_study_rewrite",
+  "task_id": "case_study_rewrite",
+  "trigger_summary": "Use when communication quality depends on narrative order and proof clarity, not just editing.",
+  "governing_skills": [
+    "content-and-case-study-expert.md"
+  ],
+  "supporting_skills": [
+    "brand-strategy-expert.md",
+    "ux-research-expert.md"
+  ],
+  "required_summary_ids": [
+    "knowledge-base/runtime-summaries/writing-and-case-study-summary.md",
+    "knowledge-base/runtime-summaries/audience-and-industry-summary.md",
+    "knowledge-base/runtime-summaries/ux-roadmap-summary.md",
+    "knowledge-base/runtime-summaries/ux-cognition-summary.md"
+  ],
+  "escalation_conditions": [
+    "runtime summary lacks measurable thresholds",
+    "validator flags insufficient evidence",
+    "high-stakes or standards-grade task",
+    "user explicitly requests deeper source synthesis",
+    "route conflict or canonical ambiguity appears"
+  ],
+  "fallback_route": "rt_brand_positioning",
+  "known_tensions": [
+    "story flow vs proof density",
+    "confidence vs honesty about open gaps"
+  ],
+  "handoff_targets": [
+    "brand_positioning_pass",
+    "case_study_rewrite",
+    "rt_brand_positioning",
+    "text_humanization_revision",
+    "ux_research_gap_map"
+  ],
+  "overlay_safe_fallback": {
+    "routing": "schemas/routing_registry.json",
+    "skills": [
+      "content-and-case-study-expert.md"
+    ],
+    "summaries": [
+      "writing-and-case-study-summary.md",
+      "audience-and-industry-summary.md",
+      "ux-roadmap-summary.md",
+      "ux-cognition-summary.md"
+    ]
+  },
+  "task_weight_default": "standard",
+  "lightweight_eligible": true,
+  "visual_input_supported": false
+}
