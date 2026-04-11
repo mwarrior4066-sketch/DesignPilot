@@ -1,0 +1,26 @@
+{
+  "run_id": "benchmark-run-002",
+  "prompt_id": "Prompt 02",
+  "task_type": "dashboard_audit",
+  "baseline_system": "generic_ai",
+  "pack_system": "design_expert_pack_2_2_0",
+  "baseline_score": 0.61,
+  "pack_score": 0.86,
+  "score_delta": 0.25,
+  "time_delta_seconds": 2.1,
+  "timing_seconds": {
+    "baseline": 10.9,
+    "pack": 13.0
+  },
+  "reviewer_note": "The pack surfaced KPI order, scan cost, and dashboard question hierarchy instead of generic clean-up advice.",
+  "unresolved_weakness": "Still lacks live product telemetry proving that the recommended order outperforms the baseline.",
+  "win_type": "structural",
+  "bias_controls": [
+    "same prompt",
+    "shared rubric",
+    "A/B order swapped"
+  ],
+  "evidence_gap": "no live analytics or telemetry tied to the recommendation yet",
+  "next_move": "pair the dashboard benchmark with one reviewer confidence artifact",
+  "summary": "The pack answer was materially more actionable because it named the first question the dashboard must answer and sequenced the rebuild accordingly."
+}

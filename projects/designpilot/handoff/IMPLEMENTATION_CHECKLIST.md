@@ -1,0 +1,3 @@
+- [ ] run regression suite
+- [ ] run workspace validator
+- [ ] update roadmap after major proof changes

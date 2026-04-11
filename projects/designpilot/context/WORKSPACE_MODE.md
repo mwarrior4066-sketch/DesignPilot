@@ -1,0 +1,3 @@
+# Workspace Mode
+
+Filesystem mode.

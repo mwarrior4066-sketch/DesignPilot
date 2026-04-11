@@ -1,0 +1,124 @@
+{
+  "version": "1.0.0",
+  "purpose": "Compact low-token digital color system index for role-based palette selection, domain fit, state logic, and theme behavior.",
+  "source": "libraries/COLOR_LIBRARY.md",
+  "selection_sequence": [
+    "environment",
+    "role_model",
+    "neutral_strategy",
+    "chroma_budget",
+    "state_logic",
+    "accessibility_target",
+    "theme_pairing",
+    "implementation_model"
+  ],
+  "domain_clusters": {
+    "Public sector / institutional": [
+      "USWDS-style token systems",
+      "GOV.UK-style functional systems"
+    ],
+    "Enterprise SaaS / B2B": [
+      "slate blue workhorse",
+      "indigo neutral enterprise"
+    ],
+    "Fintech / security": [
+      "trust-blue precision core",
+      "indigo + controlled innovation accent"
+    ],
+    "Healthcare / wellness": [
+      "clinical clarity",
+      "integrative wellness"
+    ],
+    "Industrial HMI / operations": [
+      "mid-gray operational restraint",
+      "alarm-sparing control room"
+    ],
+    "Aviation / cockpit": [
+      "sunlight-readable operational",
+      "night-mode blue-averse"
+    ],
+    "AI / infrastructure": [
+      "indigo high-chroma AI",
+      "precision-neutral agent systems"
+    ],
+    "Luxury / premium": [
+      "midnight opulence",
+      "emerald restraint",
+      "plum graphite luxury"
+    ],
+    "Editorial / creative": [
+      "warm editorial",
+      "cool cultural",
+      "high-contrast expressive"
+    ],
+    "Data visualization": [
+      "categorical",
+      "sequential",
+      "diverging",
+      "alert"
+    ]
+  },
+  "neutral_strategies": [
+    "slate",
+    "zinc",
+    "stone",
+    "mauve",
+    "olive",
+    "warm gray",
+    "blue-gray",
+    "mid-gray operational"
+  ],
+  "state_logic_models": [
+    "value_shift",
+    "alpha_overlay",
+    "mutable_token"
+  ],
+  "role_model": [
+    "text/default",
+    "text/subtle",
+    "surface/base",
+    "surface/raised",
+    "border/default",
+    "action/primary",
+    "action/secondary",
+    "focus",
+    "success",
+    "warning",
+    "danger",
+    "info",
+    "chart/sequential",
+    "chart/diverging",
+    "chart/categorical",
+    "brand/expressive",
+    "brand/interface-safe",
+    "overlay",
+    "disabled",
+    "selection"
+  ],
+  "best_in_class_references": {
+    "USWDS": "role-based government tokens and grade-based structure",
+    "GOV.UK": "functional color discipline and maintainable system usage",
+    "Radix Colors": "12-step scales, semantic aliasing, neutral swapping",
+    "Primer": "semantic roles across multiple themes",
+    "Atlassian": "theme-aware tokens, alpha colors, dark-mode symmetry",
+    "Carbon": "categorical, sequential, diverging, and alert chart logic",
+    "Material 3": "paired container and on-color roles",
+    "Tailwind CSS v4": "OKLCH-based utility primitives"
+  },
+  "failure_patterns": [
+    "moodboard_only_system",
+    "color_only_status",
+    "aa_failure_on_critical_roles",
+    "vibrating_high_chroma_pairs",
+    "dashboard_accent_overload",
+    "duplicate_without_semantic_difference"
+  ],
+  "retrieval_vectors": [
+    "domain_fit",
+    "neutral_bias",
+    "chroma_budget",
+    "contrast_posture",
+    "device_behavior",
+    "implementation_model"
+  ]
+}

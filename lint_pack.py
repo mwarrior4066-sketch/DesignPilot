@@ -1,0 +1,183 @@
+#!/usr/bin/env python3
+import argparse
+import json
+import re
+from datetime import date, datetime
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent
+SEMVER_RE = re.compile(r'^\d+\.\d+\.\d+$')
+MIRROR_DOCS = {
+    'OUTPUT_CONTRACTS_BY_TASK.md': 120,
+    'RUNTIME_VALIDATION_LAYER.md': 35,
+    'ROUTE_CATALOG.md': 80,
+    'PACK_QUALITY_RUBRIC.md': 12,
+}
+PLACEHOLDER_PATTERNS = ['placeholder', 'tbd', 'lorem ipsum', 'route is explicit', 'required sections are visible']
+
+
+def check_frontmatter(path: Path, required_fields):
+    text = path.read_text(encoding='utf-8')
+    if not text.startswith('---'):
+        return [f'{path.relative_to(ROOT)} missing frontmatter'], []
+    end = text.find('\n---', 3)
+    if end == -1:
+        return [f'{path.relative_to(ROOT)} frontmatter not closed'], []
+    raw = text[3:end]
+    errors, warnings = [], []
+    for field in required_fields:
+        if f'{field}:' not in raw:
+            errors.append(f'{path.relative_to(ROOT)} missing {field}')
+    m = re.search(r'last_updated:\s*(\d{4}-\d{2}-\d{2})', raw)
+    if not m:
+        errors.append(f'{path.relative_to(ROOT)} missing valid last_updated')
+    else:
+        age = (date.today() - datetime.strptime(m.group(1), '%Y-%m-%d').date()).days
+        if age > 365:
+            warnings.append(f'{path.relative_to(ROOT)} last_updated is older than 365 days')
+    return errors, warnings
+
+
+def startup_conflict_checks(pack_root: Path):
+    errors = []
+    mco = (pack_root / 'MASTER_CHAT_OPERATOR.md').read_text(encoding='utf-8').lower()
+    sp = (pack_root / 'SYSTEM_PRECEDENCE.md').read_text(encoding='utf-8').lower()
+    boot = (pack_root / 'runtime' / 'boot' / 'core_bootstrap.md').read_text(encoding='utf-8').lower()
+    if 'single startup authority' not in mco:
+        errors.append('MASTER_CHAT_OPERATOR.md does not declare single startup authority')
+    forbidden_sp = ['startup load boundary', 'cold start sequence', 'minimum viable bootstrap set should be active']
+    for phrase in forbidden_sp:
+        if phrase in sp:
+            errors.append(f'SYSTEM_PRECEDENCE.md still contains startup language: {phrase}')
+    if 'master_chat_operator.md' not in boot:
+        errors.append('runtime boot file does not point back to MASTER_CHAT_OPERATOR.md')
+    return errors
+
+
+
+def continuity_version_checks(pack_root: Path, version: str):
+    errors = []
+    current_files = {
+        'projects/designpilot/context/ACTIVE_STATE.md': [f'- Current release: v{version}', 'Manifest status: canonical'],
+        'projects/designpilot/context/TASK_QUEUE.md': [f'synchronize v{version} release authority'],
+        'projects/designpilot/context/CASE_STUDY_ROADMAP.md': [f'- Current release line: v{version}'],
+    }
+    for rel, required_snippets in current_files.items():
+        text = (pack_root / rel).read_text(encoding='utf-8')
+        for snippet in required_snippets:
+            if snippet not in text:
+                errors.append(f'continuity file out of sync: {rel} missing {snippet}')
+    index_files = [
+        'knowledge-base/indices/source_doc_sections.json',
+        'knowledge-base/indices/source_section_map.json',
+        'knowledge-base/indices/runtime_summary_map.json',
+    ]
+    for rel in index_files:
+        data = json.loads((pack_root / rel).read_text(encoding='utf-8'))
+        if data.get('pack_version') != version:
+            errors.append(f'index metadata version mismatch: {rel}')
+    return errors
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('pack_root', nargs='?', default='.')
+    parser.add_argument('--strict', action='store_true')
+    args = parser.parse_args()
+    pack_root = Path(args.pack_root).resolve()
+    errors, warnings = [], []
+
+    manifest = json.loads((pack_root / 'PACK_MANIFEST.json').read_text(encoding='utf-8'))
+    version = manifest.get('version')
+    if not SEMVER_RE.match(str(version or '')):
+        errors.append(f'manifest version invalid: {version}')
+    readme = (pack_root / 'README.md').read_text(encoding='utf-8')
+    if f'v{version}' not in readme:
+        errors.append('README version mismatch')
+    changelog = (pack_root / 'CHANGELOG.md').read_text(encoding='utf-8')
+    if f'## v{version}' not in changelog:
+        errors.append('CHANGELOG missing current version entry')
+    if manifest.get('canonical_entrypoint') != 'MASTER_CHAT_OPERATOR.md':
+        errors.append('manifest canonical_entrypoint should point to MASTER_CHAT_OPERATOR.md')
+
+    registry_path = pack_root / 'SOURCE_REFERENCE_REGISTRY.json'
+    if not registry_path.exists():
+        errors.append('SOURCE_REFERENCE_REGISTRY.json missing')
+    else:
+        registry = json.loads(registry_path.read_text(encoding='utf-8'))
+        registered = {e['path'] for e in registry.get('entries', [])}
+        must_cover = []
+        for pattern in ['schemas/*.json', 'skills/*.md', 'templates/*.md', 'knowledge-base/summaries/*.md', 'knowledge-base/source-docs/*']:
+            must_cover.extend([p.relative_to(pack_root).as_posix() for p in pack_root.glob(pattern) if p.is_file()])
+        missing_registry = sorted([p for p in must_cover if p not in registered])
+        if missing_registry:
+            errors.append('source registry incomplete: ' + ', '.join(missing_registry[:10]))
+
+    for rel, min_lines in MIRROR_DOCS.items():
+        path = pack_root / rel
+        if not path.exists():
+            errors.append(f'mirror doc missing: {rel}')
+            continue
+        lines = len(path.read_text(encoding='utf-8').splitlines())
+        if lines < min_lines:
+            errors.append(f'mirror doc too thin: {rel} ({lines} < {min_lines})')
+
+    for folder, required in [
+        ('skills', ['skill_version', 'source_reference', 'last_updated', 'synchronized', 'canonical_owner', 'domain']),
+        ('knowledge-base/summaries', ['summary_version', 'source_reference', 'last_updated', 'synchronized', 'domain'])
+    ]:
+        for path in (pack_root / folder).glob('*.md'):
+            e, w = check_frontmatter(path, required)
+            errors.extend(e)
+            warnings.extend(w)
+
+    for folder in ['examples', 'projects/designpilot', 'tests/evals']:
+        for path in (pack_root / folder).rglob('*'):
+            if not path.is_file() or path.suffix not in {'.md', '.json'}:
+                continue
+            text = path.read_text(encoding='utf-8', errors='ignore').lower()
+            for pat in PLACEHOLDER_PATTERNS:
+                if pat in text:
+                    errors.append(f'placeholder-like text found in {path.relative_to(pack_root)}: {pat}')
+                    break
+
+    required_examples = set(manifest.get('example_registry', []))
+    missing_examples = [rel for rel in required_examples if not (pack_root / rel).exists()]
+    if missing_examples:
+        errors.append('example coverage incomplete: ' + ', '.join(missing_examples))
+
+    for rel in [
+        'projects/designpilot/process/reviews/benchmarks/benchmark-run-001.json',
+        'projects/designpilot/finalized/deliverables/proof/PROOF_STACK_SUMMARY.md'
+    ]:
+        if not (pack_root / rel).exists():
+            errors.append(f'missing flagship proof artifact: {rel}')
+
+    for rel in ['DEGRADED_MODE_PROTOCOL.md', 'VISUAL_INPUT_PROTOCOL.md', 'LIGHTWEIGHT_RESPONSE_PROTOCOL.md', 'QUICKSTART.md', 'SESSION_CONTEXT_DEFAULTS.md']:
+        if not (pack_root / rel).exists():
+            errors.append(f'missing v2.5.0 control file: {rel}')
+
+    errors.extend(startup_conflict_checks(pack_root))
+    errors.extend(continuity_version_checks(pack_root, version))
+
+    pyc = list(pack_root.rglob('*.pyc'))
+    if pyc:
+        warnings.append(f'compiled artifacts present: {len(pyc)} .pyc files')
+    if (pack_root / '__pycache__').exists():
+        warnings.append('__pycache__ directory present')
+
+    if errors:
+        print('FAIL')
+        for e in errors:
+            print('  ERROR', e)
+        for w in warnings:
+            print('  WARN', w)
+        if args.strict:
+            raise SystemExit(1)
+    else:
+        print('PASS')
+        for w in warnings:
+            print('  WARN', w)
+
+
+if __name__ == '__main__':
+    main()

@@ -1,0 +1,26 @@
+{
+  "run_id": "benchmark-run-004",
+  "prompt_id": "Prompt 04",
+  "task_type": "frontend_implementation_review",
+  "baseline_system": "generic_ai",
+  "pack_system": "design_expert_pack_2_4_0",
+  "baseline_score": 0.57,
+  "pack_score": 0.87,
+  "score_delta": 0.3,
+  "time_delta_seconds": 3.0,
+  "timing_seconds": {
+    "baseline": 10.8,
+    "pack": 13.8
+  },
+  "reviewer_note": "The pack chose rendering, boundary, and mutation-recovery decisions while the baseline stayed closer to generic React cleanup advice.",
+  "unresolved_weakness": "Still lacks production profiling or shipped bundle evidence for the proposed architecture.",
+  "win_type": "structural and implementation-based",
+  "bias_controls": [
+    "same prompt",
+    "shared rubric",
+    "A/B order swapped"
+  ],
+  "evidence_gap": "no production telemetry or profiling receipt attached yet",
+  "next_move": "pair with one architecture reviewer confidence artifact",
+  "summary": "The pack was stronger because it named state ownership, server/client boundaries, and rollback safety explicitly."
+}

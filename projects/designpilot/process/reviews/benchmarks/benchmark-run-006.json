@@ -1,0 +1,26 @@
+{
+  "run_id": "benchmark-run-006",
+  "prompt_id": "Prompt 06",
+  "task_type": "api_reliability_security_review",
+  "baseline_system": "generic_ai",
+  "pack_system": "design_expert_pack_2_4_0",
+  "baseline_score": 0.56,
+  "pack_score": 0.9,
+  "score_delta": 0.34,
+  "time_delta_seconds": 4.1,
+  "timing_seconds": {
+    "baseline": 10.1,
+    "pack": 14.2
+  },
+  "reviewer_note": "The pack turned reliability and security into explicit API contracts: Problem Details, idempotency, async lifecycle, resilience, and trace propagation.",
+  "unresolved_weakness": "Still needs more production-adjacent validation around actual timeout budgets, quotas, and operational thresholds.",
+  "win_type": "implementation-based and evidentiary",
+  "bias_controls": [
+    "same prompt",
+    "shared rubric",
+    "A/B order swapped"
+  ],
+  "evidence_gap": "no live API incident or postmortem review tied to the route yet",
+  "next_move": "add one production-adjacent API artifact review",
+  "summary": "The pack answer was more credible because it replaced security theater with explicit contracts for failure, retry, authorization, and degradation."
+}
