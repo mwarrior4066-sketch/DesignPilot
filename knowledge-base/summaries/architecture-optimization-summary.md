@@ -1,7 +1,7 @@
 ---
 summary_version: 1.0.0
 source_reference:
-  - knowledge-base/source-docs/Architectural Optimization and Structural Synthesis of the Design Expert v8.1 Agentic Operator Pack.md
+  - knowledge-base/source-docs/Architectural Optimization and Structural Synthesis of DesignPilot v8.1 Operator Pack.md
 last_updated: 2026-04-09
 synchronized: true
 domain: architecture-optimization

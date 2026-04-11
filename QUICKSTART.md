@@ -8,22 +8,22 @@ It is designed to choose one governing route, load only the needed domain logic,
 ### 1. Direct operator use
 Use when you want the pack to answer normal requests in chat.
 Load first:
-- `MASTER_CHAT_OPERATOR.md`
-- `TASK_ROUTER.md`
-- `SESSION_CONTEXT.md`
+- `operator/core/MASTER_CHAT_OPERATOR.md`
+- `operator/core/TASK_ROUTER.md`
+- `operator/core/SESSION_CONTEXT.md`
 
 ### 2. Runtime-first use
 Use when you want lower token overhead.
-Start from `MASTER_CHAT_OPERATOR.md`, then use:
+Start from `operator/core/MASTER_CHAT_OPERATOR.md`, then use:
 - `runtime/boot/core_bootstrap.md`
 - `runtime/boot/runtime_precedence.md`
 
 ### 3. Maintenance/debug use
 Use when you are patching the pack itself.
 Start from:
-- `MASTER_CHAT_OPERATOR.md`
-- `SYSTEM_PRECEDENCE.md`
-- `CONTROL_AUTHORITY_MAP.md`
+- `operator/core/MASTER_CHAT_OPERATOR.md`
+- `operator/governance/SYSTEM_PRECEDENCE.md`
+- `operator/governance/CONTROL_AUTHORITY_MAP.md`
 - relevant schema files in `schemas/`
 
 ## First conversation pattern
@@ -43,8 +43,8 @@ Start from:
 - implying proof or validation without receipts
 
 ## What to read next
-- `MASTER_CHAT_OPERATOR.md`
-- `TASK_ROUTER.md`
-- `DEGRADED_MODE_PROTOCOL.md`
-- `VISUAL_INPUT_PROTOCOL.md`
-- `LIGHTWEIGHT_RESPONSE_PROTOCOL.md`
+- `operator/core/MASTER_CHAT_OPERATOR.md`
+- `operator/core/TASK_ROUTER.md`
+- `operator/protocols/DEGRADED_MODE_PROTOCOL.md`
+- `operator/protocols/VISUAL_INPUT_PROTOCOL.md`
+- `operator/protocols/LIGHTWEIGHT_RESPONSE_PROTOCOL.md`

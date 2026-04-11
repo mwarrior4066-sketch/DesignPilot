@@ -1,6 +1,6 @@
 <!-- Optimized from original source file: Component Systems Expert Research.docx. All textual content preserved in markdown form for size-efficient packaging. -->
 
-# Component Systems Expert Specification for Modular AI Design Operator Pack
+# Component Systems Expert Specification for DesignPilot
 
 ## Evidence base and scope
 

@@ -4,7 +4,7 @@ canonical_summary: knowledge-base/summaries/architecture-optimization-summary.md
 last_generated: 2026-04-11
 overlay: true
 source_reference:
-  - knowledge-base/source-docs/Architectural Optimization and Structural Synthesis of the Design Expert v8.1 Agentic Operator Pack.md
+  - knowledge-base/source-docs/Architectural Optimization and Structural Synthesis of DesignPilot v8.1 Operator Pack.md
 ---
 # Architecture Optimization Summary Runtime Summary
 
@@ -27,4 +27,4 @@ source_reference:
 
 ## Canonical fallback
 - `knowledge-base/summaries/architecture-optimization-summary.md`
-- `knowledge-base/source-docs/Architectural Optimization and Structural Synthesis of the Design Expert v8.1 Agentic Operator Pack.md`
+- `knowledge-base/source-docs/Architectural Optimization and Structural Synthesis of DesignPilot v8.1 Operator Pack.md`

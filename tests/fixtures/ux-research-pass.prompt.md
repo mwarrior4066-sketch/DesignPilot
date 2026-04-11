@@ -1,0 +1,1 @@
+Map the most important UX research gaps for a small scheduling platform that is redesigning onboarding, team setup, and shift publishing. The team has some support tickets and a few sales notes, but no recent user research.

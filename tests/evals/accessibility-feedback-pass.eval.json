@@ -1,0 +1,16 @@
+{
+  "example": "accessibility-feedback-pass",
+  "task_contract": "accessibility_feedback_audit",
+  "validator_decision": "PASS",
+  "rubric_scores": {
+    "intent_alignment": 5,
+    "actionability": 5,
+    "structural_rigor": 5,
+    "evidence_use": 5,
+    "implementation_realism": 4
+  },
+  "strongest_dimension": "evidence_use",
+  "weakest_dimension": "implementation_realism",
+  "pass_justification": "Passed because the audit tied blocked behaviors to repair order and verification.",
+  "residual_reviewer_doubt": "A specialist may still want device-specific mobile focus testing before sign-off."
+}

@@ -8,10 +8,10 @@ The pack stores text-heavy source documents as markdown to reduce pack size whil
 | AI Design Operator Pack Research.docx | AI Design Operator Pack Research.md | — | Text preserved in markdown |
 | AI PDF Creation_ Grid and Typography.docx | AI PDF Creation_ Grid and Typography.md | — | Text preserved in markdown |
 | Accessibility and Feedback Expert Research.docx | Accessibility and Feedback Expert Research.md | — | Text preserved in markdown |
-| Back-End Aware Planner for a Modular AI Design Operator Pack.docx | Back-End Aware Planner for a Modular AI Design Operator Pack.md | — | Text preserved in markdown |
+| Back-End Aware Planner for DesignPilot.docx | Back-End Aware Planner for DesignPilot.md | — | Text preserved in markdown |
 | DesignPilot_ProblemCatalogue(1).docx | DesignPilot Problem Catalogue.md | — | Text preserved in markdown |
 | Design System Failure Diagnosis and Solutions(1).docx | Design System Failure Diagnosis and Solutions.md | — | Text preserved in markdown |
-| Brand Strategy Expert for a Modular AI Design Operator Pack.docx | Brand Strategy Expert for a Modular AI Design Operator Pack.md | — | Text preserved in markdown |
+| Brand Strategy Expert for DesignPilot.docx | Brand Strategy Expert for DesignPilot.md | — | Text preserved in markdown |
 | Case-Study Structure and Narrative Order.docx | Case-Study Structure and Narrative Order.md | knowledge-base/source-media/Case-Study Structure and Narrative Order | Text preserved in markdown; media extracted and preserved |
 | Color Expert Agent Research.docx | Color Expert Agent Research.md | — | Text preserved in markdown |
 | Color Library Expansion Research Plan.docx | Color Intelligence Systems for Global Production Libraries.md | — | Research normalized into a tighter markdown source with current official references |
@@ -26,7 +26,7 @@ The pack stores text-heavy source documents as markdown to reduce pack size whil
 | Industry & Demographic Encompassing Design Toolkit.docx | Industry & Demographic Encompassing Design Toolkit.md | — | Text preserved in markdown |
 | Layout Reconstruction Expert Research.docx | Layout Reconstruction Expert Research.md | — | Text preserved in markdown |
 | PDF Document Accessibility Expert Research.docx | PDF Document Accessibility Expert Research.md | — | Text preserved in markdown |
-| Strict Graphic Design Expert for a Modular AI Design Operator Pack.docx | Strict Graphic Design Expert for a Modular AI Design Operator Pack.md | — | Text preserved in markdown |
+| Strict Graphic Design Expert for DesignPilot.docx | Strict Graphic Design Expert for DesignPilot.md | — | Text preserved in markdown |
 | The Global Typographic Landscape of 2026.docx | The Global Typographic Landscape of 2026.md | — | Text preserved in markdown |
 | The Global Typography Intelligence Index.docx | Global Typography Intelligence Index.md | — | Research normalized into a tighter markdown source with current official references |
 | Writing Clarity and UX Copy Expert Research.docx | Writing Clarity and UX Copy Expert Research.md | — | Text preserved in markdown |

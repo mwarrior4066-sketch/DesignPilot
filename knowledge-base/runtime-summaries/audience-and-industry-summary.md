@@ -4,7 +4,7 @@ canonical_summary: knowledge-base/summaries/audience-and-industry-summary.md
 last_generated: 2026-04-11
 overlay: true
 source_reference:
-  - knowledge-base/source-docs/Brand Strategy Expert for a Modular AI Design Operator Pack.md
+  - knowledge-base/source-docs/Brand Strategy Expert for DesignPilot.md
   - knowledge-base/source-docs/Industry & Demographic Encompassing Design Toolkit.md
 ---
 # Audience And Industry Summary Runtime Summary
@@ -34,5 +34,5 @@ source_reference:
 
 ## Canonical fallback
 - `knowledge-base/summaries/audience-and-industry-summary.md`
-- `knowledge-base/source-docs/Brand Strategy Expert for a Modular AI Design Operator Pack.md`
+- `knowledge-base/source-docs/Brand Strategy Expert for DesignPilot.md`
 - `knowledge-base/source-docs/Industry & Demographic Encompassing Design Toolkit.md`

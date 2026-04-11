@@ -1,6 +1,6 @@
 <!-- Optimized from original source file: Exception and Failure Taxonomy Expert Research.docx. All textual content preserved in markdown form for size-efficient packaging. -->
 
-# Exception and Failure Taxonomy Expert for Modular AI Design Operator Packs
+# Exception and Failure Taxonomy Expert for DesignPilot
 
 ## Research basis and architectural framing
 

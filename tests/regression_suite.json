@@ -1,0 +1,414 @@
+{
+  "suite_version": "2.5.0",
+  "pack_version": "2.5.0",
+  "tests": [
+    {
+      "id": "pass-01",
+      "category": "smoke",
+      "title": "UI structure critique canonical pass",
+      "prompt": "Audit this pricing page hero and first three sections.",
+      "validator_task": "ui_structure_critique",
+      "expected_decision": "PASS",
+      "required_issue_absent": [
+        "missing_section"
+      ],
+      "golden_output_file": "examples/ui-structure-critique.md"
+    },
+    {
+      "id": "pass-02",
+      "category": "smoke",
+      "title": "Component specification canonical pass",
+      "prompt": "Write a component spec for a split button.",
+      "validator_task": "component_spec",
+      "expected_decision": "PASS",
+      "golden_output_file": "examples/component-spec.md"
+    },
+    {
+      "id": "pass-03",
+      "category": "smoke",
+      "title": "Dashboard audit canonical pass",
+      "prompt": "Audit this dashboard first view.",
+      "validator_task": "dashboard_audit",
+      "expected_decision": "PASS",
+      "golden_output_file": "examples/dashboard-audit.md"
+    },
+    {
+      "id": "pass-04",
+      "category": "smoke",
+      "title": "Backend feasibility canonical pass",
+      "prompt": "Add team sharing, CSV export, and a live dashboard.",
+      "validator_task": "backend_feasibility_review",
+      "expected_decision": "PASS",
+      "golden_output_file": "examples/backend-feasibility-review.md"
+    },
+    {
+      "id": "pass-05",
+      "category": "compound",
+      "title": "PDF plus accessibility compound ask",
+      "prompt": "Fix this PDF so visual layout stays intact while reading order and extraction improve.",
+      "validator_task": "pdf_remediation_plan",
+      "expected_decision": "PASS",
+      "golden_output_file": "examples/pdf-remediation-plan.md"
+    },
+    {
+      "id": "pass-06",
+      "category": "smoke",
+      "title": "Brand positioning canonical pass",
+      "prompt": "Create a brand positioning pass for an AI design tool for independent designers.",
+      "validator_task": "brand_positioning_pass",
+      "expected_decision": "PASS",
+      "golden_output_file": "examples/brand-positioning-pass.md"
+    },
+    {
+      "id": "pass-07",
+      "category": "compound",
+      "title": "Case study plus brand framing compound ask",
+      "prompt": "Rewrite this case study so it sounds stronger without pretending the outcome is proven.",
+      "validator_task": "case_study_rewrite",
+      "expected_decision": "PASS",
+      "golden_output_file": "examples/case-study-rewrite.md"
+    },
+    {
+      "id": "pass-08",
+      "category": "smoke",
+      "title": "Accessibility audit canonical pass",
+      "prompt": "Audit this checkout flow for accessibility.",
+      "validator_task": "accessibility_feedback_audit",
+      "expected_decision": "PASS",
+      "golden_output_file": "examples/accessibility-feedback-pass.md"
+    },
+    {
+      "id": "pass-09",
+      "category": "smoke",
+      "title": "Color system canonical pass",
+      "prompt": "Create a semantic color system for a B2B scheduling product.",
+      "validator_task": "color_system_spec",
+      "expected_decision": "PASS",
+      "golden_output_file": "examples/color-system-pass.md"
+    },
+    {
+      "id": "pass-10",
+      "category": "smoke",
+      "title": "Graphic critique canonical pass",
+      "prompt": "Critique this event poster.",
+      "validator_task": "graphic_critique",
+      "expected_decision": "PASS",
+      "golden_output_file": "examples/graphic-critique-pass.md"
+    },
+    {
+      "id": "pass-11",
+      "category": "compound",
+      "title": "Layout reconstruction from legacy artifact",
+      "prompt": "Recover a layout from this lost-source brochure and keep the placements stable.",
+      "validator_task": "layout_reconstruction_plan",
+      "expected_decision": "PASS",
+      "golden_output_file": "examples/layout-reconstruction-pass.md"
+    },
+    {
+      "id": "pass-12",
+      "category": "smoke",
+      "title": "Type system canonical pass",
+      "prompt": "Recommend a type system for a dense operations dashboard.",
+      "validator_task": "type_system_recommendation",
+      "expected_decision": "PASS",
+      "golden_output_file": "examples/type-system-pass.md"
+    },
+    {
+      "id": "pass-13",
+      "category": "smoke",
+      "title": "UX research gap map canonical pass",
+      "prompt": "Map the most important UX research gaps for this scheduling platform.",
+      "validator_task": "ux_research_gap_map",
+      "expected_decision": "PASS",
+      "golden_output_file": "examples/ux-research-pass.md"
+    },
+    {
+      "id": "fail-01",
+      "category": "fail-depth",
+      "title": "Thin but compliant dashboard audit",
+      "prompt": "Audit this dashboard.",
+      "validator_task": "dashboard_audit",
+      "expected_decision": "FAIL",
+      "expected_issue_ids": [
+        "low_information_density",
+        "missing_tradeoff",
+        "missing_evidence_class"
+      ],
+      "golden_output_file": "golden_outputs/fail-thin-dashboard-audit.md"
+    },
+    {
+      "id": "fail-02",
+      "category": "fail-depth",
+      "title": "Prompt restatement",
+      "prompt": "Create a brand positioning pass for an AI design tool for independent designers.",
+      "validator_task": "brand_positioning_pass",
+      "expected_decision": "FAIL",
+      "expected_issue_ids": [
+        "prompt_restatement",
+        "low_information_density"
+      ],
+      "golden_output_file": "golden_outputs/fail-prompt-restatement.md"
+    },
+    {
+      "id": "fail-03",
+      "category": "fail-proof",
+      "title": "Unsupported proof language",
+      "prompt": "Write a case study outcome section.",
+      "validator_task": "case_study_rewrite",
+      "expected_decision": "FAIL",
+      "expected_issue_ids": [
+        "unsupported_superlative"
+      ],
+      "golden_output_file": "golden_outputs/fail-unsupported-proof.md"
+    },
+    {
+      "id": "fail-04",
+      "category": "fail-accessibility",
+      "title": "Paint-only accessibility advice",
+      "prompt": "Audit this checkout flow for accessibility.",
+      "validator_task": "accessibility_feedback_audit",
+      "expected_decision": "FAIL",
+      "expected_issue_ids": [
+        "forbidden_shortcut",
+        "missing_evidence_class"
+      ],
+      "golden_output_file": "golden_outputs/fail-accessibility-feedback.md"
+    },
+    {
+      "id": "fail-05",
+      "category": "fail-color",
+      "title": "Palette-only color system",
+      "prompt": "Create a semantic color system.",
+      "validator_task": "color_system_spec",
+      "expected_decision": "FAIL",
+      "expected_issue_ids": [
+        "forbidden_shortcut",
+        "missing_evidence_class"
+      ],
+      "golden_output_file": "golden_outputs/fail-color-system.md"
+    },
+    {
+      "id": "fail-06",
+      "category": "fail-graphic",
+      "title": "Taste-only graphic critique",
+      "prompt": "Critique this event poster.",
+      "validator_task": "graphic_critique",
+      "expected_decision": "FAIL",
+      "expected_issue_ids": [
+        "forbidden_shortcut",
+        "missing_evidence_class"
+      ],
+      "golden_output_file": "golden_outputs/fail-graphic-critique.md"
+    },
+    {
+      "id": "fail-07",
+      "category": "fail-layout",
+      "title": "Eyeballed reconstruction",
+      "prompt": "Recover this lost-source brochure layout.",
+      "validator_task": "layout_reconstruction_plan",
+      "expected_decision": "FAIL",
+      "expected_issue_ids": [
+        "forbidden_shortcut",
+        "missing_evidence_class"
+      ],
+      "golden_output_file": "golden_outputs/fail-layout-reconstruction.md"
+    },
+    {
+      "id": "fail-08",
+      "category": "fail-specificity",
+      "title": "Unsupported type specificity",
+      "prompt": "Recommend a type system for a dense operations dashboard.",
+      "validator_task": "type_system_recommendation",
+      "expected_decision": "FAIL",
+      "expected_issue_ids": [
+        "forbidden_shortcut",
+        "overclaim_without_evidence"
+      ],
+      "golden_output_file": "golden_outputs/fail-type-system.md"
+    },
+    {
+      "id": "fail-09",
+      "category": "fail-research",
+      "title": "Generic research advice",
+      "prompt": "Map the most important UX research gaps.",
+      "validator_task": "ux_research_gap_map",
+      "expected_decision": "FAIL",
+      "expected_issue_ids": [
+        "forbidden_shortcut",
+        "missing_evidence_class"
+      ],
+      "golden_output_file": "golden_outputs/fail-ux-research-gap.md"
+    },
+    {
+      "id": "pass-14",
+      "category": "smoke",
+      "title": "Front-end architecture canonical pass",
+      "prompt": "Review this front-end implementation plan for a permissions-heavy scheduling dashboard.",
+      "validator_task": "frontend_implementation_review",
+      "expected_decision": "PASS",
+      "golden_output_file": "examples/frontend-implementation-review.md"
+    },
+    {
+      "id": "pass-15",
+      "category": "smoke",
+      "title": "Backend architecture spec canonical pass",
+      "prompt": "Write a backend architecture spec for a multi-tenant scheduling platform.",
+      "validator_task": "backend_architecture_spec",
+      "expected_decision": "PASS",
+      "golden_output_file": "examples/backend-architecture-spec.md"
+    },
+    {
+      "id": "pass-16",
+      "category": "smoke",
+      "title": "API reliability and security canonical pass",
+      "prompt": "Audit this API design for reliability and security.",
+      "validator_task": "api_reliability_security_review",
+      "expected_decision": "PASS",
+      "golden_output_file": "examples/api-reliability-security-review.md"
+    },
+    {
+      "id": "fail-10",
+      "category": "fail-frontend-architecture",
+      "title": "Framework-swap front-end review",
+      "prompt": "Review this front-end implementation plan.",
+      "validator_task": "frontend_implementation_review",
+      "expected_decision": "FAIL",
+      "expected_issue_ids": [
+        "forbidden_shortcut",
+        "missing_evidence_class"
+      ],
+      "golden_output_file": "golden_outputs/fail-frontend-implementation-review.md"
+    },
+    {
+      "id": "fail-11",
+      "category": "fail-backend-architecture",
+      "title": "Endpoint-only backend architecture",
+      "prompt": "Write a backend architecture spec.",
+      "validator_task": "backend_architecture_spec",
+      "expected_decision": "FAIL",
+      "expected_issue_ids": [
+        "forbidden_shortcut",
+        "missing_evidence_class"
+      ],
+      "golden_output_file": "golden_outputs/fail-backend-architecture-spec.md"
+    },
+    {
+      "id": "fail-12",
+      "category": "fail-api-reliability",
+      "title": "Retry-theater API review",
+      "prompt": "Audit this API design for reliability and security.",
+      "validator_task": "api_reliability_security_review",
+      "expected_decision": "FAIL",
+      "expected_issue_ids": [
+        "forbidden_shortcut",
+        "missing_evidence_class"
+      ],
+      "golden_output_file": "golden_outputs/fail-api-reliability-security-review.md"
+    },
+    {
+      "id": "pass-17",
+      "category": "comprehension",
+      "title": "Adaptive explanation tiers preserve route truth",
+      "prompt": "Explain a front-end architecture decision across Functional, Integrative, and Strategic tiers.",
+      "validator_task": "frontend_implementation_review",
+      "expected_decision": "PASS",
+      "golden_output_file": "examples/adaptive-explanation-tiered-response.md"
+    },
+    {
+      "id": "pass-18",
+      "category": "comprehension",
+      "title": "Designer response filter preserves backend constraints",
+      "prompt": "Transform backend architecture advice into a designer-readable answer without weakening constraints.",
+      "validator_task": "backend_architecture_spec",
+      "expected_decision": "PASS",
+      "golden_output_file": "examples/designer-response-filter-pass.md"
+    },
+    {
+      "id": "pass-19",
+      "category": "comprehension",
+      "title": "Text humanization canonical pass",
+      "prompt": "Humanize a paragraph without changing the meaning.",
+      "validator_task": "text_humanization_revision",
+      "expected_decision": "PASS",
+      "golden_output_file": "examples/text-humanization-pass.md"
+    },
+    {
+      "id": "fail-17",
+      "category": "tier-boundary",
+      "title": "Functional tier fails with unexplained jargon",
+      "prompt": "Explain this for a Functional-tier user.",
+      "validator_task": "frontend_implementation_review",
+      "expected_decision": "FAIL",
+      "golden_output_file": "tests/golden_outputs/fail-functional-unexplained-jargon.md"
+    },
+    {
+      "id": "fail-18",
+      "category": "tier-boundary",
+      "title": "Strategic tier fails when overexplained",
+      "prompt": "Explain this for a Strategic-tier user.",
+      "validator_task": "backend_architecture_spec",
+      "expected_decision": "FAIL",
+      "golden_output_file": "tests/golden_outputs/fail-strategic-overexplained.md"
+    },
+    {
+      "id": "fail-19",
+      "category": "actionability",
+      "title": "Designer-readable answer fails without next-step guidance",
+      "prompt": "Explain the architecture constraints and direct the user toward the next step.",
+      "validator_task": "backend_architecture_spec",
+      "expected_decision": "FAIL",
+      "golden_output_file": "tests/golden_outputs/fail-missing-next-step-guidance.md"
+    },
+    {
+      "id": "fail-20",
+      "category": "humanization",
+      "title": "Humanization fails with meaning drift",
+      "prompt": "Humanize this without changing the meaning.",
+      "validator_task": "text_humanization_revision",
+      "expected_decision": "FAIL",
+      "golden_output_file": "tests/golden_outputs/fail-humanization-meaning-drift.md"
+    },
+    {
+      "id": "fail-21",
+      "category": "humanization",
+      "title": "Humanization fails with tone replacement",
+      "prompt": "Humanize this without replacing the voice.",
+      "validator_task": "text_humanization_revision",
+      "expected_decision": "FAIL",
+      "golden_output_file": "tests/golden_outputs/fail-humanization-tone-replacement.md"
+    },
+    {
+      "id": "fail-22",
+      "category": "filter-bloat",
+      "title": "Response filter fails when scaffolding bloats the answer",
+      "prompt": "Transform this answer for a designer without bloating it.",
+      "validator_task": "frontend_implementation_review",
+      "expected_decision": "FAIL",
+      "golden_output_file": "tests/golden_outputs/fail-filter-bloated-scaffolding.md"
+    },
+    {
+      "id": "fail-23",
+      "category": "fail-hollow-compliance",
+      "title": "Recommendations do not map back to named findings",
+      "prompt": "Audit this operations screen and tell me what to change.",
+      "validator_task": "ui_structure_critique",
+      "expected_decision": "FAIL",
+      "expected_issue_ids": [
+        "hollow_compliance"
+      ],
+      "golden_output_file": "tests/golden_outputs/fail-hollow-compliance.md"
+    },
+    {
+      "id": "fail-24",
+      "category": "fail-visual-boundary",
+      "title": "Visual certainty exceeds what the image can prove",
+      "prompt": "Recover this layout from a screenshot.",
+      "validator_task": "layout_reconstruction_plan",
+      "expected_decision": "FAIL",
+      "expected_issue_ids": [
+        "overconfident_visual_claim"
+      ],
+      "golden_output_file": "tests/golden_outputs/fail-overconfident-visual-claim.md"
+    }
+  ]
+}

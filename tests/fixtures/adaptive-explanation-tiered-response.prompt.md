@@ -1,0 +1,1 @@
+Explain why this admin settings screen should not default to a fully client-rendered implementation, and show how the answer should change across Functional, Integrative, and Strategic explanation tiers.

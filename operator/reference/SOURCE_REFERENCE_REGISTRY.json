@@ -1,0 +1,1401 @@
+{
+  "registry_version": "1.0.0",
+  "pack_version": "2.5.0",
+  "entries": [
+    {
+      "path": "README.md",
+      "kind": "control",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "CHANGELOG.md",
+      "kind": "control",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "QUICKSTART.md",
+      "kind": "control",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "PACK_MANIFEST.json",
+      "kind": "control",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "operator/README.md",
+      "kind": "control",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "operator/core/MASTER_CHAT_OPERATOR.md",
+      "kind": "control",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "operator/core/MODE_SYSTEM.md",
+      "kind": "control",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "operator/core/ROUTE_CATALOG.md",
+      "kind": "control",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "operator/core/SESSION_CONTEXT.md",
+      "kind": "control",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "operator/core/SESSION_CONTEXT_DEFAULTS.md",
+      "kind": "control",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "operator/core/TASK_ROUTER.md",
+      "kind": "control",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "operator/governance/CONTROL_AUTHORITY_MAP.md",
+      "kind": "control",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "operator/governance/DOMAIN_VALIDATORS.md",
+      "kind": "control",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "operator/governance/ESCALATION_AND_FAILSAFE_RULES.md",
+      "kind": "control",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "operator/governance/FORMAL_STRESS_TEST_SUITE.md",
+      "kind": "control",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "operator/governance/OUTPUT_CONTRACTS_BY_TASK.md",
+      "kind": "control",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "operator/governance/PACK_QUALITY_RUBRIC.md",
+      "kind": "control",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "operator/governance/ROADMAP_ROUTER.md",
+      "kind": "control",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "operator/governance/RUNTIME_VALIDATION_LAYER.md",
+      "kind": "control",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "operator/governance/SHIELDA_EXCEPTION_TAXONOMY.md",
+      "kind": "control",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "operator/governance/SYSTEM_PRECEDENCE.md",
+      "kind": "control",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "operator/governance/SYSTEM_TEST_CASES.md",
+      "kind": "control",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "operator/governance/VALIDATION_RUBRICS.md",
+      "kind": "control",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "operator/governance/VERSIONING_POLICY.md",
+      "kind": "control",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "operator/project/PROJECT_FILE_SYSTEM_PROTOCOL.md",
+      "kind": "control",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "operator/project/PROJECT_LOGGING_PROTOCOL.md",
+      "kind": "control",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "operator/project/PROJECT_PORTABLE_WORKSPACE_PROTOCOL.md",
+      "kind": "control",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "operator/project/PROJECT_STATE_PROTOCOL.md",
+      "kind": "control",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "operator/protocols/ADAPTIVE_EXPLANATION_PROTOCOL.md",
+      "kind": "control",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "operator/protocols/DEGRADED_MODE_PROTOCOL.md",
+      "kind": "control",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "operator/protocols/DESIGNER_RESPONSE_FILTER_PROTOCOL.md",
+      "kind": "control",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "operator/protocols/KNOWLEDGE_LOADING_PROTOCOL.md",
+      "kind": "control",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "operator/protocols/LIGHTWEIGHT_RESPONSE_PROTOCOL.md",
+      "kind": "control",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "operator/protocols/REGRESSION_TESTING_PROTOCOL.md",
+      "kind": "control",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "operator/protocols/RESPONSE_PROTOCOL.md",
+      "kind": "control",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "operator/protocols/SKILL_SYNC_PROTOCOL.md",
+      "kind": "control",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "operator/protocols/VISUAL_INPUT_PROTOCOL.md",
+      "kind": "control",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "operator/reference/DESIGN_TOKEN_ARCHITECTURE.md",
+      "kind": "control",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "operator/reference/KNOWLEDGE_BASE_CHECKLIST.md",
+      "kind": "control",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "operator/reference/KNOWLEDGE_BASE_CONTRACT.md",
+      "kind": "control",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "operator/reference/SKILL_REFERENCE_MAP.md",
+      "kind": "control",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "operator/reference/STRESS_TEST_PROMPT_BANK.md",
+      "kind": "control",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "operator/reference/SOURCE_REFERENCE_REGISTRY.json",
+      "kind": "control",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "scripts/generate_human_mirrors.py",
+      "kind": "control",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "scripts/generate_runtime_overlay.py",
+      "kind": "control",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "scripts/lint_pack.py",
+      "kind": "control",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "scripts/package_release.py",
+      "kind": "control",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "scripts/refresh_project_continuity.py",
+      "kind": "control",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "scripts/refresh_source_registry.py",
+      "kind": "control",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "scripts/run_regression_suite.py",
+      "kind": "control",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "scripts/runtime_validator.py",
+      "kind": "control",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "scripts/validate_examples.py",
+      "kind": "control",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "scripts/validate_project_workspace.py",
+      "kind": "control",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "schemas/routing_registry.json",
+      "kind": "schemas",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "schemas/task_contracts.json",
+      "kind": "schemas",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "schemas/validation_rules.json",
+      "kind": "schemas",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "skills/accessibility-feedback-expert.md",
+      "kind": "skills",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "skills/api-reliability-security-expert.md",
+      "kind": "skills",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "skills/back-end-aware-planner.md",
+      "kind": "skills",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "skills/back-end-systems-architect.md",
+      "kind": "skills",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "skills/brand-strategy-expert.md",
+      "kind": "skills",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "skills/color-system-expert.md",
+      "kind": "skills",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "skills/component-systems-expert.md",
+      "kind": "skills",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "skills/content-and-case-study-expert.md",
+      "kind": "skills",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "skills/dashboard-data-expert.md",
+      "kind": "skills",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "skills/document-accessibility-expert.md",
+      "kind": "skills",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "skills/front-end-architecture-expert.md",
+      "kind": "skills",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "skills/front-end-handoff-expert.md",
+      "kind": "skills",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "skills/graphic-design-expert.md",
+      "kind": "skills",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "skills/grid-system-expert.md",
+      "kind": "skills",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "skills/layout-reconstruction-expert.md",
+      "kind": "skills",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "skills/pdf-layout-expert.md",
+      "kind": "skills",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "skills/text-humanization-expert.md",
+      "kind": "skills",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "skills/type-system-expert.md",
+      "kind": "skills",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "skills/ui-system-expert.md",
+      "kind": "skills",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "skills/ux-research-expert.md",
+      "kind": "skills",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "templates/api-reliability-security-review-template.md",
+      "kind": "templates",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "templates/backend-architecture-spec-template.md",
+      "kind": "templates",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "templates/backend-feasibility-template.md",
+      "kind": "templates",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "templates/case-study-structure-template.md",
+      "kind": "templates",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "templates/color-spec-template.md",
+      "kind": "templates",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "templates/component-registry-template.md",
+      "kind": "templates",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "templates/component-state-matrix-template.md",
+      "kind": "templates",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "templates/dashboard-spec-template.md",
+      "kind": "templates",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "templates/design-audit-template.md",
+      "kind": "templates",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "templates/design-system-component-spec-template.md",
+      "kind": "templates",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "templates/document-accessibility-audit-template.md",
+      "kind": "templates",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "templates/frontend-implementation-review-template.md",
+      "kind": "templates",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "templates/graphic-critique-template.md",
+      "kind": "templates",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "templates/layout-reconstruction-brief-template.md",
+      "kind": "templates",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "templates/positioning-contract-template.md",
+      "kind": "templates",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "templates/prd-template.md",
+      "kind": "templates",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "templates/project-brief-template.md",
+      "kind": "templates",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "templates/project-roadmap-template.md",
+      "kind": "templates",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "templates/research-prompt-pack-template.md",
+      "kind": "templates",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "templates/style-guide-template.md",
+      "kind": "templates",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "templates/text-humanization-template.md",
+      "kind": "templates",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "templates/type-spec-template.md",
+      "kind": "templates",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "templates/user-journey-map-template.md",
+      "kind": "templates",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "templates/user-persona-template.md",
+      "kind": "templates",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "templates/validation-report-template.md",
+      "kind": "templates",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "templates/wireframe-spec-template.md",
+      "kind": "templates",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/source-docs/AI Design Operator Pack Improvement Brief.md",
+      "kind": "source_docs",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/source-docs/AI Design Operator Pack Research.md",
+      "kind": "source_docs",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/source-docs/AI Operator Pack Validation & Stress Testing.md",
+      "kind": "source_docs",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/source-docs/AI PDF Creation_ Grid and Typography.md",
+      "kind": "source_docs",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/source-docs/AI-to-Designer Response Filter Report.md",
+      "kind": "source_docs",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/source-docs/API Reliability and Security Research Report.md",
+      "kind": "source_docs",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/source-docs/Accessibility and Feedback Expert Research.md",
+      "kind": "source_docs",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/source-docs/Accessible Component Behavior Deep Dive.md",
+      "kind": "source_docs",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/source-docs/Adaptive Explanation Design Report.md",
+      "kind": "source_docs",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/source-docs/Architectural Optimization and Structural Synthesis of DesignPilot v8.1 Operator Pack.md",
+      "kind": "source_docs",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/source-docs/Back-End Aware Planner for DesignPilot.md",
+      "kind": "source_docs",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/source-docs/Back-End Systems Architecture Knowledge Base.md",
+      "kind": "source_docs",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/source-docs/Brand Strategy Expert for DesignPilot.md",
+      "kind": "source_docs",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/source-docs/Case-Study Structure and Narrative Order.md",
+      "kind": "source_docs",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/source-docs/Color Expert Agent Research.md",
+      "kind": "source_docs",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/source-docs/Color Intelligence Systems for Global Production Libraries.md",
+      "kind": "source_docs",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/source-docs/Component Systems Expert Research.md",
+      "kind": "source_docs",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/source-docs/Comprehensive Typeface Database and Systematic Engineering Report for Design Systems.md",
+      "kind": "source_docs",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/source-docs/Comprehensive UI_UX Project Roadmap.md",
+      "kind": "source_docs",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/source-docs/Dashboard Expert Research.md",
+      "kind": "source_docs",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/source-docs/Design Strategy and Communication Research.md",
+      "kind": "source_docs",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/source-docs/Design System Failure Diagnosis and Solutions.md",
+      "kind": "source_docs",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/source-docs/DesignPilot Problem Catalogue.md",
+      "kind": "source_docs",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/source-docs/Exception and Failure Taxonomy Expert Research.md",
+      "kind": "source_docs",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/source-docs/Front-End Architecture Expert Knowledge Base.md",
+      "kind": "source_docs",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/source-docs/Front-End Handoff Expert Research.md",
+      "kind": "source_docs",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/source-docs/Global Typography Intelligence Index.md",
+      "kind": "source_docs",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/source-docs/Grid Systems Guide_ Presentation, App, Web.md",
+      "kind": "source_docs",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/source-docs/Humanizing Writing Protocol.md",
+      "kind": "source_docs",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/source-docs/Industry & Demographic Encompassing Design Toolkit.md",
+      "kind": "source_docs",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/source-docs/Layout Reconstruction Expert Research.md",
+      "kind": "source_docs",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/source-docs/PDF Document Accessibility Expert Research.md",
+      "kind": "source_docs",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/source-docs/Strict Graphic Design Expert for DesignPilot.md",
+      "kind": "source_docs",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/source-docs/Technical Reference Framework for Pantone Systems and Production-Aware Design Operations.md",
+      "kind": "source_docs",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/source-docs/The Global Typographic Landscape of 2026.md",
+      "kind": "source_docs",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/source-docs/Writing Clarity and UX Copy Expert Research.md",
+      "kind": "source_docs",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/source-docs/pantone_color_chart.pdf",
+      "kind": "source_docs",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/summaries/accessibility-and-feedback-summary.md",
+      "kind": "summaries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/summaries/adaptive-explanation-summary.md",
+      "kind": "summaries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/summaries/ai-to-designer-filter-summary.md",
+      "kind": "summaries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/summaries/api-reliability-security-summary.md",
+      "kind": "summaries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/summaries/architecture-optimization-summary.md",
+      "kind": "summaries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/summaries/audience-and-industry-summary.md",
+      "kind": "summaries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/summaries/back-end-systems-architecture-summary.md",
+      "kind": "summaries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/summaries/backend-planning-summary.md",
+      "kind": "summaries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/summaries/brand-and-archetype-summary.md",
+      "kind": "summaries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/summaries/color-and-accessibility-summary.md",
+      "kind": "summaries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/summaries/component-systems-summary.md",
+      "kind": "summaries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/summaries/dashboard-and-density-summary.md",
+      "kind": "summaries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/summaries/design-token-summary.md",
+      "kind": "summaries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/summaries/document-presentation-architecture-summary.md",
+      "kind": "summaries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/summaries/exception-taxonomy-summary.md",
+      "kind": "summaries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/summaries/front-end-architecture-summary.md",
+      "kind": "summaries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/summaries/front-end-handoff-summary.md",
+      "kind": "summaries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/summaries/graphic-design-format-summary.md",
+      "kind": "summaries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/summaries/grid-mediums-summary.md",
+      "kind": "summaries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/summaries/implementation-and-failover-summary.md",
+      "kind": "summaries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/summaries/layout-reconstruction-summary.md",
+      "kind": "summaries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/summaries/pantone-production-summary.md",
+      "kind": "summaries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/summaries/pdf-document-accessibility-summary.md",
+      "kind": "summaries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/summaries/pdf-layout-summary.md",
+      "kind": "summaries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/summaries/text-humanization-summary.md",
+      "kind": "summaries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/summaries/typeface-database-summary.md",
+      "kind": "summaries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/summaries/typography-summary.md",
+      "kind": "summaries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/summaries/ui-system-summary.md",
+      "kind": "summaries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/summaries/ux-cognition-summary.md",
+      "kind": "summaries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/summaries/ux-roadmap-summary.md",
+      "kind": "summaries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/summaries/validation-and-stress-testing-summary.md",
+      "kind": "summaries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/summaries/writing-and-case-study-summary.md",
+      "kind": "summaries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/runtime-summaries/accessibility-and-feedback-summary.md",
+      "kind": "runtime_summaries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/runtime-summaries/adaptive-explanation-summary.md",
+      "kind": "runtime_summaries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/runtime-summaries/ai-to-designer-filter-summary.md",
+      "kind": "runtime_summaries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/runtime-summaries/api-reliability-security-summary.md",
+      "kind": "runtime_summaries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/runtime-summaries/architecture-optimization-summary.md",
+      "kind": "runtime_summaries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/runtime-summaries/audience-and-industry-summary.md",
+      "kind": "runtime_summaries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/runtime-summaries/back-end-systems-architecture-summary.md",
+      "kind": "runtime_summaries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/runtime-summaries/backend-planning-summary.md",
+      "kind": "runtime_summaries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/runtime-summaries/brand-and-archetype-summary.md",
+      "kind": "runtime_summaries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/runtime-summaries/color-and-accessibility-summary.md",
+      "kind": "runtime_summaries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/runtime-summaries/component-systems-summary.md",
+      "kind": "runtime_summaries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/runtime-summaries/dashboard-and-density-summary.md",
+      "kind": "runtime_summaries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/runtime-summaries/design-token-summary.md",
+      "kind": "runtime_summaries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/runtime-summaries/document-presentation-architecture-summary.md",
+      "kind": "runtime_summaries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/runtime-summaries/exception-taxonomy-summary.md",
+      "kind": "runtime_summaries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/runtime-summaries/front-end-architecture-summary.md",
+      "kind": "runtime_summaries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/runtime-summaries/front-end-handoff-summary.md",
+      "kind": "runtime_summaries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/runtime-summaries/graphic-design-format-summary.md",
+      "kind": "runtime_summaries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/runtime-summaries/grid-mediums-summary.md",
+      "kind": "runtime_summaries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/runtime-summaries/implementation-and-failover-summary.md",
+      "kind": "runtime_summaries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/runtime-summaries/layout-reconstruction-summary.md",
+      "kind": "runtime_summaries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/runtime-summaries/pantone-production-summary.md",
+      "kind": "runtime_summaries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/runtime-summaries/pdf-document-accessibility-summary.md",
+      "kind": "runtime_summaries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/runtime-summaries/pdf-layout-summary.md",
+      "kind": "runtime_summaries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/runtime-summaries/text-humanization-summary.md",
+      "kind": "runtime_summaries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/runtime-summaries/typeface-database-summary.md",
+      "kind": "runtime_summaries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/runtime-summaries/typography-summary.md",
+      "kind": "runtime_summaries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/runtime-summaries/ui-system-summary.md",
+      "kind": "runtime_summaries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/runtime-summaries/ux-cognition-summary.md",
+      "kind": "runtime_summaries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/runtime-summaries/ux-roadmap-summary.md",
+      "kind": "runtime_summaries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/runtime-summaries/validation-and-stress-testing-summary.md",
+      "kind": "runtime_summaries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/runtime-summaries/writing-and-case-study-summary.md",
+      "kind": "runtime_summaries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "runtime/boot/core_bootstrap.md",
+      "kind": "runtime",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "runtime/boot/runtime_precedence.md",
+      "kind": "runtime",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "runtime/cards/skills/accessibility-feedback-expert.md",
+      "kind": "runtime",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "runtime/cards/skills/api-reliability-security-expert.md",
+      "kind": "runtime",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "runtime/cards/skills/back-end-aware-planner.md",
+      "kind": "runtime",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "runtime/cards/skills/back-end-systems-architect.md",
+      "kind": "runtime",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "runtime/cards/skills/brand-strategy-expert.md",
+      "kind": "runtime",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "runtime/cards/skills/color-system-expert.md",
+      "kind": "runtime",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "runtime/cards/skills/component-systems-expert.md",
+      "kind": "runtime",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "runtime/cards/skills/content-and-case-study-expert.md",
+      "kind": "runtime",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "runtime/cards/skills/dashboard-data-expert.md",
+      "kind": "runtime",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "runtime/cards/skills/document-accessibility-expert.md",
+      "kind": "runtime",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "runtime/cards/skills/front-end-architecture-expert.md",
+      "kind": "runtime",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "runtime/cards/skills/front-end-handoff-expert.md",
+      "kind": "runtime",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "runtime/cards/skills/graphic-design-expert.md",
+      "kind": "runtime",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "runtime/cards/skills/grid-system-expert.md",
+      "kind": "runtime",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "runtime/cards/skills/layout-reconstruction-expert.md",
+      "kind": "runtime",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "runtime/cards/skills/pdf-layout-expert.md",
+      "kind": "runtime",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "runtime/cards/skills/text-humanization-expert.md",
+      "kind": "runtime",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "runtime/cards/skills/type-system-expert.md",
+      "kind": "runtime",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "runtime/cards/skills/ui-system-expert.md",
+      "kind": "runtime",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "runtime/cards/skills/ux-research-expert.md",
+      "kind": "runtime",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "runtime/cards/contracts/accessibility_feedback_audit.json",
+      "kind": "runtime",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "runtime/cards/contracts/api_reliability_security_review.json",
+      "kind": "runtime",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "runtime/cards/contracts/backend_architecture_spec.json",
+      "kind": "runtime",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "runtime/cards/contracts/backend_feasibility_review.json",
+      "kind": "runtime",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "runtime/cards/contracts/brand_positioning_pass.json",
+      "kind": "runtime",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "runtime/cards/contracts/case_study_rewrite.json",
+      "kind": "runtime",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "runtime/cards/contracts/color_system_spec.json",
+      "kind": "runtime",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "runtime/cards/contracts/component_spec.json",
+      "kind": "runtime",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "runtime/cards/contracts/dashboard_audit.json",
+      "kind": "runtime",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "runtime/cards/contracts/frontend_implementation_review.json",
+      "kind": "runtime",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "runtime/cards/contracts/graphic_critique.json",
+      "kind": "runtime",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "runtime/cards/contracts/layout_reconstruction_plan.json",
+      "kind": "runtime",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "runtime/cards/contracts/pdf_remediation_plan.json",
+      "kind": "runtime",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "runtime/cards/contracts/text_humanization_revision.json",
+      "kind": "runtime",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "runtime/cards/contracts/type_system_recommendation.json",
+      "kind": "runtime",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "runtime/cards/contracts/ui_structure_critique.json",
+      "kind": "runtime",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "runtime/cards/contracts/ux_research_gap_map.json",
+      "kind": "runtime",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "runtime/cards/routes/rt_accessibility_feedback_audit.json",
+      "kind": "runtime",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "runtime/cards/routes/rt_api_reliability_security.json",
+      "kind": "runtime",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "runtime/cards/routes/rt_backend_feasibility.json",
+      "kind": "runtime",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "runtime/cards/routes/rt_backend_systems_architecture.json",
+      "kind": "runtime",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "runtime/cards/routes/rt_brand_positioning.json",
+      "kind": "runtime",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "runtime/cards/routes/rt_case_study_rewrite.json",
+      "kind": "runtime",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "runtime/cards/routes/rt_color_system_spec.json",
+      "kind": "runtime",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "runtime/cards/routes/rt_component_spec.json",
+      "kind": "runtime",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "runtime/cards/routes/rt_dashboard_audit.json",
+      "kind": "runtime",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "runtime/cards/routes/rt_frontend_architecture.json",
+      "kind": "runtime",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "runtime/cards/routes/rt_graphic_critique.json",
+      "kind": "runtime",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "runtime/cards/routes/rt_layout_reconstruction_plan.json",
+      "kind": "runtime",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "runtime/cards/routes/rt_pdf_remediation.json",
+      "kind": "runtime",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "runtime/cards/routes/rt_text_humanization.json",
+      "kind": "runtime",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "runtime/cards/routes/rt_type_system_recommendation.json",
+      "kind": "runtime",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "runtime/cards/routes/rt_ui_structure_critique.json",
+      "kind": "runtime",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "runtime/cards/routes/rt_ux_research_gap_map.json",
+      "kind": "runtime",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "runtime/cards/routes/rt_visual_input.json",
+      "kind": "runtime",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "runtime/loading/hydration_trace_schema.json",
+      "kind": "runtime",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "runtime/loading/token_budget_registry.json",
+      "kind": "runtime",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/indices/runtime_summary_map.json",
+      "kind": "indices",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/indices/source_doc_sections.json",
+      "kind": "indices",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "knowledge-base/indices/source_section_map.json",
+      "kind": "indices",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "libraries/COLOR_LIBRARY.json",
+      "kind": "libraries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "libraries/COLOR_LIBRARY.md",
+      "kind": "libraries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "libraries/FONT_LIBRARY.json",
+      "kind": "libraries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "libraries/FONT_LIBRARY.md",
+      "kind": "libraries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "libraries/PANTONE_LIBRARY.json",
+      "kind": "libraries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "libraries/PANTONE_LIBRARY.md",
+      "kind": "libraries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "projects/designpilot/context/ACTIVE_STATE.md",
+      "kind": "projects",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "projects/designpilot/context/CASE_STUDY_ROADMAP.md",
+      "kind": "projects",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "projects/designpilot/context/PROJECT_OVERVIEW.md",
+      "kind": "projects",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "projects/designpilot/context/TASK_QUEUE.md",
+      "kind": "projects",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "projects/designpilot/context/WORKSPACE_MODE.md",
+      "kind": "projects",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "projects/designpilot/problems_and_solutions/DECISION_LOG.md",
+      "kind": "projects",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "projects/designpilot/problems_and_solutions/PROBLEM_LOG.md",
+      "kind": "projects",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "projects/designpilot/problems_and_solutions/PROJECT_SPECIFIC_ERRORS.md",
+      "kind": "projects",
+      "owner": "pack-maintainer"
+    }
+  ]
+}

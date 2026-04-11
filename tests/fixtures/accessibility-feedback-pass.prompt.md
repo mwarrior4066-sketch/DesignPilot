@@ -1,0 +1,1 @@
+Audit this checkout flow for accessibility. Keyboard users are getting lost after promo code entry, the address error message is not announced, and the fixed footer CTA may be trapping focus on mobile.

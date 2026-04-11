@@ -1,0 +1,1 @@
+Audit this API design for reliability and security. It currently returns 200 with an error field, retries POST exports with no Idempotency-Key, and runs large PDF generations synchronously even when they exceed a minute.

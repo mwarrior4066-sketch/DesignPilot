@@ -4789,14 +4789,14 @@
       ]
     },
     {
-      "file_name": "Architectural Optimization and Structural Synthesis of the Design Expert v8.1 Agentic Operator Pack.md",
+      "file_name": "Architectural Optimization and Structural Synthesis of DesignPilot v8.1 Operator Pack.md",
       "linked_summaries": [
         "architecture-optimization-summary.md"
       ],
       "sections": [
         {
-          "heading": "Architectural Optimization and Structural Synthesis of the Design Expert v8.1 Agentic Operator Pack",
-          "short_description": "Section from Architectural Optimization and Structural Synthesis of the Design Expert v8.1 Agentic Operator Pack.md.",
+          "heading": "Architectural Optimization and Structural Synthesis of DesignPilot v8.1 Operator Pack",
+          "short_description": "Section from Architectural Optimization and Structural Synthesis of DesignPilot v8.1 Operator Pack.md.",
           "linked_summary": [
             "architecture-optimization-summary.md"
           ],
@@ -4829,7 +4829,7 @@
         },
         {
           "heading": "Tiered initialization protocol",
-          "short_description": "Section from Architectural Optimization and Structural Synthesis of the Design Expert v8.1 Agentic Operator Pack.md.",
+          "short_description": "Section from Architectural Optimization and Structural Synthesis of DesignPilot v8.1 Operator Pack.md.",
           "linked_summary": [
             "architecture-optimization-summary.md"
           ],
@@ -4940,14 +4940,14 @@
       ]
     },
     {
-      "file_name": "Back-End Aware Planner for a Modular AI Design Operator Pack.md",
+      "file_name": "Back-End Aware Planner for DesignPilot.md",
       "linked_summaries": [
         "backend-planning-summary.md"
       ],
       "sections": [
         {
-          "heading": "Back-End Aware Planner for a Modular AI Design Operator Pack",
-          "short_description": "Section from Back-End Aware Planner for a Modular AI Design Operator Pack.md.",
+          "heading": "Back-End Aware Planner for DesignPilot",
+          "short_description": "Section from Back-End Aware Planner for DesignPilot.md.",
           "linked_summary": [
             "backend-planning-summary.md"
           ],
@@ -5066,7 +5066,7 @@
         },
         {
           "heading": "Suggested minimal templates for each deliverable file",
-          "short_description": "Section from Back-End Aware Planner for a Modular AI Design Operator Pack.md.",
+          "short_description": "Section from Back-End Aware Planner for DesignPilot.md.",
           "linked_summary": [
             "backend-planning-summary.md"
           ],
@@ -5341,14 +5341,14 @@
       ]
     },
     {
-      "file_name": "Brand Strategy Expert for a Modular AI Design Operator Pack.md",
+      "file_name": "Brand Strategy Expert for DesignPilot.md",
       "linked_summaries": [
         "audience-and-industry-summary.md"
       ],
       "sections": [
         {
-          "heading": "Brand Strategy Expert for a Modular AI Design Operator Pack",
-          "short_description": "Section from Brand Strategy Expert for a Modular AI Design Operator Pack.md.",
+          "heading": "Brand Strategy Expert for DesignPilot",
+          "short_description": "Section from Brand Strategy Expert for DesignPilot.md.",
           "linked_summary": [
             "audience-and-industry-summary.md"
           ],
@@ -5393,7 +5393,7 @@
         },
         {
           "heading": "Core module research pass with rules, thresholds, and test cases",
-          "short_description": "Section from Brand Strategy Expert for a Modular AI Design Operator Pack.md.",
+          "short_description": "Section from Brand Strategy Expert for DesignPilot.md.",
           "linked_summary": [
             "audience-and-industry-summary.md"
           ],
@@ -5678,7 +5678,7 @@
         },
         {
           "heading": "Deliverable file scaffolds",
-          "short_description": "Section from Brand Strategy Expert for a Modular AI Design Operator Pack.md.",
+          "short_description": "Section from Brand Strategy Expert for DesignPilot.md.",
           "linked_summary": [
             "audience-and-industry-summary.md"
           ],
@@ -5693,7 +5693,7 @@
         },
         {
           "heading": "brand-strategy-expert.md",
-          "short_description": "Section from Brand Strategy Expert for a Modular AI Design Operator Pack.md.",
+          "short_description": "Section from Brand Strategy Expert for DesignPilot.md.",
           "linked_summary": [
             "audience-and-industry-summary.md"
           ],
@@ -5783,7 +5783,7 @@
         },
         {
           "heading": "positioning-and-category-rules.md",
-          "short_description": "Section from Brand Strategy Expert for a Modular AI Design Operator Pack.md.",
+          "short_description": "Section from Brand Strategy Expert for DesignPilot.md.",
           "linked_summary": [
             "audience-and-industry-summary.md"
           ],
@@ -5873,7 +5873,7 @@
         },
         {
           "heading": "audience-fit-rules.md",
-          "short_description": "Section from Brand Strategy Expert for a Modular AI Design Operator Pack.md.",
+          "short_description": "Section from Brand Strategy Expert for DesignPilot.md.",
           "linked_summary": [
             "audience-and-industry-summary.md"
           ],
@@ -5963,7 +5963,7 @@
         },
         {
           "heading": "industry-trust-signal-rules.md",
-          "short_description": "Section from Brand Strategy Expert for a Modular AI Design Operator Pack.md.",
+          "short_description": "Section from Brand Strategy Expert for DesignPilot.md.",
           "linked_summary": [
             "audience-and-industry-summary.md"
           ],
@@ -6053,7 +6053,7 @@
         },
         {
           "heading": "brand-vs-interface-rules.md",
-          "short_description": "Section from Brand Strategy Expert for a Modular AI Design Operator Pack.md.",
+          "short_description": "Section from Brand Strategy Expert for DesignPilot.md.",
           "linked_summary": [
             "audience-and-industry-summary.md"
           ],
@@ -6143,7 +6143,7 @@
         },
         {
           "heading": "brand-validation-and-research-gap-rules.md",
-          "short_description": "Section from Brand Strategy Expert for a Modular AI Design Operator Pack.md.",
+          "short_description": "Section from Brand Strategy Expert for DesignPilot.md.",
           "linked_summary": [
             "audience-and-industry-summary.md"
           ],
@@ -6233,7 +6233,7 @@
         },
         {
           "heading": "brand-strategy-test-cases.md",
-          "short_description": "Section from Brand Strategy Expert for a Modular AI Design Operator Pack.md.",
+          "short_description": "Section from Brand Strategy Expert for DesignPilot.md.",
           "linked_summary": [
             "audience-and-industry-summary.md"
           ],
@@ -8808,7 +8808,7 @@
       ],
       "sections": [
         {
-          "heading": "Component Systems Expert Specification for Modular AI Design Operator Pack",
+          "heading": "Component Systems Expert Specification for DesignPilot",
           "short_description": "Section from Component Systems Expert Research.md.",
           "linked_summary": [
             "component-systems-summary.md"
@@ -13974,7 +13974,7 @@
       ],
       "sections": [
         {
-          "heading": "Exception and Failure Taxonomy Expert for Modular AI Design Operator Packs",
+          "heading": "Exception and Failure Taxonomy Expert for DesignPilot",
           "short_description": "Section from Exception and Failure Taxonomy Expert Research.md.",
           "linked_summary": [
             "exception-taxonomy-summary.md"
@@ -14229,7 +14229,7 @@
       ],
       "sections": [
         {
-          "heading": "Architectural Framework for Front-End Handoff and Implementation: The Modular AI Design Operator Pack",
+          "heading": "Architectural Framework for Front-End Handoff and Implementation: DesignPilot",
           "short_description": "The transition of a digital interface from a visual prototype to a high-performance, production-ready application represents a critical inflection point in the software development",
           "linked_summary": [
             "front-end-handoff-summary.md"
@@ -14910,7 +14910,7 @@
         },
         {
           "heading": "A. Condensed Operating Spec",
-          "short_description": "The Modular AI Design Operator Pack operates on a **Closed-Loop Implementation Cycle**.",
+          "short_description": "DesignPilot operates on a **Closed-Loop Implementation Cycle**.",
           "linked_summary": [
             "front-end-handoff-summary.md"
           ],
@@ -17018,14 +17018,14 @@
       ]
     },
     {
-      "file_name": "Strict Graphic Design Expert for a Modular AI Design Operator Pack.md",
+      "file_name": "Strict Graphic Design Expert for DesignPilot.md",
       "linked_summaries": [
         "graphic-design-format-summary.md"
       ],
       "sections": [
         {
-          "heading": "Strict Graphic Design Expert for a Modular AI Design Operator Pack",
-          "short_description": "Section from Strict Graphic Design Expert for a Modular AI Design Operator Pack.md.",
+          "heading": "Strict Graphic Design Expert for DesignPilot",
+          "short_description": "Section from Strict Graphic Design Expert for DesignPilot.md.",
           "linked_summary": [
             "graphic-design-format-summary.md"
           ],
@@ -17370,7 +17370,7 @@
         },
         {
           "heading": "Operating spec and decision tools",
-          "short_description": "Section from Strict Graphic Design Expert for a Modular AI Design Operator Pack.md.",
+          "short_description": "Section from Strict Graphic Design Expert for DesignPilot.md.",
           "linked_summary": [
             "graphic-design-format-summary.md"
           ],

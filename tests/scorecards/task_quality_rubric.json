@@ -1,0 +1,41 @@
+{
+  "scorecard_version": "1.1.0",
+  "pack_version": "2.5.0",
+  "criteria": [
+    {
+      "id": "intent_alignment",
+      "weight": 20,
+      "question": "Did the response resolve the actual ask without drifting?",
+      "pass_threshold": 4
+    },
+    {
+      "id": "actionability",
+      "weight": 20,
+      "question": "Can a designer or maintainer act on this immediately?",
+      "pass_threshold": 4
+    },
+    {
+      "id": "structural_rigor",
+      "weight": 20,
+      "question": "Does the answer show hierarchy, sequence, and route logic?",
+      "pass_threshold": 4
+    },
+    {
+      "id": "evidence_use",
+      "weight": 20,
+      "question": "Are claims linked to thresholds, receipts, or explicit proof types?",
+      "pass_threshold": 4
+    },
+    {
+      "id": "implementation_realism",
+      "weight": 20,
+      "question": "Is the proposal technically and operationally believable?",
+      "pass_threshold": 4
+    }
+  ],
+  "bias_controls": [
+    "penalize verbosity that does not improve actionability",
+    "swap answer order in comparisons when judging baseline vs pack",
+    "ignore references to outside authority unless supported by the artifact itself"
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0.0",
+  "required_fields": [
+    "run_id",
+    "pack_version",
+    "baseline_label",
+    "prompt_id",
+    "run_date",
+    "evaluator_label",
+    "evidence_mode",
+    "scores",
+    "overall_preference",
+    "notes"
+  ],
+  "field_types": {
+    "run_id": "string",
+    "pack_version": "string",
+    "baseline_label": "string",
+    "prompt_id": "string",
+    "run_date": "date",
+    "evaluator_label": "string",
+    "evidence_mode": "enum[live,proxy]",
+    "scores": "object",
+    "overall_preference": "enum[pack,baseline,tie]",
+    "notes": "string"
+  }
+}

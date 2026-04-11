@@ -1,0 +1,3143 @@
+{
+  "schema_version": "1.2.0",
+  "pack_version": "2.5.0",
+  "tasks": [
+    {
+      "task_id": "ui_structure_critique",
+      "title": "UI Structure Critique",
+      "task_group": "audit",
+      "risk_tier": "medium",
+      "data_owner": "ui-system-expert",
+      "freshness_expectation": "same release cycle as routing changes",
+      "allowed_modes": [
+        "AUDIT",
+        "PEER"
+      ],
+      "allowed_phases": [
+        "structure",
+        "ui"
+      ],
+      "required_skills": [
+        "ui-system-expert.md",
+        "grid-system-expert.md"
+      ],
+      "required_sections": [
+        {
+          "name": "Problem framing",
+          "min_words": 25,
+          "rationale": "Sets the user-task and failure frame."
+        },
+        {
+          "name": "Findings",
+          "min_words": 45,
+          "rationale": "Surface real structural failures instead of taste comments."
+        },
+        {
+          "name": "Recommendations",
+          "min_words": 45,
+          "rationale": "Convert critique into concrete structural action."
+        },
+        {
+          "name": "Tradeoffs",
+          "min_words": 20,
+          "rationale": "Show what is preserved and what can flex first."
+        }
+      ],
+      "required_evidence_types": [
+        "task logic",
+        "hierarchy rule",
+        "layout constraint"
+      ],
+      "required_evidence_count": 2,
+      "min_density": 0.42,
+      "require_tradeoff": true,
+      "require_rationale": true,
+      "require_alternatives": false,
+      "citation_schema": "explicit threshold, measurable rule, or [File: Line] reference",
+      "hard_fail_patterns": [
+        "looks great as-is",
+        "just make it prettier",
+        "finalize the UI now"
+      ],
+      "soft_fail_patterns": [
+        "could maybe",
+        "might want to consider"
+      ],
+      "service_level": {
+        "timeliness": "single-pass diagnosis",
+        "accuracy": "must identify the structural issue, not only aesthetic discomfort",
+        "freshness": "use latest system constraints"
+      },
+      "required_decisions": [
+        {
+          "id": "structural_failure",
+          "description": "Names the actual structural failure, not just taste discomfort.",
+          "any_of": [
+            "failing because",
+            "failure",
+            "problem is",
+            "competes",
+            "crowded",
+            "buried",
+            "diluted",
+            "slow first parse",
+            "confusion",
+            "hierarchy"
+          ]
+        },
+        {
+          "id": "hierarchy_winner",
+          "description": "Names what should win the first scan or primary action hierarchy.",
+          "any_of": [
+            "primary",
+            "dominant",
+            "winner",
+            "should win",
+            "first scan",
+            "unambiguous",
+            "priority",
+            "legible",
+            "clarity should win"
+          ]
+        },
+        {
+          "id": "intervention_order",
+          "description": "Shows the order of interventions or ranked rebuild sequence.",
+          "any_of": [
+            "first",
+            "then",
+            "before",
+            "after",
+            "rebuild order",
+            "move",
+            "reduce",
+            "demote",
+            "collapse"
+          ]
+        },
+        {
+          "id": "tradeoff_resolution",
+          "description": "Resolves clarity against another goal instead of keeping all goals equal.",
+          "any_of": [
+            "tradeoff",
+            "rather than",
+            "instead of",
+            "preserve",
+            "sacrifice",
+            "flex first",
+            "clarity should win"
+          ]
+        },
+        {
+          "id": "visual_confidence_boundary",
+          "description": "Names what is directly observed vs inferred when visual input is part of the task.",
+          "any_of": [
+            "confidence",
+            "observed",
+            "inferred",
+            "unverified",
+            "appears",
+            "visible evidence"
+          ]
+        }
+      ],
+      "required_evidence_classes": [
+        {
+          "class_id": "state_or_behavior_rule",
+          "description": "Uses a hierarchy, flow, scan, or behavior rule."
+        },
+        {
+          "class_id": "implementation_constraint",
+          "description": "Uses a real layout or density constraint."
+        },
+        {
+          "class_id": "comparison_artifact",
+          "description": "Names a rejected alternative or competing pattern."
+        },
+        {
+          "class_id": "visual_structure_rule",
+          "description": "Uses a visual-structure rule when the critique is grounded in screenshots or visible layout evidence."
+        }
+      ],
+      "forbidden_shortcuts": [
+        {
+          "id": "cosmetic_cleanup_only",
+          "description": "Cosmetic cleanup cannot stand in for structure.",
+          "patterns": [
+            "make it prettier",
+            "just add whitespace",
+            "looks great as-is",
+            "visual polish only"
+          ]
+        },
+        {
+          "id": "generic_hierarchy_advice",
+          "description": "Generic hierarchy language cannot pass without naming a winner.",
+          "patterns": [
+            "improve hierarchy",
+            "make the cta stronger",
+            "more emphasis everywhere"
+          ]
+        }
+      ],
+      "overclaim_rules": [
+        {
+          "id": "no_fake_validation",
+          "description": "Do not imply validation or proof without receipts.",
+          "forbidden_terms": [
+            "validated",
+            "proven",
+            "confirmed"
+          ],
+          "allowed_if_any": [
+            "benchmark",
+            "threshold",
+            "[file:",
+            "test",
+            "evidence"
+          ]
+        },
+        {
+          "id": "no_claimed_user_testing",
+          "description": "Do not imply user evidence that is not actually present.",
+          "forbidden_terms": [
+            "user-tested",
+            "users proved",
+            "research proved"
+          ],
+          "allowed_if_any": [
+            "interview",
+            "survey",
+            "benchmark",
+            "[file:"
+          ]
+        }
+      ],
+      "task_weight_default": "standard",
+      "supports_lightweight_response": true,
+      "trace_visibility_default": "recoverable"
+    },
+    {
+      "task_id": "component_spec",
+      "title": "Component Specification",
+      "task_group": "spec",
+      "risk_tier": "medium",
+      "data_owner": "component-systems-expert",
+      "freshness_expectation": "same release cycle as component state changes",
+      "allowed_modes": [
+        "REBUILD",
+        "PEER"
+      ],
+      "allowed_phases": [
+        "specs",
+        "ui"
+      ],
+      "required_skills": [
+        "component-systems-expert.md",
+        "front-end-handoff-expert.md"
+      ],
+      "required_sections": [
+        {
+          "name": "Purpose and scope",
+          "min_words": 20,
+          "rationale": "Defines when the component exists and where it stops."
+        },
+        {
+          "name": "Anatomy",
+          "min_words": 25,
+          "rationale": "Names the governed parts."
+        },
+        {
+          "name": "State matrix",
+          "min_words": 35,
+          "rationale": "Shows interaction and edge states."
+        },
+        {
+          "name": "Accessibility and implementation notes",
+          "min_words": 35,
+          "rationale": "Prevents front-end drift."
+        }
+      ],
+      "required_evidence_types": [
+        "state rule",
+        "aria or keyboard rule",
+        "implementation boundary"
+      ],
+      "required_evidence_count": 2,
+      "min_density": 0.4,
+      "require_tradeoff": false,
+      "require_rationale": true,
+      "require_alternatives": true,
+      "citation_schema": "token, prop, state, or [File: Line] reference",
+      "hard_fail_patterns": [
+        "states TBD",
+        "accessibility later"
+      ],
+      "soft_fail_patterns": [
+        "basic component",
+        "simple usage"
+      ],
+      "service_level": {
+        "timeliness": "spec should be implementable in one pass",
+        "accuracy": "state logic must be explicit",
+        "freshness": "must reflect latest design-system decisions"
+      },
+      "required_decisions": [
+        {
+          "id": "component_boundary",
+          "description": "Defines what the component owns and what remains outside it.",
+          "any_of": [
+            "scope",
+            "owns",
+            "does not own",
+            "boundary",
+            "outside",
+            "purpose"
+          ]
+        },
+        {
+          "id": "state_coverage",
+          "description": "Makes state coverage explicit rather than implied.",
+          "any_of": [
+            "state",
+            "default",
+            "hover",
+            "focus",
+            "disabled",
+            "error",
+            "loading",
+            "selected"
+          ]
+        },
+        {
+          "id": "accessibility_behavior",
+          "description": "Names keyboard, focus, aria, or announcement behavior.",
+          "any_of": [
+            "keyboard",
+            "focus",
+            "aria",
+            "screen reader",
+            "announce",
+            "tab order"
+          ]
+        },
+        {
+          "id": "implementation_boundary",
+          "description": "Shows a token, prop, or implementation constraint.",
+          "any_of": [
+            "token",
+            "prop",
+            "variant",
+            "implementation",
+            "boundary",
+            "do not hardcode"
+          ]
+        }
+      ],
+      "required_evidence_classes": [
+        {
+          "class_id": "state_or_behavior_rule",
+          "description": "Uses explicit state or behavior rules."
+        },
+        {
+          "class_id": "implementation_constraint",
+          "description": "Uses component, token, or boundary constraints."
+        },
+        {
+          "class_id": "standards_reference",
+          "description": "Uses aria, keyboard, or accessibility guidance when behavior depends on it."
+        }
+      ],
+      "forbidden_shortcuts": [
+        {
+          "id": "state_tbd",
+          "description": "State logic cannot be deferred.",
+          "patterns": [
+            "states tbd",
+            "state later",
+            "states later"
+          ]
+        },
+        {
+          "id": "accessibility_later",
+          "description": "Accessibility cannot be postponed.",
+          "patterns": [
+            "accessibility later",
+            "keyboard later",
+            "aria later"
+          ]
+        }
+      ],
+      "overclaim_rules": [
+        {
+          "id": "no_unearned_reusability",
+          "description": "Do not call the component reusable without state-safe boundaries.",
+          "forbidden_terms": [
+            "fully reusable",
+            "production-ready"
+          ],
+          "allowed_if_any": [
+            "state matrix",
+            "variant",
+            "prop",
+            "token"
+          ]
+        }
+      ],
+      "task_weight_default": "standard",
+      "supports_lightweight_response": true,
+      "trace_visibility_default": "recoverable"
+    },
+    {
+      "task_id": "dashboard_audit",
+      "title": "Dashboard Audit",
+      "task_group": "audit",
+      "risk_tier": "high",
+      "data_owner": "dashboard-data-expert",
+      "freshness_expectation": "same release cycle as KPI or data-source changes",
+      "allowed_modes": [
+        "AUDIT",
+        "PEER"
+      ],
+      "allowed_phases": [
+        "strategy",
+        "structure",
+        "ui"
+      ],
+      "required_skills": [
+        "dashboard-data-expert.md",
+        "ui-system-expert.md"
+      ],
+      "required_sections": [
+        {
+          "name": "Dashboard role",
+          "min_words": 20,
+          "rationale": "Classifies the view correctly."
+        },
+        {
+          "name": "Key failures",
+          "min_words": 45,
+          "rationale": "Names priority issues in hierarchy, density, and interpretation."
+        },
+        {
+          "name": "Evidence and rationale",
+          "min_words": 35,
+          "rationale": "Links recommendations to signal quality, KPI logic, or usage risk."
+        },
+        {
+          "name": "Recommended rebuild path",
+          "min_words": 35,
+          "rationale": "Shows the order of correction."
+        }
+      ],
+      "required_evidence_types": [
+        "KPI hierarchy",
+        "density rule",
+        "chart-choice logic"
+      ],
+      "required_evidence_count": 3,
+      "min_density": 0.44,
+      "require_tradeoff": true,
+      "require_rationale": true,
+      "require_alternatives": true,
+      "citation_schema": "metric, threshold, benchmark score, or [File: Line] reference",
+      "hard_fail_patterns": [
+        "add more charts",
+        "show everything above the fold"
+      ],
+      "soft_fail_patterns": [
+        "clean up visually"
+      ],
+      "service_level": {
+        "timeliness": "must prioritize within one page",
+        "accuracy": "cannot misclassify operational vs executive dashboards",
+        "freshness": "must note current data assumptions"
+      },
+      "required_decisions": [
+        {
+          "id": "dashboard_type",
+          "description": "Classifies the dashboard role or user context.",
+          "any_of": [
+            "operational",
+            "executive",
+            "monitoring",
+            "analytical",
+            "dashboard role",
+            "overview"
+          ]
+        },
+        {
+          "id": "kpi_priority",
+          "description": "Names the KPI or first-scan hierarchy winner.",
+          "any_of": [
+            "kpi",
+            "metric",
+            "first",
+            "priority",
+            "above the fold",
+            "scan time",
+            "overview"
+          ]
+        },
+        {
+          "id": "density_strategy",
+          "description": "Explains what should be compressed, grouped, or deferred.",
+          "any_of": [
+            "density",
+            "group",
+            "defer",
+            "scan time",
+            "cluster",
+            "progressive disclosure"
+          ]
+        },
+        {
+          "id": "drilldown_or_filter_logic",
+          "description": "Names filter, drill-down, or chart-choice logic.",
+          "any_of": [
+            "filter",
+            "drill-down",
+            "chart",
+            "table",
+            "trend",
+            "compare"
+          ]
+        },
+        {
+          "id": "visual_confidence_boundary",
+          "description": "Names what is directly observed vs inferred when visual input is part of the task.",
+          "any_of": [
+            "confidence",
+            "observed",
+            "inferred",
+            "unverified",
+            "appears",
+            "visible evidence"
+          ]
+        }
+      ],
+      "required_evidence_classes": [
+        {
+          "class_id": "state_or_behavior_rule",
+          "description": "Uses scan, interaction, or behavioral rules."
+        },
+        {
+          "class_id": "measurable_threshold",
+          "description": "Uses KPI, threshold, or metric logic."
+        },
+        {
+          "class_id": "comparison_artifact",
+          "description": "Compares chart or layout alternatives."
+        },
+        {
+          "class_id": "visual_structure_rule",
+          "description": "Uses a visual-structure rule when the critique is grounded in screenshots or visible layout evidence."
+        }
+      ],
+      "forbidden_shortcuts": [
+        {
+          "id": "more_charts",
+          "description": "Adding more charts is not a hierarchy strategy.",
+          "patterns": [
+            "add more charts",
+            "show everything above the fold"
+          ]
+        },
+        {
+          "id": "visual_cleanup_only",
+          "description": "Visual cleanup cannot replace KPI logic.",
+          "patterns": [
+            "clean up visually",
+            "make it look modern"
+          ]
+        }
+      ],
+      "overclaim_rules": [
+        {
+          "id": "no_fake_performance_claims",
+          "description": "Do not claim efficiency gains without real metric logic.",
+          "forbidden_terms": [
+            "validated dashboard",
+            "proven dashboard"
+          ],
+          "allowed_if_any": [
+            "metric",
+            "benchmark",
+            "threshold",
+            "[file:"
+          ]
+        }
+      ],
+      "task_weight_default": "standard",
+      "supports_lightweight_response": true,
+      "trace_visibility_default": "recoverable"
+    },
+    {
+      "task_id": "backend_feasibility_review",
+      "title": "Back-End Feasibility Review",
+      "task_group": "strategy",
+      "risk_tier": "high",
+      "data_owner": "back-end-aware-planner",
+      "freshness_expectation": "same release cycle as auth or storage changes",
+      "allowed_modes": [
+        "AUDIT",
+        "PEER",
+        "STRUCTURE"
+      ],
+      "allowed_phases": [
+        "strategy",
+        "specs"
+      ],
+      "required_skills": [
+        "back-end-aware-planner.md",
+        "front-end-handoff-expert.md"
+      ],
+      "required_sections": [
+        {
+          "name": "Requested capability",
+          "min_words": 20,
+          "rationale": "States the visible ask and hidden system implications."
+        },
+        {
+          "name": "Hidden system requirements",
+          "min_words": 45,
+          "rationale": "Maps UI ask to auth, storage, exports, or APIs."
+        },
+        {
+          "name": "Feasibility assessment",
+          "min_words": 35,
+          "rationale": "Calls out blockers, assumptions, and sequencing."
+        },
+        {
+          "name": "Safer implementation path",
+          "min_words": 35,
+          "rationale": "Shows a realistic build order."
+        }
+      ],
+      "required_evidence_types": [
+        "auth rule",
+        "data model need",
+        "integration risk"
+      ],
+      "required_evidence_count": 3,
+      "min_density": 0.43,
+      "require_tradeoff": true,
+      "require_rationale": true,
+      "require_alternatives": true,
+      "citation_schema": "endpoint, schema field, permission rule, or [File: Line] reference",
+      "hard_fail_patterns": [
+        "purely visual change",
+        "no backend impact"
+      ],
+      "soft_fail_patterns": [
+        "should be straightforward"
+      ],
+      "service_level": {
+        "timeliness": "must expose hidden architecture within one response",
+        "accuracy": "must not hand-wave security or export implications",
+        "freshness": "use latest stack assumptions"
+      },
+      "required_decisions": [
+        {
+          "id": "data_dependency",
+          "description": "Names data model, schema, ownership, or retention implications.",
+          "any_of": [
+            "data model",
+            "schema",
+            "ownership",
+            "record",
+            "field",
+            "tenant",
+            "membership",
+            "retention",
+            "object"
+          ]
+        },
+        {
+          "id": "permissions_dependency",
+          "description": "Names auth, role, or access control implications.",
+          "any_of": [
+            "auth",
+            "permission",
+            "role",
+            "access",
+            "invite",
+            "revocation",
+            "approval"
+          ]
+        },
+        {
+          "id": "system_surface_dependency",
+          "description": "Names storage, export, api, event, or realtime implications.",
+          "any_of": [
+            "storage",
+            "export",
+            "api",
+            "event",
+            "realtime",
+            "polling",
+            "webhook",
+            "queue"
+          ]
+        },
+        {
+          "id": "blocking_constraint",
+          "description": "Names what blocks naive implementation or what must come first.",
+          "any_of": [
+            "only if",
+            "cannot",
+            "blocked",
+            "constraint",
+            "before",
+            "first",
+            "expensive to reverse",
+            "safer path"
+          ]
+        }
+      ],
+      "required_evidence_classes": [
+        {
+          "class_id": "permission_rule",
+          "description": "Uses a permission, auth, or ownership rule."
+        },
+        {
+          "class_id": "data_model_dependency",
+          "description": "Uses schema, ownership, or data dependency logic."
+        },
+        {
+          "class_id": "implementation_constraint",
+          "description": "Uses integration, sequencing, or system constraints."
+        }
+      ],
+      "forbidden_shortcuts": [
+        {
+          "id": "visual_only_reframe",
+          "description": "The task cannot be reframed as visual-only.",
+          "patterns": [
+            "purely visual change",
+            "no backend impact",
+            "front-end only"
+          ]
+        },
+        {
+          "id": "handwave_feasibility",
+          "description": "Feasibility cannot be waved through.",
+          "patterns": [
+            "should be straightforward",
+            "easy backend task"
+          ]
+        }
+      ],
+      "overclaim_rules": [
+        {
+          "id": "no_security_overclaim",
+          "description": "Do not imply safety or scalability without actual constraints.",
+          "forbidden_terms": [
+            "secure by default",
+            "scales automatically"
+          ],
+          "allowed_if_any": [
+            "permission",
+            "audit",
+            "retention",
+            "queue",
+            "limit",
+            "[file:"
+          ]
+        }
+      ],
+      "task_weight_default": "compound",
+      "supports_lightweight_response": false,
+      "trace_visibility_default": "recoverable"
+    },
+    {
+      "task_id": "pdf_remediation_plan",
+      "title": "PDF Remediation Plan",
+      "task_group": "rebuild",
+      "risk_tier": "high",
+      "data_owner": "document-accessibility-expert",
+      "freshness_expectation": "same release cycle as remediation tooling or standards changes",
+      "allowed_modes": [
+        "AUDIT",
+        "REBUILD",
+        "PEER"
+      ],
+      "allowed_phases": [
+        "structure",
+        "specs",
+        "implementation"
+      ],
+      "required_skills": [
+        "document-accessibility-expert.md",
+        "pdf-layout-expert.md"
+      ],
+      "required_sections": [
+        {
+          "name": "Current failure state",
+          "min_words": 25,
+          "rationale": "Names the real accessibility/document integrity problem."
+        },
+        {
+          "name": "Remediation sequence",
+          "min_words": 45,
+          "rationale": "Orders the steps so semantics are preserved."
+        },
+        {
+          "name": "Verification checks",
+          "min_words": 35,
+          "rationale": "Shows how success is confirmed."
+        },
+        {
+          "name": "Risk controls",
+          "min_words": 25,
+          "rationale": "Prevents destructive edits and copy-paste damage."
+        }
+      ],
+      "required_evidence_types": [
+        "tagging rule",
+        "reading-order rule",
+        "verification method"
+      ],
+      "required_evidence_count": 3,
+      "min_density": 0.45,
+      "require_tradeoff": true,
+      "require_rationale": true,
+      "require_alternatives": false,
+      "citation_schema": "standard, extraction check, or [File: Line] reference",
+      "hard_fail_patterns": [
+        "flatten the pdf",
+        "rasterize the page",
+        "just use OCR only"
+      ],
+      "soft_fail_patterns": [
+        "make it accessible somehow"
+      ],
+      "service_level": {
+        "timeliness": "must preserve existing document integrity",
+        "accuracy": "must separate cosmetic from semantic fixes",
+        "freshness": "must note current remediation assumptions"
+      },
+      "required_decisions": [
+        {
+          "id": "semantic_failure",
+          "description": "Names structure, tagging, or semantic failure state.",
+          "any_of": [
+            "semantically broken",
+            "structure tree",
+            "tag",
+            "artifact",
+            "header association",
+            "semantic"
+          ]
+        },
+        {
+          "id": "reading_order_or_extraction",
+          "description": "Names reading-order or extraction fidelity concerns.",
+          "any_of": [
+            "reading order",
+            "sequence",
+            "copy-paste",
+            "extraction",
+            "unicode",
+            "ligature",
+            "text layer"
+          ]
+        },
+        {
+          "id": "verification_method",
+          "description": "Defines how remediation success is checked.",
+          "any_of": [
+            "verify",
+            "verification",
+            "check",
+            "screen reader",
+            "extract",
+            "copy-paste",
+            "inspect"
+          ]
+        },
+        {
+          "id": "destructive_shortcut_rejected",
+          "description": "Rejects flattening, rasterizing, or OCR-first shortcuts.",
+          "any_of": [
+            "do not flatten",
+            "rasterize",
+            "ocr",
+            "destructive",
+            "preserve"
+          ]
+        }
+      ],
+      "required_evidence_classes": [
+        {
+          "class_id": "standards_reference",
+          "description": "Uses tagging, accessibility, or document standards references."
+        },
+        {
+          "class_id": "verification_method",
+          "description": "Uses explicit verification checks."
+        },
+        {
+          "class_id": "implementation_constraint",
+          "description": "Uses preservation and sequencing constraints."
+        }
+      ],
+      "forbidden_shortcuts": [
+        {
+          "id": "destructive_repair",
+          "description": "Destructive repair cannot be the main fix.",
+          "patterns": [
+            "flatten the pdf",
+            "rasterize the page",
+            "just use ocr only"
+          ]
+        },
+        {
+          "id": "semantic_blur",
+          "description": "The plan cannot blur semantics into visual cleanup.",
+          "patterns": [
+            "make it accessible somehow",
+            "looks correct visually so it is fine"
+          ]
+        }
+      ],
+      "overclaim_rules": [
+        {
+          "id": "no_compliance_overclaim",
+          "description": "Do not call the file compliant or accessible without verification.",
+          "forbidden_terms": [
+            "compliant",
+            "accessible",
+            "pdf/ua ready"
+          ],
+          "allowed_if_any": [
+            "verification",
+            "check",
+            "screen reader",
+            "extract",
+            "[file:"
+          ]
+        }
+      ],
+      "task_weight_default": "compound",
+      "supports_lightweight_response": false,
+      "trace_visibility_default": "recoverable"
+    },
+    {
+      "task_id": "brand_positioning_pass",
+      "title": "Brand Positioning Pass",
+      "task_group": "strategy",
+      "risk_tier": "medium",
+      "data_owner": "brand-strategy-expert",
+      "freshness_expectation": "same release cycle as audience or market evidence changes",
+      "allowed_modes": [
+        "AUDIT",
+        "REBUILD",
+        "PEER"
+      ],
+      "allowed_phases": [
+        "strategy",
+        "communication"
+      ],
+      "required_skills": [
+        "brand-strategy-expert.md",
+        "content-and-case-study-expert.md"
+      ],
+      "required_sections": [
+        {
+          "name": "Audience and problem",
+          "min_words": 25,
+          "rationale": "Anchors brand to a real segment and pain."
+        },
+        {
+          "name": "Positioning frame",
+          "min_words": 35,
+          "rationale": "Shows category, alternative, and wedge."
+        },
+        {
+          "name": "Trust and proof burden",
+          "min_words": 30,
+          "rationale": "Prevents adjective-only branding."
+        },
+        {
+          "name": "Messaging consequences",
+          "min_words": 25,
+          "rationale": "Translates strategy into language behavior."
+        }
+      ],
+      "required_evidence_types": [
+        "segment proof",
+        "differentiation logic",
+        "trust signal"
+      ],
+      "required_evidence_count": 2,
+      "min_density": 0.4,
+      "require_tradeoff": true,
+      "require_rationale": true,
+      "require_alternatives": true,
+      "citation_schema": "segment fact, proof artifact, or [File: Line] reference",
+      "hard_fail_patterns": [
+        "best-in-class brand",
+        "premium modern innovative"
+      ],
+      "soft_fail_patterns": [
+        "strong brand presence"
+      ],
+      "service_level": {
+        "timeliness": "should resolve who it is for and why now",
+        "accuracy": "must avoid unsupported superiority claims",
+        "freshness": "should reflect current audience evidence"
+      },
+      "required_decisions": [
+        {
+          "id": "audience_frame",
+          "description": "Names the segment and the problem or perception gap.",
+          "any_of": [
+            "audience",
+            "segment",
+            "for",
+            "buyer",
+            "customer",
+            "problem",
+            "perception gap"
+          ]
+        },
+        {
+          "id": "differentiation_frame",
+          "description": "Names what alternative the brand is being positioned against.",
+          "any_of": [
+            "against",
+            "alternative",
+            "category",
+            "differentiate",
+            "frame of reference",
+            "not just"
+          ]
+        },
+        {
+          "id": "trust_logic",
+          "description": "Names the trust signal or proof burden.",
+          "any_of": [
+            "trust",
+            "proof",
+            "credibility",
+            "signal",
+            "receipt",
+            "evidence"
+          ]
+        },
+        {
+          "id": "messaging_consequence",
+          "description": "Translates the strategy into message or tone behavior.",
+          "any_of": [
+            "message",
+            "messaging",
+            "tone",
+            "language",
+            "should sound",
+            "consequence"
+          ]
+        }
+      ],
+      "required_evidence_classes": [
+        {
+          "class_id": "comparison_artifact",
+          "description": "Uses alternative, category, or competitor comparison logic."
+        },
+        {
+          "class_id": "file_backed_receipt",
+          "description": "Uses a proof artifact, signal, or file-backed receipt when available."
+        },
+        {
+          "class_id": "implementation_constraint",
+          "description": "Uses a real constraint such as trust, usability, or category convention."
+        }
+      ],
+      "forbidden_shortcuts": [
+        {
+          "id": "adjective_stack",
+          "description": "Adjective stacks cannot stand in for positioning.",
+          "patterns": [
+            "best-in-class brand",
+            "premium modern innovative",
+            "strong brand presence"
+          ]
+        },
+        {
+          "id": "tone_without_audience",
+          "description": "Tone advice cannot float without audience logic.",
+          "patterns": [
+            "cool tone",
+            "make it feel premium"
+          ]
+        }
+      ],
+      "overclaim_rules": [
+        {
+          "id": "no_market_superiority",
+          "description": "Do not imply superiority without real proof.",
+          "forbidden_terms": [
+            "best",
+            "leading",
+            "category-defining"
+          ],
+          "allowed_if_any": [
+            "segment",
+            "evidence",
+            "benchmark",
+            "[file:"
+          ]
+        }
+      ],
+      "task_weight_default": "standard",
+      "supports_lightweight_response": true,
+      "trace_visibility_default": "recoverable"
+    },
+    {
+      "task_id": "case_study_rewrite",
+      "title": "Case Study Rewrite",
+      "task_group": "rebuild",
+      "risk_tier": "medium",
+      "data_owner": "content-and-case-study-expert",
+      "freshness_expectation": "same release cycle as new proof artifacts",
+      "allowed_modes": [
+        "REBUILD",
+        "STRUCTURE",
+        "PEER"
+      ],
+      "allowed_phases": [
+        "communication",
+        "case-study"
+      ],
+      "required_skills": [
+        "content-and-case-study-expert.md"
+      ],
+      "required_sections": [
+        {
+          "name": "Problem",
+          "min_words": 25,
+          "rationale": "Names the original problem and stakes."
+        },
+        {
+          "name": "Process",
+          "min_words": 35,
+          "rationale": "Shows what was actually done, not generic steps."
+        },
+        {
+          "name": "Solution",
+          "min_words": 35,
+          "rationale": "Explains the rebuilt logic or artifact."
+        },
+        {
+          "name": "Outcome and proof",
+          "min_words": 35,
+          "rationale": "Links claims to evidence and open gaps."
+        }
+      ],
+      "required_evidence_types": [
+        "comparison artifact",
+        "measured outcome or proxy",
+        "claim-to-proof link"
+      ],
+      "required_evidence_count": 2,
+      "min_density": 0.4,
+      "require_tradeoff": true,
+      "require_rationale": true,
+      "require_alternatives": false,
+      "citation_schema": "metric, quote, benchmark score, or [File: Line] reference",
+      "hard_fail_patterns": [
+        "findings only",
+        "this case study shows my passion"
+      ],
+      "soft_fail_patterns": [
+        "storytelling only"
+      ],
+      "service_level": {
+        "timeliness": "must surface the rebuilt structure first",
+        "accuracy": "cannot imply validation beyond the evidence",
+        "freshness": "must reflect latest proof state"
+      },
+      "required_decisions": [
+        {
+          "id": "claim_vs_proof_boundary",
+          "description": "Separates the project claim from the available proof.",
+          "any_of": [
+            "claim",
+            "proof",
+            "evidence",
+            "what remains open",
+            "not yet",
+            "gap"
+          ]
+        },
+        {
+          "id": "proxy_vs_measured",
+          "description": "Distinguishes proxy or internal proof from measured or external proof.",
+          "any_of": [
+            "proxy",
+            "measured",
+            "benchmark",
+            "internal",
+            "external",
+            "confidence artifact"
+          ]
+        },
+        {
+          "id": "narrative_order",
+          "description": "Explains the structural order or why it changed.",
+          "any_of": [
+            "lead with",
+            "then",
+            "order",
+            "structure",
+            "rebuild",
+            "moved"
+          ]
+        },
+        {
+          "id": "honesty_tradeoff",
+          "description": "Resolves narrative smoothness against evidentiary honesty.",
+          "any_of": [
+            "tradeoff",
+            "honesty",
+            "smoothness",
+            "rather than",
+            "instead of",
+            "wins"
+          ]
+        }
+      ],
+      "required_evidence_classes": [
+        {
+          "class_id": "comparison_artifact",
+          "description": "Uses benchmark, before/after, or alternative comparison logic."
+        },
+        {
+          "class_id": "narrative_proof_boundary",
+          "description": "Uses explicit claim-to-proof boundary language."
+        },
+        {
+          "class_id": "file_backed_receipt",
+          "description": "Uses benchmark files, maps, or proof artifacts when available."
+        }
+      ],
+      "forbidden_shortcuts": [
+        {
+          "id": "storytelling_only",
+          "description": "Storytelling cannot replace proof calibration.",
+          "patterns": [
+            "storytelling only",
+            "portfolio polish only",
+            "this shows my passion"
+          ]
+        },
+        {
+          "id": "findings_without_rebuild",
+          "description": "A findings-only rewrite does not satisfy the task.",
+          "patterns": [
+            "findings only",
+            "just summarize"
+          ]
+        }
+      ],
+      "overclaim_rules": [
+        {
+          "id": "no_external_validation_claim",
+          "description": "Do not imply external validation without external artifacts.",
+          "forbidden_terms": [
+            "validated",
+            "proven in production",
+            "externally validated"
+          ],
+          "allowed_if_any": [
+            "external",
+            "reviewer",
+            "benchmark",
+            "confidence artifact",
+            "[file:"
+          ]
+        }
+      ],
+      "task_weight_default": "standard",
+      "supports_lightweight_response": true,
+      "trace_visibility_default": "recoverable"
+    },
+    {
+      "task_id": "accessibility_feedback_audit",
+      "title": "Accessibility Feedback Audit",
+      "task_group": "audit",
+      "risk_tier": "high",
+      "data_owner": "accessibility-feedback-expert",
+      "freshness_expectation": "same release cycle as interaction pattern changes",
+      "allowed_modes": [
+        "AUDIT",
+        "PEER"
+      ],
+      "allowed_phases": [
+        "accessibility",
+        "ui"
+      ],
+      "required_skills": [
+        "accessibility-feedback-expert.md",
+        "ui-system-expert.md"
+      ],
+      "required_sections": [
+        {
+          "name": "Access failure framing",
+          "min_words": 25,
+          "rationale": "Name the blocked user action or assistive-tech failure."
+        },
+        {
+          "name": "Barrier inventory",
+          "min_words": 45,
+          "rationale": "List concrete barriers, not generic usability discomfort."
+        },
+        {
+          "name": "Repair priorities",
+          "min_words": 45,
+          "rationale": "Turn findings into an ordered fix plan."
+        },
+        {
+          "name": "Verification method",
+          "min_words": 25,
+          "rationale": "Show how the fix will be verified."
+        }
+      ],
+      "required_evidence_types": [
+        "standards rule",
+        "interaction behavior",
+        "verification method"
+      ],
+      "required_evidence_count": 2,
+      "min_density": 0.41,
+      "require_tradeoff": true,
+      "require_rationale": true,
+      "require_alternatives": false,
+      "citation_schema": "WCAG/APCA rule, keyboard/focus behavior, or [File: Line] receipt",
+      "hard_fail_patterns": [
+        "accessibility later",
+        "screen reader later",
+        "just make focus blue"
+      ],
+      "soft_fail_patterns": [
+        "probably accessible",
+        "seems fine"
+      ],
+      "service_level": {
+        "timeliness": "single-pass accessibility diagnosis",
+        "accuracy": "must name the blocked behavior, not only visual discomfort",
+        "freshness": "must reflect current interaction pattern rules"
+      },
+      "required_decisions": [
+        {
+          "id": "blocked_user_action",
+          "description": "Names the blocked or degraded user action.",
+          "any_of": [
+            "blocked",
+            "cannot",
+            "fails when",
+            "focus",
+            "keyboard",
+            "screen reader",
+            "announcement",
+            "trap",
+            "skip"
+          ]
+        },
+        {
+          "id": "priority_order",
+          "description": "Shows what should be fixed first.",
+          "any_of": [
+            "first",
+            "then",
+            "priority",
+            "highest-risk",
+            "before",
+            "repair order"
+          ]
+        },
+        {
+          "id": "behavior_rule",
+          "description": "Names the behavior rule, not only the visual preference.",
+          "any_of": [
+            "tab order",
+            "focus",
+            "aria",
+            "announcement",
+            "label",
+            "error state",
+            "keyboard",
+            "screen reader"
+          ]
+        },
+        {
+          "id": "verification_step",
+          "description": "Explains how to verify the repair.",
+          "any_of": [
+            "verify",
+            "test",
+            "check",
+            "screen reader",
+            "keyboard only",
+            "inspect",
+            "axe",
+            "copy of state"
+          ]
+        }
+      ],
+      "required_evidence_classes": [
+        {
+          "class_id": "standards_reference",
+          "description": "Uses WCAG, APCA, ARIA, or accessibility semantics."
+        },
+        {
+          "class_id": "state_or_behavior_rule",
+          "description": "Uses focus, keyboard, or state behavior rules."
+        },
+        {
+          "class_id": "verification_method",
+          "description": "Names how the repair will be tested."
+        }
+      ],
+      "forbidden_shortcuts": [
+        {
+          "id": "defer_accessibility",
+          "description": "Accessibility cannot be postponed until later.",
+          "patterns": [
+            "accessibility later",
+            "screen reader later",
+            "keyboard later"
+          ]
+        },
+        {
+          "id": "paint_only_fix",
+          "description": "Color-only fixes cannot stand in for semantic repair.",
+          "patterns": [
+            "just make focus blue",
+            "increase contrast only",
+            "change the color and it is fixed"
+          ]
+        }
+      ],
+      "overclaim_rules": [
+        {
+          "id": "no_claimed_compliance",
+          "description": "Do not claim compliance without a standard or test receipt.",
+          "forbidden_terms": [
+            "wcag compliant",
+            "accessible",
+            "fully accessible",
+            "validated"
+          ],
+          "allowed_if_any": [
+            "wcag",
+            "apca",
+            "test",
+            "verify",
+            "screen reader",
+            "benchmark",
+            "[file:"
+          ]
+        }
+      ],
+      "task_weight_default": "standard",
+      "supports_lightweight_response": true,
+      "trace_visibility_default": "recoverable"
+    },
+    {
+      "task_id": "color_system_spec",
+      "title": "Color System Specification",
+      "task_group": "spec",
+      "risk_tier": "medium",
+      "data_owner": "color-system-expert",
+      "freshness_expectation": "same release cycle as theme or semantic-role changes",
+      "allowed_modes": [
+        "REBUILD",
+        "PEER"
+      ],
+      "allowed_phases": [
+        "tokens",
+        "ui"
+      ],
+      "required_skills": [
+        "color-system-expert.md",
+        "accessibility-feedback-expert.md"
+      ],
+      "required_sections": [
+        {
+          "name": "Role model",
+          "min_words": 25,
+          "rationale": "Defines semantic color roles instead of a loose palette."
+        },
+        {
+          "name": "Token map",
+          "min_words": 40,
+          "rationale": "Maps roles to tokens, aliases, or state usage."
+        },
+        {
+          "name": "Contrast and state rules",
+          "min_words": 35,
+          "rationale": "Prevents color-only semantics and contrast drift."
+        },
+        {
+          "name": "Migration notes",
+          "min_words": 25,
+          "rationale": "Shows how to move from the current palette safely."
+        }
+      ],
+      "required_evidence_types": [
+        "semantic role",
+        "contrast threshold",
+        "state rule"
+      ],
+      "required_evidence_count": 2,
+      "min_density": 0.41,
+      "require_tradeoff": true,
+      "require_rationale": true,
+      "require_alternatives": true,
+      "citation_schema": "token role, contrast threshold, state rule, or [File: Line] receipt",
+      "hard_fail_patterns": [
+        "pick nicer colors",
+        "brand color everywhere",
+        "palette only"
+      ],
+      "soft_fail_patterns": [
+        "could feel fresher",
+        "more vibrant maybe"
+      ],
+      "service_level": {
+        "timeliness": "single-pass semantic role spec",
+        "accuracy": "must separate palette taste from role behavior",
+        "freshness": "must reflect current theme and status usage"
+      },
+      "required_decisions": [
+        {
+          "id": "semantic_roles",
+          "description": "Defines role ownership such as surface, text, status, action, or chart roles.",
+          "any_of": [
+            "role",
+            "surface",
+            "text",
+            "action",
+            "status",
+            "chart",
+            "semantic",
+            "alias"
+          ]
+        },
+        {
+          "id": "state_mapping",
+          "description": "Maps roles to states or interaction use.",
+          "any_of": [
+            "hover",
+            "focus",
+            "disabled",
+            "error",
+            "warning",
+            "success",
+            "selected",
+            "state"
+          ]
+        },
+        {
+          "id": "contrast_boundary",
+          "description": "Names contrast or non-color fallback requirements.",
+          "any_of": [
+            "contrast",
+            "4.5:1",
+            "apca",
+            "non-color",
+            "icon and label",
+            "pairing"
+          ]
+        },
+        {
+          "id": "migration_strategy",
+          "description": "Shows how existing colors migrate into the new role model.",
+          "any_of": [
+            "migrate",
+            "alias",
+            "deprecate",
+            "replace",
+            "token map",
+            "phase out"
+          ]
+        }
+      ],
+      "required_evidence_classes": [
+        {
+          "class_id": "implementation_constraint",
+          "description": "Uses token, alias, or theme-boundary constraints."
+        },
+        {
+          "class_id": "measurable_threshold",
+          "description": "Uses contrast thresholds or measurable limits."
+        },
+        {
+          "class_id": "comparison_artifact",
+          "description": "Names a rejected palette-only alternative or previous state."
+        }
+      ],
+      "forbidden_shortcuts": [
+        {
+          "id": "palette_without_roles",
+          "description": "A color list without semantic roles cannot pass.",
+          "patterns": [
+            "pick nicer colors",
+            "palette only",
+            "brand color everywhere"
+          ]
+        },
+        {
+          "id": "color_only_state",
+          "description": "Status meaning cannot rely on color alone.",
+          "patterns": [
+            "use red and green only",
+            "the color itself explains it"
+          ]
+        }
+      ],
+      "overclaim_rules": [
+        {
+          "id": "no_fake_accessibility",
+          "description": "Do not call the color system accessible without thresholds or fallback rules.",
+          "forbidden_terms": [
+            "accessible palette",
+            "wcag compliant",
+            "validated color system"
+          ],
+          "allowed_if_any": [
+            "4.5:1",
+            "apca",
+            "contrast",
+            "non-color",
+            "test",
+            "[file:"
+          ]
+        }
+      ],
+      "task_weight_default": "standard",
+      "supports_lightweight_response": true,
+      "trace_visibility_default": "recoverable"
+    },
+    {
+      "task_id": "graphic_critique",
+      "title": "Graphic Critique",
+      "task_group": "audit",
+      "risk_tier": "medium",
+      "data_owner": "graphic-design-expert",
+      "freshness_expectation": "same release cycle as campaign or editorial artifact changes",
+      "allowed_modes": [
+        "AUDIT",
+        "PEER"
+      ],
+      "allowed_phases": [
+        "brand",
+        "communication"
+      ],
+      "required_skills": [
+        "graphic-design-expert.md",
+        "type-system-expert.md"
+      ],
+      "required_sections": [
+        {
+          "name": "Communication goal",
+          "min_words": 20,
+          "rationale": "Defines what the artifact needs to communicate first."
+        },
+        {
+          "name": "Composition failures",
+          "min_words": 45,
+          "rationale": "Names focal, hierarchy, or distance-legibility failures."
+        },
+        {
+          "name": "Rebuild moves",
+          "min_words": 45,
+          "rationale": "Turns critique into compositional action."
+        },
+        {
+          "name": "Distance and emphasis tradeoff",
+          "min_words": 20,
+          "rationale": "Shows what should dominate and what can recede."
+        }
+      ],
+      "required_evidence_types": [
+        "focal rule",
+        "distance legibility rule",
+        "type/image balance"
+      ],
+      "required_evidence_count": 2,
+      "min_density": 0.41,
+      "require_tradeoff": true,
+      "require_rationale": true,
+      "require_alternatives": false,
+      "citation_schema": "visual rule, compositional threshold, or [File: Line] receipt",
+      "hard_fail_patterns": [
+        "make it pop",
+        "looks cool",
+        "be more bold"
+      ],
+      "soft_fail_patterns": [
+        "could be cleaner",
+        "feels off"
+      ],
+      "service_level": {
+        "timeliness": "single-pass visual communication critique",
+        "accuracy": "must diagnose composition, not only style preference",
+        "freshness": "must reflect current campaign or artifact constraints"
+      },
+      "required_decisions": [
+        {
+          "id": "focal_winner",
+          "description": "Names what should dominate the first read.",
+          "any_of": [
+            "focal",
+            "dominant",
+            "first read",
+            "headline wins",
+            "should lead",
+            "primary image"
+          ]
+        },
+        {
+          "id": "distance_legibility",
+          "description": "Names distance or scan-legibility implications.",
+          "any_of": [
+            "distance",
+            "legibility",
+            "scan",
+            "thumbnail",
+            "poster distance",
+            "headline/body ratio"
+          ]
+        },
+        {
+          "id": "composition_rule",
+          "description": "Uses alignment, grouping, rhythm, or proportion language.",
+          "any_of": [
+            "alignment",
+            "grouping",
+            "rhythm",
+            "composition",
+            "balance",
+            "scale",
+            "crop",
+            "proportion"
+          ]
+        },
+        {
+          "id": "emphasis_tradeoff",
+          "description": "Resolves what can recede so the focal message survives.",
+          "any_of": [
+            "tradeoff",
+            "recede",
+            "demote",
+            "rather than",
+            "instead of",
+            "secondary"
+          ]
+        }
+      ],
+      "required_evidence_classes": [
+        {
+          "class_id": "visual_structure_rule",
+          "description": "Uses composition, focal, rhythm, or legibility rules."
+        },
+        {
+          "class_id": "comparison_artifact",
+          "description": "Names the rejected alternative or competing focal path."
+        },
+        {
+          "class_id": "implementation_constraint",
+          "description": "Uses size, crop, or production-boundary constraints."
+        }
+      ],
+      "forbidden_shortcuts": [
+        {
+          "id": "taste_only",
+          "description": "Taste commentary cannot replace communication diagnosis.",
+          "patterns": [
+            "looks cool",
+            "make it pop",
+            "be more bold"
+          ]
+        },
+        {
+          "id": "style_without_goal",
+          "description": "Style comments without a communication goal cannot pass.",
+          "patterns": [
+            "nicer font",
+            "better colors only",
+            "more modern style"
+          ]
+        }
+      ],
+      "overclaim_rules": [
+        {
+          "id": "no_claimed_readability",
+          "description": "Do not claim readability gains without a legibility rule or testable reason.",
+          "forbidden_terms": [
+            "readable now",
+            "fixed readability",
+            "validated hierarchy"
+          ],
+          "allowed_if_any": [
+            "distance",
+            "scan",
+            "legibility",
+            "test",
+            "threshold",
+            "[file:"
+          ]
+        }
+      ],
+      "task_weight_default": "standard",
+      "supports_lightweight_response": true,
+      "trace_visibility_default": "recoverable"
+    },
+    {
+      "task_id": "layout_reconstruction_plan",
+      "title": "Layout Reconstruction Plan",
+      "task_group": "rebuild",
+      "risk_tier": "high",
+      "data_owner": "layout-reconstruction-expert",
+      "freshness_expectation": "same release cycle as source-artifact updates",
+      "allowed_modes": [
+        "REBUILD",
+        "PEER"
+      ],
+      "allowed_phases": [
+        "implementation",
+        "structure"
+      ],
+      "required_skills": [
+        "layout-reconstruction-expert.md",
+        "grid-system-expert.md"
+      ],
+      "required_sections": [
+        {
+          "name": "Source constraints",
+          "min_words": 25,
+          "rationale": "Defines what must be preserved from the source artifact."
+        },
+        {
+          "name": "Reconstruction assumptions",
+          "min_words": 35,
+          "rationale": "Makes inferred structure explicit instead of pretending certainty."
+        },
+        {
+          "name": "Rebuild sequence",
+          "min_words": 45,
+          "rationale": "Shows the ordered reconstruction plan."
+        },
+        {
+          "name": "Verification checkpoints",
+          "min_words": 25,
+          "rationale": "Protects against drift and silent geometry errors."
+        }
+      ],
+      "required_evidence_types": [
+        "grid inference",
+        "preservation boundary",
+        "verification checkpoint"
+      ],
+      "required_evidence_count": 2,
+      "min_density": 0.41,
+      "require_tradeoff": true,
+      "require_rationale": true,
+      "require_alternatives": true,
+      "citation_schema": "geometry rule, inferred assumption, or [File: Line] receipt",
+      "hard_fail_patterns": [
+        "redraw it from scratch",
+        "eyeball the spacing",
+        "just clean it up"
+      ],
+      "soft_fail_patterns": [
+        "approximate it",
+        "close enough"
+      ],
+      "service_level": {
+        "timeliness": "ordered reconstruction plan",
+        "accuracy": "must separate source truth from inferred structure",
+        "freshness": "must reflect the latest source artifact"
+      },
+      "required_decisions": [
+        {
+          "id": "preserved_elements",
+          "description": "Names what geometry or content must remain stable.",
+          "any_of": [
+            "preserve",
+            "must remain",
+            "source truth",
+            "locked",
+            "do not move",
+            "existing artifact"
+          ]
+        },
+        {
+          "id": "inference_boundary",
+          "description": "Labels inferred structure as assumption or proxy.",
+          "any_of": [
+            "assumption",
+            "inference",
+            "estimated",
+            "proxy",
+            "likely grid",
+            "inferred"
+          ]
+        },
+        {
+          "id": "reconstruction_order",
+          "description": "Shows the ordered reconstruction sequence.",
+          "any_of": [
+            "first",
+            "then",
+            "before",
+            "after",
+            "sequence",
+            "checkpoint"
+          ]
+        },
+        {
+          "id": "verification_method",
+          "description": "Names how the reconstruction will be checked.",
+          "any_of": [
+            "verify",
+            "overlay",
+            "measurement",
+            "extract",
+            "compare",
+            "check"
+          ]
+        },
+        {
+          "id": "visual_confidence_boundary",
+          "description": "Names what is directly observed vs inferred when visual input is part of the task.",
+          "any_of": [
+            "confidence",
+            "observed",
+            "inferred",
+            "unverified",
+            "appears",
+            "visible evidence"
+          ]
+        }
+      ],
+      "required_evidence_classes": [
+        {
+          "class_id": "implementation_constraint",
+          "description": "Uses geometry, grid, or preservation constraints."
+        },
+        {
+          "class_id": "comparison_artifact",
+          "description": "Compares the rebuilt artifact back to the source."
+        },
+        {
+          "class_id": "verification_method",
+          "description": "Uses overlays, measurements, or extraction checks."
+        },
+        {
+          "class_id": "visual_structure_rule",
+          "description": "Uses a visual-structure rule when the critique is grounded in screenshots or visible layout evidence."
+        }
+      ],
+      "forbidden_shortcuts": [
+        {
+          "id": "redraw_without_boundary",
+          "description": "Redrawing from scratch ignores the reconstruction brief.",
+          "patterns": [
+            "redraw it from scratch",
+            "reimagine the layout",
+            "just clean it up"
+          ]
+        },
+        {
+          "id": "eyeballed_geometry",
+          "description": "Eyeballed spacing cannot stand in for structure.",
+          "patterns": [
+            "eyeball the spacing",
+            "approximate it",
+            "close enough"
+          ]
+        }
+      ],
+      "overclaim_rules": [
+        {
+          "id": "no_exactness_without_receipt",
+          "description": "Do not claim exact preservation without measured comparison or explicit inference labeling.",
+          "forbidden_terms": [
+            "exact match",
+            "identical",
+            "mathematically identical"
+          ],
+          "allowed_if_any": [
+            "overlay",
+            "measurement",
+            "compare",
+            "estimate",
+            "inference",
+            "[file:"
+          ]
+        }
+      ],
+      "task_weight_default": "compound",
+      "supports_lightweight_response": false,
+      "trace_visibility_default": "recoverable"
+    },
+    {
+      "task_id": "type_system_recommendation",
+      "title": "Type System Recommendation",
+      "task_group": "spec",
+      "risk_tier": "medium",
+      "data_owner": "type-system-expert",
+      "freshness_expectation": "same release cycle as type scale or readability rules",
+      "allowed_modes": [
+        "REBUILD",
+        "PEER"
+      ],
+      "allowed_phases": [
+        "tokens",
+        "communication",
+        "ui"
+      ],
+      "required_skills": [
+        "type-system-expert.md",
+        "accessibility-feedback-expert.md"
+      ],
+      "required_sections": [
+        {
+          "name": "Reading context",
+          "min_words": 20,
+          "rationale": "Defines where the type system will be read and at what density."
+        },
+        {
+          "name": "Scale and role map",
+          "min_words": 40,
+          "rationale": "Maps text roles to scale, weight, and hierarchy rules."
+        },
+        {
+          "name": "Readability rules",
+          "min_words": 35,
+          "rationale": "Names line length, contrast, spacing, or emphasis boundaries."
+        },
+        {
+          "name": "Adoption guidance",
+          "min_words": 25,
+          "rationale": "Shows how to phase the new type system into the artifact."
+        }
+      ],
+      "required_evidence_types": [
+        "readability rule",
+        "role map",
+        "adoption boundary"
+      ],
+      "required_evidence_count": 2,
+      "min_density": 0.41,
+      "require_tradeoff": true,
+      "require_rationale": true,
+      "require_alternatives": true,
+      "citation_schema": "scale rule, readability threshold, or [File: Line] receipt",
+      "hard_fail_patterns": [
+        "use inter at 12px",
+        "just tighten tracking",
+        "pick a nicer font"
+      ],
+      "soft_fail_patterns": [
+        "feels too loose",
+        "could be sharper"
+      ],
+      "service_level": {
+        "timeliness": "single-pass type system recommendation",
+        "accuracy": "must separate reading context from taste",
+        "freshness": "must reflect current density and accessibility expectations"
+      },
+      "required_decisions": [
+        {
+          "id": "reading_context",
+          "description": "Defines the reading context and density constraint.",
+          "any_of": [
+            "reading context",
+            "dense table",
+            "long-form",
+            "mobile",
+            "dashboard",
+            "distance",
+            "scan"
+          ]
+        },
+        {
+          "id": "role_hierarchy",
+          "description": "Maps roles such as display, heading, body, label, or meta text.",
+          "any_of": [
+            "display",
+            "heading",
+            "body",
+            "label",
+            "meta",
+            "role map",
+            "hierarchy"
+          ]
+        },
+        {
+          "id": "readability_boundary",
+          "description": "Uses a readability rule or threshold.",
+          "any_of": [
+            "line length",
+            "line-height",
+            "contrast",
+            "tracking",
+            "readability",
+            "16px",
+            "45-75",
+            "chars"
+          ]
+        },
+        {
+          "id": "adoption_sequence",
+          "description": "Shows what changes first and what stays stable.",
+          "any_of": [
+            "phase",
+            "adopt",
+            "migrate",
+            "first",
+            "then",
+            "keep existing"
+          ]
+        }
+      ],
+      "required_evidence_classes": [
+        {
+          "class_id": "visual_structure_rule",
+          "description": "Uses legibility, hierarchy, or reading-flow rules."
+        },
+        {
+          "class_id": "measurable_threshold",
+          "description": "Uses measurable type or readability thresholds."
+        },
+        {
+          "class_id": "implementation_constraint",
+          "description": "Uses token, density, or platform-boundary constraints."
+        }
+      ],
+      "forbidden_shortcuts": [
+        {
+          "id": "font_swap_only",
+          "description": "A font swap is not a type system.",
+          "patterns": [
+            "pick a nicer font",
+            "just tighten tracking",
+            "use inter at 12px"
+          ]
+        },
+        {
+          "id": "taste_only_type",
+          "description": "Taste language cannot replace readability rules.",
+          "patterns": [
+            "more elegant font",
+            "sharper type only"
+          ]
+        }
+      ],
+      "overclaim_rules": [
+        {
+          "id": "no_fake_readability_proof",
+          "description": "Do not claim readability is solved without measurable rules or context.",
+          "forbidden_terms": [
+            "readability fixed",
+            "perfectly readable",
+            "validated type scale"
+          ],
+          "allowed_if_any": [
+            "line length",
+            "threshold",
+            "contrast",
+            "density",
+            "test",
+            "[file:"
+          ]
+        }
+      ],
+      "task_weight_default": "standard",
+      "supports_lightweight_response": true,
+      "trace_visibility_default": "recoverable"
+    },
+    {
+      "task_id": "ux_research_gap_map",
+      "title": "UX Research Gap Map",
+      "task_group": "strategy",
+      "risk_tier": "medium",
+      "data_owner": "ux-research-expert",
+      "freshness_expectation": "same release cycle as the product scope or audience assumptions",
+      "allowed_modes": [
+        "PEER",
+        "AUDIT"
+      ],
+      "allowed_phases": [
+        "research",
+        "strategy"
+      ],
+      "required_skills": [
+        "ux-research-expert.md",
+        "content-and-case-study-expert.md"
+      ],
+      "required_sections": [
+        {
+          "name": "Known evidence",
+          "min_words": 25,
+          "rationale": "Separates what is already known from assumption."
+        },
+        {
+          "name": "Critical gaps",
+          "min_words": 45,
+          "rationale": "Names the highest-risk unknowns that block good decisions."
+        },
+        {
+          "name": "Research plan",
+          "min_words": 45,
+          "rationale": "Maps each gap to a method, sample, and output."
+        },
+        {
+          "name": "Decision impact",
+          "min_words": 25,
+          "rationale": "Shows what product or narrative decision each study unlocks."
+        }
+      ],
+      "required_evidence_types": [
+        "research artifact",
+        "gap priority",
+        "decision linkage"
+      ],
+      "required_evidence_count": 2,
+      "min_density": 0.41,
+      "require_tradeoff": true,
+      "require_rationale": true,
+      "require_alternatives": false,
+      "citation_schema": "research artifact, sample rule, or [File: Line] receipt",
+      "hard_fail_patterns": [
+        "just do some interviews",
+        "research later",
+        "talk to users"
+      ],
+      "soft_fail_patterns": [
+        "probably enough",
+        "might learn something"
+      ],
+      "service_level": {
+        "timeliness": "single-pass research gap map",
+        "accuracy": "must distinguish current evidence from assumption",
+        "freshness": "must reflect the latest product scope and audience frame"
+      },
+      "required_decisions": [
+        {
+          "id": "known_vs_unknown",
+          "description": "Separates known evidence from assumption.",
+          "any_of": [
+            "known",
+            "unknown",
+            "assumption",
+            "evidence already",
+            "not yet known",
+            "gap"
+          ]
+        },
+        {
+          "id": "gap_priority",
+          "description": "Ranks which research gaps matter first.",
+          "any_of": [
+            "highest-risk",
+            "priority",
+            "first",
+            "before launch",
+            "critical gap",
+            "blocker"
+          ]
+        },
+        {
+          "id": "method_mapping",
+          "description": "Maps gaps to concrete research methods.",
+          "any_of": [
+            "interview",
+            "survey",
+            "usability test",
+            "diary",
+            "field study",
+            "method",
+            "sample"
+          ]
+        },
+        {
+          "id": "decision_linkage",
+          "description": "Connects the study back to a product or communication decision.",
+          "any_of": [
+            "this unlocks",
+            "decision",
+            "changes whether",
+            "affects",
+            "if true then"
+          ]
+        }
+      ],
+      "required_evidence_classes": [
+        {
+          "class_id": "research_artifact",
+          "description": "Uses research methods, participants, or artifacts."
+        },
+        {
+          "class_id": "comparison_artifact",
+          "description": "Compares current evidence to missing evidence or alternative methods."
+        },
+        {
+          "class_id": "narrative_proof_boundary",
+          "description": "Distinguishes assumption, proxy evidence, and measured proof."
+        }
+      ],
+      "forbidden_shortcuts": [
+        {
+          "id": "generic_research_advice",
+          "description": "Generic 'do interviews' advice cannot pass.",
+          "patterns": [
+            "just do some interviews",
+            "talk to users",
+            "research later"
+          ]
+        },
+        {
+          "id": "no_gap_priority",
+          "description": "Unranked wish lists are not research plans.",
+          "patterns": [
+            "collect more data",
+            "do more research"
+          ]
+        }
+      ],
+      "overclaim_rules": [
+        {
+          "id": "no_fake_user_evidence",
+          "description": "Do not imply user evidence that has not been collected.",
+          "forbidden_terms": [
+            "users proved",
+            "research proved",
+            "validated by users"
+          ],
+          "allowed_if_any": [
+            "interview",
+            "survey",
+            "usability test",
+            "artifact",
+            "[file:"
+          ]
+        }
+      ],
+      "task_weight_default": "standard",
+      "supports_lightweight_response": true,
+      "trace_visibility_default": "recoverable"
+    },
+    {
+      "task_id": "frontend_implementation_review",
+      "title": "Front-End Implementation Review",
+      "task_group": "implementation",
+      "risk_tier": "high",
+      "data_owner": "front-end-architecture-expert",
+      "freshness_expectation": "same release cycle as rendering, state, or interaction architecture changes",
+      "allowed_modes": [
+        "AUDIT",
+        "PEER",
+        "STRUCTURE"
+      ],
+      "allowed_phases": [
+        "implementation",
+        "ui",
+        "specs"
+      ],
+      "required_skills": [
+        "front-end-architecture-expert.md",
+        "front-end-handoff-expert.md",
+        "accessibility-feedback-expert.md"
+      ],
+      "required_sections": [
+        {
+          "name": "Architectural framing",
+          "min_words": 25,
+          "rationale": "Name the real front-end architectural problem and its user-facing consequence."
+        },
+        {
+          "name": "Boundary and state model",
+          "min_words": 45,
+          "rationale": "Make server/client and state ownership explicit."
+        },
+        {
+          "name": "Rendering and mutation strategy",
+          "min_words": 45,
+          "rationale": "Choose rendering, fetching, and mutation handling instead of generic implementation advice."
+        },
+        {
+          "name": "Risks and safer path",
+          "min_words": 30,
+          "rationale": "Expose the cost surface and safer implementation order."
+        }
+      ],
+      "required_evidence_types": [
+        "rendering rule",
+        "state model",
+        "implementation constraint"
+      ],
+      "required_evidence_count": 3,
+      "min_density": 0.43,
+      "require_tradeoff": true,
+      "require_rationale": true,
+      "require_alternatives": true,
+      "citation_schema": "rendering rule, state model, accessibility contract, or [File: Line] receipt",
+      "hard_fail_patterns": [
+        "just convert it to react",
+        "componentize it later",
+        "use more hooks"
+      ],
+      "soft_fail_patterns": [
+        "should be simple",
+        "probably fine"
+      ],
+      "service_level": {
+        "timeliness": "single-pass architectural review",
+        "accuracy": "must make rendering, boundary, and state decisions explicit",
+        "freshness": "must reflect current server/client and interaction architecture expectations"
+      },
+      "required_decisions": [
+        {
+          "id": "rendering_model",
+          "description": "Chooses the rendering strategy instead of implying it.",
+          "any_of": [
+            "static",
+            "dynamic",
+            "ppr",
+            "csr",
+            "server component",
+            "client component",
+            "suspense",
+            "streaming"
+          ]
+        },
+        {
+          "id": "state_ownership",
+          "description": "Names where state lives and how transitions are handled.",
+          "any_of": [
+            "local state",
+            "server-state",
+            "shared state",
+            "state machine",
+            "status union",
+            "useactionstate",
+            "useformstatus",
+            "useoptimistic"
+          ]
+        },
+        {
+          "id": "boundary_placement",
+          "description": "Makes the server/client boundary or mutation boundary explicit.",
+          "any_of": [
+            "use client",
+            "server action",
+            "boundary",
+            "hydrate",
+            "hydration",
+            "server component",
+            "client component"
+          ]
+        },
+        {
+          "id": "semantic_contract",
+          "description": "Names the semantic or native-element contract.",
+          "any_of": [
+            "native",
+            "button",
+            "form",
+            "dialog",
+            "table",
+            "grid",
+            "role is a promise",
+            "semantic"
+          ]
+        },
+        {
+          "id": "cost_or_degraded_path",
+          "description": "Names the cost surface or degraded path.",
+          "any_of": [
+            "bundle",
+            "hydration",
+            "fallback",
+            "degraded",
+            "retry",
+            "lazy",
+            "performance cost",
+            "rollback"
+          ]
+        }
+      ],
+      "required_evidence_classes": [
+        {
+          "class_id": "rendering_boundary_rule",
+          "description": "Uses rendering or boundary-specific evidence."
+        },
+        {
+          "class_id": "state_or_behavior_rule",
+          "description": "Uses explicit state or interaction behavior rules."
+        },
+        {
+          "class_id": "implementation_constraint",
+          "description": "Uses real implementation constraints rather than generic framework advice."
+        },
+        {
+          "class_id": "standards_reference",
+          "description": "Uses semantic or accessibility standards when behavior depends on them."
+        }
+      ],
+      "forbidden_shortcuts": [
+        {
+          "id": "framework_swap_only",
+          "description": "A framework swap cannot stand in for an architectural decision.",
+          "patterns": [
+            "just convert it to react",
+            "rewrite in next",
+            "move it into components"
+          ]
+        },
+        {
+          "id": "hook_sprawl",
+          "description": "More hooks is not an architectural answer.",
+          "patterns": [
+            "use more hooks",
+            "add a useeffect",
+            "componentize it later"
+          ]
+        }
+      ],
+      "overclaim_rules": [
+        {
+          "id": "no_production_ready_without_costs",
+          "description": "Do not call the implementation production-ready without boundary, state, and cost logic.",
+          "forbidden_terms": [
+            "production-ready",
+            "scalable",
+            "performant"
+          ],
+          "allowed_if_any": [
+            "hydration",
+            "bundle",
+            "boundary",
+            "state machine",
+            "rollback",
+            "benchmark",
+            "test"
+          ]
+        }
+      ],
+      "task_weight_default": "compound",
+      "supports_lightweight_response": false,
+      "trace_visibility_default": "recoverable"
+    },
+    {
+      "task_id": "backend_architecture_spec",
+      "title": "Back-End Architecture Spec",
+      "task_group": "spec",
+      "risk_tier": "high",
+      "data_owner": "back-end-systems-architect",
+      "freshness_expectation": "same release cycle as authority, consistency, or delivery-model changes",
+      "allowed_modes": [
+        "STRUCTURE",
+        "PEER",
+        "REBUILD"
+      ],
+      "allowed_phases": [
+        "strategy",
+        "specs",
+        "implementation"
+      ],
+      "required_skills": [
+        "back-end-systems-architect.md",
+        "back-end-aware-planner.md",
+        "api-reliability-security-expert.md"
+      ],
+      "required_sections": [
+        {
+          "name": "System framing",
+          "min_words": 25,
+          "rationale": "Names the system, actors, resources, and why architecture is needed."
+        },
+        {
+          "name": "Core model and authority boundaries",
+          "min_words": 45,
+          "rationale": "Defines ownership, authorization, and source-of-truth."
+        },
+        {
+          "name": "Data, consistency, and delivery design",
+          "min_words": 50,
+          "rationale": "Chooses consistency, pagination, events, async, or webhook patterns."
+        },
+        {
+          "name": "Observability and failure posture",
+          "min_words": 30,
+          "rationale": "Shows how the system will be monitored and where it can safely degrade."
+        }
+      ],
+      "required_evidence_types": [
+        "authority model",
+        "consistency stance",
+        "delivery pattern"
+      ],
+      "required_evidence_count": 3,
+      "min_density": 0.44,
+      "require_tradeoff": true,
+      "require_rationale": true,
+      "require_alternatives": true,
+      "citation_schema": "authority rule, consistency model, delivery pattern, or [File: Line] receipt",
+      "hard_fail_patterns": [
+        "just add an endpoint",
+        "make it realtime",
+        "use uuid and it is secure"
+      ],
+      "soft_fail_patterns": [
+        "should scale fine",
+        "probably okay"
+      ],
+      "service_level": {
+        "timeliness": "single-pass architecture specification",
+        "accuracy": "must resolve authority and delivery choices rather than naming technologies only",
+        "freshness": "must reflect current consistency and authorization expectations"
+      },
+      "required_decisions": [
+        {
+          "id": "actor_resource_action",
+          "description": "Names actors, resources, and actions.",
+          "any_of": [
+            "actor",
+            "resource",
+            "action",
+            "owner",
+            "viewer",
+            "editor",
+            "admin",
+            "relationship"
+          ]
+        },
+        {
+          "id": "source_of_truth",
+          "description": "Names the source-of-truth or ownership model.",
+          "any_of": [
+            "source-of-truth",
+            "canonical",
+            "ownership",
+            "writer",
+            "record owner",
+            "authority"
+          ]
+        },
+        {
+          "id": "authorization_model",
+          "description": "Names the authorization posture.",
+          "any_of": [
+            "rbac",
+            "abac",
+            "rebac",
+            "object-level",
+            "property-level",
+            "tenant",
+            "membership",
+            "permission"
+          ]
+        },
+        {
+          "id": "consistency_stance",
+          "description": "Names the freshness or consistency model.",
+          "any_of": [
+            "linearizable",
+            "bounded staleness",
+            "read-your-writes",
+            "revision token",
+            "consistency token",
+            "stale",
+            "freshness"
+          ]
+        },
+        {
+          "id": "delivery_pattern",
+          "description": "Names pagination, async, event, or webhook design.",
+          "any_of": [
+            "cursor",
+            "keyset",
+            "offset",
+            "webhook",
+            "outbox",
+            "queue",
+            "async",
+            "micro-batch",
+            "event"
+          ]
+        },
+        {
+          "id": "observability_tax",
+          "description": "Names metrics, tracing, or operational tax.",
+          "any_of": [
+            "trace",
+            "trace_id",
+            "metrics",
+            "logs",
+            "queue lag",
+            "saturation",
+            "tax",
+            "operational"
+          ]
+        }
+      ],
+      "required_evidence_classes": [
+        {
+          "class_id": "data_model_dependency",
+          "description": "Uses data-model or ownership evidence."
+        },
+        {
+          "class_id": "permission_rule",
+          "description": "Uses authorization or policy evidence."
+        },
+        {
+          "class_id": "consistency_model",
+          "description": "Uses explicit consistency or delivery-model evidence."
+        },
+        {
+          "class_id": "implementation_constraint",
+          "description": "Names operational or scalability constraints."
+        }
+      ],
+      "forbidden_shortcuts": [
+        {
+          "id": "endpoint_theater",
+          "description": "Endpoint count is not architecture.",
+          "patterns": [
+            "just add an endpoint",
+            "just add a table",
+            "just add redis"
+          ]
+        },
+        {
+          "id": "security_by_identifier",
+          "description": "Identifiers do not replace authorization.",
+          "patterns": [
+            "use uuid and it is secure",
+            "security by obscurity",
+            "unguessable ids solve it"
+          ]
+        }
+      ],
+      "overclaim_rules": [
+        {
+          "id": "no_scalability_without_tax",
+          "description": "Do not call the system scalable or enterprise-ready without naming the architecture tax and authority model.",
+          "forbidden_terms": [
+            "scalable",
+            "enterprise-ready",
+            "globally distributed"
+          ],
+          "allowed_if_any": [
+            "tenant",
+            "outbox",
+            "cursor",
+            "trace",
+            "consistency",
+            "rebac",
+            "observability"
+          ]
+        }
+      ],
+      "task_weight_default": "compound",
+      "supports_lightweight_response": false,
+      "trace_visibility_default": "recoverable"
+    },
+    {
+      "task_id": "api_reliability_security_review",
+      "title": "API Reliability and Security Review",
+      "task_group": "audit",
+      "risk_tier": "high",
+      "data_owner": "api-reliability-security-expert",
+      "freshness_expectation": "same release cycle as API contract, auth, or background-job changes",
+      "allowed_modes": [
+        "AUDIT",
+        "PEER",
+        "STRUCTURE"
+      ],
+      "allowed_phases": [
+        "implementation",
+        "specs",
+        "strategy"
+      ],
+      "required_skills": [
+        "api-reliability-security-expert.md",
+        "back-end-systems-architect.md",
+        "back-end-aware-planner.md"
+      ],
+      "required_sections": [
+        {
+          "name": "Failure semantics",
+          "min_words": 30,
+          "rationale": "Defines the error envelope and what the client can reason about."
+        },
+        {
+          "name": "Authorization and resource protection",
+          "min_words": 45,
+          "rationale": "Names BOLA/BFLA style boundaries and resource controls."
+        },
+        {
+          "name": "Idempotency and async lifecycle",
+          "min_words": 45,
+          "rationale": "Makes retry safety and long-running job behavior explicit."
+        },
+        {
+          "name": "Resilience and observability",
+          "min_words": 35,
+          "rationale": "Names resilience, quotas, degradation, and telemetry posture."
+        }
+      ],
+      "required_evidence_types": [
+        "problem details",
+        "idempotency contract",
+        "resilience policy"
+      ],
+      "required_evidence_count": 3,
+      "min_density": 0.44,
+      "require_tradeoff": true,
+      "require_rationale": true,
+      "require_alternatives": true,
+      "citation_schema": "RFC rule, auth policy, lifecycle contract, or [File: Line] receipt",
+      "hard_fail_patterns": [
+        "just retry it",
+        "rate limit later",
+        "return 200 with an error field",
+        "uuid makes it secure"
+      ],
+      "soft_fail_patterns": [
+        "should be reliable",
+        "probably secure"
+      ],
+      "service_level": {
+        "timeliness": "single-pass API reliability and security review",
+        "accuracy": "must define retry, auth, and failure semantics instead of generic security advice",
+        "freshness": "must reflect current API and agentic workload risks"
+      },
+      "required_decisions": [
+        {
+          "id": "problem_details_contract",
+          "description": "Names RFC 9457 style failure semantics.",
+          "any_of": [
+            "rfc 9457",
+            "problem details",
+            "application/problem+json",
+            "type",
+            "title",
+            "status",
+            "detail",
+            "instance"
+          ]
+        },
+        {
+          "id": "authorization_perimeter",
+          "description": "Names the authorization boundary and relevant API risk.",
+          "any_of": [
+            "bola",
+            "bfla",
+            "bopla",
+            "object-level",
+            "function-level",
+            "property-level",
+            "deny by default",
+            "tenant"
+          ]
+        },
+        {
+          "id": "idempotency_contract",
+          "description": "Names idempotency-key behavior.",
+          "any_of": [
+            "idempotency-key",
+            "fingerprint",
+            "409 conflict",
+            "422 unprocessable",
+            "400 bad request",
+            "ttl",
+            "client-generated"
+          ]
+        },
+        {
+          "id": "async_job_model",
+          "description": "Names the async job lifecycle when work is long-running.",
+          "any_of": [
+            "202 accepted",
+            "status url",
+            "queued",
+            "running",
+            "terminal success",
+            "terminal failure",
+            "webhook"
+          ]
+        },
+        {
+          "id": "resilience_strategy",
+          "description": "Names resilience or protection rules.",
+          "any_of": [
+            "circuit breaker",
+            "backoff",
+            "jitter",
+            "load shedding",
+            "graceful degradation",
+            "quota",
+            "trace_id",
+            "observability"
+          ]
+        }
+      ],
+      "required_evidence_classes": [
+        {
+          "class_id": "failure_semantics_rule",
+          "description": "Uses structured failure-semantic evidence."
+        },
+        {
+          "class_id": "permission_rule",
+          "description": "Uses authorization or access-control evidence."
+        },
+        {
+          "class_id": "async_lifecycle_rule",
+          "description": "Uses idempotency or async lifecycle evidence."
+        },
+        {
+          "class_id": "resilience_rule",
+          "description": "Uses resilience, quota, or observability evidence."
+        }
+      ],
+      "forbidden_shortcuts": [
+        {
+          "id": "retry_theater",
+          "description": "Retries without idempotency are not safe.",
+          "patterns": [
+            "just retry it",
+            "retry until it works",
+            "rate limit later"
+          ]
+        },
+        {
+          "id": "success_envelope_failure",
+          "description": "Failure cannot hide inside a success envelope.",
+          "patterns": [
+            "return 200 with an error field",
+            "always 200",
+            "uuid makes it secure"
+          ]
+        }
+      ],
+      "overclaim_rules": [
+        {
+          "id": "no_security_or_reliability_theater",
+          "description": "Do not call the API secure or reliable without explicit contracts.",
+          "forbidden_terms": [
+            "secure",
+            "reliable",
+            "production-ready",
+            "compliant"
+          ],
+          "allowed_if_any": [
+            "rfc 9457",
+            "object-level",
+            "idempotency-key",
+            "202 accepted",
+            "trace_id",
+            "quota",
+            "test",
+            "verify"
+          ]
+        }
+      ],
+      "task_weight_default": "compound",
+      "supports_lightweight_response": false,
+      "trace_visibility_default": "recoverable"
+    },
+    {
+      "task_id": "text_humanization_revision",
+      "title": "Text Humanization Revision",
+      "task_group": "writing-quality",
+      "risk_tier": "medium",
+      "data_owner": "text-humanization-expert",
+      "freshness_expectation": "same session as source revision requests",
+      "allowed_modes": [
+        "REBUILD",
+        "PEER",
+        "STRUCTURE"
+      ],
+      "allowed_phases": [
+        "communication",
+        "case-study",
+        "implementation"
+      ],
+      "required_skills": [
+        "text-humanization-expert.md",
+        "content-and-case-study-expert.md"
+      ],
+      "required_sections": [
+        {
+          "name": "Job of the piece",
+          "min_words": 18,
+          "rationale": "Identifies what the text must still do after revision."
+        },
+        {
+          "name": "Pattern scan",
+          "min_words": 22,
+          "rationale": "Shows what felt machine-shaped or repetitive."
+        },
+        {
+          "name": "Meaning-preservation guard",
+          "min_words": 22,
+          "rationale": "Protects against semantic drift or tone replacement."
+        },
+        {
+          "name": "Revised passage",
+          "min_words": 35,
+          "rationale": "Shows the rewritten prose."
+        },
+        {
+          "name": "Why this reads more human",
+          "min_words": 22,
+          "rationale": "Explains the revision logic instead of asserting it."
+        }
+      ],
+      "required_evidence_types": [
+        "meaning guard",
+        "pattern note",
+        "before/after revision rationale"
+      ],
+      "required_evidence_count": 2,
+      "min_density": 0.4,
+      "require_tradeoff": false,
+      "require_rationale": true,
+      "require_alternatives": false,
+      "citation_schema": "pattern note, meaning guard, or [File: Line] receipt",
+      "hard_fail_patterns": [
+        "rewrite for difference only",
+        "casualize it more",
+        "make it sound human somehow"
+      ],
+      "soft_fail_patterns": [
+        "a bit more natural",
+        "less robotic"
+      ],
+      "service_level": {
+        "timeliness": "single-pass prose revision with meaning guard",
+        "accuracy": "must preserve argument and claims unless the user requests a structural rewrite",
+        "freshness": "should reflect the current source text and user voice"
+      },
+      "required_decisions": [
+        {
+          "id": "job_of_piece",
+          "description": "Names what the text is trying to do.",
+          "any_of": [
+            "job of the piece",
+            "the text is trying to",
+            "must still do",
+            "purpose"
+          ]
+        },
+        {
+          "id": "pattern_scan",
+          "description": "Names repeated or machine-shaped patterns.",
+          "any_of": [
+            "pattern",
+            "repeated",
+            "formulaic",
+            "nominalization",
+            "transition load",
+            "flat rhythm"
+          ]
+        },
+        {
+          "id": "meaning_guard",
+          "description": "Names what must remain stable.",
+          "any_of": [
+            "meaning-preservation",
+            "meaning guard",
+            "claims preserved",
+            "argument preserved",
+            "drift risk"
+          ]
+        },
+        {
+          "id": "revision_sequence",
+          "description": "Makes revision logic visible.",
+          "any_of": [
+            "repair",
+            "rebalance",
+            "prune",
+            "revise",
+            "realism pass",
+            "voice"
+          ]
+        },
+        {
+          "id": "voice_guard",
+          "description": "Protects the writer's tone from generic polish.",
+          "any_of": [
+            "voice",
+            "tone",
+            "kept",
+            "not replaced",
+            "authored texture"
+          ]
+        }
+      ],
+      "required_evidence_classes": [
+        {
+          "class_id": "meaning_preservation_guard",
+          "description": "Uses explicit meaning-preservation language."
+        },
+        {
+          "class_id": "prose_quality_signal",
+          "description": "Uses concrete prose-quality evidence like repetition, rhythm, or verb logic."
+        },
+        {
+          "class_id": "comparison_artifact",
+          "description": "Uses before/after or explicit revision comparison logic."
+        }
+      ],
+      "forbidden_shortcuts": [
+        {
+          "id": "difference_only",
+          "description": "The rewrite cannot exist only to look different.",
+          "patterns": [
+            "rewrite for difference only",
+            "just change the wording",
+            "make it sound human somehow"
+          ]
+        },
+        {
+          "id": "casualize_default",
+          "description": "Casualization cannot stand in for humanization.",
+          "patterns": [
+            "casualize it more",
+            "make it more casual by default"
+          ]
+        }
+      ],
+      "overclaim_rules": [
+        {
+          "id": "no_humanized_claim_without_guard",
+          "description": "Do not claim the revision is more human without naming meaning guard and revision logic.",
+          "forbidden_terms": [
+            "humanized",
+            "more human",
+            "natural now"
+          ],
+          "allowed_if_any": [
+            "meaning-preservation",
+            "pattern",
+            "voice",
+            "drift risk",
+            "revised passage"
+          ]
+        }
+      ],
+      "task_weight_default": "lightweight",
+      "supports_lightweight_response": true,
+      "trace_visibility_default": "recoverable"
+    }
+  ]
+}

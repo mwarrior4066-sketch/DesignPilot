@@ -1,0 +1,60 @@
+{
+  "route_id": "rt_backend_systems_architecture",
+  "task_id": "backend_architecture_spec",
+  "trigger_summary": "Use when the governing decision is the structure of the backend system itself.",
+  "governing_skills": [
+    "back-end-systems-architect.md",
+    "back-end-aware-planner.md",
+    "api-reliability-security-expert.md"
+  ],
+  "supporting_skills": [
+    "dashboard-data-expert.md",
+    "front-end-handoff-expert.md"
+  ],
+  "required_summary_ids": [
+    "knowledge-base/runtime-summaries/back-end-systems-architecture-summary.md",
+    "knowledge-base/runtime-summaries/backend-planning-summary.md",
+    "knowledge-base/runtime-summaries/api-reliability-security-summary.md",
+    "knowledge-base/runtime-summaries/dashboard-and-density-summary.md",
+    "knowledge-base/runtime-summaries/front-end-handoff-summary.md",
+    "knowledge-base/runtime-summaries/front-end-architecture-summary.md"
+  ],
+  "escalation_conditions": [
+    "runtime summary lacks measurable thresholds",
+    "validator flags insufficient evidence",
+    "high-stakes or standards-grade task",
+    "user explicitly requests deeper source synthesis",
+    "route conflict or canonical ambiguity appears"
+  ],
+  "fallback_route": "rt_backend_feasibility",
+  "known_tensions": [
+    "consistency vs latency",
+    "real-time freshness vs replayable sanity",
+    "authority precision vs implementation complexity"
+  ],
+  "handoff_targets": [
+    "api_reliability_security_review",
+    "backend_architecture_spec",
+    "backend_feasibility_review",
+    "rt_backend_feasibility"
+  ],
+  "overlay_safe_fallback": {
+    "routing": "schemas/routing_registry.json",
+    "skills": [
+      "back-end-systems-architect.md",
+      "back-end-aware-planner.md",
+      "api-reliability-security-expert.md"
+    ],
+    "summaries": [
+      "back-end-systems-architecture-summary.md",
+      "backend-planning-summary.md",
+      "api-reliability-security-summary.md",
+      "dashboard-and-density-summary.md",
+      "front-end-handoff-summary.md",
+      "front-end-architecture-summary.md"
+    ]
+  },
+  "task_weight_default": "compound",
+  "lightweight_eligible": false,
+  "visual_input_supported": false
+}

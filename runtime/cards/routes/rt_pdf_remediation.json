@@ -1,0 +1,51 @@
+{
+  "route_id": "rt_pdf_remediation",
+  "task_id": "pdf_remediation_plan",
+  "trigger_summary": "Prioritize semantic preservation and verification over surface patching.",
+  "governing_skills": [
+    "document-accessibility-expert.md",
+    "pdf-layout-expert.md"
+  ],
+  "supporting_skills": [
+    "layout-reconstruction-expert.md",
+    "color-system-expert.md"
+  ],
+  "required_summary_ids": [
+    "knowledge-base/runtime-summaries/pdf-document-accessibility-summary.md",
+    "knowledge-base/runtime-summaries/pdf-layout-summary.md",
+    "knowledge-base/runtime-summaries/layout-reconstruction-summary.md",
+    "knowledge-base/runtime-summaries/color-and-accessibility-summary.md"
+  ],
+  "escalation_conditions": [
+    "runtime summary lacks measurable thresholds",
+    "validator flags insufficient evidence",
+    "high-stakes or standards-grade task",
+    "user explicitly requests deeper source synthesis",
+    "route conflict or canonical ambiguity appears"
+  ],
+  "fallback_route": "rt_ui_structure_critique",
+  "known_tensions": [
+    "visual fidelity vs semantic repair",
+    "speed vs safe preservation"
+  ],
+  "handoff_targets": [
+    "pdf_remediation_plan",
+    "rt_ui_structure_critique"
+  ],
+  "overlay_safe_fallback": {
+    "routing": "schemas/routing_registry.json",
+    "skills": [
+      "document-accessibility-expert.md",
+      "pdf-layout-expert.md"
+    ],
+    "summaries": [
+      "pdf-document-accessibility-summary.md",
+      "pdf-layout-summary.md",
+      "layout-reconstruction-summary.md",
+      "color-and-accessibility-summary.md"
+    ]
+  },
+  "task_weight_default": "compound",
+  "lightweight_eligible": false,
+  "visual_input_supported": true
+}

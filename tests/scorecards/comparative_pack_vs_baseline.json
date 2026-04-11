@@ -1,0 +1,55 @@
+{
+  "scorecard_version": "1.2.0",
+  "pack_version": "2.5.0",
+  "criteria": [
+    {
+      "id": "same_prompt_fidelity",
+      "weight": 15,
+      "question": "Did both systems answer the same prompt and constraints?",
+      "pass_threshold": 5
+    },
+    {
+      "id": "reasoning_visibility",
+      "weight": 20,
+      "question": "Does the response show why the recommendation was chosen?",
+      "pass_threshold": 4
+    },
+    {
+      "id": "constraint_handling",
+      "weight": 20,
+      "question": "Does the response explicitly handle competing constraints?",
+      "pass_threshold": 4
+    },
+    {
+      "id": "evidence_grounding",
+      "weight": 20,
+      "question": "Are strong claims tied to measurable or file-backed proof?",
+      "pass_threshold": 4
+    },
+    {
+      "id": "implementation_realism",
+      "weight": 15,
+      "question": "Would this survive handoff to a real team?",
+      "pass_threshold": 4
+    },
+    {
+      "id": "brevity_without_loss",
+      "weight": 10,
+      "question": "Is the answer concise without becoming vague?",
+      "pass_threshold": 3
+    }
+  ],
+  "anti_bias_rules": [
+    "run positional invariance by swapping A/B order",
+    "score by rubric before overall preference",
+    "penalize staged weak baselines",
+    "label proxy evidence vs live evidence explicitly"
+  ],
+  "live_eval_required": true,
+  "stale_after_days": 90,
+  "evidence_policy": {
+    "preferred": "live",
+    "allowed_fallback": "proxy",
+    "disclosure_required": true
+  }
+}
