@@ -7,6 +7,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'scripts'))
 from runtime_validator import validate_output
+from validate_lightweight_path import validate_lightweight_path
 
 SUITE_PATH = ROOT / 'tests' / 'regression_suite.json'
 MANIFEST_PATH = ROOT / 'PACK_MANIFEST.json'
@@ -51,6 +52,13 @@ def main():
     print('--- category summary ---')
     for category in sorted(category_totals):
         print(f"{category}: {category_totals[category] - category_failures[category]}/{category_totals[category]} passed")
+    lite_report = validate_lightweight_path(ROOT)
+    if lite_report['decision'] != 'PASS':
+        failures += 1
+        print('FAIL lightweight-path validation')
+        print(json.dumps(lite_report, indent=2))
+    else:
+        print('PASS lightweight-path validation')
     if failures:
         raise SystemExit(1)
 

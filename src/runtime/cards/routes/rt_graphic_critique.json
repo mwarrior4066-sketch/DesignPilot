@@ -1,0 +1,57 @@
+{
+  "route_id": "rt_graphic_critique",
+  "task_id": "graphic_critique",
+  "task_contract": "graphic_critique",
+  "role": "governing",
+  "trigger_summary": "Use when the key problem is focal structure, type/image balance, or distance legibility.",
+  "primary_skill": "graphic-design-expert.md",
+  "governing_skills": [
+    "graphic-design-expert.md",
+    "type-system-expert.md"
+  ],
+  "supporting_skills": [
+    "brand-strategy-expert.md",
+    "color-system-expert.md"
+  ],
+  "required_summary_ids": [
+    "src/knowledge-base/runtime-summaries/graphic-design-format-summary.md",
+    "src/knowledge-base/runtime-summaries/typography-summary.md",
+    "src/knowledge-base/runtime-summaries/typeface-database-summary.md",
+    "src/knowledge-base/runtime-summaries/audience-and-industry-summary.md",
+    "src/knowledge-base/runtime-summaries/color-and-accessibility-summary.md"
+  ],
+  "escalation_conditions": [
+    "runtime summary lacks measurable thresholds",
+    "validator flags insufficient evidence",
+    "high-stakes or standards-grade task",
+    "user explicitly requests deeper source synthesis",
+    "route conflict or canonical ambiguity appears"
+  ],
+  "fallback_route": "rt_brand_positioning",
+  "known_tensions": [
+    "expressiveness vs legibility",
+    "brand tone vs message clarity"
+  ],
+  "handoff_targets": [
+    "graphic_critique",
+    "rt_brand_positioning",
+    "type_system_recommendation"
+  ],
+  "overlay_safe_fallback": {
+    "routing": "src/schemas/routing_registry.json",
+    "skills": [
+      "graphic-design-expert.md",
+      "type-system-expert.md"
+    ],
+    "summaries": [
+      "graphic-design-format-summary.md",
+      "typography-summary.md",
+      "typeface-database-summary.md",
+      "audience-and-industry-summary.md",
+      "color-and-accessibility-summary.md"
+    ]
+  },
+  "task_weight_default": "standard",
+  "lightweight_eligible": true,
+  "visual_input_supported": true
+}

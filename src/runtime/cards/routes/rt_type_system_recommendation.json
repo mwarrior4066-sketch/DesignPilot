@@ -1,0 +1,60 @@
+{
+  "route_id": "rt_type_system_recommendation",
+  "task_id": "type_system_recommendation",
+  "task_contract": "type_system_recommendation",
+  "role": "governing",
+  "trigger_summary": "Use when the job is to define a repeatable type system instead of suggest a single font.",
+  "primary_skill": "type-system-expert.md",
+  "governing_skills": [
+    "type-system-expert.md",
+    "accessibility-feedback-expert.md"
+  ],
+  "supporting_skills": [
+    "graphic-design-expert.md",
+    "ui-system-expert.md"
+  ],
+  "required_summary_ids": [
+    "src/knowledge-base/runtime-summaries/typography-summary.md",
+    "src/knowledge-base/runtime-summaries/typeface-database-summary.md",
+    "src/knowledge-base/runtime-summaries/accessibility-and-feedback-summary.md",
+    "src/knowledge-base/runtime-summaries/graphic-design-format-summary.md",
+    "src/knowledge-base/runtime-summaries/ui-system-summary.md"
+  ],
+  "escalation_conditions": [
+    "runtime summary lacks measurable thresholds",
+    "validator flags insufficient evidence",
+    "high-stakes or standards-grade task",
+    "user explicitly requests deeper source synthesis",
+    "route conflict or canonical ambiguity appears"
+  ],
+  "fallback_route": "rt_ui_structure_critique",
+  "known_tensions": [
+    "brand personality vs reading efficiency",
+    "density vs legibility"
+  ],
+  "handoff_targets": [
+    "accessibility_feedback_audit",
+    "color_system_spec",
+    "frontend_implementation_review",
+    "graphic_critique",
+    "rt_ui_structure_critique",
+    "type_system_recommendation"
+  ],
+  "overlay_safe_fallback": {
+    "routing": "src/schemas/routing_registry.json",
+    "skills": [
+      "type-system-expert.md",
+      "accessibility-feedback-expert.md"
+    ],
+    "summaries": [
+      "typography-summary.md",
+      "typeface-database-summary.md",
+      "accessibility-and-feedback-summary.md",
+      "graphic-design-format-summary.md",
+      "ui-system-summary.md"
+    ]
+  },
+  "task_weight_default": "standard",
+  "lightweight_eligible": true,
+  "visual_input_supported": false
+}

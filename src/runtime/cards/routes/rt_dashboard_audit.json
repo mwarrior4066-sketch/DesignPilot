@@ -1,0 +1,56 @@
+{
+  "route_id": "rt_dashboard_audit",
+  "task_id": "dashboard_audit",
+  "task_contract": "dashboard_audit",
+  "role": "governing",
+  "trigger_summary": "Use for KPI hierarchy and chart-logic evaluation, not generic screen cleanup.",
+  "primary_skill": "dashboard-data-expert.md",
+  "governing_skills": [
+    "dashboard-data-expert.md",
+    "ui-system-expert.md"
+  ],
+  "supporting_skills": [
+    "accessibility-feedback-expert.md",
+    "color-system-expert.md"
+  ],
+  "required_summary_ids": [
+    "src/knowledge-base/runtime-summaries/dashboard-and-density-summary.md",
+    "src/knowledge-base/runtime-summaries/ui-system-summary.md",
+    "src/knowledge-base/runtime-summaries/accessibility-and-feedback-summary.md",
+    "src/knowledge-base/runtime-summaries/color-and-accessibility-summary.md"
+  ],
+  "escalation_conditions": [
+    "runtime summary lacks measurable thresholds",
+    "validator flags insufficient evidence",
+    "high-stakes or standards-grade task",
+    "user explicitly requests deeper source synthesis",
+    "route conflict or canonical ambiguity appears"
+  ],
+  "fallback_route": "rt_ui_structure_critique",
+  "known_tensions": [
+    "information richness vs scan time",
+    "executive overview vs operational drill-down"
+  ],
+  "handoff_targets": [
+    "accessibility_feedback_audit",
+    "dashboard_audit",
+    "rt_ui_structure_critique",
+    "ui_structure_critique"
+  ],
+  "overlay_safe_fallback": {
+    "routing": "src/schemas/routing_registry.json",
+    "skills": [
+      "dashboard-data-expert.md",
+      "ui-system-expert.md"
+    ],
+    "summaries": [
+      "dashboard-and-density-summary.md",
+      "ui-system-summary.md",
+      "accessibility-and-feedback-summary.md",
+      "color-and-accessibility-summary.md"
+    ]
+  },
+  "task_weight_default": "standard",
+  "lightweight_eligible": true,
+  "visual_input_supported": true
+}

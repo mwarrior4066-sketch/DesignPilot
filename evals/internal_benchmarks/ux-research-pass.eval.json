@@ -1,0 +1,16 @@
+{
+  "example": "ux-research-pass",
+  "task_contract": "ux_research_gap_map",
+  "validator_decision": "PASS",
+  "rubric_scores": {
+    "intent_alignment": 5,
+    "actionability": 5,
+    "structural_rigor": 4,
+    "evidence_use": 5,
+    "implementation_realism": 4
+  },
+  "strongest_dimension": "evidence_use",
+  "weakest_dimension": "structural_rigor",
+  "pass_justification": "Passed because it ranked research gaps and mapped methods to decisions instead of listing generic studies.",
+  "residual_reviewer_doubt": "A research lead might still want recruiting constraints and budget assumptions."
+}

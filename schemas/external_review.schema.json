@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DesignPilot External Review",
+  "type": "object",
+  "required": [
+    "version",
+    "review_id",
+    "reviewer_role",
+    "domain",
+    "artifact_type",
+    "rubric_dimension",
+    "score",
+    "confidence",
+    "baseline_comparison",
+    "date"
+  ],
+  "properties": {
+    "version": {
+      "type": "string"
+    },
+    "review_id": {
+      "type": "string"
+    },
+    "reviewer_role": {
+      "type": "string"
+    },
+    "domain": {
+      "type": "string"
+    },
+    "artifact_type": {
+      "type": "string"
+    },
+    "rubric_dimension": {
+      "type": "string"
+    },
+    "score": {
+      "type": "number"
+    },
+    "confidence": {
+      "type": "number"
+    },
+    "baseline_comparison": {
+      "type": "string"
+    },
+    "trust_note": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string"
+    }
+  }
+}

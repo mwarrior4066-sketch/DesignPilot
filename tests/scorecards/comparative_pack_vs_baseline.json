@@ -1,6 +1,6 @@
 {
   "scorecard_version": "1.2.0",
-  "pack_version": "2.5.0",
+  "pack_version": "2.6.1",
   "criteria": [
     {
       "id": "same_prompt_fidelity",
@@ -51,5 +51,6 @@
     "preferred": "live",
     "allowed_fallback": "proxy",
     "disclosure_required": true
-  }
+  },
+  "suite_version": "2.6.1"
 }

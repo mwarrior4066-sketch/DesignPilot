@@ -6,8 +6,8 @@ from pathlib import Path
 from typing import Dict, List, Set
 
 ROOT = Path(__file__).resolve().parents[1]
-CONTRACTS = json.loads((ROOT / 'schemas' / 'task_contracts.json').read_text(encoding='utf-8'))
-RULES = json.loads((ROOT / 'schemas' / 'validation_rules.json').read_text(encoding='utf-8'))
+CONTRACTS = json.loads((ROOT / 'src' / 'schemas' / 'task_contracts.json').read_text(encoding='utf-8'))
+RULES = json.loads((ROOT / 'src' / 'schemas' / 'validation_rules.json').read_text(encoding='utf-8'))
 STOPWORDS = {
     'the','a','an','and','or','to','of','in','on','for','with','is','are','be','this','that','it','as','by','from','at',
     'if','then','than','into','about','your','you','we','they','their','our','will','would','should','could','can','just',
@@ -185,31 +185,31 @@ def unresolved_contradictions(low: str) -> List[str]:
 
 def validate_load_state(pack_root: Path, route_id: str = '', task_id: str = '') -> Dict:
     statuses = []
-    if not (pack_root / 'operator' / 'core' / 'MASTER_CHAT_OPERATOR.md').exists():
-        statuses.append({'class': 'below_minimum_viable_load', 'action': 'stop', 'detail': 'operator/core/MASTER_CHAT_OPERATOR.md missing'})
+    if not (pack_root / 'src' / 'operator' / 'core' / 'MASTER_CHAT_OPERATOR.md').exists():
+        statuses.append({'class': 'below_minimum_viable_load', 'action': 'stop', 'detail': 'src/operator/core/MASTER_CHAT_OPERATOR.md missing'})
         return {'decision': 'FAIL', 'statuses': statuses}
-    if not (pack_root / 'schemas' / 'routing_registry.json').exists() or not (pack_root / 'schemas' / 'task_contracts.json').exists():
+    if not (pack_root / 'src' / 'schemas' / 'routing_registry.json').exists() or not (pack_root / 'src' / 'schemas' / 'task_contracts.json').exists():
         statuses.append({'class': 'below_minimum_viable_load', 'action': 'stop', 'detail': 'canonical routing or contract schema missing'})
         return {'decision': 'FAIL', 'statuses': statuses}
-    if not (pack_root / 'runtime' / 'boot' / 'core_bootstrap.md').exists() or not (pack_root / 'runtime' / 'boot' / 'runtime_precedence.md').exists():
+    if not (pack_root / 'src' / 'runtime' / 'boot' / 'core_bootstrap.md').exists() or not (pack_root / 'src' / 'runtime' / 'boot' / 'runtime_precedence.md').exists():
         statuses.append({'class': 'missing_boot_layer', 'action': 'continue_with_canonical', 'detail': 'runtime boot helper missing'})
-    if route_id and not (pack_root / 'runtime' / 'cards' / 'routes' / f'{route_id}.json').exists():
+    if route_id and not (pack_root / 'src' / 'runtime' / 'cards' / 'routes' / f'{route_id}.json').exists():
         statuses.append({'class': 'missing_runtime_card_with_canonical_fallback', 'action': 'continue_with_canonical', 'detail': f'missing runtime route card {route_id}'})
-    if task_id and not (pack_root / 'runtime' / 'cards' / 'contracts' / f'{task_id}.json').exists():
+    if task_id and not (pack_root / 'src' / 'runtime' / 'cards' / 'contracts' / f'{task_id}.json').exists():
         statuses.append({'class': 'missing_runtime_card_with_canonical_fallback', 'action': 'continue_with_canonical', 'detail': f'missing runtime contract card {task_id}'})
-    if not (pack_root / 'operator' / 'core' / 'SESSION_CONTEXT.md').exists():
-        if (pack_root / 'operator' / 'core' / 'SESSION_CONTEXT_DEFAULTS.md').exists():
-            statuses.append({'class': 'missing_session_state', 'action': 'continue_with_defaults', 'detail': 'operator/core/SESSION_CONTEXT.md missing; defaults available'})
+    if not (pack_root / 'src' / 'operator' / 'core' / 'SESSION_CONTEXT.md').exists():
+        if (pack_root / 'src' / 'operator' / 'core' / 'SESSION_CONTEXT_DEFAULTS.md').exists():
+            statuses.append({'class': 'missing_session_state', 'action': 'continue_with_defaults', 'detail': 'src/operator/core/SESSION_CONTEXT.md missing; defaults available'})
         else:
-            statuses.append({'class': 'below_minimum_viable_load', 'action': 'stop', 'detail': 'operator/core/SESSION_CONTEXT.md missing and defaults unavailable'})
+            statuses.append({'class': 'below_minimum_viable_load', 'action': 'stop', 'detail': 'src/operator/core/SESSION_CONTEXT.md missing and defaults unavailable'})
     decision = 'FAIL' if any(s['class'] == 'below_minimum_viable_load' for s in statuses) else 'PASS'
     return {'decision': decision, 'statuses': statuses}
 
 
 def validate_runtime_overlay_assets(pack_root: Path) -> Dict:
     errors, warnings = [], []
-    contracts = json.loads((pack_root / 'schemas' / 'task_contracts.json').read_text(encoding='utf-8'))
-    routes = json.loads((pack_root / 'schemas' / 'routing_registry.json').read_text(encoding='utf-8'))
+    contracts = json.loads((pack_root / 'src' / 'schemas' / 'task_contracts.json').read_text(encoding='utf-8'))
+    routes = json.loads((pack_root / 'src' / 'schemas' / 'routing_registry.json').read_text(encoding='utf-8'))
     task_ids = {t['task_id'] for t in contracts['tasks']}
     route_ids = {r['route_id'] for r in routes['routes']}
 
@@ -221,17 +221,17 @@ def validate_runtime_overlay_assets(pack_root: Path) -> Dict:
             warnings.append(status['detail'])
 
     for route in route_ids:
-        if not (pack_root / 'runtime' / 'cards' / 'routes' / f'{route}.json').exists():
+        if not (pack_root / 'src' / 'runtime' / 'cards' / 'routes' / f'{route}.json').exists():
             errors.append(f'missing runtime route card: {route}')
     for task in task_ids:
-        if not (pack_root / 'runtime' / 'cards' / 'contracts' / f'{task}.json').exists():
+        if not (pack_root / 'src' / 'runtime' / 'cards' / 'contracts' / f'{task}.json').exists():
             errors.append(f'missing runtime contract card: {task}')
 
-    for rel in ['operator/protocols/DEGRADED_MODE_PROTOCOL.md', 'operator/protocols/VISUAL_INPUT_PROTOCOL.md', 'operator/protocols/LIGHTWEIGHT_RESPONSE_PROTOCOL.md', 'QUICKSTART.md']:
+    for rel in ['src/operator/protocols/DEGRADED_MODE_PROTOCOL.md', 'src/operator/protocols/VISUAL_INPUT_PROTOCOL.md', 'src/operator/protocols/LIGHTWEIGHT_RESPONSE_PROTOCOL.md', 'QUICKSTART.md']:
         if not (pack_root / rel).exists():
             errors.append(f'{rel} missing')
 
-    control_map = (pack_root / 'operator' / 'governance' / 'CONTROL_AUTHORITY_MAP.md').read_text(encoding='utf-8').lower()
+    control_map = (pack_root / 'src' / 'operator' / 'governance' / 'CONTROL_AUTHORITY_MAP.md').read_text(encoding='utf-8').lower()
     if 'human-readable mirrors — maintenance/debug only' not in control_map:
         errors.append('maintenance docs are not demoted in control authority map')
     if 'startup authority: `master_chat_operator.md`' not in control_map:

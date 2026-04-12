@@ -1,0 +1,15 @@
+{
+  "decision": "PASS",
+  "errors": [],
+  "warnings": [],
+  "metrics": {
+    "version": "2.6.1",
+    "lite_word_count": 337,
+    "route_json_count": 18,
+    "contract_json_count": 17,
+    "route_doc_count": 18,
+    "contract_doc_count": 17,
+    "starter_doc_count": 11,
+    "lite_index_route_count": 18
+  }
+}

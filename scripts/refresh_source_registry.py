@@ -4,16 +4,16 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 TARGETS = [
-    ('control', ['README.md','CHANGELOG.md','QUICKSTART.md','PACK_MANIFEST.json','operator/**/*.md','operator/**/*.json','scripts/*.py'], []),
-    ('schemas', ['schemas/*.json'], []),
-    ('skills', ['skills/*.md'], []),
-    ('templates', ['templates/*.md'], []),
-    ('source_docs', ['knowledge-base/source-docs/*'], []),
-    ('summaries', ['knowledge-base/summaries/*.md'], []),
-    ('runtime_summaries', ['knowledge-base/runtime-summaries/*.md'], []),
-    ('runtime', ['runtime/**/*.md','runtime/**/*.json'], []),
-    ('indices', ['knowledge-base/indices/*.json'], []),
-    ('libraries', ['libraries/*'], []),
+    ('control', ['README.md','CHANGELOG.md','QUICKSTART.md','PACK_MANIFEST.json','src/operator/**/*.md','src/operator/**/*.json','scripts/*.py'], []),
+    ('schemas', ['src/schemas/*.json'], []),
+    ('skills', ['src/skills/*.md'], []),
+    ('templates', ['src/templates/*.md'], []),
+    ('source_docs', ['src/knowledge-base/source-docs/*'], []),
+    ('summaries', ['src/knowledge-base/summaries/*.md'], []),
+    ('runtime_summaries', ['src/knowledge-base/runtime-summaries/*.md'], []),
+    ('runtime', ['src/runtime/**/*.md','src/runtime/**/*.json'], []),
+    ('indices', ['src/knowledge-base/indices/*.json'], []),
+    ('libraries', ['src/libraries/*'], []),
     ('projects', ['projects/designpilot/context/*.md','projects/designpilot/problems_and_solutions/*.md'], []),
 ]
 entries = []
@@ -29,5 +29,5 @@ for kind, patterns, pinned in TARGETS:
                 if not any(e['path'] == rel for e in entries):
                     entries.append({'path': rel, 'kind': kind, 'owner': 'pack-maintainer'})
 registry = {'registry_version':'1.0.0','pack_version': json.loads((ROOT/'PACK_MANIFEST.json').read_text())['version'], 'entries': entries}
-(ROOT/'operator'/'reference'/'SOURCE_REFERENCE_REGISTRY.json').write_text(json.dumps(registry, indent=2), encoding='utf-8')
-print(f'wrote operator/reference/SOURCE_REFERENCE_REGISTRY.json with {len(entries)} entries')
+(ROOT/'src'/'operator'/'reference'/'SOURCE_REFERENCE_REGISTRY.json').write_text(json.dumps(registry, indent=2), encoding='utf-8')
+print(f'wrote src/operator/reference/SOURCE_REFERENCE_REGISTRY.json with {len(entries)} entries')

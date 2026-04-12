@@ -1,28 +1,14 @@
 {
   "pack_name": "DesignPilot",
-  "version": "2.5.0",
+  "version": "2.6.1",
   "release_date": "2026-04-11",
-  "canonical_entrypoint": "operator/core/MASTER_CHAT_OPERATOR.md",
+  "canonical_entrypoint": "dist/DESIGNPILOT_DEPLOY.md",
   "canonical_release_source": "PACK_MANIFEST.json",
   "core_control_files": [
-    "operator/core/MASTER_CHAT_OPERATOR.md",
-    "operator/core/TASK_ROUTER.md",
-    "operator/core/SESSION_CONTEXT.md",
-    "operator/protocols/ADAPTIVE_EXPLANATION_PROTOCOL.md",
-    "operator/protocols/DESIGNER_RESPONSE_FILTER_PROTOCOL.md",
-    "operator/core/ROUTE_CATALOG.md",
-    "operator/governance/OUTPUT_CONTRACTS_BY_TASK.md",
-    "operator/governance/RUNTIME_VALIDATION_LAYER.md",
-    "operator/governance/PACK_QUALITY_RUBRIC.md",
-    "operator/governance/CONTROL_AUTHORITY_MAP.md",
-    "operator/project/PROJECT_FILE_SYSTEM_PROTOCOL.md",
-    "operator/project/PROJECT_STATE_PROTOCOL.md",
-    "operator/project/PROJECT_LOGGING_PROTOCOL.md",
-    "operator/protocols/DEGRADED_MODE_PROTOCOL.md",
-    "operator/protocols/VISUAL_INPUT_PROTOCOL.md",
-    "operator/protocols/LIGHTWEIGHT_RESPONSE_PROTOCOL.md",
-    "QUICKSTART.md",
-    "operator/core/SESSION_CONTEXT_DEFAULTS.md"
+    "dist/DESIGNPILOT_DEPLOY.md",
+    "dist/DEPLOY_CORE.md",
+    "dist/DEPLOY_LITE.md",
+    "dist/SESSION_ZERO.md"
   ],
   "active_skills": [
     "accessibility-feedback-expert.md",
@@ -132,7 +118,9 @@
     "v2.4.0 adds a front-end and back-end capability cluster on top of the stable v2.3 proof and continuity base: front-end architecture, backend systems architecture, deeper accessibility behavior ownership, and API reliability/security.",
     "v2.4.2 adds a generated runtime overlay layer, indexed source-doc section escalation, and capability-preserving low-token hydration rules without removing any canonical skills, routes, summaries, or source docs.",
     "v2.5.0 unifies startup authority, adds degraded-mode behavior, adds visual-input routing support, and adds lightweight execution rules.",
-    "v2.5.0 knowledge refresh adds a dedicated digital color library plus stronger typography, localization, and implementation guidance without changing the routed control surface."
+    "v2.5.0 knowledge refresh adds a dedicated digital color library plus stronger typography, localization, and implementation guidance without changing the routed control surface.",
+    "v2.6.1 introduces a source-to-artifact architecture: `src/` as canonical source, `dist/` as operator deployment surface, `docs/` split by audience, and `evals/` plus `proof/` as explicit evidence layers.",
+    "v2.6.1 lightweight pass productizes the lean startup path with DEPLOY_LITE, route and contract companions, starter packs, and release-gated lightweight validation."
   ],
   "version_policy": "VERSIONING_POLICY.md",
   "version_scheme": "X.Y.Z semver-style release weights (1.00 / 0.10 / 0.01)",
@@ -150,12 +138,18 @@
     "patch_z": "bug fixes, editorial cleanup, metadata corrections, and nonbreaking hardening"
   },
   "schema_registry": [
-    "schemas/task_contracts.json",
-    "schemas/routing_registry.json",
-    "schemas/validation_rules.json"
+    "src/schemas/task_contracts.json",
+    "src/schemas/routing_registry.json",
+    "src/schemas/validation_rules.json",
+    "schemas/module_frontmatter.schema.json",
+    "schemas/deploy_artifact.schema.json",
+    "schemas/external_review.schema.json",
+    "schemas/release_card.schema.json"
   ],
   "validation_entrypoints": [
     "generate_runtime_overlay.py",
+    "compile_designpilot.py",
+    "validate_lightweight_path.py",
     "runtime_validator.py",
     "validate_examples.py",
     "refresh_project_continuity.py",
@@ -181,5 +175,17 @@
     "examples/type-system-pass.md",
     "examples/ui-structure-critique.md",
     "examples/ux-research-pass.md"
+  ],
+  "operator_quickstart": "docs/operator/OPERATOR_QUICKSTART.md",
+  "session_zero": "dist/SESSION_ZERO.md",
+  "source_root": "src/",
+  "distribution_root": "dist/",
+  "proof_root": "proof/",
+  "evals_root": "evals/",
+  "deploy_profiles": [
+    "dist/DEPLOY_CORE.md",
+    "dist/DEPLOY_UI.md",
+    "dist/DEPLOY_BRAND.md",
+    "dist/DEPLOY_LITE.md"
   ]
 }

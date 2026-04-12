@@ -1,0 +1,68 @@
+{
+  "route_id": "rt_frontend_architecture",
+  "task_id": "frontend_implementation_review",
+  "task_contract": "frontend_implementation_review",
+  "role": "governing",
+  "trigger_summary": "Use when the governing decision is front-end architecture rather than generic handoff or UI critique.",
+  "primary_skill": "front-end-architecture-expert.md",
+  "governing_skills": [
+    "front-end-architecture-expert.md",
+    "front-end-handoff-expert.md",
+    "accessibility-feedback-expert.md"
+  ],
+  "supporting_skills": [
+    "component-systems-expert.md",
+    "back-end-aware-planner.md"
+  ],
+  "required_summary_ids": [
+    "src/knowledge-base/runtime-summaries/front-end-architecture-summary.md",
+    "src/knowledge-base/runtime-summaries/front-end-handoff-summary.md",
+    "src/knowledge-base/runtime-summaries/accessibility-and-feedback-summary.md",
+    "src/knowledge-base/runtime-summaries/component-systems-summary.md",
+    "src/knowledge-base/runtime-summaries/backend-planning-summary.md",
+    "src/knowledge-base/runtime-summaries/back-end-systems-architecture-summary.md",
+    "src/knowledge-base/runtime-summaries/api-reliability-security-summary.md"
+  ],
+  "escalation_conditions": [
+    "runtime summary lacks measurable thresholds",
+    "validator flags insufficient evidence",
+    "high-stakes or standards-grade task",
+    "user explicitly requests deeper source synthesis",
+    "route conflict or canonical ambiguity appears"
+  ],
+  "fallback_route": "rt_component_spec",
+  "known_tensions": [
+    "server-first performance vs client-side flexibility",
+    "semantic integrity vs custom-widget ambition",
+    "optimistic speed vs rollback safety"
+  ],
+  "handoff_targets": [
+    "accessibility_feedback_audit",
+    "backend_feasibility_review",
+    "color_system_spec",
+    "component_spec",
+    "frontend_implementation_review",
+    "rt_component_spec",
+    "type_system_recommendation"
+  ],
+  "overlay_safe_fallback": {
+    "routing": "src/schemas/routing_registry.json",
+    "skills": [
+      "front-end-architecture-expert.md",
+      "front-end-handoff-expert.md",
+      "accessibility-feedback-expert.md"
+    ],
+    "summaries": [
+      "front-end-architecture-summary.md",
+      "front-end-handoff-summary.md",
+      "accessibility-and-feedback-summary.md",
+      "component-systems-summary.md",
+      "backend-planning-summary.md",
+      "back-end-systems-architecture-summary.md",
+      "api-reliability-security-summary.md"
+    ]
+  },
+  "task_weight_default": "compound",
+  "lightweight_eligible": false,
+  "visual_input_supported": false
+}

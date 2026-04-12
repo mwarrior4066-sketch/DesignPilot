@@ -1,0 +1,16 @@
+soft_alerts:
+  input_tokens_pct:
+  - 70
+  - 100
+  workflow_budget_pct:
+  - 70
+  - 100
+  - 120
+fallbacks:
+- compress context before escalation
+- prefer profile-specific deploys over universal bundles
+- drop to mid tier when the task is not proof-sensitive
+hard_guards:
+- block recursive polling loops
+- stop when below minimum viable bootstrap
+- require explicit escalation for premium reasoning on low-risk tasks

@@ -8,9 +8,9 @@ This revision integrates the DesignPilot problem catalogue and the design-system
   - `DesignPilot Problem Catalogue.md`
   - `Design System Failure Diagnosis and Solutions.md`
 - strengthened:
-  - `skills/graphic-design-expert.md`
-  - `skills/layout-reconstruction-expert.md`
-  - `skills/pdf-layout-expert.md`
+  - `src/skills/graphic-design-expert.md`
+  - `src/skills/layout-reconstruction-expert.md`
+  - `src/skills/pdf-layout-expert.md`
 - updated:
   - `KNOWLEDGE_LOADING_PROTOCOL.md`
   - `TASK_ROUTER.md`

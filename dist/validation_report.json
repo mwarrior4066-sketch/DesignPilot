@@ -1,0 +1,48 @@
+{
+  "status": "ok",
+  "checks": [
+    {
+      "artifact": "DESIGNPILOT_DEPLOY.md",
+      "word_count": 14794,
+      "status": "ok"
+    },
+    {
+      "artifact": "DEPLOY_CORE.md",
+      "word_count": 1469,
+      "status": "ok"
+    },
+    {
+      "artifact": "DEPLOY_UI.md",
+      "word_count": 968,
+      "status": "ok"
+    },
+    {
+      "artifact": "DEPLOY_BRAND.md",
+      "word_count": 1288,
+      "status": "ok"
+    },
+    {
+      "artifact": "DEPLOY_LITE.md",
+      "word_count": 337,
+      "status": "ok"
+    },
+    {
+      "artifact": "SESSION_ZERO.md",
+      "word_count": 91,
+      "status": "ok"
+    },
+    {
+      "artifact": "DEPLOY_LITE.md",
+      "word_count": 337,
+      "status": "ok",
+      "mode": "lightweight"
+    },
+    {
+      "artifact": "lite_overlay_docs",
+      "route_docs": 18,
+      "contract_docs": 17,
+      "starter_docs": 11,
+      "status": "ok"
+    }
+  ]
+}

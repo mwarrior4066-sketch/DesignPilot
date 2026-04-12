@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DesignPilot Deploy Artifact Manifest",
+  "type": "object",
+  "required": [
+    "artifact",
+    "generated_from",
+    "sections",
+    "word_count",
+    "status"
+  ],
+  "properties": {
+    "artifact": {
+      "type": "string"
+    },
+    "generated_from": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "sections": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "word_count": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "status": {
+      "enum": [
+        "ok",
+        "warn",
+        "fail"
+      ]
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "example": "designer-response-filter-pass",
+  "task_contract": "backend_architecture_spec",
+  "validator_decision": "PASS",
+  "rubric_scores": {
+    "intent_alignment": 5,
+    "actionability": 5,
+    "structural_rigor": 4,
+    "evidence_use": 4,
+    "implementation_realism": 5
+  },
+  "strongest_dimension": "actionability",
+  "weakest_dimension": "structural_rigor",
+  "pass_justification": "Passed because it translated backend architecture into designer-readable consequences without hiding authority and consistency constraints.",
+  "residual_reviewer_doubt": "A stricter reviewer may want a more explicit note about how the filter treats jargon term by term."
+}

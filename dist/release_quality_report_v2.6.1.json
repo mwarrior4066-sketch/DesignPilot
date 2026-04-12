@@ -1,0 +1,40 @@
+{
+  "version": "2.6.1",
+  "decision": "PROMOTE",
+  "gate_failures": [],
+  "metrics": {
+    "active_skill_count": 20,
+    "skills_with_direct_example_signal": 20,
+    "task_contract_count": 17,
+    "direct_example_task_count": 17,
+    "regression_count": 39,
+    "fail_case_count": 20,
+    "benchmark_artifact_count": 6,
+    "external_confidence_artifact_count": 5,
+    "eval_signature_count": 11,
+    "stale_flagship_continuity_count": 0,
+    "example_coverage_ratio": 1.0,
+    "runtime_route_card_count": 18,
+    "runtime_contract_card_count": 17,
+    "runtime_skill_card_count": 20,
+    "runtime_summary_count": 32,
+    "compiled_artifact_count": 53,
+    "lite_route_doc_count": 18,
+    "lite_contract_doc_count": 17,
+    "lite_starter_count": 11
+  },
+  "results": [
+    {
+      "cmd": "python3 scripts/validate_lightweight_path.py",
+      "returncode": 0,
+      "stdout": "{\n  \"decision\": \"PASS\",\n  \"errors\": [],\n  \"warnings\": [],\n  \"metrics\": {\n    \"lite_word_count\": 337,\n    \"route_json_count\": 18,\n    \"contract_json_count\": 17,\n    \"route_doc_count\": 18,\n    \"contract_doc_count\": 17,\n    \"starter_doc_count\": 11,\n    \"lite_index_route_count\": 18\n  }\n}",
+      "stderr": ""
+    },
+    {
+      "cmd": "python3 scripts/validate_integrity_sync.py",
+      "returncode": 0,
+      "stdout": "{\n  \"decision\": \"PASS\",\n  \"errors\": [],\n  \"warnings\": [\n    \"current release report missing before packaging\"\n  ],\n  \"metrics\": {\n    \"version\": \"2.6.1\",\n    \"lite_word_count\": 337,\n    \"route_json_count\": 18,\n    \"contract_json_count\": 17,\n    \"route_doc_count\": 18,\n    \"contract_doc_count\": 17,\n    \"starter_doc_count\": 11,\n    \"lite_index_route_count\": 18\n  }\n}",
+      "stderr": ""
+    }
+  ]
+}

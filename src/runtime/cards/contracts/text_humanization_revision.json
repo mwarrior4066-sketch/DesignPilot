@@ -1,0 +1,50 @@
+{
+  "task_id": "text_humanization_revision",
+  "title": "Text Humanization Revision",
+  "required_sections": [
+    "Job of the piece",
+    "Pattern scan",
+    "Meaning-preservation guard",
+    "Revised passage",
+    "Why this reads more human"
+  ],
+  "required_evidence_types": [
+    "meaning guard",
+    "pattern note",
+    "before/after revision rationale"
+  ],
+  "required_decisions": [
+    "job_of_piece",
+    "pattern_scan",
+    "meaning_guard",
+    "revision_sequence",
+    "voice_guard"
+  ],
+  "hard_fail_patterns": [
+    "rewrite for difference only",
+    "casualize it more",
+    "make it sound human somehow"
+  ],
+  "soft_fail_patterns": [
+    "a bit more natural",
+    "less robotic"
+  ],
+  "required_skills": [
+    "text-humanization-expert.md",
+    "content-and-case-study-expert.md"
+  ],
+  "allowed_modes": [
+    "REBUILD",
+    "PEER",
+    "STRUCTURE"
+  ],
+  "allowed_phases": [
+    "communication",
+    "case-study",
+    "implementation"
+  ],
+  "canonical_contract": "src/schemas/task_contracts.json#text_humanization_revision",
+  "task_weight_default": "lightweight",
+  "supports_lightweight_response": true,
+  "trace_visibility_default": "recoverable"
+}
