@@ -1,0 +1,46 @@
+{
+  "task_id": "dashboard_audit",
+  "title": "Dashboard Audit",
+  "required_sections": [
+    "Dashboard role",
+    "Key failures",
+    "Evidence and rationale",
+    "Recommended rebuild path"
+  ],
+  "required_evidence_types": [
+    "KPI hierarchy",
+    "density rule",
+    "chart-choice logic"
+  ],
+  "required_decisions": [
+    "dashboard_type",
+    "kpi_priority",
+    "density_strategy",
+    "drilldown_or_filter_logic",
+    "visual_confidence_boundary"
+  ],
+  "hard_fail_patterns": [
+    "add more charts",
+    "show everything above the fold"
+  ],
+  "soft_fail_patterns": [
+    "clean up visually"
+  ],
+  "required_skills": [
+    "dashboard-data-expert.md",
+    "ui-system-expert.md"
+  ],
+  "allowed_modes": [
+    "AUDIT",
+    "PEER"
+  ],
+  "allowed_phases": [
+    "strategy",
+    "structure",
+    "ui"
+  ],
+  "canonical_contract": "src/schemas/task_contracts.json#dashboard_audit",
+  "task_weight_default": "standard",
+  "supports_lightweight_response": true,
+  "trace_visibility_default": "recoverable"
+}

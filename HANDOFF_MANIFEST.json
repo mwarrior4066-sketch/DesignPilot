@@ -1,0 +1,58 @@
+{
+  "bundle": "DesignPilot_Integrity_Pass",
+  "version": "2.6.1",
+  "generated_at": "2026-04-11",
+  "full_build_manifest": "dist/full_build_manifest.json",
+  "artifacts": [
+    {
+      "path": "dist/DEPLOY_LITE.md",
+      "bytes": 2427,
+      "sha256": "fddef2fa33ed9bd7fffe9496b72704b63266a7d4df38f8d96c3ecad0c45b4389"
+    },
+    {
+      "path": "docs/operator/LIGHTWEIGHT_QUICKSTART.md",
+      "bytes": 1627,
+      "sha256": "d2bee9570f49d2ce58614329094d8345739523453ba0335a54add62d50a5472a"
+    },
+    {
+      "path": "docs/operator/STARTUP_MODES.md",
+      "bytes": 1285,
+      "sha256": "1c0a7d8ce7eedbd06fe0aaa9f2fb55587ecf14f334044748cb194e2b03c4eaea"
+    },
+    {
+      "path": "docs/operator/ROUTE_PICKER.md",
+      "bytes": 5612,
+      "sha256": "dfc7a061e49b4d8e615d88af412d108e6a91e182d17deff12feaee73bdf448f3"
+    },
+    {
+      "path": "dist/lightweight_validation_report.json",
+      "bytes": 284,
+      "sha256": "5fe4330974347d60e358a52aa23cf9e6971226eff389da34e6f5775d0d7e1518"
+    },
+    {
+      "path": "dist/integrity_validation_report.json",
+      "bytes": 308,
+      "sha256": "897c6ca86e28eafa279c2a2200a1c06fbfedcaaa3ee768b1d5f553013600bf20"
+    },
+    {
+      "path": "dist/build_metrics.json",
+      "bytes": 884,
+      "sha256": "7e8ab85be2fa3524f61abc8f25466788408e6259ae56bf0d4d56cb0793c230c1"
+    },
+    {
+      "path": "dist/full_build_manifest.json",
+      "bytes": 110593,
+      "sha256": "86f65c8406a600b2697e802dc46a8bdf3e533b18001699389e116b517ec47cef"
+    },
+    {
+      "path": "dist/release_quality_report_v2.6.1.json",
+      "bytes": 1775,
+      "sha256": "18a6895b4688cd37619c1603b1a314da27b266c9b93cad853855d7f794608bef"
+    },
+    {
+      "path": "proof/artifacts/integrity_pass_report_v2.6.1.md",
+      "bytes": 869,
+      "sha256": "8cd41a2888de0637cbe4cd74c312b39136b7ba173419d9aabc06056fbf2d455c"
+    }
+  ]
+}

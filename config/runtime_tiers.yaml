@@ -1,0 +1,25 @@
+economy:
+  models:
+  - mini
+  - fast
+  intended_for:
+  - bounded lookups
+  - simple extraction
+  - short answers
+  budget_behavior: default downgrade target
+mid:
+  models:
+  - balanced
+  intended_for:
+  - standard DesignPilot routed work
+  - normal audits
+  - most reviews
+  budget_behavior: default operator tier
+premium:
+  models:
+  - frontier
+  intended_for:
+  - compound planning
+  - high-stakes remediation
+  - architecture-heavy synthesis
+  budget_behavior: explicit escalation tier

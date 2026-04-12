@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DesignPilot Module Frontmatter",
+  "type": "object",
+  "required": [
+    "id",
+    "title",
+    "kind",
+    "audience",
+    "profile_scope",
+    "precedence_level",
+    "runtime_mode",
+    "summary_short",
+    "status"
+  ],
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "kind": {
+      "enum": [
+        "skill",
+        "rule",
+        "contract",
+        "protocol",
+        "reference",
+        "example"
+      ]
+    },
+    "audience": {
+      "enum": [
+        "operator",
+        "maintainer",
+        "public",
+        "mixed"
+      ]
+    },
+    "profile_scope": {
+      "enum": [
+        "core",
+        "ui",
+        "brand",
+        "shared"
+      ]
+    },
+    "precedence_level": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 9
+    },
+    "runtime_mode": {
+      "enum": [
+        "stable",
+        "dynamic",
+        "on_demand"
+      ]
+    },
+    "dependencies": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "exclusions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "summary_short": {
+      "type": "string",
+      "maxLength": 240
+    },
+    "summary_10w": {
+      "type": "string",
+      "maxLength": 120
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "active",
+        "deprecated"
+      ]
+    }
+  },
+  "additionalProperties": true
+}

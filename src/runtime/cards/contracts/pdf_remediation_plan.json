@@ -1,0 +1,47 @@
+{
+  "task_id": "pdf_remediation_plan",
+  "title": "PDF Remediation Plan",
+  "required_sections": [
+    "Current failure state",
+    "Remediation sequence",
+    "Verification checks",
+    "Risk controls"
+  ],
+  "required_evidence_types": [
+    "tagging rule",
+    "reading-order rule",
+    "verification method"
+  ],
+  "required_decisions": [
+    "semantic_failure",
+    "reading_order_or_extraction",
+    "verification_method",
+    "destructive_shortcut_rejected"
+  ],
+  "hard_fail_patterns": [
+    "flatten the pdf",
+    "rasterize the page",
+    "just use OCR only"
+  ],
+  "soft_fail_patterns": [
+    "make it accessible somehow"
+  ],
+  "required_skills": [
+    "document-accessibility-expert.md",
+    "pdf-layout-expert.md"
+  ],
+  "allowed_modes": [
+    "AUDIT",
+    "REBUILD",
+    "PEER"
+  ],
+  "allowed_phases": [
+    "structure",
+    "specs",
+    "implementation"
+  ],
+  "canonical_contract": "src/schemas/task_contracts.json#pdf_remediation_plan",
+  "task_weight_default": "compound",
+  "supports_lightweight_response": false,
+  "trace_visibility_default": "recoverable"
+}

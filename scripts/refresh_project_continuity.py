@@ -206,9 +206,9 @@ def refresh_project(slug: str = 'designpilot'):
     bundle_manifest.write_text('\n'.join(bundle_body), encoding='utf-8')
 
     for rel in [
-        'knowledge-base/indices/source_doc_sections.json',
-        'knowledge-base/indices/source_section_map.json',
-        'knowledge-base/indices/runtime_summary_map.json',
+        'src/knowledge-base/indices/source_doc_sections.json',
+        'src/knowledge-base/indices/source_section_map.json',
+        'src/knowledge-base/indices/runtime_summary_map.json',
         'tests/scorecards/task_quality_rubric.json',
     ]:
         set_pack_version(ROOT / rel, release_line)

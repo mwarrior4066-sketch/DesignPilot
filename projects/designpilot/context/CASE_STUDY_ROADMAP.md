@@ -3,10 +3,10 @@
 ## Project identity
 - Name: DesignPilot
 - Slug: designpilot
-- Current phase: continuity and release synchronization on top of the stable v2.5.0 system
+- Current phase: continuity and release synchronization on top of the stable v2.6.1 system
 - Current proof state: internal operator proof strong; comparative proof strong; external confidence proof improving; production outcome proof open
-- Last meaningful update: 2026-04-11
-- Artifact freshness anchor: 2026-04-11T05:59:18Z
+- Last meaningful update: 2026-04-12
+- Artifact freshness anchor: 2026-04-12T00:49:20Z
 
 ## Proof state
 - Benchmark artifact count: 6
@@ -47,7 +47,7 @@
 - next benchmark run tied to any new direct task coverage
 
 ## Release readiness
-- Current release line: v2.5.0
+- Current release line: v2.6.1
 - Workspace freshness: current
 - Export posture: controlled-release ready, not production-outcome proven
 - Release gate blockers: no production outcome proof; external confidence sample still small

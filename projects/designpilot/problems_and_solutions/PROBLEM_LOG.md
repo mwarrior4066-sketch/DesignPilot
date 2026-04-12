@@ -34,7 +34,7 @@
 - Error ID: DP-PROB-003
 - Classification: template_misuse_error
 - Context: v2.4.0 capability expansion planning
-- Artifact(s): skills/front-end-handoff-expert.md, skills/back-end-aware-planner.md, skills/accessibility-feedback-expert.md
+- Artifact(s): src/skills/front-end-handoff-expert.md, src/skills/back-end-aware-planner.md, src/skills/accessibility-feedback-expert.md
 - Severity: medium
 - Surfaced by: revision plan plus new architecture research
 - What went wrong: gateway skills were doing more architectural and behavior-system ownership than their names and proof surface justified

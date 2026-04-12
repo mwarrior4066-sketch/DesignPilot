@@ -4,9 +4,9 @@ from collections import defaultdict
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-contracts = json.loads((ROOT / 'schemas' / 'task_contracts.json').read_text(encoding='utf-8'))
-routes = json.loads((ROOT / 'schemas' / 'routing_registry.json').read_text(encoding='utf-8'))
-rules = json.loads((ROOT / 'schemas' / 'validation_rules.json').read_text(encoding='utf-8'))
+contracts = json.loads((ROOT / 'src' / 'schemas' / 'task_contracts.json').read_text(encoding='utf-8'))
+routes = json.loads((ROOT / 'src' / 'schemas' / 'routing_registry.json').read_text(encoding='utf-8'))
+rules = json.loads((ROOT / 'src' / 'schemas' / 'validation_rules.json').read_text(encoding='utf-8'))
 scorecard = json.loads((ROOT / 'tests' / 'scorecards' / 'task_quality_rubric.json').read_text(encoding='utf-8'))
 regression = json.loads((ROOT / 'tests' / 'regression_suite.json').read_text(encoding='utf-8'))
 
@@ -25,7 +25,7 @@ for test in regression.get('tests', []):
 out = [
     '# Output Contracts by Task',
     '',
-    '> Generated from `schemas/task_contracts.json`, stored evals, and `tests/regression_suite.json`. Add contract changes in the schema first, then regenerate.',
+    '> Generated from `src/schemas/task_contracts.json`, stored evals, and `tests/regression_suite.json`. Add contract changes in the schema first, then regenerate.',
     '',
     'This is the human-readable contract catalog for the pack. Each contract entry shows the required sections, the named decisions the task must make, the evidence classes that must appear, the shortcut/overclaim patterns that should fail, and the example / regression artifacts that currently prove the route.',
     ''
@@ -80,12 +80,12 @@ for task in contracts['tasks']:
     out.extend([f"- hard fail: {p}" for p in task['hard_fail_patterns']])
     out.extend([f"- soft fail: {p}" for p in task['soft_fail_patterns']])
     out.append('')
-(ROOT / 'operator' / 'governance' / 'OUTPUT_CONTRACTS_BY_TASK.md').write_text('\n'.join(out), encoding='utf-8')
+(ROOT / 'src' / 'operator' / 'governance' / 'OUTPUT_CONTRACTS_BY_TASK.md').write_text('\n'.join(out), encoding='utf-8')
 
 rulebook = [
     '# Runtime Validation Layer',
     '',
-    '> Generated from `schemas/validation_rules.json` and implemented by `runtime_validator.py`.',
+    '> Generated from `src/schemas/validation_rules.json` and implemented by `runtime_validator.py`.',
     '',
     'The runtime validator is the executable rulebook for the pack. Global structure checks fire first, task-contract checks fire second, route-specific semantic checks fire third, and integrity checks fire last. This is meant to block outputs that are polished, dense, or specific-sounding but still weak.',
     ''
@@ -123,12 +123,12 @@ rulebook += [
     '| Stale continuity | Roadmap or error log older than the changed artifacts | Refresh project continuity before export |',
     ''
 ]
-(ROOT / 'operator' / 'governance' / 'RUNTIME_VALIDATION_LAYER.md').write_text('\n'.join(rulebook), encoding='utf-8')
+(ROOT / 'src' / 'operator' / 'governance' / 'RUNTIME_VALIDATION_LAYER.md').write_text('\n'.join(rulebook), encoding='utf-8')
 
 catalog = [
     '# Route Catalog',
     '',
-    '> Generated from `schemas/routing_registry.json`, example evals, and the regression suite.',
+    '> Generated from `src/schemas/routing_registry.json`, example evals, and the regression suite.',
     '',
     'This catalog explains how the pack chooses a governing route, which skills it loads in support, where route confusion usually happens, and what artifacts currently prove the route.',
     '',
@@ -187,7 +187,7 @@ for route in routes['routes']:
         *[f'- {x}' for x in route['exit_conditions']],
         ''
     ]
-(ROOT / 'operator' / 'core' / 'ROUTE_CATALOG.md').write_text('\n'.join(catalog), encoding='utf-8')
+(ROOT / 'src' / 'operator' / 'core' / 'ROUTE_CATALOG.md').write_text('\n'.join(catalog), encoding='utf-8')
 
 rubric = [
     '# Pack Quality Rubric',
@@ -202,5 +202,5 @@ rubric = [
 for c in scorecard['criteria']:
     rubric.append(f"| {c['id']} | {c['weight']} | {c['pass_threshold']} | {c['question']} |")
 rubric += ['', '## Bias controls', *[f'- {x}' for x in scorecard['bias_controls']], '']
-(ROOT / 'operator' / 'governance' / 'PACK_QUALITY_RUBRIC.md').write_text('\n'.join(rubric), encoding='utf-8')
+(ROOT / 'src' / 'operator' / 'governance' / 'PACK_QUALITY_RUBRIC.md').write_text('\n'.join(rubric), encoding='utf-8')
 print('generated human-readable mirrors')

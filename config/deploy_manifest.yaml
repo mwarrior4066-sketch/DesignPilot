@@ -1,0 +1,90 @@
+version: '1.1'
+kernel_files:
+- src/operator/core/MASTER_CHAT_OPERATOR.md
+- src/operator/core/TASK_ROUTER.md
+- src/operator/core/SESSION_CONTEXT.md
+- src/operator/core/SESSION_CONTEXT_DEFAULTS.md
+- src/operator/protocols/DEGRADED_MODE_PROTOCOL.md
+- src/operator/protocols/VISUAL_INPUT_PROTOCOL.md
+- src/operator/protocols/LIGHTWEIGHT_RESPONSE_PROTOCOL.md
+- src/operator/protocols/ADAPTIVE_EXPLANATION_PROTOCOL.md
+- src/operator/protocols/RESPONSE_PROTOCOL.md
+- src/operator/governance/SYSTEM_PRECEDENCE.md
+- src/operator/governance/CONTROL_AUTHORITY_MAP.md
+- src/operator/governance/OUTPUT_CONTRACTS_BY_TASK.md
+- src/operator/governance/RUNTIME_VALIDATION_LAYER.md
+profiles:
+  core:
+    description: General DesignPilot deployment for critique, planning, audit, rebuild,
+      and cross-domain work.
+    skill_files:
+    - accessibility-feedback-expert.md
+    - back-end-aware-planner.md
+    - component-systems-expert.md
+    - content-and-case-study-expert.md
+    - dashboard-data-expert.md
+    - front-end-handoff-expert.md
+    - layout-reconstruction-expert.md
+    - text-humanization-expert.md
+    - ui-system-expert.md
+    - ux-research-expert.md
+    extra_sources:
+    - src/operator/project/PROJECT_STATE_PROTOCOL.md
+    - src/operator/project/PROJECT_FILE_SYSTEM_PROTOCOL.md
+    - src/operator/project/PROJECT_LOGGING_PROTOCOL.md
+  ui:
+    description: UI-heavy deployment for interface systems, components, grids, accessibility,
+      and implementation realism.
+    skill_files:
+    - accessibility-feedback-expert.md
+    - api-reliability-security-expert.md
+    - back-end-aware-planner.md
+    - back-end-systems-architect.md
+    - color-system-expert.md
+    - component-systems-expert.md
+    - dashboard-data-expert.md
+    - document-accessibility-expert.md
+    - front-end-architecture-expert.md
+    - front-end-handoff-expert.md
+    - grid-system-expert.md
+    - layout-reconstruction-expert.md
+    - pdf-layout-expert.md
+    - type-system-expert.md
+    - ui-system-expert.md
+    extra_sources:
+    - src/operator/reference/DESIGN_TOKEN_ARCHITECTURE.md
+    - src/operator/protocols/VISUAL_INPUT_PROTOCOL.md
+  brand:
+    description: Brand and communication deployment for positioning, narrative framing,
+      case studies, and graphic systems.
+    skill_files:
+    - brand-strategy-expert.md
+    - color-system-expert.md
+    - content-and-case-study-expert.md
+    - graphic-design-expert.md
+    - text-humanization-expert.md
+    - type-system-expert.md
+    - ux-research-expert.md
+    extra_sources:
+    - src/operator/protocols/ADAPTIVE_EXPLANATION_PROTOCOL.md
+    - src/operator/protocols/DESIGNER_RESPONSE_FILTER_PROTOCOL.md
+generated_artifacts:
+- dist/DESIGNPILOT_DEPLOY.md
+- dist/DEPLOY_CORE.md
+- dist/DEPLOY_UI.md
+- dist/DEPLOY_BRAND.md
+- dist/DEPLOY_LITE.md
+- dist/SESSION_ZERO.md
+- dist/manifest.json
+- dist/tier_profile.yaml
+- dist/validation_report.json
+- dist/lite_index.json
+- dist/lite_routes/
+- dist/lite_contracts/
+- dist/lite_starters/
+lite_files:
+- src/runtime/boot/core_bootstrap.md
+- src/runtime/boot/runtime_precedence.md
+- src/operator/protocols/LIGHTWEIGHT_RESPONSE_PROTOCOL.md
+- src/operator/protocols/DEGRADED_MODE_PROTOCOL.md
+- src/operator/governance/SYSTEM_PRECEDENCE.md

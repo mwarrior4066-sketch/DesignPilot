@@ -1,0 +1,47 @@
+{
+  "task_id": "ui_structure_critique",
+  "title": "UI Structure Critique",
+  "required_sections": [
+    "Problem framing",
+    "Findings",
+    "Recommendations",
+    "Tradeoffs"
+  ],
+  "required_evidence_types": [
+    "task logic",
+    "hierarchy rule",
+    "layout constraint"
+  ],
+  "required_decisions": [
+    "structural_failure",
+    "hierarchy_winner",
+    "intervention_order",
+    "tradeoff_resolution",
+    "visual_confidence_boundary"
+  ],
+  "hard_fail_patterns": [
+    "looks great as-is",
+    "just make it prettier",
+    "finalize the UI now"
+  ],
+  "soft_fail_patterns": [
+    "could maybe",
+    "might want to consider"
+  ],
+  "required_skills": [
+    "ui-system-expert.md",
+    "grid-system-expert.md"
+  ],
+  "allowed_modes": [
+    "AUDIT",
+    "PEER"
+  ],
+  "allowed_phases": [
+    "structure",
+    "ui"
+  ],
+  "canonical_contract": "src/schemas/task_contracts.json#ui_structure_critique",
+  "task_weight_default": "standard",
+  "supports_lightweight_response": true,
+  "trace_visibility_default": "recoverable"
+}

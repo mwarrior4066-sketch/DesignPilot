@@ -1,0 +1,26 @@
+{
+  "run_id": "benchmark-run-003",
+  "prompt_id": "Prompt 03",
+  "task_type": "pdf_remediation_plan",
+  "baseline_system": "generic_ai",
+  "pack_system": "design_expert_pack_2_2_0",
+  "baseline_score": 0.55,
+  "pack_score": 0.89,
+  "score_delta": 0.34,
+  "time_delta_seconds": 4.8,
+  "timing_seconds": {
+    "baseline": 9.7,
+    "pack": 14.5
+  },
+  "reviewer_note": "The pack preserved semantics, verification steps, and Unicode/extraction concerns while the baseline stayed mostly visual.",
+  "unresolved_weakness": "Still no external remediation specialist review attached to the benchmark.",
+  "win_type": "implementation-based and evidentiary",
+  "bias_controls": [
+    "same prompt",
+    "shared rubric",
+    "A/B order swapped"
+  ],
+  "evidence_gap": "specialist confidence proof still partial",
+  "next_move": "capture a remediation reviewer confidence artifact for the same prompt family",
+  "summary": "The pack showed stronger implementation realism and proof hygiene for PDF remediation than the baseline."
+}

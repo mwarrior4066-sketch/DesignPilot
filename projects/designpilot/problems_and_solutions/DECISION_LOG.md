@@ -29,6 +29,6 @@
 - Options considered: keep expanding gateway skills only; add separate deep architecture and API reliability routes on the stable v2.3 base
 - Decision: add separate deep skills, routes, contracts, examples, and proof artifacts for the front-end/back-end capability cluster
 - Why: the stable v2.3 base already solved the generic hardening layer, so the next credible move was breadth with ownership and proof discipline
-- Files affected: skills/, schemas/, templates/, examples/, tests/, projects/designpilot/
+- Files affected: src/skills/, src/schemas/, src/templates/, examples/, tests/, projects/designpilot/
 - Validation impact: wider capability surface with explicit route ownership and new benchmark coverage
 - Follow-up: add more production-adjacent receipts before strengthening outcome language

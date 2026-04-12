@@ -1,0 +1,33 @@
+layers:
+- level: 1
+  name: stable_governance
+  sources:
+  - src/operator/core/MASTER_CHAT_OPERATOR.md
+  - src/operator/governance/SYSTEM_PRECEDENCE.md
+  - src/operator/governance/CONTROL_AUTHORITY_MAP.md
+- level: 2
+  name: routing
+  sources:
+  - src/schemas/routing_registry.json
+  - src/runtime/cards/routes/*.json
+- level: 3
+  name: task_contracts
+  sources:
+  - src/schemas/task_contracts.json
+  - src/runtime/cards/contracts/*.json
+- level: 4
+  name: profile_and_skill_logic
+  sources:
+  - dist/DEPLOY_*.md
+  - src/skills/*.md
+  - src/runtime/cards/skills/*.md
+- level: 5
+  name: task_specific_dynamic_logic
+  sources:
+  - session context
+  - user constraints
+  - project workspace state
+conflict_rules:
+- canonical source beats overlay
+- governing route owns the evidence burden
+- fail closed when ambiguity affects proof, feasibility, or safety

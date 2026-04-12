@@ -1,0 +1,32 @@
+{
+  "source-docs": {
+    "count": 36,
+    "avg_words": 6156.5,
+    "median_words": 6069.0,
+    "min_file": "source-docs/API Reliability and Security Research Report.md",
+    "min_words": 801,
+    "max_file": "source-docs/Design Strategy and Communication Research.md",
+    "max_words": 27263,
+    "under_1000": 8
+  },
+  "summaries": {
+    "count": 32,
+    "avg_words": 259.8,
+    "median_words": 242.5,
+    "min_file": "summaries/exception-taxonomy-summary.md",
+    "min_words": 85,
+    "max_file": "summaries/typeface-database-summary.md",
+    "max_words": 649,
+    "under_1000": 32
+  },
+  "runtime-summaries": {
+    "count": 32,
+    "avg_words": 202.0,
+    "median_words": 207.5,
+    "min_file": "runtime-summaries/ux-roadmap-summary.md",
+    "min_words": 117,
+    "max_file": "runtime-summaries/document-presentation-architecture-summary.md",
+    "max_words": 342,
+    "under_1000": 32
+  }
+}

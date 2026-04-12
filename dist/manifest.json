@@ -1,0 +1,273 @@
+{
+  "artifacts": {
+    "DESIGNPILOT_DEPLOY.md": {
+      "word_count": 14794,
+      "path": "dist/DESIGNPILOT_DEPLOY.md",
+      "token_estimate": 27163
+    },
+    "DEPLOY_CORE.md": {
+      "word_count": 1469,
+      "path": "dist/DEPLOY_CORE.md",
+      "token_estimate": 2799
+    },
+    "DEPLOY_UI.md": {
+      "word_count": 968,
+      "path": "dist/DEPLOY_UI.md",
+      "token_estimate": 1904
+    },
+    "DEPLOY_BRAND.md": {
+      "word_count": 1288,
+      "path": "dist/DEPLOY_BRAND.md",
+      "token_estimate": 2290
+    },
+    "DEPLOY_LITE.md": {
+      "word_count": 337,
+      "path": "dist/DEPLOY_LITE.md",
+      "token_estimate": 607
+    },
+    "SESSION_ZERO.md": {
+      "word_count": 91,
+      "path": "dist/SESSION_ZERO.md",
+      "token_estimate": 140
+    },
+    "lite_routes/rt_accessibility_feedback_audit.md": {
+      "word_count": 253,
+      "path": "dist/lite_routes/rt_accessibility_feedback_audit.md",
+      "token_estimate": 568
+    },
+    "lite_routes/rt_api_reliability_security.md": {
+      "word_count": 323,
+      "path": "dist/lite_routes/rt_api_reliability_security.md",
+      "token_estimate": 760
+    },
+    "lite_routes/rt_backend_feasibility.md": {
+      "word_count": 262,
+      "path": "dist/lite_routes/rt_backend_feasibility.md",
+      "token_estimate": 601
+    },
+    "lite_routes/rt_backend_systems_architecture.md": {
+      "word_count": 321,
+      "path": "dist/lite_routes/rt_backend_systems_architecture.md",
+      "token_estimate": 747
+    },
+    "lite_routes/rt_brand_positioning.md": {
+      "word_count": 228,
+      "path": "dist/lite_routes/rt_brand_positioning.md",
+      "token_estimate": 497
+    },
+    "lite_routes/rt_case_study_rewrite.md": {
+      "word_count": 221,
+      "path": "dist/lite_routes/rt_case_study_rewrite.md",
+      "token_estimate": 489
+    },
+    "lite_routes/rt_color_system_spec.md": {
+      "word_count": 264,
+      "path": "dist/lite_routes/rt_color_system_spec.md",
+      "token_estimate": 574
+    },
+    "lite_routes/rt_component_spec.md": {
+      "word_count": 264,
+      "path": "dist/lite_routes/rt_component_spec.md",
+      "token_estimate": 605
+    },
+    "lite_routes/rt_dashboard_audit.md": {
+      "word_count": 242,
+      "path": "dist/lite_routes/rt_dashboard_audit.md",
+      "token_estimate": 554
+    },
+    "lite_routes/rt_frontend_architecture.md": {
+      "word_count": 339,
+      "path": "dist/lite_routes/rt_frontend_architecture.md",
+      "token_estimate": 786
+    },
+    "lite_routes/rt_graphic_critique.md": {
+      "word_count": 251,
+      "path": "dist/lite_routes/rt_graphic_critique.md",
+      "token_estimate": 594
+    },
+    "lite_routes/rt_layout_reconstruction_plan.md": {
+      "word_count": 234,
+      "path": "dist/lite_routes/rt_layout_reconstruction_plan.md",
+      "token_estimate": 529
+    },
+    "lite_routes/rt_pdf_remediation.md": {
+      "word_count": 230,
+      "path": "dist/lite_routes/rt_pdf_remediation.md",
+      "token_estimate": 525
+    },
+    "lite_routes/rt_text_humanization.md": {
+      "word_count": 229,
+      "path": "dist/lite_routes/rt_text_humanization.md",
+      "token_estimate": 498
+    },
+    "lite_routes/rt_type_system_recommendation.md": {
+      "word_count": 256,
+      "path": "dist/lite_routes/rt_type_system_recommendation.md",
+      "token_estimate": 608
+    },
+    "lite_routes/rt_ui_structure_critique.md": {
+      "word_count": 241,
+      "path": "dist/lite_routes/rt_ui_structure_critique.md",
+      "token_estimate": 566
+    },
+    "lite_routes/rt_ux_research_gap_map.md": {
+      "word_count": 225,
+      "path": "dist/lite_routes/rt_ux_research_gap_map.md",
+      "token_estimate": 493
+    },
+    "lite_routes/rt_visual_input.md": {
+      "word_count": 112,
+      "path": "dist/lite_routes/rt_visual_input.md",
+      "token_estimate": 187
+    },
+    "lite_contracts/accessibility_feedback_audit.md": {
+      "word_count": 126,
+      "path": "dist/lite_contracts/accessibility_feedback_audit.md",
+      "token_estimate": 231
+    },
+    "lite_contracts/api_reliability_security_review.md": {
+      "word_count": 145,
+      "path": "dist/lite_contracts/api_reliability_security_review.md",
+      "token_estimate": 267
+    },
+    "lite_contracts/backend_architecture_spec.md": {
+      "word_count": 144,
+      "path": "dist/lite_contracts/backend_architecture_spec.md",
+      "token_estimate": 259
+    },
+    "lite_contracts/backend_feasibility_review.md": {
+      "word_count": 123,
+      "path": "dist/lite_contracts/backend_feasibility_review.md",
+      "token_estimate": 230
+    },
+    "lite_contracts/brand_positioning_pass.md": {
+      "word_count": 122,
+      "path": "dist/lite_contracts/brand_positioning_pass.md",
+      "token_estimate": 224
+    },
+    "lite_contracts/case_study_rewrite.md": {
+      "word_count": 121,
+      "path": "dist/lite_contracts/case_study_rewrite.md",
+      "token_estimate": 217
+    },
+    "lite_contracts/color_system_spec.md": {
+      "word_count": 128,
+      "path": "dist/lite_contracts/color_system_spec.md",
+      "token_estimate": 216
+    },
+    "lite_contracts/component_spec.md": {
+      "word_count": 122,
+      "path": "dist/lite_contracts/component_spec.md",
+      "token_estimate": 216
+    },
+    "lite_contracts/dashboard_audit.md": {
+      "word_count": 125,
+      "path": "dist/lite_contracts/dashboard_audit.md",
+      "token_estimate": 220
+    },
+    "lite_contracts/frontend_implementation_review.md": {
+      "word_count": 138,
+      "path": "dist/lite_contracts/frontend_implementation_review.md",
+      "token_estimate": 249
+    },
+    "lite_contracts/graphic_critique.md": {
+      "word_count": 127,
+      "path": "dist/lite_contracts/graphic_critique.md",
+      "token_estimate": 217
+    },
+    "lite_contracts/layout_reconstruction_plan.md": {
+      "word_count": 129,
+      "path": "dist/lite_contracts/layout_reconstruction_plan.md",
+      "token_estimate": 245
+    },
+    "lite_contracts/pdf_remediation_plan.md": {
+      "word_count": 128,
+      "path": "dist/lite_contracts/pdf_remediation_plan.md",
+      "token_estimate": 233
+    },
+    "lite_contracts/text_humanization_revision.md": {
+      "word_count": 143,
+      "path": "dist/lite_contracts/text_humanization_revision.md",
+      "token_estimate": 251
+    },
+    "lite_contracts/type_system_recommendation.md": {
+      "word_count": 132,
+      "path": "dist/lite_contracts/type_system_recommendation.md",
+      "token_estimate": 228
+    },
+    "lite_contracts/ui_structure_critique.md": {
+      "word_count": 128,
+      "path": "dist/lite_contracts/ui_structure_critique.md",
+      "token_estimate": 225
+    },
+    "lite_contracts/ux_research_gap_map.md": {
+      "word_count": 127,
+      "path": "dist/lite_contracts/ux_research_gap_map.md",
+      "token_estimate": 216
+    },
+    "lite_starters/accessibility_feedback_audit.md": {
+      "word_count": 127,
+      "path": "dist/lite_starters/accessibility_feedback_audit.md",
+      "token_estimate": 292
+    },
+    "lite_starters/brand_positioning_pass.md": {
+      "word_count": 124,
+      "path": "dist/lite_starters/brand_positioning_pass.md",
+      "token_estimate": 262
+    },
+    "lite_starters/case_study_rewrite.md": {
+      "word_count": 123,
+      "path": "dist/lite_starters/case_study_rewrite.md",
+      "token_estimate": 266
+    },
+    "lite_starters/color_system_spec.md": {
+      "word_count": 130,
+      "path": "dist/lite_starters/color_system_spec.md",
+      "token_estimate": 285
+    },
+    "lite_starters/component_spec.md": {
+      "word_count": 118,
+      "path": "dist/lite_starters/component_spec.md",
+      "token_estimate": 273
+    },
+    "lite_starters/dashboard_audit.md": {
+      "word_count": 120,
+      "path": "dist/lite_starters/dashboard_audit.md",
+      "token_estimate": 270
+    },
+    "lite_starters/graphic_critique.md": {
+      "word_count": 122,
+      "path": "dist/lite_starters/graphic_critique.md",
+      "token_estimate": 273
+    },
+    "lite_starters/text_humanization_revision.md": {
+      "word_count": 123,
+      "path": "dist/lite_starters/text_humanization_revision.md",
+      "token_estimate": 277
+    },
+    "lite_starters/type_system_recommendation.md": {
+      "word_count": 128,
+      "path": "dist/lite_starters/type_system_recommendation.md",
+      "token_estimate": 286
+    },
+    "lite_starters/ui_structure_critique.md": {
+      "word_count": 122,
+      "path": "dist/lite_starters/ui_structure_critique.md",
+      "token_estimate": 275
+    },
+    "lite_starters/ux_research_gap_map.md": {
+      "word_count": 125,
+      "path": "dist/lite_starters/ux_research_gap_map.md",
+      "token_estimate": 264
+    },
+    "lite_index.json": {
+      "word_count": 0,
+      "path": "dist/lite_index.json"
+    }
+  },
+  "generated_from": [
+    "config/deploy_manifest.yaml",
+    "config/profile_map.yaml"
+  ],
+  "status": "ok"
+}

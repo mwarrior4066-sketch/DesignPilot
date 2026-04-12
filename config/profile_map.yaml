@@ -1,0 +1,54 @@
+core:
+  description: General DesignPilot deployment for critique, planning, audit, rebuild,
+    and rebuild work inside one primary domain.
+  skill_files:
+  - accessibility-feedback-expert.md
+  - back-end-aware-planner.md
+  - component-systems-expert.md
+  - content-and-case-study-expert.md
+  - dashboard-data-expert.md
+  - front-end-handoff-expert.md
+  - layout-reconstruction-expert.md
+  - text-humanization-expert.md
+  - ui-system-expert.md
+  - ux-research-expert.md
+  extra_sources:
+  - src/operator/project/PROJECT_STATE_PROTOCOL.md
+  - src/operator/project/PROJECT_FILE_SYSTEM_PROTOCOL.md
+  - src/operator/project/PROJECT_LOGGING_PROTOCOL.md
+ui:
+  description: UI-heavy deployment for interface systems, components, grids, accessibility,
+    and implementation realism.
+  skill_files:
+  - accessibility-feedback-expert.md
+  - api-reliability-security-expert.md
+  - back-end-aware-planner.md
+  - back-end-systems-architect.md
+  - color-system-expert.md
+  - component-systems-expert.md
+  - dashboard-data-expert.md
+  - document-accessibility-expert.md
+  - front-end-architecture-expert.md
+  - front-end-handoff-expert.md
+  - grid-system-expert.md
+  - layout-reconstruction-expert.md
+  - pdf-layout-expert.md
+  - type-system-expert.md
+  - ui-system-expert.md
+  extra_sources:
+  - src/operator/reference/DESIGN_TOKEN_ARCHITECTURE.md
+  - src/operator/protocols/VISUAL_INPUT_PROTOCOL.md
+brand:
+  description: Brand and communication deployment for positioning, narrative framing,
+    case studies, and graphic systems.
+  skill_files:
+  - brand-strategy-expert.md
+  - color-system-expert.md
+  - content-and-case-study-expert.md
+  - graphic-design-expert.md
+  - text-humanization-expert.md
+  - type-system-expert.md
+  - ux-research-expert.md
+  extra_sources:
+  - src/operator/protocols/ADAPTIVE_EXPLANATION_PROTOCOL.md
+  - src/operator/protocols/DESIGNER_RESPONSE_FILTER_PROTOCOL.md

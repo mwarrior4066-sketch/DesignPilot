@@ -103,50 +103,50 @@ def ensure_list(v):
 
 def main():
     manifest = json.loads(read(ROOT / 'PACK_MANIFEST.json'))
-    routes = json.loads(read(ROOT / 'schemas' / 'routing_registry.json'))
-    contracts = json.loads(read(ROOT / 'schemas' / 'task_contracts.json'))
+    routes = json.loads(read(ROOT / 'src' / 'schemas' / 'routing_registry.json'))
+    contracts = json.loads(read(ROOT / 'src' / 'schemas' / 'task_contracts.json'))
 
     skill_info = {}
-    for p in sorted((ROOT / 'skills').glob('*.md')):
+    for p in sorted((ROOT / 'src' / 'skills').glob('*.md')):
         meta, body = parse_frontmatter(read(p))
         sections = parse_sections(body)
         skill_info[p.name] = {'meta': meta, 'sections': sections, 'path': p}
 
     summary_info = {}
-    for p in sorted((ROOT / 'knowledge-base' / 'summaries').glob('*.md')):
+    for p in sorted((ROOT / 'src' / 'knowledge-base' / 'summaries').glob('*.md')):
         meta, body = parse_frontmatter(read(p))
         sections = parse_sections(body)
         summary_info[p.name] = {'meta': meta, 'sections': sections, 'path': p}
 
     doc_to_summaries = {}
     for sname, info in summary_info.items():
-        refs = [r for r in ensure_list(info['meta'].get('source_reference')) if 'knowledge-base/source-docs/' in r]
+        refs = [r for r in ensure_list(info['meta'].get('source_reference')) if 'src/knowledge-base/source-docs/' in r]
         for ref in refs:
             doc_to_summaries.setdefault(os.path.basename(ref), []).append(sname)
 
     # runtime boot
-    write(ROOT / 'runtime' / 'boot' / 'core_bootstrap.md', '\n'.join([
+    write(ROOT / 'src' / 'runtime' / 'boot' / 'core_bootstrap.md', '\n'.join([
         '# Core Runtime Bootstrap',
         '',
         'This is the thin runtime aide for the pack.',
         'It is not a competing startup authority.',
-        'The single startup authority remains `operator/core/MASTER_CHAT_OPERATOR.md`.',
+        'The single startup authority remains `src/operator/core/MASTER_CHAT_OPERATOR.md`.',
         '',
         '## Default startup chain',
-        '1. `runtime/boot/core_bootstrap.md`',
-        '2. `runtime/boot/runtime_precedence.md`',
-        '3. selected route card in `runtime/cards/routes/`',
-        '4. selected contract card in `runtime/cards/contracts/`',
-        '5. required skill cards in `runtime/cards/skills/`',
-        '6. required runtime summaries in `knowledge-base/runtime-summaries/`',
+        '1. `src/runtime/boot/core_bootstrap.md`',
+        '2. `src/runtime/boot/runtime_precedence.md`',
+        '3. selected route card in `src/runtime/cards/routes/`',
+        '4. selected contract card in `src/runtime/cards/contracts/`',
+        '5. required skill cards in `src/runtime/cards/skills/`',
+        '6. required runtime summaries in `src/knowledge-base/runtime-summaries/`',
         '',
         '## Safe fallback',
         'If any runtime overlay artifact is missing, stale, or ambiguous, fall back immediately to the canonical authority:',
-        '- routing: `schemas/routing_registry.json`',
-        '- contracts: `schemas/task_contracts.json`',
-        '- skills: `skills/*.md`',
-        '- summaries: `knowledge-base/summaries/*.md`',
-        '- source docs: `knowledge-base/source-docs/*`',
+        '- routing: `src/schemas/routing_registry.json`',
+        '- contracts: `src/schemas/task_contracts.json`',
+        '- skills: `src/skills/*.md`',
+        '- summaries: `src/knowledge-base/summaries/*.md`',
+        '- source docs: `src/knowledge-base/source-docs/*`',
         '',
         '## Runtime promises',
         '- no capability loss',
@@ -154,7 +154,7 @@ def main():
         '- no summary deletion',
         '- mirrors are debug-only unless explicitly requested',
     ]))
-    write(ROOT / 'runtime' / 'boot' / 'runtime_precedence.md', '\n'.join([
+    write(ROOT / 'src' / 'runtime' / 'boot' / 'runtime_precedence.md', '\n'.join([
         '# Runtime Precedence',
         '',
         '## Runtime-first overlay',
@@ -173,11 +173,11 @@ def main():
         '',
         '## Debug-only files',
         'Do not load these at runtime unless debugging, maintaining, or explaining the pack itself:',
-        '- `operator/core/ROUTE_CATALOG.md`',
-        '- `operator/governance/OUTPUT_CONTRACTS_BY_TASK.md`',
+        '- `src/operator/core/ROUTE_CATALOG.md`',
+        '- `src/operator/governance/OUTPUT_CONTRACTS_BY_TASK.md`',
         '- `SKILL_REFERENCE_MAP.md`',
-        '- `operator/governance/RUNTIME_VALIDATION_LAYER.md` as prose explanation only',
-        '- `operator/governance/PACK_QUALITY_RUBRIC.md`',
+        '- `src/operator/governance/RUNTIME_VALIDATION_LAYER.md` as prose explanation only',
+        '- `src/operator/governance/PACK_QUALITY_RUBRIC.md`',
         '- `VALIDATION_RUBRICS.md`',
     ]))
 
@@ -195,7 +195,7 @@ def main():
             if skill_name not in skill_info:
                 continue
             refs = ensure_list(skill_info[skill_name]['meta'].get('source_reference'))
-            summary_bases = [os.path.basename(r) for r in refs if 'knowledge-base/summaries/' in r]
+            summary_bases = [os.path.basename(r) for r in refs if 'src/knowledge-base/summaries/' in r]
             if idx < len(route.get('loaded_skills', [])):
                 for s in summary_bases:
                     if s not in primary_summaries:
@@ -204,11 +204,14 @@ def main():
                 for s in summary_bases:
                     if s not in primary_summaries and s not in secondary_summaries:
                         secondary_summaries.append(s)
-        summary_ids = [f'knowledge-base/runtime-summaries/{s}' for s in primary_summaries + secondary_summaries]
+        summary_ids = [f'src/knowledge-base/runtime-summaries/{s}' for s in primary_summaries + secondary_summaries]
         route_card = {
             'route_id': route['route_id'],
             'task_id': route['task_id'],
+            'task_contract': route['task_id'],
+            'role': 'governing',
             'trigger_summary': route['selection_logic'],
+            'primary_skill': route.get('loaded_skills', [None])[0],
             'governing_skills': route.get('loaded_skills', []),
             'supporting_skills': all_skill_refs[len(route.get('loaded_skills', [])):],
             'required_summary_ids': summary_ids,
@@ -223,7 +226,7 @@ def main():
             'known_tensions': route.get('known_tensions', []),
             'handoff_targets': sorted(set([route.get('fallback_route_id')] + [r['task_id'] for r in contracts['tasks'] if any(skill in r.get('required_skills', []) for skill in route.get('loaded_skills', []))]))[:12],
             'overlay_safe_fallback': {
-                'routing': 'schemas/routing_registry.json',
+                'routing': 'src/schemas/routing_registry.json',
                 'skills': route.get('loaded_skills', []),
                 'summaries': primary_summaries + secondary_summaries,
             },
@@ -231,14 +234,14 @@ def main():
             'lightweight_eligible': next((t.get('supports_lightweight_response', True) for t in contracts['tasks'] if t['task_id'] == route['task_id']), True),
             'visual_input_supported': route.get('visual_input_supported', False),
         }
-        write(ROOT / 'runtime' / 'cards' / 'routes' / f"{route['route_id']}.json", json.dumps(route_card, indent=2))
+        write(ROOT / 'src' / 'runtime' / 'cards' / 'routes' / f"{route['route_id']}.json", json.dumps(route_card, indent=2))
         runtime_summary_map['routes'][route['route_id']] = {
-            'primary_runtime_summaries': [f'knowledge-base/runtime-summaries/{s}' for s in primary_summaries],
-            'secondary_runtime_summaries': [f'knowledge-base/runtime-summaries/{s}' for s in secondary_summaries],
+            'primary_runtime_summaries': [f'src/knowledge-base/runtime-summaries/{s}' for s in primary_summaries],
+            'secondary_runtime_summaries': [f'src/knowledge-base/runtime-summaries/{s}' for s in secondary_summaries],
             'forbidden_unrelated_summaries': [],
             'escalation_fallback': {
-                'full_summaries': [f'knowledge-base/summaries/{s}' for s in primary_summaries + secondary_summaries],
-                'canonical_route': 'schemas/routing_registry.json'
+                'full_summaries': [f'src/knowledge-base/summaries/{s}' for s in primary_summaries + secondary_summaries],
+                'canonical_route': 'src/schemas/routing_registry.json'
             }
         }
 
@@ -255,12 +258,12 @@ def main():
             'required_skills': task.get('required_skills', []),
             'allowed_modes': task.get('allowed_modes', []),
             'allowed_phases': task.get('allowed_phases', []),
-            'canonical_contract': f"schemas/task_contracts.json#{task['task_id']}",
+            'canonical_contract': f"src/schemas/task_contracts.json#{task['task_id']}",
             'task_weight_default': task.get('task_weight_default', 'standard'),
             'supports_lightweight_response': task.get('supports_lightweight_response', True),
             'trace_visibility_default': task.get('trace_visibility_default', 'recoverable'),
         }
-        write(ROOT / 'runtime' / 'cards' / 'contracts' / f"{task['task_id']}.json", json.dumps(card, indent=2))
+        write(ROOT / 'src' / 'runtime' / 'cards' / 'contracts' / f"{task['task_id']}.json", json.dumps(card, indent=2))
 
     # skill cards
     for skill_name, info in skill_info.items():
@@ -269,7 +272,7 @@ def main():
         text = '\n'.join([
             '---',
             f"runtime_card_version: 1.0.0",
-            f"canonical_skill: skills/{skill_name}",
+            f"canonical_skill: src/skills/{skill_name}",
             f"last_generated: {TODAY}",
             "overlay: true",
             '---',
@@ -297,10 +300,10 @@ def main():
             *[f"- {x}" for x in bullets_from_sections(sections, ['Handoff to other skills'])[:10]],
             '',
             '## Canonical fallback',
-            f"- `skills/{skill_name}`",
-            *[f"- `knowledge-base/summaries/{os.path.basename(x)}`" for x in refs],
+            f"- `src/skills/{skill_name}`",
+            *[f"- `src/knowledge-base/summaries/{os.path.basename(x)}`" for x in refs],
         ])
-        write(ROOT / 'runtime' / 'cards' / 'skills' / skill_name, text)
+        write(ROOT / 'src' / 'runtime' / 'cards' / 'skills' / skill_name, text)
 
     # runtime summaries
     for sname, info in summary_info.items():
@@ -321,7 +324,7 @@ def main():
         rt_text = '\n'.join([
             '---',
             'runtime_summary_version: 1.0.0',
-            f'canonical_summary: knowledge-base/summaries/{sname}',
+            f'canonical_summary: src/knowledge-base/summaries/{sname}',
             f'last_generated: {TODAY}',
             'overlay: true',
             'source_reference:',
@@ -339,14 +342,14 @@ def main():
             *[f"- {x}" for x in escalate_when],
             '',
             '## Canonical fallback',
-            f"- `knowledge-base/summaries/{sname}`",
-            *[f"- `knowledge-base/source-docs/{os.path.basename(x)}`" for x in refs],
+            f"- `src/knowledge-base/summaries/{sname}`",
+            *[f"- `src/knowledge-base/source-docs/{os.path.basename(x)}`" for x in refs],
         ])
-        write(ROOT / 'knowledge-base' / 'runtime-summaries' / sname, rt_text)
+        write(ROOT / 'src' / 'knowledge-base' / 'runtime-summaries' / sname, rt_text)
 
     # source doc sections index
     source_index = {'version': '1.0.0', 'pack_version': manifest['version'], 'documents': []}
-    for p in sorted((ROOT / 'knowledge-base' / 'source-docs').iterdir()):
+    for p in sorted((ROOT / 'src' / 'knowledge-base' / 'source-docs').iterdir()):
         if p.suffix.lower() == '.pdf':
             doc_entry = {
                 'file_name': p.name,
@@ -423,15 +426,15 @@ def main():
             'sections': sections
         })
 
-    write(ROOT / 'knowledge-base' / 'indices' / 'source_doc_sections.json', json.dumps(source_index, indent=2))
-    write(ROOT / 'knowledge-base' / 'indices' / 'source_section_map.json', json.dumps(source_index, indent=2))
-    write(ROOT / 'knowledge-base' / 'indices' / 'runtime_summary_map.json', json.dumps(runtime_summary_map, indent=2))
+    write(ROOT / 'src' / 'knowledge-base' / 'indices' / 'source_doc_sections.json', json.dumps(source_index, indent=2))
+    write(ROOT / 'src' / 'knowledge-base' / 'indices' / 'source_section_map.json', json.dumps(source_index, indent=2))
+    write(ROOT / 'src' / 'knowledge-base' / 'indices' / 'runtime_summary_map.json', json.dumps(runtime_summary_map, indent=2))
 
     token_budget = {
         'version': '1.0.0',
         'pack_version': manifest['version'],
         'layer_budgets': {
-            'boot': {'max_files': 2, 'preferred': ['runtime/boot/core_bootstrap.md', 'runtime/boot/runtime_precedence.md']},
+            'boot': {'max_files': 2, 'preferred': ['src/runtime/boot/core_bootstrap.md', 'src/runtime/boot/runtime_precedence.md']},
             'route_contract': {'max_files': 2, 'rule': 'load one route card and one contract card'},
             'skill_cards': {'max_files': 3, 'rule': 'load only required skill cards unless a justification note exists'},
             'runtime_summaries': {'max_files': 2, 'rule': 'load the mapped runtime summaries first'},
@@ -447,7 +450,7 @@ def main():
             'unrelated summaries loaded just in case'
         ]
     }
-    write(ROOT / 'runtime' / 'loading' / 'token_budget_registry.json', json.dumps(token_budget, indent=2))
+    write(ROOT / 'src' / 'runtime' / 'loading' / 'token_budget_registry.json', json.dumps(token_budget, indent=2))
 
     hydration_schema = {
         'schema_version': '1.0.0',
@@ -477,7 +480,7 @@ def main():
             'justification_notes': 'array[string]'
         }
     }
-    write(ROOT / 'runtime' / 'loading' / 'hydration_trace_schema.json', json.dumps(hydration_schema, indent=2))
+    write(ROOT / 'src' / 'runtime' / 'loading' / 'hydration_trace_schema.json', json.dumps(hydration_schema, indent=2))
 
     print('generated runtime overlay artifacts')
 

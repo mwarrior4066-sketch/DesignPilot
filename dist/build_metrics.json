@@ -1,0 +1,30 @@
+{
+  "version": "2.6.1",
+  "artifacts": {
+    "dist/DEPLOY_LITE.md": {
+      "word_count": 337,
+      "token_estimate": 607,
+      "sha256": "fddef2fa33ed9bd7fffe9496b72704b63266a7d4df38f8d96c3ecad0c45b4389"
+    },
+    "docs/operator/LIGHTWEIGHT_QUICKSTART.md": {
+      "word_count": 214,
+      "token_estimate": 407,
+      "sha256": "d2bee9570f49d2ce58614329094d8345739523453ba0335a54add62d50a5472a"
+    },
+    "docs/operator/STARTUP_MODES.md": {
+      "word_count": 187,
+      "token_estimate": 321,
+      "sha256": "1c0a7d8ce7eedbd06fe0aaa9f2fb55587ecf14f334044748cb194e2b03c4eaea"
+    },
+    "docs/operator/ROUTE_PICKER.md": {
+      "word_count": 649,
+      "token_estimate": 1403,
+      "sha256": "dfc7a061e49b4d8e615d88af412d108e6a91e182d17deff12feaee73bdf448f3"
+    }
+  },
+  "summary": {
+    "lite_route_docs": 18,
+    "lite_contract_docs": 17,
+    "lite_starter_docs": 11
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "route_id": "rt_layout_reconstruction_plan",
+  "task_id": "layout_reconstruction_plan",
+  "task_contract": "layout_reconstruction_plan",
+  "role": "governing",
+  "trigger_summary": "Use when structure must be inferred from an existing artifact instead of redesigned from scratch.",
+  "primary_skill": "layout-reconstruction-expert.md",
+  "governing_skills": [
+    "layout-reconstruction-expert.md",
+    "grid-system-expert.md"
+  ],
+  "supporting_skills": [
+    "pdf-layout-expert.md",
+    "document-accessibility-expert.md"
+  ],
+  "required_summary_ids": [
+    "src/knowledge-base/runtime-summaries/layout-reconstruction-summary.md",
+    "src/knowledge-base/runtime-summaries/grid-mediums-summary.md",
+    "src/knowledge-base/runtime-summaries/pdf-layout-summary.md",
+    "src/knowledge-base/runtime-summaries/pdf-document-accessibility-summary.md"
+  ],
+  "escalation_conditions": [
+    "runtime summary lacks measurable thresholds",
+    "validator flags insufficient evidence",
+    "high-stakes or standards-grade task",
+    "user explicitly requests deeper source synthesis",
+    "route conflict or canonical ambiguity appears"
+  ],
+  "fallback_route": "rt_pdf_remediation",
+  "known_tensions": [
+    "exact preservation vs practical reconstruction",
+    "speed vs verification rigor"
+  ],
+  "handoff_targets": [
+    "layout_reconstruction_plan",
+    "rt_pdf_remediation",
+    "ui_structure_critique"
+  ],
+  "overlay_safe_fallback": {
+    "routing": "src/schemas/routing_registry.json",
+    "skills": [
+      "layout-reconstruction-expert.md",
+      "grid-system-expert.md"
+    ],
+    "summaries": [
+      "layout-reconstruction-summary.md",
+      "grid-mediums-summary.md",
+      "pdf-layout-summary.md",
+      "pdf-document-accessibility-summary.md"
+    ]
+  },
+  "task_weight_default": "compound",
+  "lightweight_eligible": false,
+  "visual_input_supported": true
+}

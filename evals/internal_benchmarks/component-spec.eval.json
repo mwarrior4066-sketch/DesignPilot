@@ -1,0 +1,16 @@
+{
+  "example": "component-spec",
+  "task_contract": "component_spec",
+  "validator_decision": "PASS",
+  "rubric_scores": {
+    "intent_alignment": 5,
+    "actionability": 5,
+    "structural_rigor": 4,
+    "evidence_use": 4,
+    "implementation_realism": 5
+  },
+  "strongest_dimension": "implementation_realism",
+  "weakest_dimension": "evidence_use",
+  "pass_justification": "Passed because the state matrix and implementation boundaries make the spec handoff-safe.",
+  "residual_reviewer_doubt": "A stricter accessibility reviewer might want deeper assistive-tech edge cases."
+}

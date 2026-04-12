@@ -8,10 +8,10 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 SEMVER_RE = re.compile(r'^\d+\.\d+\.\d+$')
 MIRROR_DOCS = {
-    'operator/governance/OUTPUT_CONTRACTS_BY_TASK.md': 120,
-    'operator/governance/RUNTIME_VALIDATION_LAYER.md': 35,
-    'operator/core/ROUTE_CATALOG.md': 80,
-    'operator/governance/PACK_QUALITY_RUBRIC.md': 12,
+    'src/operator/governance/OUTPUT_CONTRACTS_BY_TASK.md': 120,
+    'src/operator/governance/RUNTIME_VALIDATION_LAYER.md': 35,
+    'src/operator/core/ROUTE_CATALOG.md': 80,
+    'src/operator/governance/PACK_QUALITY_RUBRIC.md': 12,
 }
 PLACEHOLDER_PATTERNS = ['placeholder', 'tbd', 'lorem ipsum', 'route is explicit', 'required sections are visible']
 
@@ -40,9 +40,9 @@ def check_frontmatter(path: Path, required_fields):
 
 def startup_conflict_checks(pack_root: Path):
     errors = []
-    mco = (pack_root / 'operator' / 'core' / 'MASTER_CHAT_OPERATOR.md').read_text(encoding='utf-8').lower()
-    sp = (pack_root / 'operator' / 'governance' / 'SYSTEM_PRECEDENCE.md').read_text(encoding='utf-8').lower()
-    boot = (pack_root / 'runtime' / 'boot' / 'core_bootstrap.md').read_text(encoding='utf-8').lower()
+    mco = (pack_root / 'src' / 'operator' / 'core' / 'MASTER_CHAT_OPERATOR.md').read_text(encoding='utf-8').lower()
+    sp = (pack_root / 'src' / 'operator' / 'governance' / 'SYSTEM_PRECEDENCE.md').read_text(encoding='utf-8').lower()
+    boot = (pack_root / 'src' / 'runtime' / 'boot' / 'core_bootstrap.md').read_text(encoding='utf-8').lower()
     if 'single startup authority' not in mco:
         errors.append('MASTER_CHAT_OPERATOR.md does not declare single startup authority')
     forbidden_sp = ['startup load boundary', 'cold start sequence', 'minimum viable bootstrap set should be active']
@@ -68,9 +68,9 @@ def continuity_version_checks(pack_root: Path, version: str):
             if snippet not in text:
                 errors.append(f'continuity file out of sync: {rel} missing {snippet}')
     index_files = [
-        'knowledge-base/indices/source_doc_sections.json',
-        'knowledge-base/indices/source_section_map.json',
-        'knowledge-base/indices/runtime_summary_map.json',
+        'src/knowledge-base/indices/source_doc_sections.json',
+        'src/knowledge-base/indices/source_section_map.json',
+        'src/knowledge-base/indices/runtime_summary_map.json',
     ]
     for rel in index_files:
         data = json.loads((pack_root / rel).read_text(encoding='utf-8'))
@@ -96,17 +96,17 @@ def main():
     changelog = (pack_root / 'CHANGELOG.md').read_text(encoding='utf-8')
     if f'## v{version}' not in changelog:
         errors.append('CHANGELOG missing current version entry')
-    if manifest.get('canonical_entrypoint') != 'operator/core/MASTER_CHAT_OPERATOR.md':
-        errors.append('manifest canonical_entrypoint should point to operator/core/MASTER_CHAT_OPERATOR.md')
+    if manifest.get('canonical_entrypoint') not in {'dist/DESIGNPILOT_DEPLOY.md', 'src/operator/core/MASTER_CHAT_OPERATOR.md'}:
+        errors.append('manifest canonical_entrypoint should point to dist/DESIGNPILOT_DEPLOY.md or src/operator/core/MASTER_CHAT_OPERATOR.md')
 
-    registry_path = pack_root / 'operator' / 'reference' / 'SOURCE_REFERENCE_REGISTRY.json'
+    registry_path = pack_root / 'src' / 'operator' / 'reference' / 'SOURCE_REFERENCE_REGISTRY.json'
     if not registry_path.exists():
         errors.append('SOURCE_REFERENCE_REGISTRY.json missing')
     else:
         registry = json.loads(registry_path.read_text(encoding='utf-8'))
         registered = {e['path'] for e in registry.get('entries', [])}
         must_cover = []
-        for pattern in ['schemas/*.json', 'skills/*.md', 'templates/*.md', 'knowledge-base/summaries/*.md', 'knowledge-base/source-docs/*']:
+        for pattern in ['src/schemas/*.json', 'src/skills/*.md', 'src/templates/*.md', 'src/knowledge-base/summaries/*.md', 'src/knowledge-base/source-docs/*']:
             must_cover.extend([p.relative_to(pack_root).as_posix() for p in pack_root.glob(pattern) if p.is_file()])
         missing_registry = sorted([p for p in must_cover if p not in registered])
         if missing_registry:
@@ -123,7 +123,7 @@ def main():
 
     for folder, required in [
         ('skills', ['skill_version', 'source_reference', 'last_updated', 'synchronized', 'canonical_owner', 'domain']),
-        ('knowledge-base/summaries', ['summary_version', 'source_reference', 'last_updated', 'synchronized', 'domain'])
+        ('src/knowledge-base/summaries', ['summary_version', 'source_reference', 'last_updated', 'synchronized', 'domain'])
     ]:
         for path in (pack_root / folder).glob('*.md'):
             e, w = check_frontmatter(path, required)
@@ -152,7 +152,7 @@ def main():
         if not (pack_root / rel).exists():
             errors.append(f'missing flagship proof artifact: {rel}')
 
-    for rel in ['operator/protocols/DEGRADED_MODE_PROTOCOL.md', 'operator/protocols/VISUAL_INPUT_PROTOCOL.md', 'operator/protocols/LIGHTWEIGHT_RESPONSE_PROTOCOL.md', 'QUICKSTART.md', 'operator/core/SESSION_CONTEXT_DEFAULTS.md']:
+    for rel in ['src/operator/protocols/DEGRADED_MODE_PROTOCOL.md', 'src/operator/protocols/VISUAL_INPUT_PROTOCOL.md', 'src/operator/protocols/LIGHTWEIGHT_RESPONSE_PROTOCOL.md', 'QUICKSTART.md', 'src/operator/core/SESSION_CONTEXT_DEFAULTS.md']:
         if not (pack_root / rel).exists():
             errors.append(f'missing v2.5.0 control file: {rel}')
 

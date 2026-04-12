@@ -1,0 +1,45 @@
+{
+  "task_id": "brand_positioning_pass",
+  "title": "Brand Positioning Pass",
+  "required_sections": [
+    "Audience and problem",
+    "Positioning frame",
+    "Trust and proof burden",
+    "Messaging consequences"
+  ],
+  "required_evidence_types": [
+    "segment proof",
+    "differentiation logic",
+    "trust signal"
+  ],
+  "required_decisions": [
+    "audience_frame",
+    "differentiation_frame",
+    "trust_logic",
+    "messaging_consequence"
+  ],
+  "hard_fail_patterns": [
+    "best-in-class brand",
+    "premium modern innovative"
+  ],
+  "soft_fail_patterns": [
+    "strong brand presence"
+  ],
+  "required_skills": [
+    "brand-strategy-expert.md",
+    "content-and-case-study-expert.md"
+  ],
+  "allowed_modes": [
+    "AUDIT",
+    "REBUILD",
+    "PEER"
+  ],
+  "allowed_phases": [
+    "strategy",
+    "communication"
+  ],
+  "canonical_contract": "src/schemas/task_contracts.json#brand_positioning_pass",
+  "task_weight_default": "standard",
+  "supports_lightweight_response": true,
+  "trace_visibility_default": "recoverable"
+}

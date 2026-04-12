@@ -1,6 +1,6 @@
 {
-  "suite_version": "2.5.0",
-  "pack_version": "2.5.0",
+  "suite_version": "2.6.1",
+  "pack_version": "2.6.1",
   "tests": [
     {
       "id": "pass-01",

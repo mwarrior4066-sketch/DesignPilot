@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DesignPilot Release Card",
+  "type": "object",
+  "required": [
+    "version",
+    "release_type",
+    "compiled_artifacts",
+    "evidence_class_supported",
+    "gate_status",
+    "generated_at"
+  ],
+  "properties": {
+    "version": {
+      "type": "string"
+    },
+    "release_type": {
+      "enum": [
+        "patch",
+        "minor",
+        "major"
+      ]
+    },
+    "compiled_artifacts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "evidence_class_supported": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "gate_status": {
+      "enum": [
+        "PROMOTE",
+        "HOLD"
+      ]
+    },
+    "generated_at": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}
