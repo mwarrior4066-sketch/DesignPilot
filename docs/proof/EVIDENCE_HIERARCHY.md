@@ -1,10 +1,12 @@
 # Evidence Hierarchy
 
-1. **Internal regression stability** — reproducible internal test coverage.
-2. **Internal comparative benchmarking** — self-run comparisons across versions or baselines.
-3. **Reviewer authority signals** — transparent critique from outside experts.
-4. **Production-adjacent artifacts** — artifact health checks and traceable release receipts.
-5. **External blind proof** — blinded comparative review with independent evaluators.
-6. **Production outcomes** — real longitudinal performance or workflow impact.
+Start with `proof/PROOF_STATUS.md` for the current repo-level interpretation.
+
+1. **Internal consistency and regression proof** — reproducible compile, validation, continuity, and regression discipline.
+2. **Internal comparative benchmark proof** — self-run comparisons across versions or baselines with inspectable artifacts.
+3. **External confidence proof** — transparent critique or confidence signals from outside the repo's internal self-scoring loop.
+4. **Downstream artifact receipt proof** — release receipts, integrity reports, build manifests, and handoff manifests.
+5. **Blinded external comparison proof** — blinded comparative review with independent evaluators.
+6. **Production outcomes** — real longitudinal workflow impact or downstream business results.
 
 Public claims should never imply a higher proof class than the evidence actually supports.

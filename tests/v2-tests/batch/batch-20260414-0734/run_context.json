@@ -1,0 +1,11 @@
+{
+  "purpose": "Gemini model and thinking mode fix verification",
+  "pack_version": "3.0",
+  "is_diagnostic": false,
+  "is_valid_quality_signal": true,
+  "known_issues": [],
+  "fixed_from": "Gemini switched to gemini-2.5-pro-preview + thinking suppression removed; Gemini 82%",
+  "note": "First valid full cross-model quality signal. All 6 providers operational and comparable.",
+  "run_id": "batch-20260414-0734",
+  "written_at": "2026-04-14"
+}

@@ -6,7 +6,7 @@ This is the **operational library**, not the full research source.
 For deeper rationale, use:
 - `src/knowledge-base/summaries/pantone-production-summary.md`
 - `src/knowledge-base/source-docs/Technical Reference Framework for Pantone Systems and Production-Aware Design Operations.md`
-- `src/knowledge-base/source-docs/pantone_color_chart.pdf` for visual range browsing
+- `src/libraries/PANTONE_NUMBERS.json` for numerical lookup (hex, CMYK, RGB for all 574 U/C colors)
 
 ## Important truth conditions
 - Pantone spot, CMYK, RGB, and Hex are **not interchangeable**.
@@ -92,7 +92,7 @@ Each Pantone entry may include:
 
 ## Expanded family pools
 
-### Blues and navies — trust, institutional clarity, process stability
+### Blues and navies - trust, institutional clarity, process stability
 | PMS | Family | Tone | Use | Hex (Approx) | CMYK (Approx) | Risk | Notes |
 |---|---|---|---|---|---|---|---|
 | 288 C | Blue | Heritage | Institutional | #002D72 | 100,80,6,32 | Low | Strong heritage and corporate anchor |
@@ -117,7 +117,7 @@ Each Pantone entry may include:
 | 5415 C | Blue | Soft Slate | Editorial/Institutional | #567B8A | 57,23,10,31 | Low | Restrained muted blue |
 | 7455 C | Blue | Bold | Tech | #5279BC | 72,50,0,0 | Medium | Better for large areas than tiny text |
 
-### Greens and teals — wellness, eco, organic, process caution
+### Greens and teals - wellness, eco, organic, process caution
 | PMS | Family | Tone | Use | Hex (Approx) | CMYK (Approx) | Risk | Notes |
 |---|---|---|---|---|---|---|---|
 | 3425 C | Green | Organic | Premium F&B | #006747 | 100,10,69,44 | Low | Deep premium organic green |
@@ -138,7 +138,7 @@ Each Pantone entry may include:
 | 355 C | Green | Pure | Safety | #009639 | 91,0,100,0 | Medium | Pair with white carefully |
 | 5807 C | Green | Sage | Eco | #D8DCB1 | 15,5,40,0 | Low | Muted sage for wellness/editorial |
 
-### Reds and oranges — urgency, appetite, energy
+### Reds and oranges - urgency, appetite, energy
 | PMS | Family | Tone | Use | Hex (Approx) | CMYK (Approx) | Risk | Notes |
 |---|---|---|---|---|---|---|---|
 | 485 C | Red | Stimulate | Fast Food | #DA291C | 0,95,100,0 | Medium | Classic appetite-driving red |
@@ -158,7 +158,7 @@ Each Pantone entry may include:
 | 151 C | Orange | Vivid | Youth | #FF8200 | 0,51,100,0 | High | Strong youth energy |
 | 130 C | Yellow-Orange | Safety | Packaging | #F2A900 | 0,32,100,0 | Medium | Use with black text only |
 
-### Yellows and warm golds — clarity, energy, legibility caution
+### Yellows and warm golds - clarity, energy, legibility caution
 | PMS | Family | Tone | Use | Hex (Approx) | CMYK (Approx) | Risk | Notes |
 |---|---|---|---|---|---|---|---|
 | 116 C | Yellow | Vibrant | Modern | #FFCD00 | 0,14,100,0 | Medium | Strong brand yellow |
@@ -171,7 +171,7 @@ Each Pantone entry may include:
 | 4515 C | Tan-Gold | Restrained | Institutional | #B3A369 | 13,19,62,28 | Medium | Good print anchor, risky on white for small digital text |
 | 7499 C | Ivory | Classic | Editorial | #F1E6B2 | 1,1,10,1 | Low | Soft premium light tone |
 
-### Neutrals, grays, blacks — restraint, systems, dense reading
+### Neutrals, grays, blacks - restraint, systems, dense reading
 | PMS | Family | Tone | Use | Hex (Approx) | CMYK (Approx) | Risk | Notes |
 |---|---|---|---|---|---|---|---|
 | Cool Gray 1 C | Gray | Clinical | Minimalist | #D9D9D6 | 0,0,0,6 | Low | Near-white fill |
@@ -186,7 +186,7 @@ Each Pantone entry may include:
 | 432 C | Black-Gray | Formal | Power | #333F48 | 65,43,26,78 | Low | Deep structured dark |
 | 433 C | Black | Near-black | Formal | #1D252D | 90,68,41,90 | Low | Strong premium black |
 
-### Purples, plums, magentas — luxury, fashion, creative intensity
+### Purples, plums, magentas - luxury, fashion, creative intensity
 | PMS | Family | Tone | Use | Hex (Approx) | CMYK (Approx) | Risk | Notes |
 |---|---|---|---|---|---|---|---|
 | 267 C | Purple | Regal | Luxury | #5F249F | 81,99,0,0 | High | Strong saturated purple |
@@ -200,7 +200,7 @@ Each Pantone entry may include:
 | 7655 C | Orchid | Creative | Arts | #A45C98 | 33,72,0,0 | Medium | Good artistic orchid |
 | 228 C | Berry | Premium | F&B Pack | #8D1D58 | 40,100,40,18 | Low | Strong premium berry |
 
-### Browns, sands, warm naturals — heritage, eco-luxury, editorial warmth
+### Browns, sands, warm naturals - heritage, eco-luxury, editorial warmth
 | PMS | Family | Tone | Use | Hex (Approx) | CMYK (Approx) | Risk | Notes |
 |---|---|---|---|---|---|---|---|
 | 4625 C | Brown | Deep | Sustainable | #4F2C1D | 30,72,74,80 | Low | Strong deep brown |
@@ -211,7 +211,7 @@ Each Pantone entry may include:
 | 705 C | Champagne | Elegant | High-end | #FAF1DC | 0,4,12,2 | Low | Soft premium light tone |
 | 4545 C | Tan | Sandy | Wellness | #E6D9BD | 5,10,30,0 | Low | Good soft tan |
 
-### Metallics and neons — spot-only accents
+### Metallics and neons - spot-only accents
 | PMS | Family | Tone | Use | Hex (Approx) | CMYK (Approx) | Risk | Notes |
 |---|---|---|---|---|---|---|---|
 | 871 C | Gold | Wealth | Luxury | #84754E | 40,45,80,5 | Extreme | Spot ink required |
@@ -239,7 +239,7 @@ Each Pantone entry may include:
 
 ## Missing-color rule
 If the exact Pantone is missing here:
-- check the visual chart in `src/knowledge-base/source-docs/pantone_color_chart.pdf`
+- check `src/libraries/PANTONE_NUMBERS.json` for numerical values across all 574 U/C colors
 - prefer a nearby family substitute with lower process risk
 - state clearly when the result is approximate
 - do not invent an exact Pantone mapping from a vague digital color alone

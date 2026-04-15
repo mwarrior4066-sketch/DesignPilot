@@ -1,6 +1,6 @@
 # DEPLOY_CORE
 
-General DesignPilot deployment for critique, planning, audit, rebuild, and cross-domain work.
+General DesignPilot deployment for critique, planning, audit, rebuild, and rebuild work inside one primary domain.
 
 ## Supported use
 - full mode: load this profile with `dist/DESIGNPILOT_DEPLOY.md` for compound work inside this domain
@@ -130,6 +130,13 @@ Continuity files must state what is:
 
 That keeps the case-study layer aligned with the real evidence state.
 
+
+## Canonical structured state
+- `context/state/continuity_evergreen.json` is the evergreen continuity source of truth for project identity, goal, and stable proof boundaries
+- `context/state/release_state.json` is the release-specific continuity source of truth for current version, freshness, active next steps, blockers, and proof counts
+- human-readable continuity docs are rendered from those structured state files
+- workspace validation must check both the structured state and the rendered markdown outputs together
+
 ### Source: `src/operator/project/PROJECT_FILE_SYSTEM_PROTOCOL.md`
 
 # Project File System Protocol
@@ -234,7 +241,7 @@ Use one primary classification per entry:
 
 ## PROBLEM_LOG entry format
 ```md
-## YYYY-MM-DD HH:MM — <short issue title>
+## YYYY-MM-DD HH:MM - <short issue title>
 - Error ID:
 - Classification:
 - Context:
@@ -252,7 +259,7 @@ Use one primary classification per entry:
 
 ## DECISION_LOG entry format
 ```md
-## YYYY-MM-DD HH:MM — <decision title>
+## YYYY-MM-DD HH:MM - <decision title>
 - Decision ID:
 - Classification:
 - Context:

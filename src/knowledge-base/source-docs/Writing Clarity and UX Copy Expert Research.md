@@ -10,17 +10,17 @@ In the United Kingdom[\[3\]](https://www.nngroup.com/articles/error-message-guid
 
 Accessibility requirements strongly constrain “microcopy” decisions in forms and error handling: content must identify errors in text, provide correction suggestions when possible, and ensure users receive clear status feedback (including for screen readers, often via correct structural cues and live regions). [\[5\]](https://www.w3.org/WAI/WCAG21/Understanding/error-identification.html?utm_source=chatgpt.com)
 
-Finally, multiple design systems provide “production rules” for UI text—button labels should lead with verbs; error messages should be polite, human-readable, and include next steps; notifications should remain within short constraints (often 1–2 sentences, with “view more” overflow patterns). [\[6\]](https://designsystem.digital.gov/components/button/)
+Finally, multiple design systems provide “production rules” for UI text-button labels should lead with verbs; error messages should be polite, human-readable, and include next steps; notifications should remain within short constraints (often 1–2 sentences, with “view more” overflow patterns). [\[6\]](https://designsystem.digital.gov/components/button/)
 
-**Design goal for the agent:** generate (or audit) UI and product text so that intended users can **find what they need, understand what they find, and use it**—a plain-language definition formalized internationally and echoed throughout government and accessibility guidance. [\[7\]](https://plainlanguagenetwork.org/plain-language/iso-plain-language-standard/)
+**Design goal for the agent:** generate (or audit) UI and product text so that intended users can **find what they need, understand what they find, and use it**-a plain-language definition formalized internationally and echoed throughout government and accessibility guidance. [\[7\]](https://plainlanguagenetwork.org/plain-language/iso-plain-language-standard/)
 
 ## Operator behaviors and decision policy
 
-This operator is not a “copywriting assistant.” Its job is to make **strict, production-grade decisions** about clarity, accessibility, and interaction outcomes under constraints—especially in forms, error recovery, and CTA labeling. Two evidence-driven principles dominate its policy:
+This operator is not a “copywriting assistant.” Its job is to make **strict, production-grade decisions** about clarity, accessibility, and interaction outcomes under constraints-especially in forms, error recovery, and CTA labeling. Two evidence-driven principles dominate its policy:
 
 First, users **scan** and prioritize content positioned early; web writing guidance therefore emphasizes front-loaded, descriptive text and inverted-pyramid organization (most important first). [\[8\]](https://service-manual.ons.gov.uk/content/writing-for-users/structuring-content)
 
-Second, cognitive limitations and stress materially reduce comprehension. Cognitive load research frames overload as exceeding working-memory capacity, while public-sector health-clarity guidance explicitly warns that reading skill can drop several grade levels under stress—precisely when error messages and instructions appear. [\[9\]](https://education.nsw.gov.au/content/dam/main-education/about-us/educational-data/cese/2017-cognitive-load-theory.pdf)
+Second, cognitive limitations and stress materially reduce comprehension. Cognitive load research frames overload as exceeding working-memory capacity, while public-sector health-clarity guidance explicitly warns that reading skill can drop several grade levels under stress-precisely when error messages and instructions appear. [\[9\]](https://education.nsw.gov.au/content/dam/main-education/about-us/educational-data/cese/2017-cognitive-load-theory.pdf)
 
 ### Core decision policy
 
@@ -137,7 +137,7 @@ This aligns with accessibility notification patterns and form error-recovery gui
 
 **Definition.** CTA copy is the action-oriented label that commits the user to a step (buttons, links, confirmations). CTA clarity means the label communicates what will happen immediately after activation. [\[60\]](https://designsystem.digital.gov/components/button/)
 
-**Why it matters.** CTA text is a decision point; unclear CTAs increase hesitation, misclicks, and errors—especially in high-stakes flows (payment, deletion). Accessibility guidance also expects clear relationships between controls and effects. [\[61\]](https://www.w3.org/WAI/WCAG2/supplemental/objectives/o1-understandable/?utm_source=chatgpt.com)
+**Why it matters.** CTA text is a decision point; unclear CTAs increase hesitation, misclicks, and errors-especially in high-stakes flows (payment, deletion). Accessibility guidance also expects clear relationships between controls and effects. [\[61\]](https://www.w3.org/WAI/WCAG2/supplemental/objectives/o1-understandable/?utm_source=chatgpt.com)
 
 **Default rules.** - Lead with a verb; prefer “verb + object” patterns (“Save changes”, “File a complaint”). [\[62\]](https://designsystem.digital.gov/components/button/)  
 - Avoid generic labels like “Submit” when you can describe the action. [\[63\]](https://learn.microsoft.com/en-us/windows-server/manage/windows-admin-center/extend/guides/ui-text-style-guide?utm_source=chatgpt.com)  
@@ -246,7 +246,7 @@ Then choose based on UI length constraints and risk level. [\[73\]](https://carb
 
 **Topic: Neuro-copywriting limits and useful applications**
 
-**Definition.** “Neuro-copywriting” here means behaviorally informed microcopy that anticipates common cognitive biases and emotional states to reduce friction—without manipulating users into unwanted outcomes.
+**Definition.** “Neuro-copywriting” here means behaviorally informed microcopy that anticipates common cognitive biases and emotional states to reduce friction-without manipulating users into unwanted outcomes.
 
 **Why it matters.** Regulators and researchers document that manipulative choice architecture (dark patterns) can subvert autonomy and disproportionately affect less educated users; these patterns often rely on loaded language, obstruction, or deceptive urgency. The operator must explicitly avoid crossing into “dark patterns.” [\[105\]](https://www.ftc.gov/system/files/ftc_gov/pdf/P214800%2BDark%2BPatterns%2BReport%2B9.14.2022%2B-%2BFINAL.pdf?utm_source=chatgpt.com)
 
@@ -271,7 +271,7 @@ These are derived from regulatory and research typologies. [\[113\]](https://www
 **Implementation guidance.** - Add a “manipulation” classifier that flags dark-pattern indicators and forces an Audit output with safer alternatives.  
 - Require explicit “user benefit” justification for persuasion elements, otherwise remove.
 
-**Test cases.** - Replace: “Don’t miss out—upgrade now!” with a factual, user-controlled statement: “Upgrade to get offline access. You can change your plan anytime.” (No false urgency; clear benefit.) [\[114\]](https://www.oecd.org/content/dam/oecd/en/publications/reports/2022/10/dark-commercial-patterns_9f6169cd/44f5e846-en.pdf?utm_source=chatgpt.com)
+**Test cases.** - Replace: “Don’t miss out-upgrade now!” with a factual, user-controlled statement: “Upgrade to get offline access. You can change your plan anytime.” (No false urgency; clear benefit.) [\[114\]](https://www.oecd.org/content/dam/oecd/en/publications/reports/2022/10/dark-commercial-patterns_9f6169cd/44f5e846-en.pdf?utm_source=chatgpt.com)
 
 **Topic: Case-study and design-rationale writing clarity**
 

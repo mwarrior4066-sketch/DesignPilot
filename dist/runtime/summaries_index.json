@@ -1,0 +1,93 @@
+{
+  "version": "1.0",
+  "summaries": {
+    "accessibility-and-feedback-summary.md": {
+      "compiled_path": "dist/runtime/summaries/accessibility-and-feedback-summary.md",
+      "source_runtime_summary": "src/knowledge-base/summaries/accessibility-and-feedback-summary.md"
+    },
+    "api-reliability-security-summary.md": {
+      "compiled_path": "dist/runtime/summaries/api-reliability-security-summary.md",
+      "source_runtime_summary": "src/knowledge-base/summaries/api-reliability-security-summary.md"
+    },
+    "audience-and-industry-summary.md": {
+      "compiled_path": "dist/runtime/summaries/audience-and-industry-summary.md",
+      "source_runtime_summary": "src/knowledge-base/summaries/audience-and-industry-summary.md"
+    },
+    "back-end-systems-architecture-summary.md": {
+      "compiled_path": "dist/runtime/summaries/back-end-systems-architecture-summary.md",
+      "source_runtime_summary": "src/knowledge-base/summaries/back-end-systems-architecture-summary.md"
+    },
+    "backend-planning-summary.md": {
+      "compiled_path": "dist/runtime/summaries/backend-planning-summary.md",
+      "source_runtime_summary": "src/knowledge-base/summaries/backend-planning-summary.md"
+    },
+    "color-and-accessibility-summary.md": {
+      "compiled_path": "dist/runtime/summaries/color-and-accessibility-summary.md",
+      "source_runtime_summary": "src/knowledge-base/summaries/color-and-accessibility-summary.md"
+    },
+    "component-systems-summary.md": {
+      "compiled_path": "dist/runtime/summaries/component-systems-summary.md",
+      "source_runtime_summary": "src/knowledge-base/summaries/component-systems-summary.md"
+    },
+    "dashboard-and-density-summary.md": {
+      "compiled_path": "dist/runtime/summaries/dashboard-and-density-summary.md",
+      "source_runtime_summary": "src/knowledge-base/summaries/dashboard-and-density-summary.md"
+    },
+    "front-end-architecture-summary.md": {
+      "compiled_path": "dist/runtime/summaries/front-end-architecture-summary.md",
+      "source_runtime_summary": "src/knowledge-base/summaries/front-end-architecture-summary.md"
+    },
+    "front-end-handoff-summary.md": {
+      "compiled_path": "dist/runtime/summaries/front-end-handoff-summary.md",
+      "source_runtime_summary": "src/knowledge-base/summaries/front-end-handoff-summary.md"
+    },
+    "graphic-design-format-summary.md": {
+      "compiled_path": "dist/runtime/summaries/graphic-design-format-summary.md",
+      "source_runtime_summary": "src/knowledge-base/summaries/graphic-design-format-summary.md"
+    },
+    "grid-mediums-summary.md": {
+      "compiled_path": "dist/runtime/summaries/grid-mediums-summary.md",
+      "source_runtime_summary": "src/knowledge-base/summaries/grid-mediums-summary.md"
+    },
+    "layout-reconstruction-summary.md": {
+      "compiled_path": "dist/runtime/summaries/layout-reconstruction-summary.md",
+      "source_runtime_summary": "src/knowledge-base/summaries/layout-reconstruction-summary.md"
+    },
+    "pdf-document-accessibility-summary.md": {
+      "compiled_path": "dist/runtime/summaries/pdf-document-accessibility-summary.md",
+      "source_runtime_summary": "src/knowledge-base/summaries/pdf-document-accessibility-summary.md"
+    },
+    "pdf-layout-summary.md": {
+      "compiled_path": "dist/runtime/summaries/pdf-layout-summary.md",
+      "source_runtime_summary": "src/knowledge-base/summaries/pdf-layout-summary.md"
+    },
+    "text-humanization-summary.md": {
+      "compiled_path": "dist/runtime/summaries/text-humanization-summary.md",
+      "source_runtime_summary": "src/knowledge-base/summaries/text-humanization-summary.md"
+    },
+    "typeface-database-summary.md": {
+      "compiled_path": "dist/runtime/summaries/typeface-database-summary.md",
+      "source_runtime_summary": "src/knowledge-base/summaries/typeface-database-summary.md"
+    },
+    "typography-summary.md": {
+      "compiled_path": "dist/runtime/summaries/typography-summary.md",
+      "source_runtime_summary": "src/knowledge-base/summaries/typography-summary.md"
+    },
+    "ui-system-summary.md": {
+      "compiled_path": "dist/runtime/summaries/ui-system-summary.md",
+      "source_runtime_summary": "src/knowledge-base/summaries/ui-system-summary.md"
+    },
+    "ux-cognition-summary.md": {
+      "compiled_path": "dist/runtime/summaries/ux-cognition-summary.md",
+      "source_runtime_summary": "src/knowledge-base/summaries/ux-cognition-summary.md"
+    },
+    "ux-roadmap-summary.md": {
+      "compiled_path": "dist/runtime/summaries/ux-roadmap-summary.md",
+      "source_runtime_summary": "src/knowledge-base/summaries/ux-roadmap-summary.md"
+    },
+    "writing-and-case-study-summary.md": {
+      "compiled_path": "dist/runtime/summaries/writing-and-case-study-summary.md",
+      "source_runtime_summary": "src/knowledge-base/summaries/writing-and-case-study-summary.md"
+    }
+  }
+}

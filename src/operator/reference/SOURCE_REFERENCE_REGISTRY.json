@@ -1,6 +1,6 @@
 {
   "registry_version": "1.0.0",
-  "pack_version": "2.6.1",
+  "pack_version": "3.0",
   "entries": [
     {
       "path": "README.md",
@@ -218,6 +218,21 @@
       "owner": "pack-maintainer"
     },
     {
+      "path": "scripts/_authority.py",
+      "kind": "control",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "scripts/_validation.py",
+      "kind": "control",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "scripts/clean_distribution_noise.py",
+      "kind": "control",
+      "owner": "pack-maintainer"
+    },
+    {
       "path": "scripts/compile_designpilot.py",
       "kind": "control",
       "owner": "pack-maintainer"
@@ -253,12 +268,32 @@
       "owner": "pack-maintainer"
     },
     {
+      "path": "scripts/refresh_proof_status.py",
+      "kind": "control",
+      "owner": "pack-maintainer"
+    },
+    {
       "path": "scripts/refresh_source_registry.py",
       "kind": "control",
       "owner": "pack-maintainer"
     },
     {
+      "path": "scripts/run_comparative.py",
+      "kind": "control",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "scripts/run_live_regression.py",
+      "kind": "control",
+      "owner": "pack-maintainer"
+    },
+    {
       "path": "scripts/run_regression_suite.py",
+      "kind": "control",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "scripts/run_validation_suite.py",
       "kind": "control",
       "owner": "pack-maintainer"
     },
@@ -299,6 +334,11 @@
     },
     {
       "path": "src/schemas/validation_rules.json",
+      "kind": "schemas",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "src/schemas/session_state_schema.json",
       "kind": "schemas",
       "owner": "pack-maintainer"
     },
@@ -374,6 +414,11 @@
     },
     {
       "path": "src/skills/layout-reconstruction-expert.md",
+      "kind": "skills",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "src/skills/motion-interaction-expert.md",
       "kind": "skills",
       "owner": "pack-maintainer"
     },
@@ -688,6 +733,11 @@
       "owner": "pack-maintainer"
     },
     {
+      "path": "src/knowledge-base/source-docs/Motion and Interaction Feedback Expert Research.md",
+      "kind": "source_docs",
+      "owner": "pack-maintainer"
+    },
+    {
       "path": "src/knowledge-base/source-docs/PDF Document Accessibility Expert Research.md",
       "kind": "source_docs",
       "owner": "pack-maintainer"
@@ -708,14 +758,25 @@
       "owner": "pack-maintainer"
     },
     {
+      "path": "src/knowledge-base/source-docs/UI System Expert Research.md",
+      "kind": "source_docs",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "src/knowledge-base/source-docs/UX Cognition Expert Research.md",
+      "kind": "source_docs",
+      "owner": "pack-maintainer"
+    },
+    {
       "path": "src/knowledge-base/source-docs/Writing Clarity and UX Copy Expert Research.md",
       "kind": "source_docs",
       "owner": "pack-maintainer"
     },
     {
-      "path": "src/knowledge-base/source-docs/pantone_color_chart.pdf",
-      "kind": "source_docs",
-      "owner": "pack-maintainer"
+      "path": "src/libraries/PANTONE_NUMBERS.json",
+      "kind": "libraries",
+      "owner": "pack-maintainer",
+      "note": "Replaced PDF with JSON. 574 U/C Pantone colors, hex/CMYK/RGB. See PANTONE_NUMBERS.json."
     },
     {
       "path": "src/knowledge-base/summaries/accessibility-and-feedback-summary.md",
@@ -819,6 +880,11 @@
     },
     {
       "path": "src/knowledge-base/summaries/layout-reconstruction-summary.md",
+      "kind": "summaries",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "src/knowledge-base/summaries/motion-and-interaction-feedback-summary.md",
       "kind": "summaries",
       "owner": "pack-maintainer"
     },
@@ -983,6 +1049,11 @@
       "owner": "pack-maintainer"
     },
     {
+      "path": "src/knowledge-base/runtime-summaries/motion-and-interaction-feedback-summary.md",
+      "kind": "runtime_summaries",
+      "owner": "pack-maintainer"
+    },
+    {
       "path": "src/knowledge-base/runtime-summaries/pantone-production-summary.md",
       "kind": "runtime_summaries",
       "owner": "pack-maintainer"
@@ -1119,6 +1190,11 @@
     },
     {
       "path": "src/runtime/cards/skills/layout-reconstruction-expert.md",
+      "kind": "runtime",
+      "owner": "pack-maintainer"
+    },
+    {
+      "path": "src/runtime/cards/skills/motion-interaction-expert.md",
       "kind": "runtime",
       "owner": "pack-maintainer"
     },
@@ -1378,6 +1454,11 @@
       "owner": "pack-maintainer"
     },
     {
+      "path": "src/libraries/PANTONE_NUMBERS.json",
+      "kind": "libraries",
+      "owner": "pack-maintainer"
+    },
+    {
       "path": "projects/designpilot/context/ACTIVE_STATE.md",
       "kind": "projects",
       "owner": "pack-maintainer"
@@ -1416,6 +1497,18 @@
       "path": "projects/designpilot/problems_and_solutions/PROJECT_SPECIFIC_ERRORS.md",
       "kind": "projects",
       "owner": "pack-maintainer"
+    },
+    {
+      "path": "src/schemas/section_aliases.json",
+      "kind": "schema",
+      "owner": "pack-maintainer",
+      "description": "Semantic aliases for required section names. Used by runtime_validator.py to match model headings that differ from contract names. Edit here when a live run reveals new heading styles."
+    },
+    {
+      "path": "src/schemas/vocab_calibration_log.json",
+      "kind": "schema",
+      "owner": "pack-maintainer",
+      "description": "Living log of token expansions made to evidence class patterns and decision any_of lists. Add an entry whenever a live run reveals a vocabulary false positive."
     }
   ]
 }

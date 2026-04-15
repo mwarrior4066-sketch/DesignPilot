@@ -8,10 +8,16 @@ Use it when one route clearly governs the task and loading a full profile or the
 - low-to-medium risk work where the output shape is already known
 - sessions where you want DesignPilot discipline without loading the whole package
 
-## What to load
+## Preferred operator path
+1. `dist/runtime/START_HERE.md` if you are starting fresh
+2. one single-file launcher from `dist/runtime/task_launchers/` when the task type is known
+3. `dist/SESSION_ZERO.md`
+
+## Manual fallback load order
+Use this only when you are maintaining the pack or debugging a launcher.
 1. `dist/DEPLOY_LITE.md`
-2. one route card from `dist/lite_routes/`
-3. the matching contract card from `dist/lite_contracts/`
+2. one route card from `dist/runtime/route_cards/`
+3. the matching contract card from `dist/runtime/contracts_lite/`
 4. only the governing skill cards and truly needed supporting skill cards
 5. `dist/SESSION_ZERO.md`
 

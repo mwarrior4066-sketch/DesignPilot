@@ -1,49 +1,47 @@
-# Designer Response Filter Example
+# Designer Response Filter Pass
 Fixture: tests/fixtures/designer-response-filter-pass.prompt.md
 Validation result: tests/evals/designer-response-filter-pass.eval.json
 
 ## Input Prompt
-Take this backend architecture advice and transform it into a designer-readable answer for an Integrative-tier user without removing the hard constraints.
+Transform a backend architecture explanation into a designer-readable answer for an Integrative-tier user without weakening the system constraints.
 
 ## Selected Route and Loaded Skills
-- Route: `rt_backend_systems_architecture`
-- Task contract: `backend_architecture_spec`
-- Mode: PEER
-- Phase: implementation
-- Skills: `back-end-systems-architect.md`, `back-end-aware-planner.md`
-- Response layer: `DESIGNER_RESPONSE_FILTER_PROTOCOL.md`
-- Active tier: Integrative
+- Route: `rt_api_reliability_security`
+- Task contract: `api_reliability_security_review`
+- Mode: FILTER
+- Phase: revision
+- Skills: `api-reliability-security-expert.md`, `front-end-handoff-expert.md`
 
 ## Final Output
-### System framing
-The dashboard can look simple on the surface, but the system under it cannot be treated like a flat CRUD app. Access, freshness, and export behavior have to be designed as system rules because the interface is promising actions across actors, resources, and permissions, not just showing a table.
+# API Reliability and Security Review
+## POST /api/v1/projects/{id}/members
 
-### Core model and authority boundaries
-Start with an actor, resource, and action model: who can view, edit, export, or share which resource, under what relationship. The source-of-truth boundary also has to be explicit. If the dashboard shows derived views, alerts, and exports, the pack should still name which record is canonical and which surfaces are projections. Roles alone are not enough here because object-level permission and tenant membership still govern the real authority boundary.
+## Failure semantics
 
-### Data, consistency, and delivery design
-For a designer, the consequence is that a “live” table or a share flow silently requires a consistency stance. Some views may need read-your-writes or bounded staleness, while others can tolerate a slower update path. Delivery patterns also matter: cursor pagination is safer than pretending page numbers will stay stable, and any webhook or export path should be treated as an async event or outbox-backed flow instead of a hand-waved background task. That delivery choice also changes what the UI can honestly promise about timing, retries, and completion states.
+The endpoint currently returns 200 with the updated member list on success, and a plain string on failure. This conflates success and failure into a single status code, which forces clients to parse text and guess at retryability.
 
-### Observability and failure posture
-The system also needs an operational tax note. If you add live updates, sharing, and export behavior, you inherit trace_id propagation, queue lag monitoring, logs, and metrics for failed delivery or stale views. The filter keeps those constraints visible, but it translates them into design consequences: do not finalize live-update or export UI until the authority model, consistency posture, and operational visibility are named.
+**Decision: adopt RFC 9457 Problem Details** (`application/problem+json`) for all error responses. Return `400 Bad Request` for invalid user IDs, `403 Forbidden` for authorization failures, `409 Conflict` for duplicate membership, and `500 Internal Server Error` for transient failures. Each error must include `type`, `title`, `status`, `detail`, and `instance` fields. The client can then determine whether to retry (5xx), fail silently (4xx), or surface a user-visible message -- without string parsing.
 
-### Translation note
-The filter preserved the authority, consistency, and delivery burden, but it shifted them into designer-facing consequences and sequencing.
+## Authorization and resource protection
 
-### Actionable next steps
-1. Write the actor, resource, and action matrix.
-2. Decide which dashboard states need stronger freshness and which can tolerate bounded staleness.
-3. Only then finalize sharing, export, and live-update UI behaviors.
+The current authorization check confirms the caller is logged in but does not verify they are a project admin. This is a **BOLA** (Broken Object-Level Authorization) vulnerability: any authenticated user can add themselves or others to any project they know the ID of, regardless of whether they own or administer it.
 
-## Why This Passed
-- It translates backend architecture into designer-facing consequences instead of dumbing it down.
-- It keeps the authority, consistency, delivery, and observability constraints visible.
-- It ends with an ordered next-step path appropriate for an Integrative explanation tier.
+**Decision: enforce object-level authorization before mutation.** Before executing the add-member operation, verify that `caller.id` holds an `admin` or `owner` relationship on `project.id`. Deny by default -- if no explicit relationship exists, return `403 Forbidden`. Do not rely on opaque or unguessable project IDs as a security boundary; these are not authorization. A **BFLA** (Broken Function-Level Authorization) check is also required: the ability to read a project's member list must not imply the ability to modify it. Read and write permissions must be independently checked.
 
-## What Would Have Failed
-- Replacing the system constraints with generic “talk to engineering” advice.
-- Removing source-of-truth and consistency language to make the answer feel easier.
-- Ending without a usable next move.
+## Idempotency and async lifecycle
 
-## Revision Pass
-The weak draft was technically correct but read like a backend memo. The corrected version preserved the hard constraints and rewrote them as design-facing consequences, sequencing, and operational dependencies.
+The endpoint accepts POST requests with no `Idempotency-Key` header. If a client retries after a network timeout, the member may be added twice -- or the second request may return a 4xx error if the first succeeded, leaving the client unable to distinguish success from failure.
+
+**Decision: require a client-generated `Idempotency-Key` header (UUID).** On the first request, execute the mutation and store `(key, response)` in a short-lived cache (24-hour TTL). On a retry with the same key, return the cached response without re-executing. On a duplicate key with a different request body, return `409 Conflict` -- not retryable. Return `201 Created` on initial success with a `Location` header. If member provisioning involves external systems, return `202 Accepted` with a status URL for polling; clients poll until terminal state (`queued` -> `running` -> `completed` | `failed`).
+
+## Resilience and observability
+
+The endpoint currently returns no `trace_id`, no rate-limit headers, and no partial-success signaling. An operator cannot correlate a client error report to a server log without a shared identifier.
+
+**Decision: add `trace_id` to all responses** via the RFC 9457 `instance` field or a `Trace-ID` header. Add `RateLimit-Limit`, `RateLimit-Remaining`, and `RateLimit-Reset` headers. For quota violations return `429 Too Many Requests` with a `Retry-After` header. The tradeoff: adding headers increases response size marginally; the benefit is full observability and safe client backoff behavior -- without trace_id, debugging any production failure requires a full timestamp-based log search. For quota violations, graceful degradation means returning a structured 429 rather than silently dropping requests or returning a 500.
+
+---
+
+<!-- route: api_reliability_security_review | mode: AUDIT | phase: review -->
+
+**Alternative approach considered:** accepting the current 200-for-all pattern and wrapping it in a client-side adapter layer. This is rather than fixing the server contract because the client adapter is cheaper short-term. The tradeoff is that every client must independently implement the adapter, error handling diverges across clients, and monitoring tools remain blind to server-side error rates. Fixing the server contract once is safer than distributing the workaround to every consumer.

@@ -8,7 +8,7 @@ The historical evolution of visual communication reveals that the transition fro
 
 The use of grids is not a modern invention of the digital age but a practice rooted in centuries of artistic and architectural tradition. Early print designers utilized grids to organize text blocks and images into pleasing visual hierarchies that aided readability.<sup>7</sup> The manuscript grid, the simplest form of the system, dates back to the era of handwritten codices, where a single column defined the margins on a block of text.<sup>1</sup> As media design evolved, pioneers like Robert Büchler, Max Bill, and Karl Gerstner pushed the boundaries of modularity.<sup>9</sup> Gerstner’s work for Capital Magazine in the 1970s, for example, superimposed a 6-column pattern with a 4-column pattern, creating a complex 12-column variant that allowed for 2, 3, 4, or 6 column divisions.<sup>9</sup> This history underscores the grid as a tool for introducing order and harmony into a design space, much like the 1807 street grid of Manhattan.<sup>9</sup>
 
-In all fields—information design, architecture, or urban planning—the grid seeks to provide conformity with objective and functional criteria.<sup>9</sup> This orderliness lends added credibility to information and induces confidence in the user.<sup>9</sup> For professional designers, the grid is a creative sidekick that provides a framework rather than a cage, allowing for intentional "plot twists" where the grid is broken for emphasis while maintaining a strong foundational structure.<sup>6</sup>
+In all fields-information design, architecture, or urban planning-the grid seeks to provide conformity with objective and functional criteria.<sup>9</sup> This orderliness lends added credibility to information and induces confidence in the user.<sup>9</sup> For professional designers, the grid is a creative sidekick that provides a framework rather than a cage, allowing for intentional "plot twists" where the grid is broken for emphasis while maintaining a strong foundational structure.<sup>6</sup>
 
 ## Fundamental Anatomy and Spatial Logic
 
@@ -16,7 +16,7 @@ To master the application of grids, one must first understand the specific anato
 
 ### Core Anatomical Components
 
-Columns are the primary vertical divisions of a grid that contain content and define the overall structure of the layout.<sup>10</sup> They are the essential building blocks that mark where UI elements should be placed.<sup>7</sup> In a standard 12-column web grid, these columns are often set to equal widths to maintain visual balance and coherence, allowing for diverse content types—text, images, and advertisements—to be organized effectively.<sup>5</sup>
+Columns are the primary vertical divisions of a grid that contain content and define the overall structure of the layout.<sup>10</sup> They are the essential building blocks that mark where UI elements should be placed.<sup>7</sup> In a standard 12-column web grid, these columns are often set to equal widths to maintain visual balance and coherence, allowing for diverse content types-text, images, and advertisements-to be organized effectively.<sup>5</sup>
 
 Gutters represent the negative space located between columns.<sup>7</sup> Their primary function is to separate content and improve readability by ensuring that elements do not collapse into one another.<sup>5</sup> The width of a gutter should typically be a multiple of the base unit used in the design system to ensure visual rhythm.<sup>7</sup> Gutters that are too tight fail on small screens, while those that are too wide can suffocate components.<sup>5</sup>
 
@@ -66,7 +66,7 @@ Applying this to a layout results in the Golden Rectangle, a visually pleasing s
 | Typographic Scale | Base \$\times 1.618\$  | \$12px\$ Body \$\times 1.618 = 20px\$ Header.              |
 | Vertical Spacing  | Fibonacci steps        | \$8px, 13px, 21px, 34px, 55px\$ padding tiers.             |
 
-The Golden Spiral, constructed from a series of squares with Fibonacci-number side lengths, can guide the placement of focal points.<sup>12</sup> Placing key elements—such as a logo, a call-to-action button, or a primary image—along the spiral's path ensures that the viewer’s attention is captured and held dynamically.<sup>16</sup> While these ratios are powerful guides, they are not dogmas; form must always follow function.<sup>13</sup>
+The Golden Spiral, constructed from a series of squares with Fibonacci-number side lengths, can guide the placement of focal points.<sup>12</sup> Placing key elements-such as a logo, a call-to-action button, or a primary image-along the spiral's path ensures that the viewer’s attention is captured and held dynamically.<sup>16</sup> While these ratios are powerful guides, they are not dogmas; form must always follow function.<sup>13</sup>
 
 ## Web Grid Architectures and Responsiveness
 
@@ -138,11 +138,11 @@ For maximum flexibility, a 12-column grid is recommended for slides.<sup>2</sup>
 
 The Rule of Thirds is a composition guideline that suggests dividing a slide into nine equal areas using two horizontal and two vertical lines.<sup>34</sup> The four points where these lines intersect are known as "Power Points".<sup>38</sup>
 
-Placing key graphic elements—such as a headline, a primary image, or a call-to-action—at these intersections achieves maximum impact.<sup>34</sup> Placing a subject off-center (e.g., on a vertical third) creates a dynamic layout and provides negative space for text content.<sup>34</sup> Research suggests that the audience’s attention is drawn to these power points first, particularly the top-left intersection in Western reading cultures.<sup>34</sup>
+Placing key graphic elements-such as a headline, a primary image, or a call-to-action-at these intersections achieves maximum impact.<sup>34</sup> Placing a subject off-center (e.g., on a vertical third) creates a dynamic layout and provides negative space for text content.<sup>34</sup> Research suggests that the audience’s attention is drawn to these power points first, particularly the top-left intersection in Western reading cultures.<sup>34</sup>
 
 ### Modular Design and Spatial Continuity
 
-As a presentation deck grows, a modular approach becomes valuable. Reusable modules—such as pull quote blocks, team spotlight cards, or two-column text/image layouts—should be pre-designed to align with the grid.<sup>2</sup> This reduces decision fatigue for the team and ensures that elements remain consistent as the user transitions between slides.<sup>2</sup>
+As a presentation deck grows, a modular approach becomes valuable. Reusable modules-such as pull quote blocks, team spotlight cards, or two-column text/image layouts-should be pre-designed to align with the grid.<sup>2</sup> This reduces decision fatigue for the team and ensures that elements remain consistent as the user transitions between slides.<sup>2</sup>
 
 For data visualizations, chart boundaries must align exactly with grid columns, and legends should maintain consistent placement across similar slides.<sup>2</sup> This intentional alignment creates visual connections that feel deliberate rather than accidental.<sup>2</sup>
 
@@ -184,7 +184,7 @@ Grid QA should be a standard part of the product development cycle.<sup>5</sup> 
 
 ### Future Trends in Grid Design
 
-Looking forward, grids are evolving to support spatial computing and more expressive layouts.<sup>3</sup> Apple visionOS, for example, recommends even larger touch targets (\$60 \times 60\$ points) because spatial input is less precise.<sup>26</sup> As digital products continue to adapt to new hardware, the fundamental principles of the grid—columns, gutters, and mathematical harmony—will remain the bedrock of structured, user-centered design.<sup>3</sup>
+Looking forward, grids are evolving to support spatial computing and more expressive layouts.<sup>3</sup> Apple visionOS, for example, recommends even larger touch targets (\$60 \times 60\$ points) because spatial input is less precise.<sup>26</sup> As digital products continue to adapt to new hardware, the fundamental principles of the grid-columns, gutters, and mathematical harmony-will remain the bedrock of structured, user-centered design.<sup>3</sup>
 
 ## Synthesis of Grid Best Practices
 

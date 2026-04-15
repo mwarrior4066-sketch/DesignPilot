@@ -1,0 +1,67 @@
+{
+  "task_id": "backend_architecture_spec",
+  "title": "Back-End Architecture Spec",
+  "required_sections": [
+    {
+      "name": "System framing",
+      "min_words": 25,
+      "rationale": "Names the system, actors, resources, and why architecture is needed."
+    },
+    {
+      "name": "Core model and authority boundaries",
+      "min_words": 45,
+      "rationale": "Defines ownership, authorization, and source-of-truth."
+    },
+    {
+      "name": "Data, consistency, and delivery design",
+      "min_words": 50,
+      "rationale": "Chooses consistency, pagination, events, async, or webhook patterns."
+    },
+    {
+      "name": "Observability and failure posture",
+      "min_words": 30,
+      "rationale": "Shows how the system will be monitored and where it can safely degrade."
+    }
+  ],
+  "required_evidence_types": [
+    "authority model",
+    "consistency stance",
+    "delivery pattern"
+  ],
+  "required_decisions": [
+    "actor_resource_action",
+    "source_of_truth",
+    "authorization_model",
+    "consistency_stance",
+    "delivery_pattern",
+    "observability_tax"
+  ],
+  "hard_fail_patterns": [
+    "just add an endpoint",
+    "make it realtime",
+    "use uuid and it is secure"
+  ],
+  "soft_fail_patterns": [
+    "should scale fine",
+    "probably okay"
+  ],
+  "required_skills": [
+    "back-end-systems-architect.md",
+    "back-end-aware-planner.md",
+    "api-reliability-security-expert.md"
+  ],
+  "allowed_modes": [
+    "STRUCTURE",
+    "PEER",
+    "REBUILD"
+  ],
+  "allowed_phases": [
+    "strategy",
+    "specs",
+    "implementation"
+  ],
+  "canonical_contract": "src/schemas/task_contracts.json#backend_architecture_spec",
+  "task_weight_default": "compound",
+  "supports_lightweight_response": false,
+  "trace_visibility_default": "recoverable"
+}

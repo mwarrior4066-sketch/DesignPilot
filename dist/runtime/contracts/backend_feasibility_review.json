@@ -1,0 +1,61 @@
+{
+  "task_id": "backend_feasibility_review",
+  "title": "Back-End Feasibility Review",
+  "required_sections": [
+    {
+      "name": "Requested capability",
+      "min_words": 20,
+      "rationale": "States the visible ask and hidden system implications."
+    },
+    {
+      "name": "Hidden system requirements",
+      "min_words": 45,
+      "rationale": "Maps UI ask to auth, storage, exports, or APIs."
+    },
+    {
+      "name": "Feasibility assessment",
+      "min_words": 35,
+      "rationale": "Calls out blockers, assumptions, and sequencing."
+    },
+    {
+      "name": "Safer implementation path",
+      "min_words": 35,
+      "rationale": "Shows a realistic build order."
+    }
+  ],
+  "required_evidence_types": [
+    "auth rule",
+    "data model need",
+    "integration risk"
+  ],
+  "required_decisions": [
+    "data_dependency",
+    "permissions_dependency",
+    "system_surface_dependency",
+    "blocking_constraint"
+  ],
+  "hard_fail_patterns": [
+    "purely visual change",
+    "no backend impact"
+  ],
+  "soft_fail_patterns": [
+    "should be straightforward"
+  ],
+  "required_skills": [
+    "back-end-aware-planner.md",
+    "front-end-handoff-expert.md"
+  ],
+  "allowed_modes": [
+    "AUDIT",
+    "PEER",
+    "STRUCTURE"
+  ],
+  "allowed_phases": [
+    "strategy",
+    "specs"
+  ],
+  "canonical_contract": "src/schemas/task_contracts.json#backend_feasibility_review",
+  "task_weight_default": "compound",
+  "supports_lightweight_response": false,
+  "trace_visibility_default": "recoverable"
+}

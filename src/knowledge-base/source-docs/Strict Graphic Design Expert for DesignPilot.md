@@ -51,7 +51,7 @@ Definition.
 A composition system is the set of spatial rules (grid, alignment fields, proportions, rhythm) used to place elements; focal hierarchy is the priority ordering of attention (what is seen first, second, third) created by scale, contrast, position, and spacing. Ruder frames typography as imposing “determined order” and foregrounds clear readability and measurable text mass. [15]
 
 Why it matters for a Graphic Design Expert.
-Production outcomes fail when a viewer cannot infer a reading order quickly, or when multiple elements compete as “first.” Clutter research defines clutter as excess items (or their organization) that degrade task performance—exactly the failure mode of broken focal hierarchy. [30]
+Production outcomes fail when a viewer cannot infer a reading order quickly, or when multiple elements compete as “first.” Clutter research defines clutter as excess items (or their organization) that degrade task performance-exactly the failure mode of broken focal hierarchy. [30]
 
 Default rules.
 The agent enforces a single dominant focal node per “view” (poster face, slide, page-as-gesture), then a controlled cascade.
@@ -76,7 +76,7 @@ Failure conditions.
 
 Measurable thresholds.
 - Focal count: 1 dominant focal per view; 2 is acceptable only if their roles are clearly differentiated (e.g., headline + hero image) and one is subordinate by measurable contrast or size.
-- Saliency risk proxy: if the design uses many disparate colors and high-contrast edges in a way that makes it “difficult to add a new salient item,” that matches the “feature congestion” framing of clutter—treat as high noise risk and simplify. [32]
+- Saliency risk proxy: if the design uses many disparate colors and high-contrast edges in a way that makes it “difficult to add a new salient item,” that matches the “feature congestion” framing of clutter-treat as high noise risk and simplify. [32]
 
 Implementation guidance for an AI operator pack.
 - Build a Focal Graph representation: nodes = elements; edges = dependencies; each node has attributes (size, contrast ratio, distance legibility, semantic weight, brand rigidity).
@@ -128,7 +128,7 @@ Measurable thresholds.
 
 Implementation guidance for an AI operator pack.
 - Implement a Format Classifier that outputs: {format_logic, viewing_time_class, distance_class, rereadability, density_budget}.
-- The classifier must also output a rejection warning when inputs mismatch: “Requested content volume exceeds density budget for campaign momentary—recommend editorial or multi-asset campaign set.”
+- The classifier must also output a rejection warning when inputs mismatch: “Requested content volume exceeds density budget for campaign momentary-recommend editorial or multi-asset campaign set.”
 
 Test cases.
 1) Client wants “a single billboard with our mission statement paragraph”: agent must classify as campaign momentary, flag density mismatch, propose a two-layer system (billboard headline + QR landing). [22]
@@ -211,8 +211,8 @@ Implementation guidance for an AI operator pack.
 - Run a “text-on-image risk” check: if background local contrast variance is high (feature congestion proxy), enforce image treatment (blur/darken panel) or relocate text. [32]
 
 Test cases.
-1) Campaign Instagram story uses a busy photo; CTA becomes unreadable—agent must insert a solid panel and enforce contrast. [47]
-2) Editorial spread has two full-bleed images and 800 words—agent must convert to a modular multi-page layout driven by reading rhythm.
+1) Campaign Instagram story uses a busy photo; CTA becomes unreadable-agent must insert a solid panel and enforce contrast. [47]
+2) Editorial spread has two full-bleed images and 800 words-agent must convert to a modular multi-page layout driven by reading rhythm.
 
 ### Topic five: distance legibility and display communication
 
@@ -343,7 +343,7 @@ Definition.
 A grid is an underlying structural system (columns, modules, baseline) that organizes content. Grid-breaking is deliberate violation of that system for emphasis, motion, or expression.
 
 Why it matters for a Graphic Design Expert.
-Grids enable consistency and variation within a system (essential for editorial and brand systems). Ruder describes basing layout on a grid of squares for complex pages, increasing possible variations. [15] Josef Müller-Brockmann[68]’s commonly cited framing that the grid is “an aid, not a guarantee… an art that requires practice” supports the idea that grids are tools, not prisons. [69] Timothy Samara[70]’s Making and Breaking the Grid is explicitly structured around understanding rules to use them—and then breaking them effectively. [71]
+Grids enable consistency and variation within a system (essential for editorial and brand systems). Ruder describes basing layout on a grid of squares for complex pages, increasing possible variations. [15] Josef Müller-Brockmann[68]’s commonly cited framing that the grid is “an aid, not a guarantee… an art that requires practice” supports the idea that grids are tools, not prisons. [69] Timothy Samara[70]’s Making and Breaking the Grid is explicitly structured around understanding rules to use them-and then breaking them effectively. [71]
 
 Default rules.
 - MUST choose grid type by format: - Editorial: column + baseline-driven systems. [72]
@@ -434,7 +434,7 @@ Key failure modes (with operational checks): - Category error (wrong format logi
 - Inconsistent system: brand clear space/min sizes violated. [61]
 
 Exception rules.
-In expressive works, the agent can “accept” some failures if and only if the brief explicitly trades comprehension for affect—and mandatory info is still protected.
+In expressive works, the agent can “accept” some failures if and only if the brief explicitly trades comprehension for affect-and mandatory info is still protected.
 
 Fallback logic.
 If multiple failure modes are triggered, prioritize fixes in this order: 1) distance legibility, 2) contrast, 3) hierarchy clarity, 4) clutter reduction, 5) typographic measure/leading, 6) brand compliance, 7) expressive refinements.
@@ -689,7 +689,7 @@ No → default to information-led or expressive based on brief priorities, but k
 4) Build an editorial spread with 1,200 words and 6 images; enforce readable measure and line spacing, then justify column count. [43]
 5) Redesign a poster where body text is 14pt but needs to be legible from 2m; correct typographic scale using distance baselines. [38]
 6) Diagnose a campaign asset: “over-styled and under-informative.” Provide evidence using clutter/feature congestion logic. [30]
-7) Design a slide with a complex diagram and narration; apply redundancy and contiguity principles—decide what text moves to speaker notes. [20]
+7) Design a slide with a complex diagram and narration; apply redundancy and contiguity principles-decide what text moves to speaker notes. [20]
 8) Enforce brand compliance: logo must appear on a poster with only 0.1" margin available; apply clear space rules and propose a compliant layout. [18]
 9) Create a system-led template for 20 campaign variants (same brand, different messages). Specify which elements are fixed vs variable. [95]
 10) A poster uses a busy photo as background; headline fails contrast. Fix without changing the photo. [47]
@@ -707,7 +707,7 @@ No → default to information-led or expressive based on brief priorities, but k
 22) Create a strict brand lockup rule: minimum logo size and clear space, using numeric constraints from a real manual; then show how to adapt when space is constrained. [61]
 23) Convert a dense research poster into a series of 5 social slides; decide how hierarchy and pacing change. [102]
 24) Design a typographic poster in which the headline is intentionally fragmented; keep event details legible and compliant. [56]
-25) A brand system demands minimalism; stakeholders want “more energy.” Add energy via rhythm/grid-breaking rather than ornament—justify. [103]
+25) A brand system demands minimalism; stakeholders want “more energy.” Add energy via rhythm/grid-breaking rather than ornament-justify. [103]
 
 [1] [2] [12] [21] [47] [56] [58] [74] [78] [98] Web Content Accessibility Guidelines (WCAG) 2.2
 

@@ -8,6 +8,7 @@
 - `docs/operator/PROFILE_GUIDE.md`
 
 ## Maintainer surface
+- `config/authority_manifest.yaml`
 - `src/`
 - `config/`
 - `scripts/`
@@ -17,3 +18,6 @@
 - `docs/maintainer/`
 
 The operator should not need to understand tiered hydration or source dependencies to deploy DesignPilot correctly.
+
+## Ownership rule
+Generated files in `dist/`, handoff manifests, and proof artifact receipts should be regenerated from source and scripts, not manually patched.

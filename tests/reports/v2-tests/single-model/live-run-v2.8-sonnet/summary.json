@@ -1,0 +1,42 @@
+{
+  "run_id": "live-run-v2.8-sonnet",
+  "run_date": "2026-04-13T23:11:48.120889+00:00",
+  "model": "claude-sonnet-4-6",
+  "mode": "pack",
+  "pack_version": "2.8",
+  "tests_run": 1,
+  "n_samples": 1,
+  "pass_count": 1,
+  "pass_rate": 1.0,
+  "pass_rate_threshold": 0.75,
+  "rubric_means": {
+    "intent_alignment": null,
+    "actionability": null,
+    "structural_rigor": null,
+    "evidence_use": null,
+    "implementation_realism": null
+  },
+  "by_category": {
+    "comprehension": {
+      "total": 1,
+      "passed": 1
+    }
+  },
+  "results": [
+    {
+      "test_id": "pass-19",
+      "title": "Text humanization canonical pass",
+      "category": "comprehension",
+      "sample": 0,
+      "mode": "pack",
+      "expected_decision": "PASS",
+      "validator_decision": "AUTO_REVISE",
+      "validator_score": 90,
+      "passed": true,
+      "latency_seconds": 15.69,
+      "issues": [],
+      "rubric": {},
+      "output_file": "tests/live_outputs/live-run-v2.8-sonnet/pass-19_s0_pack.md"
+    }
+  ]
+}

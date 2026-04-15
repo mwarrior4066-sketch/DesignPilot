@@ -1,117 +1,119 @@
 # Route Picker
 
-Use this file to choose the right startup path without reading internal architecture.
+Use this file to choose the right launcher without reading internal architecture.
 
 Start broad, then narrow:
 - first choose the task cluster that matches the job
-- then choose the route inside that cluster
-- then load the matching contract and only the needed skill cards
+- then choose the launcher inside that cluster
+- then load the launcher plus `dist/SESSION_ZERO.md`
+
+Manual route + contract + skill assembly is a maintainer/debug path only.
 
 ## UI and system structure
 
 ### Accessibility Feedback Audit
-- Route card: `dist/lite_routes/rt_accessibility_feedback_audit.md`
-- Contract card: `dist/lite_contracts/accessibility_feedback_audit.md`
-- Starter pack: `dist/lite_starters/accessibility_feedback_audit.md`
-- Use when: Use when a user task is blocked or degraded by semantic, focus, keyboard, or announcement failures.
+- Single-file launcher: `dist/runtime/task_launchers/accessibility_feedback_audit.md`
+- Manual route card: `dist/runtime/route_cards/rt_accessibility_feedback_audit.md`
+- Manual contract card: `dist/runtime/contracts_lite/accessibility_feedback_audit.md`
+- Best fit: Use when a user task is blocked or degraded by semantic, focus, keyboard, or announcement failures.
 
 ### Color System Specification
-- Route card: `dist/lite_routes/rt_color_system_spec.md`
-- Contract card: `dist/lite_contracts/color_system_spec.md`
-- Starter pack: `dist/lite_starters/color_system_spec.md`
-- Use when: Use when the job is to define roles, tokens, and state behavior for color rather than pick nicer hues.
+- Single-file launcher: `dist/runtime/task_launchers/color_system_spec.md`
+- Manual route card: `dist/runtime/route_cards/rt_color_system_spec.md`
+- Manual contract card: `dist/runtime/contracts_lite/color_system_spec.md`
+- Best fit: Use when the job is to define roles, tokens, and state behavior for color rather than pick nicer hues.
 
 ### Component Specification
-- Route card: `dist/lite_routes/rt_component_spec.md`
-- Contract card: `dist/lite_contracts/component_spec.md`
-- Starter pack: `dist/lite_starters/component_spec.md`
-- Use when: Use when a reusable system component needs state-safe documentation.
+- Single-file launcher: `dist/runtime/task_launchers/component_spec.md`
+- Manual route card: `dist/runtime/route_cards/rt_component_spec.md`
+- Manual contract card: `dist/runtime/contracts_lite/component_spec.md`
+- Best fit: Use when a reusable system component needs state-safe documentation.
 
 ### Dashboard Audit
-- Route card: `dist/lite_routes/rt_dashboard_audit.md`
-- Contract card: `dist/lite_contracts/dashboard_audit.md`
-- Starter pack: `dist/lite_starters/dashboard_audit.md`
-- Use when: Use for KPI hierarchy and chart-logic evaluation, not generic screen cleanup.
+- Single-file launcher: `dist/runtime/task_launchers/dashboard_audit.md`
+- Manual route card: `dist/runtime/route_cards/rt_dashboard_audit.md`
+- Manual contract card: `dist/runtime/contracts_lite/dashboard_audit.md`
+- Best fit: Use for KPI hierarchy and chart-logic evaluation, not generic screen cleanup.
 
 ### Graphic Critique
-- Route card: `dist/lite_routes/rt_graphic_critique.md`
-- Contract card: `dist/lite_contracts/graphic_critique.md`
-- Starter pack: `dist/lite_starters/graphic_critique.md`
-- Use when: Use when the key problem is focal structure, type/image balance, or distance legibility.
+- Single-file launcher: `dist/runtime/task_launchers/graphic_critique.md`
+- Manual route card: `dist/runtime/route_cards/rt_graphic_critique.md`
+- Manual contract card: `dist/runtime/contracts_lite/graphic_critique.md`
+- Best fit: Use when the key problem is focal structure, type/image balance, or distance legibility.
 
 ### Type System Recommendation
-- Route card: `dist/lite_routes/rt_type_system_recommendation.md`
-- Contract card: `dist/lite_contracts/type_system_recommendation.md`
-- Starter pack: `dist/lite_starters/type_system_recommendation.md`
-- Use when: Use when the job is to define a repeatable type system instead of suggest a single font.
+- Single-file launcher: `dist/runtime/task_launchers/type_system_recommendation.md`
+- Manual route card: `dist/runtime/route_cards/rt_type_system_recommendation.md`
+- Manual contract card: `dist/runtime/contracts_lite/type_system_recommendation.md`
+- Best fit: Use when the job is to define a repeatable type system instead of suggest a single font.
 
 ### UI Structure Critique
-- Route card: `dist/lite_routes/rt_ui_structure_critique.md`
-- Contract card: `dist/lite_contracts/ui_structure_critique.md`
-- Starter pack: `dist/lite_starters/ui_structure_critique.md`
-- Use when: Prefer this route when the user wants structural diagnosis before polish.
+- Single-file launcher: `dist/runtime/task_launchers/ui_structure_critique.md`
+- Manual route card: `dist/runtime/route_cards/rt_ui_structure_critique.md`
+- Manual contract card: `dist/runtime/contracts_lite/ui_structure_critique.md`
+- Best fit: Prefer this route when the user wants structural diagnosis before polish.
 
 ## Brand and communication
 
 ### Brand Positioning Pass
-- Route card: `dist/lite_routes/rt_brand_positioning.md`
-- Contract card: `dist/lite_contracts/brand_positioning_pass.md`
-- Starter pack: `dist/lite_starters/brand_positioning_pass.md`
-- Use when: Use when the system must decide who the brand is for and how it earns trust.
+- Single-file launcher: `dist/runtime/task_launchers/brand_positioning_pass.md`
+- Manual route card: `dist/runtime/route_cards/rt_brand_positioning.md`
+- Manual contract card: `dist/runtime/contracts_lite/brand_positioning_pass.md`
+- Best fit: Use when the system must decide who the brand is for and how it earns trust.
 
 ### Case Study Rewrite
-- Route card: `dist/lite_routes/rt_case_study_rewrite.md`
-- Contract card: `dist/lite_contracts/case_study_rewrite.md`
-- Starter pack: `dist/lite_starters/case_study_rewrite.md`
-- Use when: Use when communication quality depends on narrative order and proof clarity, not just editing.
+- Single-file launcher: `dist/runtime/task_launchers/case_study_rewrite.md`
+- Manual route card: `dist/runtime/route_cards/rt_case_study_rewrite.md`
+- Manual contract card: `dist/runtime/contracts_lite/case_study_rewrite.md`
+- Best fit: Use when communication quality depends on narrative order and proof clarity, not just editing.
 
 ### Text Humanization Revision
-- Route card: `dist/lite_routes/rt_text_humanization.md`
-- Contract card: `dist/lite_contracts/text_humanization_revision.md`
-- Starter pack: `dist/lite_starters/text_humanization_revision.md`
-- Use when: Use when the governing need is prose-quality revision rather than structural rewriting or route-level diagnosis.
+- Single-file launcher: `dist/runtime/task_launchers/text_humanization_revision.md`
+- Manual route card: `dist/runtime/route_cards/rt_text_humanization.md`
+- Manual contract card: `dist/runtime/contracts_lite/text_humanization_revision.md`
+- Best fit: Use when the governing need is prose-quality revision rather than structural rewriting or route-level diagnosis.
 
 ## Research and planning
 
 ### UX Research Gap Map
-- Route card: `dist/lite_routes/rt_ux_research_gap_map.md`
-- Contract card: `dist/lite_contracts/ux_research_gap_map.md`
-- Starter pack: `dist/lite_starters/ux_research_gap_map.md`
-- Use when: Use when the answer must separate known evidence from assumptions and map the next studies.
+- Single-file launcher: `dist/runtime/task_launchers/ux_research_gap_map.md`
+- Manual route card: `dist/runtime/route_cards/rt_ux_research_gap_map.md`
+- Manual contract card: `dist/runtime/contracts_lite/ux_research_gap_map.md`
+- Best fit: Use when the answer must separate known evidence from assumptions and map the next studies.
 
 ## Routes that should usually escalate
 
 ### API Reliability and Security Review
+- Launcher: `dist/runtime/task_launchers/api_reliability_security_review.md`
 - Recommended startup: `dist/DEPLOY_UI.md` or full kernel
-- Route card: `dist/lite_routes/rt_api_reliability_security.md`
-- Use when: Use when the governing decision is failure, retry, authorization, or resilience semantics for APIs or tools.
+- Best fit: Use when the governing decision is failure, retry, authorization, or resilience semantics for APIs or tools.
 
 ### Back-End Feasibility Review
+- Launcher: `dist/runtime/task_launchers/backend_feasibility_review.md`
 - Recommended startup: `dist/DEPLOY_UI.md` or full kernel
-- Route card: `dist/lite_routes/rt_backend_feasibility.md`
-- Use when: Reveal back-end implications before treating the request as visual-only.
+- Best fit: Reveal back-end implications before treating the request as visual-only.
 
 ### Back-End Architecture Spec
+- Launcher: `dist/runtime/task_launchers/backend_architecture_spec.md`
 - Recommended startup: `dist/DEPLOY_UI.md` or full kernel
-- Route card: `dist/lite_routes/rt_backend_systems_architecture.md`
-- Use when: Use when the governing decision is the structure of the backend system itself.
+- Best fit: Use when the governing decision is the structure of the backend system itself.
 
 ### Front-End Implementation Review
+- Launcher: `dist/runtime/task_launchers/frontend_implementation_review.md`
 - Recommended startup: `dist/DEPLOY_UI.md` or full kernel
-- Route card: `dist/lite_routes/rt_frontend_architecture.md`
-- Use when: Use when the governing decision is front-end architecture rather than generic handoff or UI critique.
+- Best fit: Use when the governing decision is front-end architecture rather than generic handoff or UI critique.
 
 ### Layout Reconstruction Plan
+- Launcher: `dist/runtime/task_launchers/layout_reconstruction_plan.md`
 - Recommended startup: `dist/DEPLOY_UI.md` or full kernel
-- Route card: `dist/lite_routes/rt_layout_reconstruction_plan.md`
-- Use when: Use when structure must be inferred from an existing artifact instead of redesigned from scratch.
+- Best fit: Use when structure must be inferred from an existing artifact instead of redesigned from scratch.
 
 ### PDF Remediation Plan
+- Launcher: `dist/runtime/task_launchers/pdf_remediation_plan.md`
 - Recommended startup: `dist/DEPLOY_UI.md` or full kernel
-- Route card: `dist/lite_routes/rt_pdf_remediation.md`
-- Use when: Prioritize semantic preservation and verification over surface patching.
+- Best fit: Prioritize semantic preservation and verification over surface patching.
 
 ### Visual Input Prepass
+- Launcher: `dist/runtime/task_launchers/visual_input_prepass.md`
 - Recommended startup: `dist/DEPLOY_CORE.md` or full kernel
-- Route card: `dist/lite_routes/rt_visual_input.md`
-- Use when: Use when you need visual evidence extraction before deciding the real governing route.
+- Best fit: Use when you need visual evidence extraction before deciding the real governing route.

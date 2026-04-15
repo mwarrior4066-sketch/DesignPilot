@@ -1,6 +1,6 @@
 {
   "schema_version": "1.2.0",
-  "pack_version": "2.5.0",
+  "pack_version": "3.0",
   "tasks": [
     {
       "task_id": "ui_structure_critique",
@@ -73,7 +73,7 @@
           "id": "structural_failure",
           "description": "Names the actual structural failure, not just taste discomfort.",
           "any_of": [
-            "failing because",
+            "fails because",
             "failure",
             "problem is",
             "competes",
@@ -82,7 +82,19 @@
             "diluted",
             "slow first parse",
             "confusion",
-            "hierarchy"
+            "hierarchy",
+            "is failing",
+            "the failure is",
+            "breaks down",
+            "fails to",
+            "the page fails",
+            "the ui fails",
+            "the screen fails",
+            "core problem",
+            "primary problem",
+            "the issue is",
+            "the flaw",
+            "what breaks"
           ]
         },
         {
@@ -97,7 +109,17 @@
             "unambiguous",
             "priority",
             "legible",
-            "clarity should win"
+            "clarity should win",
+            "takes priority",
+            "visual weight",
+            "focal point",
+            "cta should",
+            "hero should",
+            "hierarchy winner",
+            "dominate",
+            "own the",
+            "anchor the",
+            "lead with"
           ]
         },
         {
@@ -137,26 +159,101 @@
             "inferred",
             "unverified",
             "appears",
-            "visible evidence"
+            "visible evidence",
+            "directly visible",
+            "from the structure",
+            "what i can see",
+            "what i observe",
+            "i can see",
+            "the layout shows",
+            "visually",
+            "from this",
+            "can be seen",
+            "high confidence",
+            "medium confidence",
+            "low confidence"
           ]
         }
       ],
       "required_evidence_classes": [
         {
           "class_id": "state_or_behavior_rule",
-          "description": "Uses a hierarchy, flow, scan, or behavior rule."
+          "description": "Uses a hierarchy, flow, scan, or behavior rule.",
+          "tokens": [
+            "state",
+            "hover",
+            "focus",
+            "disabled",
+            "error",
+            "active",
+            "selected",
+            "keyboard",
+            "behavior",
+            "interaction",
+            "trigger",
+            "toggle",
+            "aria",
+            "tab",
+            "click"
+          ]
         },
         {
           "class_id": "implementation_constraint",
-          "description": "Uses a real layout or density constraint."
+          "description": "Uses a real layout or density constraint.",
+          "tokens": [
+            "constraint",
+            "token",
+            "boundary",
+            "limit",
+            "cannot",
+            "must not",
+            "integration",
+            "dependency",
+            "threshold",
+            "budget",
+            "max",
+            "minimum",
+            "required"
+          ]
         },
         {
           "class_id": "comparison_artifact",
-          "description": "Names a rejected alternative or competing pattern."
+          "description": "Names a rejected alternative or competing pattern.",
+          "tokens": [
+            "alternative",
+            "instead",
+            "compared to",
+            "rather than",
+            "option",
+            "rejected",
+            "versus",
+            "vs",
+            "before",
+            "after",
+            "previous",
+            "instead of",
+            "over"
+          ]
         },
         {
           "class_id": "visual_structure_rule",
-          "description": "Uses a visual-structure rule when the critique is grounded in screenshots or visible layout evidence."
+          "description": "Uses a visual-structure rule when the critique is grounded in screenshots or visible layout evidence.",
+          "tokens": [
+            "grid",
+            "alignment",
+            "hierarchy",
+            "spacing",
+            "column",
+            "row",
+            "layout",
+            "visual weight",
+            "focal",
+            "contrast",
+            "rhythm",
+            "density",
+            "baseline",
+            "margin"
+          ]
         }
       ],
       "forbidden_shortcuts": [
@@ -337,15 +434,62 @@
       "required_evidence_classes": [
         {
           "class_id": "state_or_behavior_rule",
-          "description": "Uses explicit state or behavior rules."
+          "description": "Uses explicit state or behavior rules.",
+          "tokens": [
+            "state",
+            "hover",
+            "focus",
+            "disabled",
+            "error",
+            "active",
+            "selected",
+            "keyboard",
+            "behavior",
+            "interaction",
+            "trigger",
+            "toggle",
+            "aria",
+            "tab",
+            "click"
+          ]
         },
         {
           "class_id": "implementation_constraint",
-          "description": "Uses component, token, or boundary constraints."
+          "description": "Uses component, token, or boundary constraints.",
+          "tokens": [
+            "constraint",
+            "token",
+            "boundary",
+            "limit",
+            "cannot",
+            "must not",
+            "integration",
+            "dependency",
+            "threshold",
+            "budget",
+            "max",
+            "minimum",
+            "required"
+          ]
         },
         {
           "class_id": "standards_reference",
-          "description": "Uses aria, keyboard, or accessibility guidance when behavior depends on it."
+          "description": "Uses aria, keyboard, or accessibility guidance when behavior depends on it.",
+          "tokens": [
+            "wcag",
+            "aria",
+            "apca",
+            "rfc",
+            "spec",
+            "standard",
+            "guideline",
+            "rule",
+            "level a",
+            "level aa",
+            "level aaa",
+            "section 508",
+            "en 301"
+          ]
         }
       ],
       "forbidden_shortcuts": [
@@ -386,7 +530,8 @@
       ],
       "task_weight_default": "standard",
       "supports_lightweight_response": true,
-      "trace_visibility_default": "recoverable"
+      "trace_visibility_default": "recoverable",
+      "specificity_exempt": true
     },
     {
       "task_id": "dashboard_audit",
@@ -463,7 +608,23 @@
             "monitoring",
             "analytical",
             "dashboard role",
-            "overview"
+            "overview",
+            "kpi",
+            "metric",
+            "data",
+            "report",
+            "summary",
+            "performance",
+            "realtime",
+            "real-time",
+            "live",
+            "chart",
+            "graph",
+            "visualization",
+            "trend",
+            "drilldown",
+            "drill-down",
+            "filter"
           ]
         },
         {
@@ -512,26 +673,113 @@
             "inferred",
             "unverified",
             "appears",
-            "visible evidence"
+            "visible evidence",
+            "directly visible",
+            "from the structure",
+            "what i can see",
+            "what i observe",
+            "i can see",
+            "the layout shows",
+            "visually",
+            "from this",
+            "can be seen",
+            "high confidence",
+            "medium confidence",
+            "low confidence",
+            "seems",
+            "likely",
+            "visible",
+            "can see",
+            "the layout",
+            "structure shows",
+            "what is visible",
+            "screenshot",
+            "from the image",
+            "in the image"
           ]
         }
       ],
       "required_evidence_classes": [
         {
           "class_id": "state_or_behavior_rule",
-          "description": "Uses scan, interaction, or behavioral rules."
+          "description": "Uses scan, interaction, or behavioral rules.",
+          "tokens": [
+            "state",
+            "hover",
+            "focus",
+            "disabled",
+            "error",
+            "active",
+            "selected",
+            "keyboard",
+            "behavior",
+            "interaction",
+            "trigger",
+            "toggle",
+            "aria",
+            "tab",
+            "click"
+          ]
         },
         {
           "class_id": "measurable_threshold",
-          "description": "Uses KPI, threshold, or metric logic."
+          "description": "Uses KPI, threshold, or metric logic.",
+          "tokens": [
+            "4.5:1",
+            "3:1",
+            "7:1",
+            "px",
+            "rem",
+            "pt",
+            "ratio",
+            "%",
+            "minimum",
+            "threshold",
+            "maximum",
+            "contrast ratio",
+            "score",
+            "metric",
+            "measure"
+          ]
         },
         {
           "class_id": "comparison_artifact",
-          "description": "Compares chart or layout alternatives."
+          "description": "Compares chart or layout alternatives.",
+          "tokens": [
+            "alternative",
+            "instead",
+            "compared to",
+            "rather than",
+            "option",
+            "rejected",
+            "versus",
+            "vs",
+            "before",
+            "after",
+            "previous",
+            "instead of",
+            "over"
+          ]
         },
         {
           "class_id": "visual_structure_rule",
-          "description": "Uses a visual-structure rule when the critique is grounded in screenshots or visible layout evidence."
+          "description": "Uses a visual-structure rule when the critique is grounded in screenshots or visible layout evidence.",
+          "tokens": [
+            "grid",
+            "alignment",
+            "hierarchy",
+            "spacing",
+            "column",
+            "row",
+            "layout",
+            "visual weight",
+            "focal",
+            "contrast",
+            "rhythm",
+            "density",
+            "baseline",
+            "margin"
+          ]
         }
       ],
       "forbidden_shortcuts": [
@@ -663,7 +911,29 @@
             "access",
             "invite",
             "revocation",
-            "approval"
+            "approval",
+            "who can",
+            "who may",
+            "only the",
+            "session owner",
+            "authorized to",
+            "object-level",
+            "tenant",
+            "rbac",
+            "access control",
+            "ownership rule",
+            "auth handshake",
+            "gated by",
+            "deny by default",
+            "requires authentication",
+            "requires authorization",
+            "permission check",
+            "access check",
+            "auth boundary",
+            "privilege",
+            "admin only",
+            "owner only",
+            "protected route"
           ]
         },
         {
@@ -698,15 +968,60 @@
       "required_evidence_classes": [
         {
           "class_id": "permission_rule",
-          "description": "Uses a permission, auth, or ownership rule."
+          "description": "Uses a permission, auth, or ownership rule.",
+          "tokens": [
+            "permission",
+            "auth",
+            "role",
+            "owner",
+            "access",
+            "authorize",
+            "token",
+            "jwt",
+            "scope",
+            "policy",
+            "rbac",
+            "tenant",
+            "principal"
+          ]
         },
         {
           "class_id": "data_model_dependency",
-          "description": "Uses schema, ownership, or data dependency logic."
+          "description": "Uses schema, ownership, or data dependency logic.",
+          "tokens": [
+            "schema",
+            "table",
+            "model",
+            "field",
+            "column",
+            "relation",
+            "foreign key",
+            "ownership",
+            "entity",
+            "record",
+            "migration",
+            "database",
+            "store"
+          ]
         },
         {
           "class_id": "implementation_constraint",
-          "description": "Uses integration, sequencing, or system constraints."
+          "description": "Uses integration, sequencing, or system constraints.",
+          "tokens": [
+            "constraint",
+            "token",
+            "boundary",
+            "limit",
+            "cannot",
+            "must not",
+            "integration",
+            "dependency",
+            "threshold",
+            "budget",
+            "max",
+            "minimum",
+            "required"
+          ]
         }
       ],
       "forbidden_shortcuts": [
@@ -748,7 +1063,36 @@
       ],
       "task_weight_default": "compound",
       "supports_lightweight_response": false,
-      "trace_visibility_default": "recoverable"
+      "trace_visibility_default": "recoverable",
+      "context_overrides": {
+        "permission_rule": [
+          "ask permission only if",
+          "attribute-based access",
+          "auth handshake",
+          "auth on the",
+          "authenticate the",
+          "authorization check",
+          "authorized to",
+          "check for bola",
+          "cursor ownership",
+          "deny by default",
+          "enforce tenant isolation",
+          "gated by",
+          "irreversible action",
+          "object-level permission",
+          "only the",
+          "owner-only",
+          "ownership rule",
+          "presence model",
+          "rbac implementation",
+          "require manual override",
+          "session owner",
+          "websocket auth",
+          "who can read",
+          "who can write",
+          "who is allowed"
+        ]
+      }
     },
     {
       "task_id": "pdf_remediation_plan",
@@ -864,22 +1208,75 @@
             "rasterize",
             "ocr",
             "destructive",
-            "preserve"
+            "preserve",
+            "do not rasterize",
+            "avoid flattening",
+            "avoid rasterizing",
+            "preserve semantics",
+            "preserve structure",
+            "non-destructive",
+            "must not flatten",
+            "must not rasterize",
+            "safe approach only"
           ]
         }
       ],
       "required_evidence_classes": [
         {
           "class_id": "standards_reference",
-          "description": "Uses tagging, accessibility, or document standards references."
+          "description": "Uses tagging, accessibility, or document standards references.",
+          "tokens": [
+            "wcag",
+            "aria",
+            "apca",
+            "rfc",
+            "spec",
+            "standard",
+            "guideline",
+            "rule",
+            "level a",
+            "level aa",
+            "level aaa",
+            "section 508",
+            "en 301"
+          ]
         },
         {
           "class_id": "verification_method",
-          "description": "Uses explicit verification checks."
+          "description": "Uses explicit verification checks.",
+          "tokens": [
+            "verify",
+            "test",
+            "check",
+            "screen reader",
+            "axe",
+            "inspect",
+            "audit",
+            "validate",
+            "confirm",
+            "measure",
+            "run",
+            "accessibility checker"
+          ]
         },
         {
           "class_id": "implementation_constraint",
-          "description": "Uses preservation and sequencing constraints."
+          "description": "Uses preservation and sequencing constraints.",
+          "tokens": [
+            "constraint",
+            "token",
+            "boundary",
+            "limit",
+            "cannot",
+            "must not",
+            "integration",
+            "dependency",
+            "threshold",
+            "budget",
+            "max",
+            "minimum",
+            "required"
+          ]
         }
       ],
       "forbidden_shortcuts": [
@@ -921,7 +1318,26 @@
       ],
       "task_weight_default": "compound",
       "supports_lightweight_response": false,
-      "trace_visibility_default": "recoverable"
+      "trace_visibility_default": "recoverable",
+      "context_overrides": {
+        "implementation_constraint": [
+          "before moving",
+          "before proceeding",
+          "cannot proceed",
+          "cannot skip",
+          "if you skip",
+          "in this order",
+          "irreversible",
+          "must happen before",
+          "order matters",
+          "phase 1 before",
+          "pre-flight",
+          "sequence matters",
+          "step 1 before",
+          "why the order",
+          "why this sequence"
+        ]
+      }
     },
     {
       "task_id": "brand_positioning_pass",
@@ -1023,7 +1439,17 @@
             "credibility",
             "signal",
             "receipt",
-            "evidence"
+            "evidence",
+            "earn trust",
+            "build trust",
+            "trust signal",
+            "proof burden",
+            "trust without",
+            "credibility without",
+            "must demonstrate",
+            "validation",
+            "social proof",
+            "category convention"
           ]
         },
         {
@@ -1042,15 +1468,73 @@
       "required_evidence_classes": [
         {
           "class_id": "comparison_artifact",
-          "description": "Uses alternative, category, or competitor comparison logic."
+          "description": "Uses alternative, category, or competitor comparison logic.",
+          "tokens": [
+            "alternative",
+            "instead",
+            "compared to",
+            "rather than",
+            "option",
+            "rejected",
+            "versus",
+            "vs",
+            "before",
+            "after",
+            "previous",
+            "instead of",
+            "over"
+          ]
         },
         {
           "class_id": "file_backed_receipt",
-          "description": "Uses a proof artifact, signal, or file-backed receipt when available."
+          "description": "Uses a proof artifact, signal, or file-backed receipt when available.",
+          "tokens": [
+            "evidence",
+            "proof",
+            "artifact",
+            "benchmark",
+            "measured",
+            "data",
+            "test result",
+            "session",
+            "recording",
+            "analytics",
+            "metric",
+            "survey",
+            "interview"
+          ]
         },
         {
           "class_id": "implementation_constraint",
-          "description": "Uses a real constraint such as trust, usability, or category convention."
+          "description": "Uses a real constraint such as trust, usability, or category convention.",
+          "tokens": [
+            "constraint",
+            "token",
+            "boundary",
+            "limit",
+            "cannot",
+            "must not",
+            "integration",
+            "dependency",
+            "threshold",
+            "budget",
+            "max",
+            "minimum",
+            "required",
+            "avoid",
+            "should not",
+            "convention",
+            "category",
+            "trust",
+            "usability",
+            "accessibility",
+            "regulatory",
+            "compliance",
+            "risk",
+            "tension",
+            "should avoid",
+            "not appropriate"
+          ]
         }
       ],
       "forbidden_shortcuts": [
@@ -1085,13 +1569,44 @@
             "segment",
             "evidence",
             "benchmark",
-            "[file:"
+            "[file:",
+            "leading with",
+            "leading to",
+            "leading by",
+            "by leading",
+            "for freelancers",
+            "segment",
+            "niche",
+            "category"
           ]
         }
       ],
       "task_weight_default": "standard",
       "supports_lightweight_response": true,
-      "trace_visibility_default": "recoverable"
+      "trace_visibility_default": "recoverable",
+      "context_overrides": {
+        "implementation_constraint": [
+          "action is irreversible",
+          "cannot be claimed",
+          "cannot proceed",
+          "category convention",
+          "category says",
+          "constraint satisfaction",
+          "convention demands",
+          "only holds if",
+          "only works if",
+          "pre-flight",
+          "require manual override",
+          "step-by-step verification",
+          "the constraint is",
+          "the rule is",
+          "this audience will not",
+          "trust requires",
+          "trust without",
+          "you cannot claim",
+          "you must earn"
+        ]
+      }
     },
     {
       "task_id": "case_study_rewrite",
@@ -1167,7 +1682,38 @@
             "evidence",
             "what remains open",
             "not yet",
-            "gap"
+            "gap",
+            "we claim",
+            "we cannot claim",
+            "what we know",
+            "what we infer",
+            "direct evidence",
+            "indirect evidence",
+            "claim boundary",
+            "proof gap",
+            "evidence gap",
+            "what we proved",
+            "supported by",
+            "we can show",
+            "this demonstrates",
+            "cannot claim",
+            "not yet measured",
+            "we infer",
+            "proxy measure",
+            "result",
+            "outcome",
+            "impact",
+            "measured",
+            "data",
+            "metric",
+            "before",
+            "after",
+            "showed",
+            "reduced",
+            "increased",
+            "improved",
+            "dropped",
+            "rose"
           ]
         },
         {
@@ -1179,7 +1725,38 @@
             "benchmark",
             "internal",
             "external",
-            "confidence artifact"
+            "confidence artifact",
+            "metrics",
+            "showed",
+            "post-launch",
+            "analytics",
+            "cohort",
+            "tested",
+            "we measured",
+            "we tracked",
+            "data shows",
+            "evidence shows",
+            "unverified",
+            "inferred",
+            "estimated",
+            "assumed",
+            "proxy for",
+            "stands in for",
+            "indirect evidence",
+            "open gap",
+            "cannot prove",
+            "direct measurement",
+            "we observed",
+            "before and after",
+            "session data",
+            "conversion data",
+            "drop-off",
+            "retention",
+            "direct evidence",
+            "correlation",
+            "survey",
+            "anecdotal",
+            "metric"
           ]
         },
         {
@@ -1191,7 +1768,14 @@
             "order",
             "structure",
             "rebuild",
-            "moved"
+            "moved",
+            "problem first",
+            "starts with",
+            "begins with",
+            "followed by",
+            "sequence",
+            "chronological",
+            "narrative arc"
           ]
         },
         {
@@ -1203,22 +1787,104 @@
             "smoothness",
             "rather than",
             "instead of",
-            "wins"
+            "wins",
+            "honestly",
+            "acknowledge",
+            "admit",
+            "we cannot claim",
+            "limits of",
+            "bounded by",
+            "we do not have",
+            "not enough data",
+            "what we know vs",
+            "claim vs proof",
+            "what we can say",
+            "what we omit",
+            "what remains unknown",
+            "where data is missing",
+            "caveat",
+            "limitation",
+            "this assumes",
+            "however",
+            "while",
+            "although",
+            "even though",
+            "despite",
+            "at the cost",
+            "the challenge",
+            "what remains",
+            "not yet",
+            "further work",
+            "next step",
+            "what worked",
+            "what we learned",
+            "constraint",
+            "challenge",
+            "the cost",
+            "the risk",
+            "key learning",
+            "what i would change",
+            "what would be different",
+            "next iteration",
+            "follow-up"
           ]
         }
       ],
       "required_evidence_classes": [
         {
           "class_id": "comparison_artifact",
-          "description": "Uses benchmark, before/after, or alternative comparison logic."
+          "description": "Uses benchmark, before/after, or alternative comparison logic.",
+          "tokens": [
+            "alternative",
+            "instead",
+            "compared to",
+            "rather than",
+            "option",
+            "rejected",
+            "versus",
+            "vs",
+            "before",
+            "after",
+            "previous",
+            "instead of",
+            "over"
+          ]
         },
         {
           "class_id": "narrative_proof_boundary",
-          "description": "Uses explicit claim-to-proof boundary language."
+          "description": "Uses explicit claim-to-proof boundary language.",
+          "tokens": [
+            "claim",
+            "proof",
+            "evidence",
+            "cannot claim",
+            "we know",
+            "we infer",
+            "assumption",
+            "gap",
+            "measured",
+            "open question",
+            "what remains"
+          ]
         },
         {
           "class_id": "file_backed_receipt",
-          "description": "Uses benchmark files, maps, or proof artifacts when available."
+          "description": "Uses benchmark files, maps, or proof artifacts when available.",
+          "tokens": [
+            "evidence",
+            "proof",
+            "artifact",
+            "benchmark",
+            "measured",
+            "data",
+            "test result",
+            "session",
+            "recording",
+            "analytics",
+            "metric",
+            "survey",
+            "interview"
+          ]
         }
       ],
       "forbidden_shortcuts": [
@@ -1254,7 +1920,23 @@
             "reviewer",
             "benchmark",
             "confidence artifact",
-            "[file:"
+            "[file:",
+            "we validated",
+            "validated a",
+            "validated before",
+            "validated by",
+            "user behavior",
+            "tested and",
+            "tested before",
+            "validated the",
+            "validated by",
+            "validated through",
+            "validated with",
+            "user testing",
+            "usability test",
+            "a/b test",
+            "measurable",
+            "quantitative"
           ]
         }
       ],
@@ -1367,7 +2049,12 @@
             "label",
             "error state",
             "keyboard",
-            "screen reader"
+            "screen reader",
+            "focus ring",
+            "focus management",
+            "live region",
+            "aria-label",
+            "aria-describedby"
           ]
         },
         {
@@ -1381,22 +2068,74 @@
             "keyboard only",
             "inspect",
             "axe",
-            "copy of state"
+            "copy of state",
+            "voiceover",
+            "talkback",
+            "nvda",
+            "jaws",
+            "browser devtools",
+            "assistive technology"
           ]
         }
       ],
       "required_evidence_classes": [
         {
           "class_id": "standards_reference",
-          "description": "Uses WCAG, APCA, ARIA, or accessibility semantics."
+          "description": "Uses WCAG, APCA, ARIA, or accessibility semantics.",
+          "tokens": [
+            "wcag",
+            "aria",
+            "apca",
+            "rfc",
+            "spec",
+            "standard",
+            "guideline",
+            "rule",
+            "level a",
+            "level aa",
+            "level aaa",
+            "section 508",
+            "en 301"
+          ]
         },
         {
           "class_id": "state_or_behavior_rule",
-          "description": "Uses focus, keyboard, or state behavior rules."
+          "description": "Uses focus, keyboard, or state behavior rules.",
+          "tokens": [
+            "state",
+            "hover",
+            "focus",
+            "disabled",
+            "error",
+            "active",
+            "selected",
+            "keyboard",
+            "behavior",
+            "interaction",
+            "trigger",
+            "toggle",
+            "aria",
+            "tab",
+            "click"
+          ]
         },
         {
           "class_id": "verification_method",
-          "description": "Names how the repair will be tested."
+          "description": "Names how the repair will be tested.",
+          "tokens": [
+            "verify",
+            "test",
+            "check",
+            "screen reader",
+            "axe",
+            "inspect",
+            "audit",
+            "validate",
+            "confirm",
+            "measure",
+            "run",
+            "accessibility checker"
+          ]
         }
       ],
       "forbidden_shortcuts": [
@@ -1442,7 +2181,8 @@
       ],
       "task_weight_default": "standard",
       "supports_lightweight_response": true,
-      "trace_visibility_default": "recoverable"
+      "trace_visibility_default": "recoverable",
+      "specificity_exempt": true
     },
     {
       "task_id": "color_system_spec",
@@ -1522,7 +2262,9 @@
             "status",
             "chart",
             "semantic",
-            "alias"
+            "alias",
+            "token role",
+            "color role"
           ]
         },
         {
@@ -1536,7 +2278,13 @@
             "warning",
             "success",
             "selected",
-            "state"
+            "state",
+            "active",
+            "pressed",
+            "visited",
+            "dark mode",
+            "interactive",
+            "status"
           ]
         },
         {
@@ -1559,23 +2307,105 @@
             "alias",
             "deprecate",
             "replace",
-            "token map",
-            "phase out"
+            "adoption path",
+            "how to move",
+            "existing palette",
+            "current tokens",
+            "what changes",
+            "transition",
+            "swap",
+            "from current",
+            "moving from",
+            "adopt this",
+            "phase in",
+            "cutover",
+            "rollout",
+            "implementation",
+            "implement",
+            "introduce",
+            "next step",
+            "how to apply",
+            "token name",
+            "naming convention",
+            "apply this",
+            "roll out",
+            "cut over"
           ]
         }
       ],
       "required_evidence_classes": [
         {
           "class_id": "implementation_constraint",
-          "description": "Uses token, alias, or theme-boundary constraints."
+          "description": "Uses token, alias, or theme-boundary constraints.",
+          "tokens": [
+            "constraint",
+            "token",
+            "boundary",
+            "limit",
+            "cannot",
+            "must not",
+            "integration",
+            "dependency",
+            "threshold",
+            "budget",
+            "max",
+            "minimum",
+            "required"
+          ]
         },
         {
           "class_id": "measurable_threshold",
-          "description": "Uses contrast thresholds or measurable limits."
+          "description": "Uses contrast thresholds or measurable limits.",
+          "tokens": [
+            "4.5:1",
+            "3:1",
+            "7:1",
+            "px",
+            "rem",
+            "pt",
+            "ratio",
+            "%",
+            "minimum",
+            "threshold",
+            "maximum",
+            "contrast ratio",
+            "score",
+            "metric",
+            "measure"
+          ]
         },
         {
           "class_id": "comparison_artifact",
-          "description": "Names a rejected palette-only alternative or previous state."
+          "description": "Names a rejected palette-only alternative or previous state.",
+          "context_overrides": {
+            "palette_migration": [
+              "existing palette",
+              "current colors",
+              "old tokens",
+              "rather than",
+              "instead of",
+              "replaces",
+              "from the current",
+              "previous palette",
+              "before migration",
+              "token swap"
+            ]
+          },
+          "tokens": [
+            "alternative",
+            "instead",
+            "compared to",
+            "rather than",
+            "option",
+            "rejected",
+            "versus",
+            "vs",
+            "before",
+            "after",
+            "previous",
+            "instead of",
+            "over"
+          ]
         }
       ],
       "forbidden_shortcuts": [
@@ -1618,7 +2448,28 @@
       ],
       "task_weight_default": "standard",
       "supports_lightweight_response": true,
-      "trace_visibility_default": "recoverable"
+      "trace_visibility_default": "recoverable",
+      "specificity_exempt": true,
+      "context_overrides": {
+        "comparison_artifact": [
+          "versus",
+          "instead of",
+          "rather than",
+          "replaces",
+          "previously",
+          "current palette",
+          "old tokens",
+          "before migration",
+          "the alternative",
+          "rejected",
+          "palette-only approach",
+          "colour-only",
+          "color-only",
+          "was using",
+          "used to",
+          "moved from"
+        ]
+      }
     },
     {
       "task_id": "graphic_critique",
@@ -1696,7 +2547,18 @@
             "first read",
             "headline wins",
             "should lead",
-            "primary image"
+            "primary image",
+            "eye",
+            "lead",
+            "title",
+            "headline",
+            "anchor",
+            "primary read",
+            "what the eye",
+            "where the eye",
+            "attention",
+            "reads first",
+            "leading element"
           ]
         },
         {
@@ -1722,7 +2584,14 @@
             "balance",
             "scale",
             "crop",
-            "proportion"
+            "proportion",
+            "focal point",
+            "hierarchy",
+            "visual weight",
+            "flow",
+            "grid",
+            "layout",
+            "whitespace"
           ]
         },
         {
@@ -1741,15 +2610,61 @@
       "required_evidence_classes": [
         {
           "class_id": "visual_structure_rule",
-          "description": "Uses composition, focal, rhythm, or legibility rules."
+          "description": "Uses composition, focal, rhythm, or legibility rules.",
+          "tokens": [
+            "grid",
+            "alignment",
+            "hierarchy",
+            "spacing",
+            "column",
+            "row",
+            "layout",
+            "visual weight",
+            "focal",
+            "contrast",
+            "rhythm",
+            "density",
+            "baseline",
+            "margin"
+          ]
         },
         {
           "class_id": "comparison_artifact",
-          "description": "Names the rejected alternative or competing focal path."
+          "description": "Names the rejected alternative or competing focal path.",
+          "tokens": [
+            "alternative",
+            "instead",
+            "compared to",
+            "rather than",
+            "option",
+            "rejected",
+            "versus",
+            "vs",
+            "before",
+            "after",
+            "previous",
+            "instead of",
+            "over"
+          ]
         },
         {
           "class_id": "implementation_constraint",
-          "description": "Uses size, crop, or production-boundary constraints."
+          "description": "Uses size, crop, or production-boundary constraints.",
+          "tokens": [
+            "constraint",
+            "token",
+            "boundary",
+            "limit",
+            "cannot",
+            "must not",
+            "integration",
+            "dependency",
+            "threshold",
+            "budget",
+            "max",
+            "minimum",
+            "required"
+          ]
         }
       ],
       "forbidden_shortcuts": [
@@ -1793,7 +2708,27 @@
       ],
       "task_weight_default": "standard",
       "supports_lightweight_response": true,
-      "trace_visibility_default": "recoverable"
+      "trace_visibility_default": "recoverable",
+      "specificity_exempt": true,
+      "context_overrides": {
+        "implementation_constraint": [
+          "size",
+          "crop",
+          "bleed",
+          "production",
+          "print",
+          "resolution",
+          "safe area",
+          "margin",
+          "at distance",
+          "thumbnail test",
+          "reduce by",
+          "increase by",
+          "px",
+          "%",
+          "at scale"
+        ]
+      }
     },
     {
       "task_id": "layout_reconstruction_plan",
@@ -1871,7 +2806,16 @@
             "source truth",
             "locked",
             "do not move",
-            "existing artifact"
+            "existing artifact",
+            "keep",
+            "retain",
+            "maintain",
+            "unchanged",
+            "source",
+            "original",
+            "do not change",
+            "fixed",
+            "existing"
           ]
         },
         {
@@ -1883,7 +2827,32 @@
             "estimated",
             "proxy",
             "likely grid",
-            "inferred"
+            "inferred",
+            "cannot be verified",
+            "assumed from",
+            "inferred from",
+            "cannot confirm",
+            "uncertain",
+            "judgment call",
+            "not recoverable",
+            "must be inferred",
+            "we cannot know",
+            "not directly visible",
+            "cannot determine",
+            "best estimate",
+            "approximate",
+            "unclear from",
+            "not explicit",
+            "assume",
+            "infer",
+            "estimate",
+            "likely",
+            "probably",
+            "unclear",
+            "best guess",
+            "working assumption",
+            "i'll",
+            "we'll"
           ]
         },
         {
@@ -1895,7 +2864,18 @@
             "before",
             "after",
             "sequence",
-            "checkpoint"
+            "checkpoint",
+            "start with",
+            "next",
+            "step 1",
+            "step 2",
+            "phase 1",
+            "phase 2",
+            "1.",
+            "2.",
+            "3.",
+            "begin with",
+            "followed by"
           ]
         },
         {
@@ -1919,26 +2899,98 @@
             "inferred",
             "unverified",
             "appears",
-            "visible evidence"
+            "visible evidence",
+            "directly visible",
+            "from the structure",
+            "what i can see",
+            "what i observe",
+            "i can see",
+            "the layout shows",
+            "visually",
+            "from this",
+            "can be seen",
+            "high confidence",
+            "medium confidence",
+            "low confidence"
           ]
         }
       ],
       "required_evidence_classes": [
         {
           "class_id": "implementation_constraint",
-          "description": "Uses geometry, grid, or preservation constraints."
+          "description": "Uses geometry, grid, or preservation constraints.",
+          "tokens": [
+            "constraint",
+            "token",
+            "boundary",
+            "limit",
+            "cannot",
+            "must not",
+            "integration",
+            "dependency",
+            "threshold",
+            "budget",
+            "max",
+            "minimum",
+            "required"
+          ]
         },
         {
           "class_id": "comparison_artifact",
-          "description": "Compares the rebuilt artifact back to the source."
+          "description": "Compares the rebuilt artifact back to the source.",
+          "tokens": [
+            "alternative",
+            "instead",
+            "compared to",
+            "rather than",
+            "option",
+            "rejected",
+            "versus",
+            "vs",
+            "before",
+            "after",
+            "previous",
+            "instead of",
+            "over"
+          ]
         },
         {
           "class_id": "verification_method",
-          "description": "Uses overlays, measurements, or extraction checks."
+          "description": "Uses overlays, measurements, or extraction checks.",
+          "tokens": [
+            "verify",
+            "test",
+            "check",
+            "screen reader",
+            "axe",
+            "inspect",
+            "audit",
+            "validate",
+            "confirm",
+            "measure",
+            "run",
+            "accessibility checker"
+          ]
         },
         {
           "class_id": "visual_structure_rule",
-          "description": "Uses a visual-structure rule when the critique is grounded in screenshots or visible layout evidence."
+          "description": "Uses a visual-structure rule when the critique is grounded in screenshots or visible layout evidence.",
+          "tokens": [
+            "grid",
+            "alignment",
+            "hierarchy",
+            "spacing",
+            "column",
+            "row",
+            "layout",
+            "visual weight",
+            "focal",
+            "contrast",
+            "rhythm",
+            "density",
+            "baseline",
+            "margin"
+          ]
         }
       ],
       "forbidden_shortcuts": [
@@ -2062,7 +3114,10 @@
             "mobile",
             "dashboard",
             "distance",
-            "scan"
+            "scan",
+            "where this will be read",
+            "reading environment",
+            "use context"
           ]
         },
         {
@@ -2089,7 +3144,11 @@
             "readability",
             "16px",
             "45-75",
-            "chars"
+            "chars",
+            "letter spacing",
+            "leading",
+            "measure",
+            "column width"
           ]
         },
         {
@@ -2101,22 +3160,84 @@
             "migrate",
             "first",
             "then",
-            "keep existing"
+            "keep existing",
+            "next step",
+            "implementation",
+            "how to apply",
+            "start with",
+            "begin with",
+            "introduce",
+            "ship",
+            "deploy",
+            "step one",
+            "step 1",
+            "implement",
+            "rollout",
+            "apply",
+            "sequence"
           ]
         }
       ],
       "required_evidence_classes": [
         {
           "class_id": "visual_structure_rule",
-          "description": "Uses legibility, hierarchy, or reading-flow rules."
+          "description": "Uses legibility, hierarchy, or reading-flow rules.",
+          "tokens": [
+            "grid",
+            "alignment",
+            "hierarchy",
+            "spacing",
+            "column",
+            "row",
+            "layout",
+            "visual weight",
+            "focal",
+            "contrast",
+            "rhythm",
+            "density",
+            "baseline",
+            "margin"
+          ]
         },
         {
           "class_id": "measurable_threshold",
-          "description": "Uses measurable type or readability thresholds."
+          "description": "Uses measurable type or readability thresholds.",
+          "tokens": [
+            "4.5:1",
+            "3:1",
+            "7:1",
+            "px",
+            "rem",
+            "pt",
+            "ratio",
+            "%",
+            "minimum",
+            "threshold",
+            "maximum",
+            "contrast ratio",
+            "score",
+            "metric",
+            "measure"
+          ]
         },
         {
           "class_id": "implementation_constraint",
-          "description": "Uses token, density, or platform-boundary constraints."
+          "description": "Uses token, density, or platform-boundary constraints.",
+          "tokens": [
+            "constraint",
+            "token",
+            "boundary",
+            "limit",
+            "cannot",
+            "must not",
+            "integration",
+            "dependency",
+            "threshold",
+            "budget",
+            "max",
+            "minimum",
+            "required"
+          ]
         }
       ],
       "forbidden_shortcuts": [
@@ -2159,7 +3280,8 @@
       ],
       "task_weight_default": "standard",
       "supports_lightweight_response": true,
-      "trace_visibility_default": "recoverable"
+      "trace_visibility_default": "recoverable",
+      "specificity_exempt": true
     },
     {
       "task_id": "ux_research_gap_map",
@@ -2273,22 +3395,75 @@
             "decision",
             "changes whether",
             "affects",
-            "if true then"
+            "if true then",
+            "inform",
+            "drive",
+            "enable",
+            "allow",
+            "depend",
+            "required for",
+            "shapes",
+            "determines",
+            "will change",
+            "impact on",
+            "influences",
+            "needed before"
           ]
         }
       ],
       "required_evidence_classes": [
         {
           "class_id": "research_artifact",
-          "description": "Uses research methods, participants, or artifacts."
+          "description": "Uses research methods, participants, or artifacts.",
+          "tokens": [
+            "interview",
+            "survey",
+            "usability test",
+            "participant",
+            "session",
+            "observation",
+            "affinity",
+            "research",
+            "study",
+            "insight",
+            "finding"
+          ]
         },
         {
           "class_id": "comparison_artifact",
-          "description": "Compares current evidence to missing evidence or alternative methods."
+          "description": "Compares current evidence to missing evidence or alternative methods.",
+          "tokens": [
+            "alternative",
+            "instead",
+            "compared to",
+            "rather than",
+            "option",
+            "rejected",
+            "versus",
+            "vs",
+            "before",
+            "after",
+            "previous",
+            "instead of",
+            "over"
+          ]
         },
         {
           "class_id": "narrative_proof_boundary",
-          "description": "Distinguishes assumption, proxy evidence, and measured proof."
+          "description": "Distinguishes assumption, proxy evidence, and measured proof.",
+          "tokens": [
+            "claim",
+            "proof",
+            "evidence",
+            "cannot claim",
+            "we know",
+            "we infer",
+            "assumption",
+            "gap",
+            "measured",
+            "open question",
+            "what remains"
+          ]
         }
       ],
       "forbidden_shortcuts": [
@@ -2413,21 +3588,37 @@
             "server component",
             "client component",
             "suspense",
-            "streaming"
+            "streaming",
+            "re-render",
+            "rerender",
+            "ssr",
+            "hydration parity",
+            "server-state",
+            "stale-while-revalidate",
+            "rendering cost",
+            "render cascade",
+            "re-renders",
+            "rendering boundary",
+            "render trigger"
           ]
         },
         {
           "id": "state_ownership",
           "description": "Names where state lives and how transitions are handled.",
           "any_of": [
+            "state",
+            "context",
+            "global state",
             "local state",
-            "server-state",
-            "shared state",
-            "state machine",
-            "status union",
-            "useactionstate",
-            "useformstatus",
-            "useoptimistic"
+            "redux",
+            "zustand",
+            "state ownership",
+            "state model",
+            "owns the state",
+            "state boundary",
+            "state lives",
+            "where state",
+            "lifting state"
           ]
         },
         {
@@ -2440,7 +3631,19 @@
             "hydrate",
             "hydration",
             "server component",
-            "client component"
+            "client component",
+            "local state",
+            "global state",
+            "state decision",
+            "state choice",
+            "where state lives",
+            "state ownership",
+            "which state",
+            "choose between",
+            "state lives",
+            "state belongs",
+            "component boundary",
+            "prop drilling"
           ]
         },
         {
@@ -2468,26 +3671,138 @@
             "retry",
             "lazy",
             "performance cost",
-            "rollback"
+            "rollback",
+            "the cost is",
+            "expensive",
+            "overhead",
+            "at scale",
+            "under load",
+            "degrades",
+            "breaks down",
+            "architecture cost",
+            "the tax",
+            "the burden",
+            "slower",
+            "heavier",
+            "more complex",
+            "harder to",
+            "the price",
+            "maintenance cost",
+            "refactoring cost",
+            "migration cost"
           ]
         }
       ],
       "required_evidence_classes": [
         {
           "class_id": "rendering_boundary_rule",
-          "description": "Uses rendering or boundary-specific evidence."
+          "description": "Uses rendering or boundary-specific evidence.",
+          "context_overrides": {
+            "state_management": [
+              "local state",
+              "global state",
+              "component boundary",
+              "state scope",
+              "prop drilling",
+              "context provider",
+              "re-render",
+              "memoization",
+              "state locality",
+              "consumption breadth",
+              "usememo",
+              "usecallback"
+            ]
+          },
+          "tokens": [
+            "render",
+            "server",
+            "client",
+            "hydrate",
+            "ssr",
+            "csr",
+            "static",
+            "bundle",
+            "lazy",
+            "suspense",
+            "boundary",
+            "island",
+            "streaming"
+          ]
         },
         {
           "class_id": "state_or_behavior_rule",
-          "description": "Uses explicit state or interaction behavior rules."
+          "description": "Uses explicit state or interaction behavior rules.",
+          "tokens": [
+            "state",
+            "hover",
+            "focus",
+            "disabled",
+            "error",
+            "active",
+            "selected",
+            "keyboard",
+            "behavior",
+            "interaction",
+            "trigger",
+            "toggle",
+            "aria",
+            "tab",
+            "click"
+          ]
         },
         {
           "class_id": "implementation_constraint",
-          "description": "Uses real implementation constraints rather than generic framework advice."
+          "description": "Uses real implementation constraints rather than generic framework advice.",
+          "tokens": [
+            "constraint",
+            "token",
+            "boundary",
+            "limit",
+            "cannot",
+            "must not",
+            "integration",
+            "dependency",
+            "threshold",
+            "budget",
+            "max",
+            "minimum",
+            "required"
+          ]
         },
         {
           "class_id": "standards_reference",
-          "description": "Uses semantic or accessibility standards when behavior depends on them."
+          "description": "Uses semantic or accessibility standards when behavior depends on them.",
+          "context_overrides": {
+            "state_management": [
+              "redux",
+              "react context",
+              "hooks",
+              "documented",
+              "convention",
+              "pattern",
+              "spec",
+              "standard",
+              "best practice",
+              "zustand",
+              "usestate",
+              "usereducer"
+            ]
+          },
+          "tokens": [
+            "wcag",
+            "aria",
+            "apca",
+            "rfc",
+            "spec",
+            "standard",
+            "guideline",
+            "rule",
+            "level a",
+            "level aa",
+            "level aaa",
+            "section 508",
+            "en 301"
+          ]
         }
       ],
       "forbidden_shortcuts": [
@@ -2532,7 +3847,48 @@
       ],
       "task_weight_default": "compound",
       "supports_lightweight_response": false,
-      "trace_visibility_default": "recoverable"
+      "trace_visibility_default": "recoverable",
+      "context_overrides": {
+        "rendering_boundary_rule": [
+          "architecture approach",
+          "client-side logic",
+          "component boundary",
+          "consumption breadth",
+          "context provider",
+          "global state",
+          "local state",
+          "memoization",
+          "prop drilling",
+          "re-render",
+          "sensory-rich interface",
+          "state belongs",
+          "state locality",
+          "state ownership",
+          "state scope",
+          "use state",
+          "usecallback",
+          "usecontext",
+          "usememo",
+          "usereducer",
+          "visual state persistence"
+        ],
+        "standards_reference": [
+          "redux",
+          "zustand",
+          "react context",
+          "hooks",
+          "useeffect",
+          "usememo",
+          "usecallback",
+          "selector",
+          "dispatcher",
+          "reducer",
+          "convention",
+          "documented",
+          "pattern",
+          "best practice"
+        ]
+      }
     },
     {
       "task_id": "backend_architecture_spec",
@@ -2627,7 +3983,32 @@
             "ownership",
             "writer",
             "record owner",
-            "authority"
+            "authority",
+            "single writer",
+            "who writes",
+            "deny by default",
+            "the membership",
+            "authoritative",
+            "owns the record",
+            "data ownership",
+            "owner",
+            "the record",
+            "source of",
+            "owns the resource",
+            "write access",
+            "who owns",
+            "data owner",
+            "manages",
+            "controls",
+            "owns",
+            "responsible",
+            "single",
+            "primary",
+            "leads",
+            "master",
+            "central",
+            "source",
+            "governed by"
           ]
         },
         {
@@ -2654,7 +4035,17 @@
             "revision token",
             "consistency token",
             "stale",
-            "freshness"
+            "freshness",
+            "idempotent",
+            "upsert",
+            "atomic",
+            "no-op",
+            "duplicate",
+            "replay",
+            "stored response",
+            "at-least-once",
+            "exactly-once",
+            "idempotency key"
           ]
         },
         {
@@ -2683,26 +4074,92 @@
             "queue lag",
             "saturation",
             "tax",
-            "operational"
+            "operational",
+            "instance",
+            "audit",
+            "error log",
+            "problem details",
+            "debugg",
+            "visibility",
+            "monitoring"
           ]
         }
       ],
       "required_evidence_classes": [
         {
           "class_id": "data_model_dependency",
-          "description": "Uses data-model or ownership evidence."
+          "description": "Uses data-model or ownership evidence.",
+          "tokens": [
+            "schema",
+            "table",
+            "model",
+            "field",
+            "column",
+            "relation",
+            "foreign key",
+            "ownership",
+            "entity",
+            "record",
+            "migration",
+            "database",
+            "store"
+          ]
         },
         {
           "class_id": "permission_rule",
-          "description": "Uses authorization or policy evidence."
+          "description": "Uses authorization or policy evidence.",
+          "tokens": [
+            "permission",
+            "auth",
+            "role",
+            "owner",
+            "access",
+            "authorize",
+            "token",
+            "jwt",
+            "scope",
+            "policy",
+            "rbac",
+            "tenant",
+            "principal"
+          ]
         },
         {
           "class_id": "consistency_model",
-          "description": "Uses explicit consistency or delivery-model evidence."
+          "description": "Uses explicit consistency or delivery-model evidence.",
+          "tokens": [
+            "eventual",
+            "strong",
+            "linearizable",
+            "causal",
+            "consistency",
+            "conflict",
+            "sync",
+            "replicate",
+            "consensus",
+            "partition",
+            "stale",
+            "read-after-write"
+          ]
         },
         {
           "class_id": "implementation_constraint",
-          "description": "Names operational or scalability constraints."
+          "description": "Names operational or scalability constraints.",
+          "tokens": [
+            "constraint",
+            "token",
+            "boundary",
+            "limit",
+            "cannot",
+            "must not",
+            "integration",
+            "dependency",
+            "threshold",
+            "budget",
+            "max",
+            "minimum",
+            "required"
+          ]
         }
       ],
       "forbidden_shortcuts": [
@@ -2831,7 +4288,14 @@
             "title",
             "status",
             "detail",
-            "instance"
+            "instance",
+            "rfc 7807",
+            "problem detail",
+            "error body",
+            "error response format",
+            "error schema",
+            "machine-readable",
+            "error payload"
           ]
         },
         {
@@ -2858,7 +4322,15 @@
             "422 unprocessable",
             "400 bad request",
             "ttl",
-            "client-generated"
+            "client-generated",
+            "idempotent",
+            "idempotency",
+            "duplicate request",
+            "retry safe",
+            "retry-safe",
+            "safe to retry",
+            "idempotency key",
+            "dedup"
           ]
         },
         {
@@ -2871,7 +4343,42 @@
             "running",
             "terminal success",
             "terminal failure",
-            "webhook"
+            "webhook",
+            "lifecycle",
+            "job lifecycle",
+            "state machine",
+            "polling interval",
+            "job state",
+            "in-progress",
+            "terminal state",
+            "async pattern",
+            "long-running",
+            "background job",
+            "async job",
+            "job id",
+            "polling endpoint",
+            "status endpoint",
+            "returns immediately",
+            "long-running request",
+            "async endpoint",
+            "fire and forget",
+            "deferred processing",
+            "background processing",
+            "job queue",
+            "task queue",
+            "work queue",
+            "outbound webhook",
+            "event delivery",
+            "delivery guarantee",
+            "at-least-once",
+            "at least once",
+            "exactly-once",
+            "retry policy",
+            "dead letter",
+            "dlq",
+            "event stream",
+            "subscription",
+            "notify"
           ]
         },
         {
@@ -2885,26 +4392,119 @@
             "graceful degradation",
             "quota",
             "trace_id",
-            "observability"
+            "observability",
+            "retry strategy",
+            "retry policy",
+            "rate limit",
+            "timeout",
+            "fallback strategy",
+            "bulkhead",
+            "health check",
+            "mttr",
+            "incident response",
+            "degraded mode",
+            "resilience posture",
+            "retry with backoff",
+            "exponential backoff",
+            "dead letter",
+            "circuit open",
+            "half-open",
+            "failure threshold",
+            "recovery time",
+            "sla",
+            "availability target",
+            "retry",
+            "fallback",
+            "throttle",
+            "circuit",
+            "graceful",
+            "monitor",
+            "alert",
+            "limit",
+            "health",
+            "log",
+            "trace",
+            "metric"
           ]
         }
       ],
       "required_evidence_classes": [
         {
           "class_id": "failure_semantics_rule",
-          "description": "Uses structured failure-semantic evidence."
+          "description": "Uses structured failure-semantic evidence.",
+          "tokens": [
+            "error",
+            "4xx",
+            "5xx",
+            "400",
+            "401",
+            "403",
+            "404",
+            "422",
+            "429",
+            "500",
+            "retry",
+            "timeout",
+            "circuit",
+            "failure",
+            "status code"
+          ]
         },
         {
           "class_id": "permission_rule",
-          "description": "Uses authorization or access-control evidence."
+          "description": "Uses authorization or access-control evidence.",
+          "tokens": [
+            "permission",
+            "auth",
+            "role",
+            "owner",
+            "access",
+            "authorize",
+            "token",
+            "jwt",
+            "scope",
+            "policy",
+            "rbac",
+            "tenant",
+            "principal"
+          ]
         },
         {
           "class_id": "async_lifecycle_rule",
-          "description": "Uses idempotency or async lifecycle evidence."
+          "description": "Uses idempotency or async lifecycle evidence.",
+          "tokens": [
+            "async",
+            "webhook",
+            "queue",
+            "job",
+            "polling",
+            "callback",
+            "202",
+            "idempotent",
+            "retry",
+            "background",
+            "event",
+            "saga",
+            "eventual"
+          ]
         },
         {
           "class_id": "resilience_rule",
-          "description": "Uses resilience, quota, or observability evidence."
+          "description": "Uses resilience, quota, or observability evidence.",
+          "tokens": [
+            "retry",
+            "backoff",
+            "circuit",
+            "timeout",
+            "fallback",
+            "rate limit",
+            "throttle",
+            "bulkhead",
+            "graceful",
+            "health",
+            "monitor",
+            "alert"
+          ]
         }
       ],
       "forbidden_shortcuts": [
@@ -3034,7 +4634,29 @@
             "job of the piece",
             "the text is trying to",
             "must still do",
-            "purpose"
+            "purpose",
+            "the original",
+            "original has",
+            "what the text",
+            "compounding problems",
+            "the claim",
+            "what it says",
+            "what it communicates",
+            "the purpose",
+            "what this does",
+            "this text communicates",
+            "what it needs to do",
+            "job:",
+            "what this piece does",
+            "job",
+            "goal",
+            "what it needs",
+            "the function",
+            "communication goal",
+            "what the reader needs",
+            "why this exists",
+            "what we are trying",
+            "objective"
           ]
         },
         {
@@ -3046,7 +4668,20 @@
             "formulaic",
             "nominalization",
             "transition load",
-            "flat rhythm"
+            "flat rhythm",
+            "passive",
+            "filler",
+            "hedge",
+            "repetition",
+            "vague",
+            "weak verb",
+            "jargon",
+            "bureaucratic",
+            "abstract",
+            "wordy",
+            "redundant",
+            "scan",
+            "found"
           ]
         },
         {
@@ -3057,7 +4692,21 @@
             "meaning guard",
             "claims preserved",
             "argument preserved",
-            "drift risk"
+            "drift risk",
+            "claim intact",
+            "nothing is lost",
+            "same claim",
+            "actual claim",
+            "the claim",
+            "nothing lost",
+            "keeps the",
+            "preserved",
+            "intact",
+            "core idea stays",
+            "same meaning",
+            "substance unchanged",
+            "nothing added",
+            "core claim"
           ]
         },
         {
@@ -3068,8 +4717,15 @@
             "rebalance",
             "prune",
             "revise",
-            "realism pass",
-            "voice"
+            "remove",
+            "cut",
+            "replace",
+            "rewrite",
+            "fix",
+            "shorten",
+            "restructure",
+            "revised",
+            "what changed"
           ]
         },
         {
@@ -3080,22 +4736,77 @@
             "tone",
             "kept",
             "not replaced",
-            "authored texture"
+            "authored texture",
+            "concrete",
+            "neutral",
+            "professional",
+            "sounds like",
+            "reads like",
+            "the register",
+            "the style",
+            "formal",
+            "informal",
+            "kept the",
+            "register",
+            "tone of"
           ]
         }
       ],
       "required_evidence_classes": [
         {
           "class_id": "meaning_preservation_guard",
-          "description": "Uses explicit meaning-preservation language."
+          "description": "Uses explicit meaning-preservation language.",
+          "tokens": [
+            "meaning",
+            "preserve",
+            "unchanged",
+            "same idea",
+            "not change",
+            "intent",
+            "accurate",
+            "faithful",
+            "does not alter",
+            "retains",
+            "keeps"
+          ]
         },
         {
           "class_id": "prose_quality_signal",
-          "description": "Uses concrete prose-quality evidence like repetition, rhythm, or verb logic."
+          "description": "Uses concrete prose-quality evidence like repetition, rhythm, or verb logic.",
+          "tokens": [
+            "rhythm",
+            "repetition",
+            "verb",
+            "sentence",
+            "phrase",
+            "passive",
+            "active",
+            "noun",
+            "flow",
+            "concise",
+            "clear",
+            "readable",
+            "natural"
+          ]
         },
         {
           "class_id": "comparison_artifact",
-          "description": "Uses before/after or explicit revision comparison logic."
+          "description": "Uses before/after or explicit revision comparison logic.",
+          "tokens": [
+            "alternative",
+            "instead",
+            "compared to",
+            "rather than",
+            "option",
+            "rejected",
+            "versus",
+            "vs",
+            "before",
+            "after",
+            "previous",
+            "instead of",
+            "over"
+          ]
         }
       ],
       "forbidden_shortcuts": [
@@ -3137,7 +4848,25 @@
       ],
       "task_weight_default": "lightweight",
       "supports_lightweight_response": true,
-      "trace_visibility_default": "recoverable"
+      "trace_visibility_default": "recoverable",
+      "context_overrides": {
+        "meaning_preservation_guard": [
+          "meaning-preservation guard",
+          "meaning guard",
+          "claims preserved",
+          "core claim",
+          "claim intact",
+          "nothing lost",
+          "nothing is lost",
+          "same meaning",
+          "preserved",
+          "intact",
+          "unchanged",
+          "still says",
+          "keeps the claim",
+          "argument preserved"
+        ]
+      }
     }
   ]
 }

@@ -1,0 +1,476 @@
+{
+  "version": "1.0",
+  "generated_from": [
+    "src/schemas/task_contracts.json",
+    "src/schemas/routing_registry.json"
+  ],
+  "tasks": {
+    "ui_structure_critique": {
+      "title": "UI Structure Critique",
+      "task_group": "audit",
+      "lightweight_eligible": true,
+      "governing_skills": [],
+      "supporting_skills": [
+        "type-system-expert.md when hierarchy or readability is the structural bottleneck",
+        "accessibility-feedback-expert.md when state visibility or focus behavior contributes to the failure"
+      ],
+      "runtime_summaries": [],
+      "required_sections": [
+        "Problem framing",
+        "Findings",
+        "Recommendations",
+        "Tradeoffs"
+      ],
+      "required_decisions": [
+        "structural_failure",
+        "hierarchy_winner",
+        "intervention_order",
+        "tradeoff_resolution",
+        "visual_confidence_boundary"
+      ],
+      "require_tradeoff": true,
+      "require_rationale": true,
+      "launcher": "dist/runtime/task_launchers/ui_structure_critique.md",
+      "route_id": "rt_ui_structure_critique"
+    },
+    "component_spec": {
+      "title": "Component Specification",
+      "task_group": "spec",
+      "lightweight_eligible": true,
+      "governing_skills": [],
+      "supporting_skills": [
+        "accessibility-feedback-expert.md when keyboard, focus, or motion states need explicit rules",
+        "color-system-expert.md when semantic color roles are intrinsic to state behavior"
+      ],
+      "runtime_summaries": [],
+      "required_sections": [
+        "Purpose and scope",
+        "Anatomy",
+        "State matrix",
+        "Accessibility and implementation notes"
+      ],
+      "required_decisions": [
+        "component_boundary",
+        "state_coverage",
+        "accessibility_behavior",
+        "implementation_boundary"
+      ],
+      "require_tradeoff": false,
+      "require_rationale": true,
+      "launcher": "dist/runtime/task_launchers/component_spec.md",
+      "route_id": "rt_component_spec"
+    },
+    "dashboard_audit": {
+      "title": "Dashboard Audit",
+      "task_group": "audit",
+      "lightweight_eligible": true,
+      "governing_skills": [],
+      "supporting_skills": [
+        "accessibility-feedback-expert.md when chart readability or focus interaction matters",
+        "color-system-expert.md when status or series colors affect comprehension"
+      ],
+      "runtime_summaries": [],
+      "required_sections": [
+        "Dashboard role",
+        "Key failures",
+        "Evidence and rationale",
+        "Recommended rebuild path"
+      ],
+      "required_decisions": [
+        "dashboard_type",
+        "kpi_priority",
+        "density_strategy",
+        "drilldown_or_filter_logic",
+        "visual_confidence_boundary"
+      ],
+      "require_tradeoff": true,
+      "require_rationale": true,
+      "launcher": "dist/runtime/task_launchers/dashboard_audit.md",
+      "route_id": "rt_dashboard_audit"
+    },
+    "backend_feasibility_review": {
+      "title": "Back-End Feasibility Review",
+      "task_group": "strategy",
+      "lightweight_eligible": false,
+      "governing_skills": [],
+      "supporting_skills": [
+        "front-end-handoff-expert.md when a release-safe UI boundary must be defined",
+        "component-systems-expert.md when the technical constraint changes reusable state coverage"
+      ],
+      "runtime_summaries": [],
+      "required_sections": [
+        "Requested capability",
+        "Hidden system requirements",
+        "Feasibility assessment",
+        "Safer implementation path"
+      ],
+      "required_decisions": [
+        "data_dependency",
+        "permissions_dependency",
+        "system_surface_dependency",
+        "blocking_constraint"
+      ],
+      "require_tradeoff": true,
+      "require_rationale": true,
+      "launcher": "dist/runtime/task_launchers/backend_feasibility_review.md",
+      "route_id": "rt_backend_feasibility"
+    },
+    "pdf_remediation_plan": {
+      "title": "PDF Remediation Plan",
+      "task_group": "rebuild",
+      "lightweight_eligible": false,
+      "governing_skills": [],
+      "supporting_skills": [
+        "layout-reconstruction-expert.md when legacy structure must be inferred safely",
+        "color-system-expert.md when contrast or print behavior affects remediation decisions"
+      ],
+      "runtime_summaries": [],
+      "required_sections": [
+        "Current failure state",
+        "Remediation sequence",
+        "Verification checks",
+        "Risk controls"
+      ],
+      "required_decisions": [
+        "semantic_failure",
+        "reading_order_or_extraction",
+        "verification_method",
+        "destructive_shortcut_rejected"
+      ],
+      "require_tradeoff": true,
+      "require_rationale": true,
+      "launcher": "dist/runtime/task_launchers/pdf_remediation_plan.md",
+      "route_id": "rt_pdf_remediation"
+    },
+    "brand_positioning_pass": {
+      "title": "Brand Positioning Pass",
+      "task_group": "strategy",
+      "lightweight_eligible": true,
+      "governing_skills": [],
+      "supporting_skills": [
+        "ux-research-expert.md when audience or market evidence is thin",
+        "content-and-case-study-expert.md when the positioning must translate into message behavior"
+      ],
+      "runtime_summaries": [],
+      "required_sections": [
+        "Audience and problem",
+        "Positioning frame",
+        "Trust and proof burden",
+        "Messaging consequences"
+      ],
+      "required_decisions": [
+        "audience_frame",
+        "differentiation_frame",
+        "trust_logic",
+        "messaging_consequence"
+      ],
+      "require_tradeoff": true,
+      "require_rationale": true,
+      "launcher": "dist/runtime/task_launchers/brand_positioning_pass.md",
+      "route_id": "rt_brand_positioning"
+    },
+    "case_study_rewrite": {
+      "title": "Case Study Rewrite",
+      "task_group": "rebuild",
+      "lightweight_eligible": true,
+      "governing_skills": [],
+      "supporting_skills": [
+        "brand-strategy-expert.md when audience framing changes the case-study emphasis",
+        "ux-research-expert.md when the proof story depends on research framing"
+      ],
+      "runtime_summaries": [],
+      "required_sections": [
+        "Problem",
+        "Process",
+        "Solution",
+        "Outcome and proof"
+      ],
+      "required_decisions": [
+        "claim_vs_proof_boundary",
+        "proxy_vs_measured",
+        "narrative_order",
+        "honesty_tradeoff"
+      ],
+      "require_tradeoff": true,
+      "require_rationale": true,
+      "launcher": "dist/runtime/task_launchers/case_study_rewrite.md",
+      "route_id": "rt_case_study_rewrite"
+    },
+    "accessibility_feedback_audit": {
+      "title": "Accessibility Feedback Audit",
+      "task_group": "audit",
+      "lightweight_eligible": true,
+      "governing_skills": [],
+      "supporting_skills": [
+        "color-system-expert.md when contrast or status color rules are part of the failure",
+        "component-systems-expert.md when the issue belongs to a reusable state pattern"
+      ],
+      "runtime_summaries": [],
+      "required_sections": [
+        "Access failure framing",
+        "Barrier inventory",
+        "Repair priorities",
+        "Verification method"
+      ],
+      "required_decisions": [
+        "blocked_user_action",
+        "priority_order",
+        "behavior_rule",
+        "verification_step"
+      ],
+      "require_tradeoff": true,
+      "require_rationale": true,
+      "launcher": "dist/runtime/task_launchers/accessibility_feedback_audit.md",
+      "route_id": "rt_accessibility_feedback_audit"
+    },
+    "color_system_spec": {
+      "title": "Color System Specification",
+      "task_group": "spec",
+      "lightweight_eligible": true,
+      "governing_skills": [],
+      "supporting_skills": [
+        "component-systems-expert.md when state tokens are component-owned",
+        "brand-strategy-expert.md when brand constraints drive token tradeoffs"
+      ],
+      "runtime_summaries": [],
+      "required_sections": [
+        "Role model",
+        "Token map",
+        "Contrast and state rules",
+        "Migration notes"
+      ],
+      "required_decisions": [
+        "semantic_roles",
+        "state_mapping",
+        "contrast_boundary",
+        "migration_strategy"
+      ],
+      "require_tradeoff": true,
+      "require_rationale": true,
+      "launcher": "dist/runtime/task_launchers/color_system_spec.md",
+      "route_id": "rt_color_system_spec"
+    },
+    "graphic_critique": {
+      "title": "Graphic Critique",
+      "task_group": "audit",
+      "lightweight_eligible": true,
+      "governing_skills": [],
+      "supporting_skills": [
+        "brand-strategy-expert.md when audience trust signals drive the composition",
+        "color-system-expert.md when color hierarchy is the real structural lever"
+      ],
+      "runtime_summaries": [],
+      "required_sections": [
+        "Communication goal",
+        "Composition failures",
+        "Rebuild moves",
+        "Distance and emphasis tradeoff"
+      ],
+      "required_decisions": [
+        "focal_winner",
+        "distance_legibility",
+        "composition_rule",
+        "emphasis_tradeoff"
+      ],
+      "require_tradeoff": true,
+      "require_rationale": true,
+      "launcher": "dist/runtime/task_launchers/graphic_critique.md",
+      "route_id": "rt_graphic_critique"
+    },
+    "layout_reconstruction_plan": {
+      "title": "Layout Reconstruction Plan",
+      "task_group": "rebuild",
+      "lightweight_eligible": false,
+      "governing_skills": [],
+      "supporting_skills": [
+        "pdf-layout-expert.md when the source is PDF-bound",
+        "document-accessibility-expert.md when reconstruction must preserve semantics"
+      ],
+      "runtime_summaries": [],
+      "required_sections": [
+        "Source constraints",
+        "Reconstruction assumptions",
+        "Rebuild sequence",
+        "Verification checkpoints"
+      ],
+      "required_decisions": [
+        "preserved_elements",
+        "inference_boundary",
+        "reconstruction_order",
+        "verification_method",
+        "visual_confidence_boundary"
+      ],
+      "require_tradeoff": true,
+      "require_rationale": true,
+      "launcher": "dist/runtime/task_launchers/layout_reconstruction_plan.md",
+      "route_id": "rt_layout_reconstruction_plan"
+    },
+    "type_system_recommendation": {
+      "title": "Type System Recommendation",
+      "task_group": "spec",
+      "lightweight_eligible": true,
+      "governing_skills": [],
+      "supporting_skills": [
+        "graphic-design-expert.md when expressive editorial hierarchy is the main concern",
+        "ui-system-expert.md when the type system must support dense interface flows"
+      ],
+      "runtime_summaries": [],
+      "required_sections": [
+        "Reading context",
+        "Scale and role map",
+        "Readability rules",
+        "Adoption guidance"
+      ],
+      "required_decisions": [
+        "reading_context",
+        "role_hierarchy",
+        "readability_boundary",
+        "adoption_sequence"
+      ],
+      "require_tradeoff": true,
+      "require_rationale": true,
+      "launcher": "dist/runtime/task_launchers/type_system_recommendation.md",
+      "route_id": "rt_type_system_recommendation"
+    },
+    "ux_research_gap_map": {
+      "title": "UX Research Gap Map",
+      "task_group": "strategy",
+      "lightweight_eligible": true,
+      "governing_skills": [],
+      "supporting_skills": [
+        "brand-strategy-expert.md when audience fit is the core unknown",
+        "content-and-case-study-expert.md when narrative proof limits must be explained"
+      ],
+      "runtime_summaries": [],
+      "required_sections": [
+        "Known evidence",
+        "Critical gaps",
+        "Research plan",
+        "Decision impact"
+      ],
+      "required_decisions": [
+        "known_vs_unknown",
+        "gap_priority",
+        "method_mapping",
+        "decision_linkage"
+      ],
+      "require_tradeoff": true,
+      "require_rationale": true,
+      "launcher": "dist/runtime/task_launchers/ux_research_gap_map.md",
+      "route_id": "rt_ux_research_gap_map"
+    },
+    "frontend_implementation_review": {
+      "title": "Front-End Implementation Review",
+      "task_group": "implementation",
+      "lightweight_eligible": false,
+      "governing_skills": [],
+      "supporting_skills": [
+        "component-systems-expert.md when the answer must become a reusable component contract",
+        "back-end-aware-planner.md when data, auth, or async system constraints drive the implementation"
+      ],
+      "runtime_summaries": [],
+      "required_sections": [
+        "Architectural framing",
+        "Boundary and state model",
+        "Rendering and mutation strategy",
+        "Risks and safer path"
+      ],
+      "required_decisions": [
+        "rendering_model",
+        "state_ownership",
+        "boundary_placement",
+        "semantic_contract",
+        "cost_or_degraded_path"
+      ],
+      "require_tradeoff": true,
+      "require_rationale": true,
+      "launcher": "dist/runtime/task_launchers/frontend_implementation_review.md",
+      "route_id": "rt_frontend_architecture"
+    },
+    "backend_architecture_spec": {
+      "title": "Back-End Architecture Spec",
+      "task_group": "spec",
+      "lightweight_eligible": false,
+      "governing_skills": [],
+      "supporting_skills": [
+        "dashboard-data-expert.md when analytics freshness or real-time reporting is central",
+        "front-end-handoff-expert.md when the UI must expose freshness, progress, or degraded-state rules"
+      ],
+      "runtime_summaries": [],
+      "required_sections": [
+        "System framing",
+        "Core model and authority boundaries",
+        "Data, consistency, and delivery design",
+        "Observability and failure posture"
+      ],
+      "required_decisions": [
+        "actor_resource_action",
+        "source_of_truth",
+        "authorization_model",
+        "consistency_stance",
+        "delivery_pattern",
+        "observability_tax"
+      ],
+      "require_tradeoff": true,
+      "require_rationale": true,
+      "launcher": "dist/runtime/task_launchers/backend_architecture_spec.md",
+      "route_id": "rt_backend_systems_architecture"
+    },
+    "api_reliability_security_review": {
+      "title": "API Reliability and Security Review",
+      "task_group": "audit",
+      "lightweight_eligible": false,
+      "governing_skills": [],
+      "supporting_skills": [
+        "front-end-handoff-expert.md when the client must express problem details, progress, or degraded states safely",
+        "document-accessibility-expert.md when document-export jobs create additional accessibility or extraction constraints"
+      ],
+      "runtime_summaries": [],
+      "required_sections": [
+        "Failure semantics",
+        "Authorization and resource protection",
+        "Idempotency and async lifecycle",
+        "Resilience and observability"
+      ],
+      "required_decisions": [
+        "problem_details_contract",
+        "authorization_perimeter",
+        "idempotency_contract",
+        "async_job_model",
+        "resilience_strategy"
+      ],
+      "require_tradeoff": true,
+      "require_rationale": true,
+      "launcher": "dist/runtime/task_launchers/api_reliability_security_review.md",
+      "route_id": "rt_api_reliability_security"
+    },
+    "text_humanization_revision": {
+      "title": "Text Humanization Revision",
+      "task_group": "writing-quality",
+      "lightweight_eligible": true,
+      "governing_skills": [],
+      "supporting_skills": [
+        "brand-strategy-expert.md when tone must align to a named brand voice"
+      ],
+      "runtime_summaries": [],
+      "required_sections": [
+        "Job of the piece",
+        "Pattern scan",
+        "Meaning-preservation guard",
+        "Revised passage",
+        "Why this reads more human"
+      ],
+      "required_decisions": [
+        "job_of_piece",
+        "pattern_scan",
+        "meaning_guard",
+        "revision_sequence",
+        "voice_guard"
+      ],
+      "require_tradeoff": false,
+      "require_rationale": true,
+      "launcher": "dist/runtime/task_launchers/text_humanization_revision.md",
+      "route_id": "rt_text_humanization"
+    }
+  }
+}

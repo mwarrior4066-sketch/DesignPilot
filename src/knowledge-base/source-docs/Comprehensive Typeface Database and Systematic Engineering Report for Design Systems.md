@@ -68,7 +68,7 @@ Represents the rationalist tradition focusing on objectivity and structural unif
 
 ### Group 4: Geometric Sans Serifs
 
-Constructed from basic shapes—the circle, square, and triangle—conveying modernity.<sup>16</sup>
+Constructed from basic shapes-the circle, square, and triangle-conveying modernity.<sup>16</sup>
 
 | **id:identity**               | **id:tech_system**                      | **id:readability**                      | **id:implementation**                   | **id:licensing**               | **id:decision**                            |
 |-------------------------------|-----------------------------------------|-----------------------------------------|-----------------------------------------|--------------------------------|--------------------------------------------|

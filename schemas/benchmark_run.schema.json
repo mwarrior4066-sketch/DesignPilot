@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DesignPilot Benchmark Run",
+  "type": "object",
+  "required": [
+    "run_id",
+    "prompt_id",
+    "task_type",
+    "baseline_system",
+    "pack_system",
+    "baseline_score",
+    "pack_score",
+    "score_delta",
+    "reviewer_note",
+    "win_type",
+    "bias_controls",
+    "summary"
+  ],
+  "properties": {
+    "run_id": {"type": "string"},
+    "prompt_id": {"type": "string"},
+    "task_type": {"type": "string"},
+    "baseline_system": {"type": "string"},
+    "pack_system": {"type": "string"},
+    "baseline_score": {"type": "number"},
+    "pack_score": {"type": "number"},
+    "score_delta": {"type": "number"},
+    "time_delta_seconds": {"type": "number"},
+    "timing_seconds": {
+      "type": "object",
+      "properties": {
+        "baseline": {"type": "number"},
+        "pack": {"type": "number"}
+      },
+      "additionalProperties": false
+    },
+    "reviewer_note": {"type": "string"},
+    "unresolved_weakness": {"type": "string"},
+    "win_type": {"type": "string"},
+    "bias_controls": {
+      "type": "array",
+      "items": {"type": "string"},
+      "minItems": 1
+    },
+    "evidence_gap": {"type": "string"},
+    "next_move": {"type": "string"},
+    "summary": {"type": "string"}
+  },
+  "additionalProperties": true
+}

@@ -1,0 +1,1 @@
+The pack is loaded. The most likely governing route is ui_structure_critique. This appears to be a lightweight startup. The active profile should likely be ui. Please provide the minimum missing context before I proceed.

@@ -35,13 +35,13 @@ Important failure classes for design operator packs include:
 ## Stress-test architecture
 A formal suite should test the pack at multiple levels.
 
-### Tier 1 — smoke tests
+### Tier 1 - smoke tests
 Fast checks for mode, phase, routing, and obvious safety failures.
 
-### Tier 2 — pathway tests
+### Tier 2 - pathway tests
 Verify that requests activate the correct specialist pathway and evidence artifact.
 
-### Tier 3 — domain tests
+### Tier 3 - domain tests
 Check that specialist rules catch domain-specific violations, such as:
 - hidden focus
 - inaccessible color
@@ -51,10 +51,10 @@ Check that specialist rules catch domain-specific violations, such as:
 - backend-heavy request treated as only visual
 - broken PDF reading order or tagging
 
-### Tier 4 — contradiction tests
+### Tier 4 - contradiction tests
 Feed the system mutually tense or impossible asks and verify that it constrains, redirects, or refuses instead of smoothing them together.
 
-### Tier 5 — regression tests
+### Tier 5 - regression tests
 Maintain a golden set of stable prompts with known expected behavior. Compare score and failure safety over time.
 
 ## Runtime validation layer

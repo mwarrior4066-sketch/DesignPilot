@@ -56,7 +56,7 @@ The AI should generate states using CSS pseudo-classes (:hover, :focus-visible, 
 
 ### Definition
 
-Focus visibility is the requirement that the interactive element currently receiving keyboard input is visually identifiable.<sup>12</sup> Keyboard behavior refers to the ability to operate all interface functionality—including navigation, selection, and activation—using only a keyboard interface.<sup>5</sup>
+Focus visibility is the requirement that the interactive element currently receiving keyboard input is visually identifiable.<sup>12</sup> Keyboard behavior refers to the ability to operate all interface functionality-including navigation, selection, and activation-using only a keyboard interface.<sup>5</sup>
 
 ### Why it Matters for an Accessibility and Feedback Expert
 
@@ -76,7 +76,7 @@ When an element that previously held focus is removed from the DOM (e.g., a dele
 
 ### Failure Conditions
 
-A keyboard trap—where a user can enter a component (like a calendar picker) but cannot exit using only the keyboard—is a catastrophic failure (SC 2.1.2).<sup>3</sup> Removing focus indicators entirely is also a failure (SC 2.4.7).<sup>12</sup>
+A keyboard trap-where a user can enter a component (like a calendar picker) but cannot exit using only the keyboard-is a catastrophic failure (SC 2.1.2).<sup>3</sup> Removing focus indicators entirely is also a failure (SC 2.4.7).<sup>12</sup>
 
 ### Measurable Thresholds
 
@@ -96,7 +96,7 @@ The AI operator should utilize scroll-padding-top and scroll-padding-bottom in C
 
 ### Definition
 
-Hover and focus content behavior refers to additional information—such as tooltips, popovers, or submenus—revealed when a user hovers a pointer or moves keyboard focus onto an element.<sup>25</sup>
+Hover and focus content behavior refers to additional information-such as tooltips, popovers, or submenus-revealed when a user hovers a pointer or moves keyboard focus onto an element.<sup>25</sup>
 
 ### Why it Matters for an Accessibility and Feedback Expert
 
@@ -207,7 +207,7 @@ For users with vestibular disorders, certain types of motion (like parallax scro
 
 ### Default Rules
 
-If a user has enabled reduced motion, all non-essential animations (e.g., decorative parallax, scaling effects, background videos) must be disabled or replaced with static alternatives.<sup>34</sup> Essential animations—those that convey state or status—should be slowed down or replaced with non-moving indicators (e.g., a pulsing dot replaced by a static "Recording" label).<sup>37</sup>
+If a user has enabled reduced motion, all non-essential animations (e.g., decorative parallax, scaling effects, background videos) must be disabled or replaced with static alternatives.<sup>34</sup> Essential animations-those that convey state or status-should be slowed down or replaced with non-moving indicators (e.g., a pulsing dot replaced by a static "Recording" label).<sup>37</sup>
 
 ### Exception Rules
 
@@ -307,7 +307,7 @@ If a browser does not support certain live region roles, the AI should use a gen
 
 ### Failure Conditions
 
-A form that displays a list of errors at the top but does not move focus to them—or does not announce them—is a failure (SC 3.3.1).<sup>22</sup> A "Saved" message that appears and disappears without a screen reader announcement is a failure.<sup>16</sup>
+A form that displays a list of errors at the top but does not move focus to them-or does not announce them-is a failure (SC 3.3.1).<sup>22</sup> A "Saved" message that appears and disappears without a screen reader announcement is a failure.<sup>16</sup>
 
 ### Measurable Thresholds
 

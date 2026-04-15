@@ -1,0 +1,15 @@
+{
+  "purpose": "DeepSeek billing fix verification; 5-test suite",
+  "pack_version": "2.8",
+  "is_diagnostic": true,
+  "is_valid_quality_signal": false,
+  "known_issues": [
+    "Mistral SDK still broken \u2014 same import error (0/0 tests run)",
+    "Gemini max_tokens=2000 bug still present \u2014 outputs still truncated",
+    "Only 5 tests run \u2014 not representative of full task coverage"
+  ],
+  "fixed_from": "DeepSeek billing error resolved by adding credits at platform.deepseek.com",
+  "note": "Partial fix verification. DeepSeek now runs; Mistral and Gemini still broken.",
+  "run_id": "batch-20260414-0203",
+  "written_at": "2026-04-14"
+}

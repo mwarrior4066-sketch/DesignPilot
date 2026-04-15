@@ -1,14 +1,16 @@
 {
   "pack_name": "DesignPilot",
-  "version": "2.6.1",
-  "release_date": "2026-04-11",
+  "version": "3.0",
+  "release_date": "2026-04-13",
   "canonical_entrypoint": "dist/DESIGNPILOT_DEPLOY.md",
   "canonical_release_source": "PACK_MANIFEST.json",
   "core_control_files": [
     "dist/DESIGNPILOT_DEPLOY.md",
     "dist/DEPLOY_CORE.md",
     "dist/DEPLOY_LITE.md",
-    "dist/SESSION_ZERO.md"
+    "dist/SESSION_ZERO.md",
+    "dist/runtime/START_HERE.md",
+    "dist/runtime/TASK_CHOOSER.md"
   ],
   "active_skills": [
     "accessibility-feedback-expert.md",
@@ -119,11 +121,11 @@
     "v2.4.2 adds a generated runtime overlay layer, indexed source-doc section escalation, and capability-preserving low-token hydration rules without removing any canonical skills, routes, summaries, or source docs.",
     "v2.5.0 unifies startup authority, adds degraded-mode behavior, adds visual-input routing support, and adds lightweight execution rules.",
     "v2.5.0 knowledge refresh adds a dedicated digital color library plus stronger typography, localization, and implementation guidance without changing the routed control surface.",
-    "v2.6.1 introduces a source-to-artifact architecture: `src/` as canonical source, `dist/` as operator deployment surface, `docs/` split by audience, and `evals/` plus `proof/` as explicit evidence layers.",
-    "v2.6.1 lightweight pass productizes the lean startup path with DEPLOY_LITE, route and contract companions, starter packs, and release-gated lightweight validation."
+    "v3.0 preserves and extends the source-to-artifact architecture: `src/` as canonical source, `dist/` as operator deployment surface, `docs/` split by audience, and `evals/` plus `proof/` as explicit evidence layers.",
+    "v3.0 lightweight path preserves the lean startup path with DEPLOY_LITE, route and contract companions, starter packs, and release-gated lightweight validation."
   ],
   "version_policy": "VERSIONING_POLICY.md",
-  "version_scheme": "X.Y.Z semver-style release weights (1.00 / 0.10 / 0.01)",
+  "version_scheme": "X.Y public release line (optional internal patch history may exist, but the public pack version can omit the patch suffix)",
   "legacy_version_normalization": {
     "rule": "legacy v8.2.x release names normalize to v1.2.x for historical reference",
     "examples": {
@@ -134,8 +136,8 @@
   },
   "version_increment_rules": {
     "major_x": "breaking compatibility, canonical control/file-system changes, entrypoint changes, or release-line resets",
-    "minor_y": "backward-compatible capability growth such as new skills, validators, templates, or materially stronger domain logic",
-    "patch_z": "bug fixes, editorial cleanup, metadata corrections, and nonbreaking hardening"
+    "minor_y": "backward-compatible capability growth such as new skills, validators, templates, materially stronger domain logic, or bundled hardening that ships as one public release line",
+    "internal_patch_optional": "narrow bug fixes, editorial cleanup, metadata corrections, and nonbreaking hardening may exist internally without becoming part of the public pack version string"
   },
   "schema_registry": [
     "src/schemas/task_contracts.json",
@@ -144,7 +146,9 @@
     "schemas/module_frontmatter.schema.json",
     "schemas/deploy_artifact.schema.json",
     "schemas/external_review.schema.json",
-    "schemas/release_card.schema.json"
+    "schemas/release_card.schema.json",
+    "schemas/benchmark_run.schema.json",
+    "schemas/proof_status.schema.json"
   ],
   "validation_entrypoints": [
     "generate_runtime_overlay.py",
@@ -156,6 +160,8 @@
     "lint_pack.py",
     "run_regression_suite.py",
     "validate_project_workspace.py",
+    "run_validation_suite.py",
+    "refresh_proof_status.py",
     "package_release.py"
   ],
   "example_registry": [
@@ -176,7 +182,7 @@
     "examples/ui-structure-critique.md",
     "examples/ux-research-pass.md"
   ],
-  "operator_quickstart": "docs/operator/OPERATOR_QUICKSTART.md",
+  "operator_quickstart": "QUICKSTART.md",
   "session_zero": "dist/SESSION_ZERO.md",
   "source_root": "src/",
   "distribution_root": "dist/",
@@ -187,5 +193,12 @@
     "dist/DEPLOY_UI.md",
     "dist/DEPLOY_BRAND.md",
     "dist/DEPLOY_LITE.md"
-  ]
+  ],
+  "authority_registry": "config/authority_manifest.yaml",
+  "proof_status": "proof/PROOF_STATUS.md",
+  "proof_status_json": "proof/status.json",
+  "operator_runtime_entrypoint": "dist/runtime/START_HERE.md",
+  "release_notes": [],
+  "patch_notes": "v3.0: Major release. All v2.9 validator fixes included. positively_present() markdown-aware negation (pass-05 fix). Overclaim rules expanded for directional language (pass-06/07). Test archive reorganised into tests/v2-tests/ with compressed raw outputs. All output paths updated to v2-tests. Version bumped to 3.0 consistently across all pack files. 500+ aliases, 57 evidence token lists, 240+ decision tokens. Kernel heading table. SESSION_ZERO rule 8b. All 6 providers gate-pass (87%) on batch-20260415-0008.",
+  "release_status_source": "RELEASE_STATUS.json"
 }

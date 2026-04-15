@@ -173,7 +173,7 @@ Impact:
 - Average session duration decreased by 20%, indicating faster task flow.  
 - Customer satisfaction (from survey) was 4.5/5 (post-launch), up from 3.8 pre-launch.
 
-If it’s an audit, it should still include “improvement potential” and “estimated ROI”. The agent should prompt for or simulate data if needed (“Assume a 30% increase in X unless real data provided.”). Always label assumptions. In critique mode, say “No outcomes given—please quantify the impact (for instance, user error rate dropped).”
+If it’s an audit, it should still include “improvement potential” and “estimated ROI”. The agent should prompt for or simulate data if needed (“Assume a 30% increase in X unless real data provided.”). Always label assumptions. In critique mode, say “No outcomes given-please quantify the impact (for instance, user error rate dropped).”
 
 Test cases:
 

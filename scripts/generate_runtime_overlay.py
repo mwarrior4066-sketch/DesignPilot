@@ -135,10 +135,10 @@ def main():
         '## Default startup chain',
         '1. `src/runtime/boot/core_bootstrap.md`',
         '2. `src/runtime/boot/runtime_precedence.md`',
-        '3. selected route card in `src/runtime/cards/routes/`',
-        '4. selected contract card in `src/runtime/cards/contracts/`',
-        '5. required skill cards in `src/runtime/cards/skills/`',
-        '6. required runtime summaries in `src/knowledge-base/runtime-summaries/`',
+        '3. selected route card in `dist/runtime/routes/`',
+        '4. selected contract card in `dist/runtime/contracts/`',
+        '5. required skill cards in `dist/runtime/skills/`',
+        '6. required runtime summaries in `src/knowledge-base/summaries/`',
         '',
         '## Safe fallback',
         'If any runtime overlay artifact is missing, stale, or ambiguous, fall back immediately to the canonical authority:',
@@ -204,7 +204,7 @@ def main():
                 for s in summary_bases:
                     if s not in primary_summaries and s not in secondary_summaries:
                         secondary_summaries.append(s)
-        summary_ids = [f'src/knowledge-base/runtime-summaries/{s}' for s in primary_summaries + secondary_summaries]
+        summary_ids = [f'src/knowledge-base/summaries/{s}' for s in primary_summaries + secondary_summaries]
         route_card = {
             'route_id': route['route_id'],
             'task_id': route['task_id'],
@@ -236,8 +236,8 @@ def main():
         }
         write(ROOT / 'src' / 'runtime' / 'cards' / 'routes' / f"{route['route_id']}.json", json.dumps(route_card, indent=2))
         runtime_summary_map['routes'][route['route_id']] = {
-            'primary_runtime_summaries': [f'src/knowledge-base/runtime-summaries/{s}' for s in primary_summaries],
-            'secondary_runtime_summaries': [f'src/knowledge-base/runtime-summaries/{s}' for s in secondary_summaries],
+            'primary_runtime_summaries': [f'src/knowledge-base/summaries/{s}' for s in primary_summaries],
+            'secondary_runtime_summaries': [f'src/knowledge-base/summaries/{s}' for s in secondary_summaries],
             'forbidden_unrelated_summaries': [],
             'escalation_fallback': {
                 'full_summaries': [f'src/knowledge-base/summaries/{s}' for s in primary_summaries + secondary_summaries],
@@ -250,7 +250,9 @@ def main():
         card = {
             'task_id': task['task_id'],
             'title': task['title'],
-            'required_sections': [sec['name'] for sec in task.get('required_sections', [])],
+            # Preserve full section dicts (name, min_words, rationale) so compile can surface
+            # rationale hints in launcher output templates. Plain strings are also accepted.
+            'required_sections': task.get('required_sections', []),
             'required_evidence_types': task.get('required_evidence_types', []),
             'required_decisions': [d['id'] if isinstance(d, dict) else d for d in task.get('required_decisions', [])],
             'hard_fail_patterns': task.get('hard_fail_patterns', []),
@@ -450,7 +452,7 @@ def main():
             'unrelated summaries loaded just in case'
         ]
     }
-    write(ROOT / 'src' / 'runtime' / 'loading' / 'token_budget_registry.json', json.dumps(token_budget, indent=2))
+    write(ROOT / 'dist' / 'runtime' / 'loading' / 'token_budget_registry.json', json.dumps(token_budget, indent=2))
 
     hydration_schema = {
         'schema_version': '1.0.0',
@@ -480,7 +482,7 @@ def main():
             'justification_notes': 'array[string]'
         }
     }
-    write(ROOT / 'src' / 'runtime' / 'loading' / 'hydration_trace_schema.json', json.dumps(hydration_schema, indent=2))
+    write(ROOT / 'dist' / 'runtime' / 'loading' / 'hydration_trace_schema.json', json.dumps(hydration_schema, indent=2))
 
     print('generated runtime overlay artifacts')
 

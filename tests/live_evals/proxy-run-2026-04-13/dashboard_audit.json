@@ -1,0 +1,33 @@
+{
+  "run_id": "proxy-run-2026-04-13_dashboard_audit",
+  "pack_version": "3.0",
+  "baseline_label": "none_proxy_mode",
+  "prompt_id": "dashboard_audit",
+  "run_date": "2026-04-13",
+  "evaluator_label": "static_runtime_validator",
+  "evidence_mode": "proxy",
+  "scores": {
+    "validator_score": 100,
+    "validator_decision": "PASS",
+    "evidence_classes": [
+      "benchmark_artifact",
+      "comparison_artifact",
+      "failure_semantics_rule",
+      "file_backed_receipt",
+      "implementation_constraint",
+      "measurable_threshold",
+      "narrative_proof_boundary",
+      "next_step_guidance",
+      "permission_rule",
+      "prose_quality_signal",
+      "reviewer_confidence_artifact",
+      "state_or_behavior_rule",
+      "visual_structure_rule"
+    ],
+    "issue_count": 0
+  },
+  "overall_preference": "pack",
+  "notes": "Proxy evidence: static validator scored golden example output for dashboard_audit. Score 100/100. Decision: PASS. No issues.",
+  "issues": [],
+  "warnings": []
+}

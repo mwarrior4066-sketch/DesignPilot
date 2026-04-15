@@ -1,0 +1,10 @@
+{
+  "purpose": "Stable baseline \u2014 all 6 providers, full suite",
+  "pack_version": "3.0",
+  "is_diagnostic": false,
+  "is_valid_quality_signal": true,
+  "known_issues": [],
+  "note": "Canonical quality baseline for v3.0 pack. All 6 providers passing gate.",
+  "run_id": "batch-20260414-0844",
+  "written_at": "2026-04-14"
+}

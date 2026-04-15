@@ -21,7 +21,7 @@ The current operational gap in modular design packs stems from a lack of determi
 | 9        | Motion Sensitivity Guardrails         | Modern UI motion can trigger vestibular issues without proper controls.<sup>23</sup>                               | Mandatory "Pause, Stop, Hide" checks for any animation lasting \>5 seconds.<sup>23</sup>                                   |
 | 10       | Variable Font Optical Size Scaling    | Standard systems ignore how font weight and contrast must change with size.<sup>25</sup>                           | Defaulting to font-optical-sizing: auto with specific opsz axis tuning instructions.<sup>14</sup>                          |
 
-The resolution of these gaps necessitates a shift in how the operator views its role. For example, in the domain of accessibility, moving from a "checklist" approach to a "perceptual" approach allows the system to understand *why* a design fails. While WCAG 2.1 relies on a simple luminance ratio, the Advanced Perceptual Contrast Algorithm (APCA) accounts for the fact that human eyes perceive contrast differently depending on spatial frequency—meaning that a thin font requires significantly more contrast than a bold one to be equally readable.<sup>2</sup> Integrating this into the color and typography skill files ensures that the AI makes decisions based on human vision science rather than arbitrary ratios.
+The resolution of these gaps necessitates a shift in how the operator views its role. For example, in the domain of accessibility, moving from a "checklist" approach to a "perceptual" approach allows the system to understand *why* a design fails. While WCAG 2.1 relies on a simple luminance ratio, the Advanced Perceptual Contrast Algorithm (APCA) accounts for the fact that human eyes perceive contrast differently depending on spatial frequency-meaning that a thin font requires significantly more contrast than a bold one to be equally readable.<sup>2</sup> Integrating this into the color and typography skill files ensures that the AI makes decisions based on human vision science rather than arbitrary ratios.
 
 ## B. Recommended additions by file
 
@@ -39,7 +39,7 @@ The roadmap router should no longer be a static progress tracker. It must become
 
 ### TASK_ROUTER
 
-The task router requires a "Modules-Pathways-Triggers" logic.<sup>33</sup> A "trigger" is a specific condition in the user's input—such as the mention of a "dashboard"—that activates a specialized "pathway" involving the grid system, typography, and accessibility modules.<sup>33</sup> This architecture ensures that specialized expertise is only loaded when necessary, preserving the context window while maintaining deep specialization.<sup>34</sup>
+The task router requires a "Modules-Pathways-Triggers" logic.<sup>33</sup> A "trigger" is a specific condition in the user's input-such as the mention of a "dashboard"-that activates a specialized "pathway" involving the grid system, typography, and accessibility modules.<sup>33</sup> This architecture ensures that specialized expertise is only loaded when necessary, preserving the context window while maintaining deep specialization.<sup>34</sup>
 
 ### RESPONSE_PROTOCOL
 
@@ -413,7 +413,7 @@ The following research foundations support the rules, frameworks, and decision-m
 
 32. ChatRouter: A System and Method for Hierarchical Intent ..., accessed April 8, 2026, [<u>https://www.tdcommons.org/cgi/viewcontent.cgi?article=9923&context=dpubs_series</u>](https://www.tdcommons.org/cgi/viewcontent.cgi?article=9923&context=dpubs_series)
 
-33. AI Prompting (10/10): Modules, Pathways & Triggers—Advanced Framework Everyone Should Know : r/PromptEngineering - Reddit, accessed April 8, 2026, [<u>https://www.reddit.com/r/PromptEngineering/comments/1ixs4ih/ai_prompting_1010_modules_pathways/</u>](https://www.reddit.com/r/PromptEngineering/comments/1ixs4ih/ai_prompting_1010_modules_pathways/)
+33. AI Prompting (10/10): Modules, Pathways & Triggers-Advanced Framework Everyone Should Know : r/PromptEngineering - Reddit, accessed April 8, 2026, [<u>https://www.reddit.com/r/PromptEngineering/comments/1ixs4ih/ai_prompting_1010_modules_pathways/</u>](https://www.reddit.com/r/PromptEngineering/comments/1ixs4ih/ai_prompting_1010_modules_pathways/)
 
 34. agents/docs/architecture.md at main - GitHub, accessed April 8, 2026, [<u>https://github.com/wshobson/agents/blob/main/docs/architecture.md</u>](https://github.com/wshobson/agents/blob/main/docs/architecture.md)
 

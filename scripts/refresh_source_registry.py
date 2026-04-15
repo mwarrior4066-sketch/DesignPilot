@@ -10,7 +10,7 @@ TARGETS = [
     ('templates', ['src/templates/*.md'], []),
     ('source_docs', ['src/knowledge-base/source-docs/*'], []),
     ('summaries', ['src/knowledge-base/summaries/*.md'], []),
-    ('runtime_summaries', ['src/knowledge-base/runtime-summaries/*.md'], []),
+    ('runtime_summaries', ['src/knowledge-base/summaries/*.md'], []),
     ('runtime', ['src/runtime/**/*.md','src/runtime/**/*.json'], []),
     ('indices', ['src/knowledge-base/indices/*.json'], []),
     ('libraries', ['src/libraries/*'], []),

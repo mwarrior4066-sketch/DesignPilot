@@ -2,7 +2,7 @@
 
 # Operational Architecture and Perceptual Logic for an AI Color Expert Agent
 
-The systematic governance of color within multi-platform design ecosystems has evolved from a subjective aesthetic pursuit into a rigorous engineering discipline rooted in vision science and cognitive psychology.<sup>1</sup> This transition is driven by the necessity of ensuring universal accessibility, maintaining brand integrity across divergent media, and managing the complexity of tokenized implementation.<sup>3</sup> To function as a production-level operator, an AI Color Expert Agent must move beyond generic color theory to employ a deterministic architecture that prioritizes measurable evidence—specifically perceptual contrast models, tonal scaling algorithms, and semantic token hierarchies.<sup>5</sup> This report establishes the comprehensive operational knowledge needed to build such an agent, providing the technical rules, fallback logic, and validation protocols required for an integrated AI design operator pack.
+The systematic governance of color within multi-platform design ecosystems has evolved from a subjective aesthetic pursuit into a rigorous engineering discipline rooted in vision science and cognitive psychology.<sup>1</sup> This transition is driven by the necessity of ensuring universal accessibility, maintaining brand integrity across divergent media, and managing the complexity of tokenized implementation.<sup>3</sup> To function as a production-level operator, an AI Color Expert Agent must move beyond generic color theory to employ a deterministic architecture that prioritizes measurable evidence-specifically perceptual contrast models, tonal scaling algorithms, and semantic token hierarchies.<sup>5</sup> This report establishes the comprehensive operational knowledge needed to build such an agent, providing the technical rules, fallback logic, and validation protocols required for an integrated AI design operator pack.
 
 ## 1. Color decision architecture
 
@@ -103,7 +103,7 @@ Light and dark mode system behavior is the set of rules for transforming a palet
 
 ### 3.2. Why it matters for an AI Color Expert Agent
 
-Dark mode is not a literal inversion of light mode. In low-light environments, the human eye becomes more sensitive to brightness (Hunt Effect) and contrast (Stevens Effect), meaning that pure white on pure black causes "halation"—the visual bleeding of text.<sup>23</sup> The agent must proactively manage "Elevation" where surfaces closer to the light source are lighter in both modes.<sup>50</sup>
+Dark mode is not a literal inversion of light mode. In low-light environments, the human eye becomes more sensitive to brightness (Hunt Effect) and contrast (Stevens Effect), meaning that pure white on pure black causes "halation"-the visual bleeding of text.<sup>23</sup> The agent must proactively manage "Elevation" where surfaces closer to the light source are lighter in both modes.<sup>50</sup>
 
 ### 3.3. Default rules
 
@@ -201,7 +201,7 @@ Palette construction logic is the mathematical process of generating a foundatio
 
 ### 5.2. Why it matters for an AI Color Expert Agent
 
-Designers often create palettes based on "taste," leading to "muddy" or "grayed-out" shades that fail contrast checks.<sup>68</sup> An expert agent uses calculated decisions—manipulating HSL or HCT properties—to generate "perceptually uniform" scales where a weight of 500 in blue is equivalent in perceived brightness to a weight of 500 in red.<sup>7</sup>
+Designers often create palettes based on "taste," leading to "muddy" or "grayed-out" shades that fail contrast checks.<sup>68</sup> An expert agent uses calculated decisions-manipulating HSL or HCT properties-to generate "perceptually uniform" scales where a weight of 500 in blue is equivalent in perceived brightness to a weight of 500 in red.<sup>7</sup>
 
 ### 5.3. Default rules
 

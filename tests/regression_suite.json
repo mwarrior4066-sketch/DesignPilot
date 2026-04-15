@@ -1,6 +1,6 @@
 {
-  "suite_version": "2.6.1",
-  "pack_version": "2.6.1",
+  "suite_version": "3.0",
+  "pack_version": "3.0",
   "tests": [
     {
       "id": "pass-01",
@@ -12,7 +12,10 @@
       "required_issue_absent": [
         "missing_section"
       ],
-      "golden_output_file": "examples/ui-structure-critique.md"
+      "golden_output_file": "examples/ui-structure-critique.md",
+      "full_prompt": "Audit the pricing page for a B2B SaaS product. The hero has a large headline ('Everything your team needs'), a CTA button, and a background image. Below it: a three-column pricing table (Starter $29, Pro $79, Enterprise custom), a feature comparison table, and a testimonials strip. The CTA is small relative to the hero. The pricing table uses color-coding to highlight the Pro tier but the colors are not accessible.",
+      "live_enabled": true,
+      "live_expected_decision": "PASS"
     },
     {
       "id": "pass-02",
@@ -21,7 +24,10 @@
       "prompt": "Write a component spec for a split button.",
       "validator_task": "component_spec",
       "expected_decision": "PASS",
-      "golden_output_file": "examples/component-spec.md"
+      "golden_output_file": "examples/component-spec.md",
+      "full_prompt": "Write a component spec for a split button. It has a primary action (Save) and a dropdown trigger for secondary actions (Save as draft, Save and close). It needs keyboard support, disabled states, loading states, and must work on mobile touch targets.",
+      "live_enabled": true,
+      "live_expected_decision": "PASS"
     },
     {
       "id": "pass-03",
@@ -30,7 +36,10 @@
       "prompt": "Audit this dashboard first view.",
       "validator_task": "dashboard_audit",
       "expected_decision": "PASS",
-      "golden_output_file": "examples/dashboard-audit.md"
+      "golden_output_file": "examples/dashboard-audit.md",
+      "full_prompt": "Audit the first view of a SaaS analytics dashboard. It has a KPI row at the top showing DAU, MRR, and churn rate as large numbers with trend arrows but no reference values or targets. Below is a 30-day line chart with no Y-axis label and four colored lines for four segments, but the legend is below the fold. The left sidebar has 12 nav items with no grouping.",
+      "live_enabled": true,
+      "live_expected_decision": "PASS"
     },
     {
       "id": "pass-04",
@@ -39,7 +48,10 @@
       "prompt": "Add team sharing, CSV export, and a live dashboard.",
       "validator_task": "backend_feasibility_review",
       "expected_decision": "PASS",
-      "golden_output_file": "examples/backend-feasibility-review.md"
+      "golden_output_file": "examples/backend-feasibility-review.md",
+      "full_prompt": "We want to add a real-time collaboration feature (like Google Docs) to our existing React app. The app currently uses REST APIs and PostgreSQL. Multiple users need to edit the same document simultaneously with visible cursor positions, conflict resolution, and persistent state. Review this request for backend feasibility. Cover all of: the hidden system requirements, a feasibility assessment with explicit blockers, and a safer implementation path with phased recommendations.",
+      "live_enabled": true,
+      "live_expected_decision": "PASS"
     },
     {
       "id": "pass-05",
@@ -48,7 +60,10 @@
       "prompt": "Fix this PDF so visual layout stays intact while reading order and extraction improve.",
       "validator_task": "pdf_remediation_plan",
       "expected_decision": "PASS",
-      "golden_output_file": "examples/pdf-remediation-plan.md"
+      "golden_output_file": "examples/pdf-remediation-plan.md",
+      "full_prompt": "Fix this PDF report so it works with screen readers and the reading order makes sense for export. The PDF was exported from InDesign. It has a two-column layout, pull quotes that interrupt the reading flow, and decorative images that are not tagged. The table of contents links are broken.",
+      "live_enabled": true,
+      "live_expected_decision": "PASS"
     },
     {
       "id": "pass-06",
@@ -57,7 +72,10 @@
       "prompt": "Create a brand positioning pass for an AI design tool for independent designers.",
       "validator_task": "brand_positioning_pass",
       "expected_decision": "PASS",
-      "golden_output_file": "examples/brand-positioning-pass.md"
+      "golden_output_file": "examples/brand-positioning-pass.md",
+      "full_prompt": "Do a brand positioning pass for a new fintech startup targeting freelancers. They want to feel trustworthy but approachable, not like a traditional bank. Their competitors are Stripe, Mercury, and Relay. What positioning territory should they own?",
+      "live_enabled": true,
+      "live_expected_decision": "PASS"
     },
     {
       "id": "pass-07",
@@ -66,7 +84,10 @@
       "prompt": "Rewrite this case study so it sounds stronger without pretending the outcome is proven.",
       "validator_task": "case_study_rewrite",
       "expected_decision": "PASS",
-      "golden_output_file": "examples/case-study-rewrite.md"
+      "golden_output_file": "examples/case-study-rewrite.md",
+      "full_prompt": "Rewrite this case study for a design portfolio. Original text: 'I worked on a project to redesign the onboarding flow. I did user research and found that users were confused. I made wireframes and prototypes. The redesign improved conversion by 40%. I learned a lot about user needs and collaboration with engineering.' Make it compelling and structured.",
+      "live_enabled": true,
+      "live_expected_decision": "PASS"
     },
     {
       "id": "pass-08",
@@ -75,7 +96,10 @@
       "prompt": "Audit this checkout flow for accessibility.",
       "validator_task": "accessibility_feedback_audit",
       "expected_decision": "PASS",
-      "golden_output_file": "examples/accessibility-feedback-pass.md"
+      "golden_output_file": "examples/accessibility-feedback-pass.md",
+      "full_prompt": "Audit this mobile app for accessibility issues. The app has a bottom navigation bar with icon-only buttons and no labels. Form inputs have placeholder text instead of visible labels. Error messages appear in red text with no icon. The loading spinner has no announced state for screen readers.",
+      "live_enabled": true,
+      "live_expected_decision": "PASS"
     },
     {
       "id": "pass-09",
@@ -84,7 +108,10 @@
       "prompt": "Create a semantic color system for a B2B scheduling product.",
       "validator_task": "color_system_spec",
       "expected_decision": "PASS",
-      "golden_output_file": "examples/color-system-pass.md"
+      "golden_output_file": "examples/color-system-pass.md",
+      "full_prompt": "Define a color system for a healthcare SaaS dashboard. It needs to communicate status (normal, warning, critical), support dark mode, work for data visualization with at least 5 categorical colors, and meet WCAG AA for all text.",
+      "live_enabled": true,
+      "live_expected_decision": "PASS"
     },
     {
       "id": "pass-10",
@@ -93,7 +120,10 @@
       "prompt": "Critique this event poster.",
       "validator_task": "graphic_critique",
       "expected_decision": "PASS",
-      "golden_output_file": "examples/graphic-critique-pass.md"
+      "golden_output_file": "examples/graphic-critique-pass.md",
+      "full_prompt": "Critique this poster design for a design conference. The poster has a large title at the top in a decorative typeface, the date in small gray text in the bottom corner, a full-bleed background photo of a city skyline, and the conference logo overlaid in white in the center. The hierarchy puts the title before the audience has context for what this event is.",
+      "live_enabled": true,
+      "live_expected_decision": "PASS"
     },
     {
       "id": "pass-11",
@@ -102,7 +132,10 @@
       "prompt": "Recover a layout from this lost-source brochure and keep the placements stable.",
       "validator_task": "layout_reconstruction_plan",
       "expected_decision": "PASS",
-      "golden_output_file": "examples/layout-reconstruction-pass.md"
+      "golden_output_file": "examples/layout-reconstruction-pass.md",
+      "full_prompt": "I have a PDF of our old brand guidelines from 2018. I need to reconstruct the layout system from it to apply to new templates. The PDF has grid diagrams, margin specifications, and column layout examples. Describe what you would extract and how you would translate it into a modern layout system.",
+      "live_enabled": true,
+      "live_expected_decision": "PASS"
     },
     {
       "id": "pass-12",
@@ -111,7 +144,10 @@
       "prompt": "Recommend a type system for a dense operations dashboard.",
       "validator_task": "type_system_recommendation",
       "expected_decision": "PASS",
-      "golden_output_file": "examples/type-system-pass.md"
+      "golden_output_file": "examples/type-system-pass.md",
+      "full_prompt": "Recommend a type system for a fintech product. It needs to work across a marketing site, a web app dashboard, and mobile. It should feel modern and trustworthy, handle tabular financial data well, and support multiple weights for hierarchy.",
+      "live_enabled": true,
+      "live_expected_decision": "PASS"
     },
     {
       "id": "pass-13",
@@ -120,7 +156,10 @@
       "prompt": "Map the most important UX research gaps for this scheduling platform.",
       "validator_task": "ux_research_gap_map",
       "expected_decision": "PASS",
-      "golden_output_file": "examples/ux-research-pass.md"
+      "golden_output_file": "examples/ux-research-pass.md",
+      "full_prompt": "Map the research gaps for a team redesigning a B2B project management tool. We have: 3 stakeholder interviews, 2 usability tests on the current product, and analytics showing a 60% drop-off on the project creation flow. We do not have: data on why users abandon, competitive analysis, or any research on power users.",
+      "live_enabled": true,
+      "live_expected_decision": "PASS"
     },
     {
       "id": "fail-01",
@@ -134,7 +173,10 @@
         "missing_tradeoff",
         "missing_evidence_class"
       ],
-      "golden_output_file": "golden_outputs/fail-thin-dashboard-audit.md"
+      "golden_output_file": "golden_outputs/fail-thin-dashboard-audit.md",
+      "full_prompt": "Audit the first view of this SaaS analytics dashboard. It has a KPI row for DAU, revenue, churn, and activation rate, a 30-day line chart, a table of top accounts by MRR, and a left sidebar nav. The KPIs show large numbers with trend arrows but no reference values. The chart uses four colors for two data series and the table density is high enough that scanning feels slow.",
+      "live_enabled": false,
+      "live_expected_decision": "SKIP"
     },
     {
       "id": "fail-02",
@@ -147,7 +189,10 @@
         "prompt_restatement",
         "low_information_density"
       ],
-      "golden_output_file": "golden_outputs/fail-prompt-restatement.md"
+      "golden_output_file": "golden_outputs/fail-prompt-restatement.md",
+      "full_prompt": "Create a brand positioning pass for an AI design tool aimed at independent designers and small studios. The product is strongest at structured critique, design rationale, case-study writing, and implementation-ready feedback. The category is crowded with generic AI helpers that sound polished but shallow. Clarify audience fit, positioning, trust signals, and how the product should differentiate without sounding like a vague creativity assistant.",
+      "live_enabled": false,
+      "live_expected_decision": "SKIP"
     },
     {
       "id": "fail-03",
@@ -159,7 +204,10 @@
       "expected_issue_ids": [
         "unsupported_superlative"
       ],
-      "golden_output_file": "golden_outputs/fail-unsupported-proof.md"
+      "golden_output_file": "golden_outputs/fail-unsupported-proof.md",
+      "full_prompt": "Write an outcome section for a design case study about a B2B scheduling dashboard redesign. The new design improved structural clarity and implementation realism in internal review, but there was no production launch and no KPI readout. The current draft swings between weak hedging and unsupported certainty. Rewrite it so it sounds stronger while staying honest about what is and is not proven.",
+      "live_enabled": false,
+      "live_expected_decision": "SKIP"
     },
     {
       "id": "fail-04",
@@ -172,7 +220,10 @@
         "forbidden_shortcut",
         "missing_evidence_class"
       ],
-      "golden_output_file": "golden_outputs/fail-accessibility-feedback.md"
+      "golden_output_file": "golden_outputs/fail-accessibility-feedback.md",
+      "full_prompt": "Audit this checkout flow for accessibility. Keyboard users get lost after promo code entry, the address error message is not announced, and the fixed footer CTA may trap focus on mobile. The screen also uses pale gray helper text against white cards and the delivery window selector updates without confirming the new choice. Give feedback that covers semantics, focus, announcement behavior, and visual contrast.",
+      "live_enabled": false,
+      "live_expected_decision": "SKIP"
     },
     {
       "id": "fail-05",
@@ -185,7 +236,10 @@
         "forbidden_shortcut",
         "missing_evidence_class"
       ],
-      "golden_output_file": "golden_outputs/fail-color-system.md"
+      "golden_output_file": "golden_outputs/fail-color-system.md",
+      "full_prompt": "Create a semantic color system for a B2B scheduling product. The current palette mixes brand colors with status colors, success and active states are too close, warning is oversaturated, and dark mode was bolted on late. The system needs roles for text, surfaces, borders, states, charts, and interactive components. Recommend token structure, semantic mapping, accessibility guardrails, and implementation notes.",
+      "live_enabled": false,
+      "live_expected_decision": "SKIP"
     },
     {
       "id": "fail-06",
@@ -198,7 +252,10 @@
         "forbidden_shortcut",
         "missing_evidence_class"
       ],
-      "golden_output_file": "golden_outputs/fail-graphic-critique.md"
+      "golden_output_file": "golden_outputs/fail-graphic-critique.md",
+      "full_prompt": "Critique this event poster. The headline is fighting the image, the sponsor block is too loud, the location line floats away from the date, and from a few feet away the date disappears. The poster is meant to work both as an Instagram share and a printed 11x17 flyer. Focus on hierarchy, image-type balance, distance legibility, and what to fix first.",
+      "live_enabled": false,
+      "live_expected_decision": "SKIP"
     },
     {
       "id": "fail-07",
@@ -211,7 +268,10 @@
         "forbidden_shortcut",
         "missing_evidence_class"
       ],
-      "golden_output_file": "golden_outputs/fail-layout-reconstruction.md"
+      "golden_output_file": "golden_outputs/fail-layout-reconstruction.md",
+      "full_prompt": "Create a reconstruction plan for a legacy brochure spread where the original working files are gone. Preserve the current image placements, caption order, and approximate text flow, but recover a clean underlying grid, spacing system, and type logic. The only source is a flattened PDF export and a low-resolution screenshot from an older proof. Explain how to rebuild it without inventing details that cannot be verified from the source.",
+      "live_enabled": false,
+      "live_expected_decision": "SKIP"
     },
     {
       "id": "fail-08",
@@ -224,7 +284,10 @@
         "forbidden_shortcut",
         "overclaim_without_evidence"
       ],
-      "golden_output_file": "golden_outputs/fail-type-system.md"
+      "golden_output_file": "golden_outputs/fail-type-system.md",
+      "full_prompt": "Recommend a type system for a dense operations dashboard and its supporting case-study page. The dashboard has data tables, KPI cards, filter chips, toasts, and side panels. The long-form case-study page needs clearer reading rhythm and better contrast between headings, body text, and callouts. The current file mixes arbitrary sizes and weights, so labels are hard to scan and explanatory text feels cramped.",
+      "live_enabled": false,
+      "live_expected_decision": "SKIP"
     },
     {
       "id": "fail-09",
@@ -237,7 +300,10 @@
         "forbidden_shortcut",
         "missing_evidence_class"
       ],
-      "golden_output_file": "golden_outputs/fail-ux-research-gap.md"
+      "golden_output_file": "golden_outputs/fail-ux-research-gap.md",
+      "full_prompt": "Map the most important UX research gaps for a small scheduling platform redesigning onboarding, team setup, and shift publishing. The team has some support tickets, a few sales call notes, and scattered anecdotes from customer success, but no recent interviews or workflow studies. They want to know what they can infer from current evidence, what they still need to validate, and which research questions matter most before design decisions get locked.",
+      "live_enabled": false,
+      "live_expected_decision": "SKIP"
     },
     {
       "id": "pass-14",
@@ -246,7 +312,10 @@
       "prompt": "Review this front-end implementation plan for a permissions-heavy scheduling dashboard.",
       "validator_task": "frontend_implementation_review",
       "expected_decision": "PASS",
-      "golden_output_file": "examples/frontend-implementation-review.md"
+      "golden_output_file": "examples/frontend-implementation-review.md",
+      "full_prompt": "Review this front-end implementation plan for a permissions-heavy scheduling dashboard. The current proposal defaults to a large client-rendered page, stores loading and error state in separate booleans, uses custom div buttons for filter chips, and wants optimistic updates for recurring edits. The product has role-based visibility, table-heavy screens, and server-driven filters. Recommend a safer architecture with better state handling and accessibility.",
+      "live_enabled": true,
+      "live_expected_decision": "PASS"
     },
     {
       "id": "pass-15",
@@ -255,7 +324,10 @@
       "prompt": "Write a backend architecture spec for a multi-tenant scheduling platform.",
       "validator_task": "backend_architecture_spec",
       "expected_decision": "PASS",
-      "golden_output_file": "examples/backend-architecture-spec.md"
+      "golden_output_file": "examples/backend-architecture-spec.md",
+      "full_prompt": "Write a backend architecture spec for a multi-tenant scheduling platform with team workspaces, cursor-based activity feeds, approval workflows, and outbound webhooks to customer systems. The product must support regional data residency, audit trails, and eventually customer-defined automation rules. The current stack already has REST APIs and a relational database, but background jobs and eventing are inconsistent. Define core services, data boundaries, contracts, and operational concerns.",
+      "live_enabled": true,
+      "live_expected_decision": "PASS"
     },
     {
       "id": "pass-16",
@@ -264,7 +336,10 @@
       "prompt": "Audit this API design for reliability and security.",
       "validator_task": "api_reliability_security_review",
       "expected_decision": "PASS",
-      "golden_output_file": "examples/api-reliability-security-review.md"
+      "golden_output_file": "examples/api-reliability-security-review.md",
+      "full_prompt": "Audit this API design for reliability and security. The endpoint is POST /exports which generates a PDF report. It runs synchronously and blocks for up to 3 minutes, returns HTTP 200 for all responses including errors, has no idempotency key, leaks internal enum values in error messages, and has no retry-safe contract. Cover all of: failure semantics and error contract, authorization and resource protection, idempotency and async lifecycle, and resilience and observability.",
+      "live_enabled": true,
+      "live_expected_decision": "PASS"
     },
     {
       "id": "fail-10",
@@ -277,7 +352,10 @@
         "forbidden_shortcut",
         "missing_evidence_class"
       ],
-      "golden_output_file": "golden_outputs/fail-frontend-implementation-review.md"
+      "golden_output_file": "golden_outputs/fail-frontend-implementation-review.md",
+      "full_prompt": "Review this front-end implementation plan for a permissions-heavy scheduling dashboard. The current proposal defaults to a large client-rendered page, stores loading and error state in separate booleans, uses custom div buttons for filter chips, and wants optimistic updates for recurring edits. The product has role-based visibility, table-heavy screens, and server-driven filters. Recommend a safer architecture with better state handling and accessibility.",
+      "live_enabled": false,
+      "live_expected_decision": "SKIP"
     },
     {
       "id": "fail-11",
@@ -290,7 +368,10 @@
         "forbidden_shortcut",
         "missing_evidence_class"
       ],
-      "golden_output_file": "golden_outputs/fail-backend-architecture-spec.md"
+      "golden_output_file": "golden_outputs/fail-backend-architecture-spec.md",
+      "full_prompt": "Write a backend architecture spec for a multi-tenant scheduling platform with team workspaces, cursor-based activity feeds, approval workflows, and outbound webhooks to customer systems. The product must support regional data residency, audit trails, and eventually customer-defined automation rules. The current stack already has REST APIs and a relational database, but background jobs and eventing are inconsistent. Define core services, data boundaries, contracts, and operational concerns.",
+      "live_enabled": false,
+      "live_expected_decision": "SKIP"
     },
     {
       "id": "fail-12",
@@ -303,7 +384,10 @@
         "forbidden_shortcut",
         "missing_evidence_class"
       ],
-      "golden_output_file": "golden_outputs/fail-api-reliability-security-review.md"
+      "golden_output_file": "golden_outputs/fail-api-reliability-security-review.md",
+      "full_prompt": "Audit this API design for reliability and security. It currently returns 200 with an error field, retries POST exports without an Idempotency-Key, and runs large PDF generations synchronously even when they exceed a minute. Some endpoints leak internal enum values to clients, webhook retries have no signature rotation plan, and rate limiting is inconsistent between public and internal endpoints. Recommend safer contracts and failure handling.",
+      "live_enabled": false,
+      "live_expected_decision": "SKIP"
     },
     {
       "id": "pass-17",
@@ -312,16 +396,22 @@
       "prompt": "Explain a front-end architecture decision across Functional, Integrative, and Strategic tiers.",
       "validator_task": "frontend_implementation_review",
       "expected_decision": "PASS",
-      "golden_output_file": "examples/adaptive-explanation-tiered-response.md"
+      "golden_output_file": "examples/adaptive-explanation-tiered-response.md",
+      "full_prompt": "Explain a front-end architecture decision across Functional, Integrative, and Strategic tiers. The decision: should this React app use a global state manager like Redux, or local component state with context? At the end of each tier, state the governing recommendation as one explicit decision sentence -- not a summary of the explanation, but a concrete statement of what should be done.",
+      "live_enabled": true,
+      "live_expected_decision": "PASS"
     },
     {
       "id": "pass-18",
       "category": "comprehension",
       "title": "Designer response filter preserves backend constraints",
       "prompt": "Transform backend architecture advice into a designer-readable answer without weakening constraints.",
-      "validator_task": "backend_architecture_spec",
+      "validator_task": "api_reliability_security_review",
       "expected_decision": "PASS",
-      "golden_output_file": "examples/designer-response-filter-pass.md"
+      "golden_output_file": "examples/designer-response-filter-pass.md",
+      "full_prompt": "Review this API design. The endpoint is POST /api/v1/projects/{id}/members and it adds a user to a project. It returns 200 with the updated member list. There is no idempotency key. The error response is a plain string. Authorization checks if the caller is logged in but not if they are a project admin. For each architectural concern, state the governing decision explicitly before explaining the reasoning.",
+      "live_enabled": true,
+      "live_expected_decision": "PASS"
     },
     {
       "id": "pass-19",
@@ -330,7 +420,10 @@
       "prompt": "Humanize a paragraph without changing the meaning.",
       "validator_task": "text_humanization_revision",
       "expected_decision": "PASS",
-      "golden_output_file": "examples/text-humanization-pass.md"
+      "golden_output_file": "examples/text-humanization-pass.md",
+      "full_prompt": "Rewrite this text to read more naturally. Original: 'It is important to note that the utilization of AI-powered solutions facilitates the reallocation of human capital toward higher-value activities.' Before rewriting, state: the job of the piece, the patterns you will fix, and your meaning-preservation guard. Then provide the revision and explain what changed.",
+      "live_enabled": true,
+      "live_expected_decision": "PASS"
     },
     {
       "id": "fail-17",
@@ -339,7 +432,10 @@
       "prompt": "Explain this for a Functional-tier user.",
       "validator_task": "frontend_implementation_review",
       "expected_decision": "FAIL",
-      "golden_output_file": "tests/golden_outputs/fail-functional-unexplained-jargon.md"
+      "golden_output_file": "tests/golden_outputs/fail-functional-unexplained-jargon.md",
+      "full_prompt": "Explain why a permissions-heavy scheduling dashboard should not default to a fully client-rendered implementation for a Functional-tier user. The screen includes server-side filters, role-based visibility, recurring edits, and large data tables. Keep the explanation practical and easy to follow. The answer should help a designer understand the decision without drowning them in framework jargon.",
+      "live_enabled": false,
+      "live_expected_decision": "SKIP"
     },
     {
       "id": "fail-18",
@@ -348,7 +444,10 @@
       "prompt": "Explain this for a Strategic-tier user.",
       "validator_task": "backend_architecture_spec",
       "expected_decision": "FAIL",
-      "golden_output_file": "tests/golden_outputs/fail-strategic-overexplained.md"
+      "golden_output_file": "tests/golden_outputs/fail-strategic-overexplained.md",
+      "full_prompt": "Explain a backend architecture decision for a Strategic-tier user. The recommendation involves queue-backed exports, async webhooks, audit logging, and regional data boundaries for a multi-tenant scheduling platform. Keep the answer sharp and decision-led instead of bloating it with implementation trivia. The reader wants to understand the implications, not every internal detail.",
+      "live_enabled": false,
+      "live_expected_decision": "SKIP"
     },
     {
       "id": "fail-19",
@@ -357,7 +456,10 @@
       "prompt": "Explain the architecture constraints and direct the user toward the next step.",
       "validator_task": "backend_architecture_spec",
       "expected_decision": "FAIL",
-      "golden_output_file": "tests/golden_outputs/fail-missing-next-step-guidance.md"
+      "golden_output_file": "tests/golden_outputs/fail-missing-next-step-guidance.md",
+      "full_prompt": "Explain the main architecture constraints for a multi-tenant scheduling platform in designer-readable language and direct the user toward the next step. The system needs async processing for exports, idempotent webhooks, audit trails, and region-scoped data handling. The answer should stay readable without losing the operational constraints. End with a concrete next move for the design team.",
+      "live_enabled": false,
+      "live_expected_decision": "SKIP"
     },
     {
       "id": "fail-20",
@@ -366,7 +468,10 @@
       "prompt": "Humanize this without changing the meaning.",
       "validator_task": "text_humanization_revision",
       "expected_decision": "FAIL",
-      "golden_output_file": "tests/golden_outputs/fail-humanization-meaning-drift.md"
+      "golden_output_file": "tests/golden_outputs/fail-humanization-meaning-drift.md",
+      "full_prompt": "Humanize this paragraph without changing the meaning: 'The interface facilitates user progression through the workflow by leveraging a systematic arrangement of controls and contextual indicators. This enables users to maintain awareness of status transitions while reducing the likelihood of interaction ambiguity during task completion.' Keep every claim intact. The rewrite should sound better, but it cannot add, remove, or reinterpret meaning.",
+      "live_enabled": false,
+      "live_expected_decision": "SKIP"
     },
     {
       "id": "fail-21",
@@ -375,7 +480,10 @@
       "prompt": "Humanize this without replacing the voice.",
       "validator_task": "text_humanization_revision",
       "expected_decision": "FAIL",
-      "golden_output_file": "tests/golden_outputs/fail-humanization-tone-replacement.md"
+      "golden_output_file": "tests/golden_outputs/fail-humanization-tone-replacement.md",
+      "full_prompt": "Humanize this paragraph without replacing the original voice: 'The interface facilitates user progression through the workflow by leveraging a systematic arrangement of controls and contextual indicators. This enables users to maintain awareness of status transitions while reducing the likelihood of interaction ambiguity during task completion.' Keep the underlying tone and claims, then make the writing more natural. Do not turn it into generic polished marketing copy.",
+      "live_enabled": false,
+      "live_expected_decision": "SKIP"
     },
     {
       "id": "fail-22",
@@ -384,7 +492,10 @@
       "prompt": "Transform this answer for a designer without bloating it.",
       "validator_task": "frontend_implementation_review",
       "expected_decision": "FAIL",
-      "golden_output_file": "tests/golden_outputs/fail-filter-bloated-scaffolding.md"
+      "golden_output_file": "tests/golden_outputs/fail-filter-bloated-scaffolding.md",
+      "full_prompt": "Transform this front-end architecture explanation into a designer-readable answer without bloating it. The source recommendation says to avoid a large client-rendered page, keep filters server-driven, use semantic controls instead of custom div buttons, and model async state with a reducer or state machine instead of scattered booleans. The rewrite should stay concise, preserve the real constraints, and still point the user toward the next move.",
+      "live_enabled": false,
+      "live_expected_decision": "SKIP"
     },
     {
       "id": "fail-23",
@@ -396,7 +507,10 @@
       "expected_issue_ids": [
         "hollow_compliance"
       ],
-      "golden_output_file": "tests/golden_outputs/fail-hollow-compliance.md"
+      "golden_output_file": "tests/golden_outputs/fail-hollow-compliance.md",
+      "full_prompt": "Audit the first view of an operations screen and tell me what to change. The page has a summary bar, a filter strip, a dense exception table, and a right-hand side panel that opens details for the selected row. The current draft audit lists several issues, but the recommended changes are not clearly tied back to named findings. Produce an answer where the recommendations map back to the diagnosis.",
+      "live_enabled": false,
+      "live_expected_decision": "SKIP"
     },
     {
       "id": "fail-24",
@@ -408,7 +522,83 @@
       "expected_issue_ids": [
         "overconfident_visual_claim"
       ],
-      "golden_output_file": "tests/golden_outputs/fail-overconfident-visual-claim.md"
+      "golden_output_file": "tests/golden_outputs/fail-overconfident-visual-claim.md",
+      "full_prompt": "Create a reconstruction plan for a layout using only a screenshot of the finished piece. The original source files are gone and the screenshot is not sharp enough to confirm exact type sizes or column measurements. The user still wants the rebuilt layout to preserve the visible placements and relative proportions. Stay explicit about what is directly observed versus what has to be inferred.",
+      "live_enabled": false,
+      "live_expected_decision": "SKIP"
+    },
+    {
+      "id": "fail-25",
+      "category": "startup-surface",
+      "title": "Startup fails when it sounds like cold intake",
+      "prompt": "Follow this pack.",
+      "validator_task": "ui_structure_critique",
+      "expected_decision": "FAIL",
+      "golden_output_file": "tests/golden_outputs/fail-startup-cold-machine.md",
+      "full_prompt": "Follow this pack and help me improve the user experience of the pack itself. I want the AI to sound more like a capable helper, not a cold machine and not fake-friendly. I also want users to understand what the pack can do without getting an info dump at startup. Tell me how the startup experience should change.",
+      "live_enabled": false,
+      "live_expected_decision": "SKIP"
+    },
+    {
+      "id": "fail-26",
+      "category": "startup-surface",
+      "title": "Startup fails when it capability-dumps before helping",
+      "prompt": "Follow this pack.",
+      "validator_task": "ui_structure_critique",
+      "expected_decision": "FAIL",
+      "golden_output_file": "tests/golden_outputs/fail-startup-capability-dump.md",
+      "full_prompt": "Follow this pack and help me improve the user experience of the pack itself. I want the AI to sound more like a capable helper, not a cold machine and not fake-friendly. I also want users to understand what the pack can do without getting an info dump at startup. Tell me how the startup experience should change.",
+      "live_enabled": false,
+      "live_expected_decision": "SKIP"
+    },
+    {
+      "id": "fail-27",
+      "category": "startup-surface",
+      "title": "Helper tone fails when it turns sycophantic",
+      "prompt": "Help me revise the pack wording.",
+      "validator_task": "case_study_rewrite",
+      "expected_decision": "FAIL",
+      "golden_output_file": "tests/golden_outputs/fail-helper-tone-sycophantic.md",
+      "full_prompt": "Help me revise the pack wording so the AI sounds helpful without becoming sycophantic. The current problem is that some rewrites become too eager or flattering when they try to feel warm. I still want the system to sound calm, sharp, and useful. Explain how to adjust the wording rules so it stays human without sounding fake.",
+      "live_enabled": false,
+      "live_expected_decision": "SKIP"
+    },
+    {
+      "id": "fail-28",
+      "category": "humanization",
+      "title": "Humanization fails when it softens constraints",
+      "prompt": "Humanize this guidance without changing the meaning.",
+      "validator_task": "text_humanization_revision",
+      "expected_decision": "FAIL",
+      "golden_output_file": "tests/golden_outputs/fail-humanization-softens-constraint.md",
+      "full_prompt": "Humanize this guidance without changing the meaning: 'The system should preserve service boundaries, maintain idempotency for export retries, and avoid presenting speculative implementation claims as confirmed facts.' Make it more natural while keeping every constraint intact. Do not soften the requirements or turn them into suggestions.",
+      "live_enabled": false,
+      "live_expected_decision": "SKIP"
+    },
+    {
+      "id": "fail-29",
+      "category": "startup-surface",
+      "title": "User surface fails when route language leaks through",
+      "prompt": "Follow this pack.",
+      "validator_task": "ui_structure_critique",
+      "expected_decision": "FAIL",
+      "golden_output_file": "tests/golden_outputs/fail-route-language-leaks-to-surface.md",
+      "full_prompt": "Follow this pack and help me improve the user experience of the pack itself. I want the AI to sound more like a capable helper, not a cold machine and not fake-friendly. I also want users to understand what the pack can do without getting an info dump at startup. Tell me how the startup experience should change.",
+      "live_enabled": false,
+      "live_expected_decision": "SKIP"
+    },
+    {
+      "id": "pass-20",
+      "title": "Backend Architecture Spec",
+      "task": "backend_architecture_spec",
+      "prompt_file": "tests/fixtures/backend-architecture-spec.prompt.md",
+      "expected_decision": "PASS",
+      "live_enabled": true,
+      "mode": "pack",
+      "notes": "Added at v3.0 \u2014 covers backend architecture spec contract requiring consistency_model evidence",
+      "golden_output_file": "examples/backend-architecture-spec.md",
+      "validator_task": "backend_architecture_spec",
+      "prompt": "Draft a backend architecture spec for a production design system service."
     }
   ]
 }

@@ -1,0 +1,1 @@
+This system can handle UI critique, brand strategy, case studies, backend-aware planning, PDF remediation, accessibility audits, typography systems, and more. You can run it in lightweight, profile-only, or full kernel mode depending on task complexity. Choose the startup path that fits your needs and I will continue.

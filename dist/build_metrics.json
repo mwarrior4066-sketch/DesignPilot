@@ -1,30 +1,51 @@
 {
-  "version": "2.6.1",
+  "version": "3.0",
   "artifacts": {
     "dist/DEPLOY_LITE.md": {
-      "word_count": 337,
-      "token_estimate": 607,
-      "sha256": "fddef2fa33ed9bd7fffe9496b72704b63266a7d4df38f8d96c3ecad0c45b4389"
+      "word_count": 376,
+      "token_estimate": 680,
+      "sha256": "2390109d2b7362713513f3da1183a4d4a6bc6c6b6541ea0548244fba1f9325d2"
+    },
+    "dist/runtime/START_HERE.md": {
+      "word_count": 161,
+      "token_estimate": 270,
+      "sha256": "ce2a0ec7827c79b1a67ae236297c73105d0b00bba04f66ac0d4acfff58331b3d"
+    },
+    "dist/runtime/TASK_CHOOSER.md": {
+      "word_count": 656,
+      "token_estimate": 1334,
+      "sha256": "9095005005ff93dfd0c46e7c1f543421fba6f8f0f26ade3e9626d2281753d472"
     },
     "docs/operator/LIGHTWEIGHT_QUICKSTART.md": {
-      "word_count": 214,
-      "token_estimate": 407,
-      "sha256": "d2bee9570f49d2ce58614329094d8345739523453ba0335a54add62d50a5472a"
+      "word_count": 232,
+      "token_estimate": 415,
+      "sha256": "696ddc37eee2724d988f80fc6ccdc07edecf7ff254bd82d2cdcdda76afe5c1b5"
     },
     "docs/operator/STARTUP_MODES.md": {
-      "word_count": 187,
-      "token_estimate": 321,
-      "sha256": "1c0a7d8ce7eedbd06fe0aaa9f2fb55587ecf14f334044748cb194e2b03c4eaea"
+      "word_count": 202,
+      "token_estimate": 356,
+      "sha256": "d8b37e955c5c9d381363ab99f88af729c328731743ee4d48111cab58ed064556"
     },
     "docs/operator/ROUTE_PICKER.md": {
-      "word_count": 649,
-      "token_estimate": 1403,
-      "sha256": "dfc7a061e49b4d8e615d88af412d108e6a91e182d17deff12feaee73bdf448f3"
+      "word_count": 670,
+      "token_estimate": 1522,
+      "sha256": "81599de0e2db31eae7a9fe0966e340d06e9849d270feaa7c59f6da1425766daa"
+    },
+    "proof/PROOF_STATUS.md": {
+      "word_count": 559,
+      "token_estimate": 1088,
+      "sha256": "ce28060dcdbade93a6d3547d66037d9bc50bf01894ceaee62433e3580d71d5a0"
+    },
+    "proof/status.json": {
+      "word_count": 0,
+      "token_estimate": 0,
+      "sha256": "eac0a164e0caade6a9b185767b6c6ede5e4007b430be2dbb1e4458754c7fa6c4"
     }
   },
   "summary": {
     "lite_route_docs": 18,
     "lite_contract_docs": 17,
-    "lite_starter_docs": 11
+    "lite_starter_docs": 11,
+    "task_launchers": 18
   }
 }

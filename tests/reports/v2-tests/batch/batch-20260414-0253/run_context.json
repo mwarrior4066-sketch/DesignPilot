@@ -1,0 +1,14 @@
+{
+  "purpose": "Parallel runner test; 19-test suite",
+  "pack_version": "2.8",
+  "is_diagnostic": true,
+  "is_valid_quality_signal": false,
+  "known_issues": [
+    "Comparative report was missing \u2014 reconstructed from provider summaries",
+    "Mistral still erroring (SDK import)",
+    "Gemini max_tokens bug still present \u2014 58% largely reflects truncation artifacts"
+  ],
+  "note": "xAI, Claude, and DeepSeek scores are valid for those providers. Overall run incomplete.",
+  "run_id": "batch-20260414-0253",
+  "written_at": "2026-04-14"
+}

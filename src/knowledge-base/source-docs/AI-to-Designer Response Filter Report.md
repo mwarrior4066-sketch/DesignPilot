@@ -57,10 +57,10 @@ A filtered answer that becomes easier to read by becoming less true is a failure
 
 ## Response architecture
 Default response architecture for designer-readable transformation:
-1. **Core verdict** — what the system thinks and why it matters now
-2. **Impact framing** — what changes if the operator follows or ignores the advice
-3. **Constraints and realism** — what still must be true technically or operationally
-4. **Actionable next steps** — the smallest useful move the operator should make next
+1. **Core verdict** - what the system thinks and why it matters now
+2. **Impact framing** - what changes if the operator follows or ignores the advice
+3. **Constraints and realism** - what still must be true technically or operationally
+4. **Actionable next steps** - the smallest useful move the operator should make next
 
 This architecture can compress or expand, but the order should stay stable in most cases because it mirrors how design operators decide.
 

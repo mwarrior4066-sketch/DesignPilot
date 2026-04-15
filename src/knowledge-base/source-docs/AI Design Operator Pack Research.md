@@ -187,7 +187,7 @@ Advanced typography engineering focuses on maximizing legibility and aesthetic i
 
 ### 1. Definition
 
-Typography systems are sets of rules governing the selection and arrangement of type to improve readability.<sup>19</sup> Variable fonts are single files containing an entire family of styles through axes of variation (e.g., wght, wdth, opsz).<sup>15</sup> Optical sizing (opsz) is an axis that optimizes glyph shapes for different sizes—thicker strokes for small text and higher contrast for large text.<sup>17</sup>
+Typography systems are sets of rules governing the selection and arrangement of type to improve readability.<sup>19</sup> Variable fonts are single files containing an entire family of styles through axes of variation (e.g., wght, wdth, opsz).<sup>15</sup> Optical sizing (opsz) is an axis that optimizes glyph shapes for different sizes-thicker strokes for small text and higher contrast for large text.<sup>17</sup>
 
 ### 2. Default rules
 
@@ -466,7 +466,7 @@ Dashboards must transform complex datasets into actionable insights by respectin
 
 ### 1. Definition
 
-A dashboard is an analytical interface that consolidates information for decision-making.<sup>50</sup> Dense-data UX focuses on maximizing the "Data-Ink Ratio"—the proportion of a graphic's "ink" that represents actual data versus decorative elements.<sup>48</sup>
+A dashboard is an analytical interface that consolidates information for decision-making.<sup>50</sup> Dense-data UX focuses on maximizing the "Data-Ink Ratio"-the proportion of a graphic's "ink" that represents actual data versus decorative elements.<sup>48</sup>
 
 ### 2. Default rules
 

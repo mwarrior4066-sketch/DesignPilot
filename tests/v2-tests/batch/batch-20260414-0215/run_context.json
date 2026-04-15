@@ -1,0 +1,15 @@
+{
+  "purpose": "First 19-test suite run; Mistral rate limit diagnosis",
+  "pack_version": "2.8",
+  "is_diagnostic": true,
+  "is_valid_quality_signal": false,
+  "known_issues": [
+    "Mistral rate limit hit \u2014 8s delay too short, all 5 tests errored (0/0 valid)",
+    "Gemini max_tokens=2000 bug still present \u2014 26% pass rate reflects truncation, not quality",
+    "Mistral SDK import bug not yet fixed \u2014 even with fixed delay, would have failed"
+  ],
+  "fixed_from": "19-test cross-model regression suite added (was 5 tests)",
+  "note": "First full-suite run but Mistral and Gemini infrastructure still broken.",
+  "run_id": "batch-20260414-0215",
+  "written_at": "2026-04-14"
+}

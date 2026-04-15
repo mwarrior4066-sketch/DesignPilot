@@ -5,7 +5,7 @@ This file decides the project phase, the gate status, and whether an off-phase w
 
 ## EPIS macro-cycle
 
-### E — Exploration
+### E - Exploration
 Use when the task is about:
 - problem definition
 - market gap
@@ -14,7 +14,7 @@ Use when the task is about:
 - ergonomic or cognitive constraints
 - requirements and risk framing
 
-### P — Preparation
+### P - Preparation
 Use when the task is about:
 - information architecture
 - writing logic
@@ -22,7 +22,7 @@ Use when the task is about:
 - grid, type, color, motion, accessibility, and token design
 - system rules and style guides
 
-### I — Implementation
+### I - Implementation
 Use when the task is about:
 - front-end build decisions
 - back-end-aware constraints
@@ -30,7 +30,7 @@ Use when the task is about:
 - design-to-code translation
 - PDF production and remediation logic
 
-### S — Sustainment
+### S - Sustainment
 Use when the task is about:
 - QA and audits
 - validation
@@ -53,26 +53,26 @@ Use when the task is about:
 ## Gate logic
 Use these gate questions before letting work jump forward.
 
-### Gate 1 — Problem validity
+### Gate 1 - Problem validity
 - is there a real problem, goal, or use case?
 - is the target audience identifiable?
 - is the task more than cosmetic drift?
 
-### Gate 2 — Structural readiness
+### Gate 2 - Structural readiness
 - is the information architecture clear enough?
 - is the primary action clear?
 - are the system constraints known enough to design responsibly?
 
-### Gate 3 — System readiness
+### Gate 3 - System readiness
 - are grid, type, color, motion, and accessibility directions defined enough?
 - are the token and implementation boundaries clear enough?
 
-### Gate 4 — Production readiness
+### Gate 4 - Production readiness
 - is the design implementable?
 - are interaction states, contrast, and motion handled?
 - for PDFs, are structure and extraction requirements clear?
 
-### Gate 5 — Validation readiness
+### Gate 5 - Validation readiness
 - is there enough evidence to audit, report, or package the work?
 
 ## Router behavior

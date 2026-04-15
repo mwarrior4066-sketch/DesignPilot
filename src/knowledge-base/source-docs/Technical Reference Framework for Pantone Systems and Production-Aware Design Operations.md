@@ -8,7 +8,7 @@ A professional color reference library must begin with a clear distinction betwe
 
 ### Solid vs Process Color Mechanics
 
-Solid colors, often referred to as spot colors, represent the truest expression of color intent. These are formulated as single, pre-mixed inks using 18 basic pigments mixed in precise ratios to achieve a target shade.<sup>5</sup> This method allows for the reproduction of colors that exist outside the standard four-color process gamut, such as high-saturation oranges, deep purples, and metallic or neon finishes.<sup>8</sup> In contrast, process colors utilize the CMYK model—Cyan, Magenta, Yellow, and Black—layered in varying screen tint percentages to simulate a color.<sup>5</sup> While process printing is generally more economical for multi-color jobs, it can only accurately reproduce approximately 55% of the Pantone Spot Color library.<sup>8</sup>
+Solid colors, often referred to as spot colors, represent the truest expression of color intent. These are formulated as single, pre-mixed inks using 18 basic pigments mixed in precise ratios to achieve a target shade.<sup>5</sup> This method allows for the reproduction of colors that exist outside the standard four-color process gamut, such as high-saturation oranges, deep purples, and metallic or neon finishes.<sup>8</sup> In contrast, process colors utilize the CMYK model-Cyan, Magenta, Yellow, and Black-layered in varying screen tint percentages to simulate a color.<sup>5</sup> While process printing is generally more economical for multi-color jobs, it can only accurately reproduce approximately 55% of the Pantone Spot Color library.<sup>8</sup>
 
 | **System Component** | **Primary Goal**           | **Ink Formulation**        | **Gamut Achievability**   |
 |----------------------|----------------------------|----------------------------|---------------------------|
@@ -21,7 +21,7 @@ The Formula Guide remains the industry standard for color specification and qual
 
 ### Advanced Process Solutions: Extended Gamut (ECG)
 
-For industries where the cost of custom spot inks is prohibitive but high fidelity is required—such as the packaging and label industry—Extended Gamut (ECG) printing offers a superior alternative to standard CMYK. By adding Orange, Green, and Violet (OGV) base inks to the four-color set, ECG printing can hit roughly 90% of Pantone Spot Colors without requiring custom ink mixing.<sup>8</sup> This approach provides a significant improvement over the Color Bridge guide, where CMYK equivalents are often noticeably duller or shifted in hue.<sup>11</sup>
+For industries where the cost of custom spot inks is prohibitive but high fidelity is required-such as the packaging and label industry-Extended Gamut (ECG) printing offers a superior alternative to standard CMYK. By adding Orange, Green, and Violet (OGV) base inks to the four-color set, ECG printing can hit roughly 90% of Pantone Spot Colors without requiring custom ink mixing.<sup>8</sup> This approach provides a significant improvement over the Color Bridge guide, where CMYK equivalents are often noticeably duller or shifted in hue.<sup>11</sup>
 
 For the design operator, ECG logic should be prioritized in packaging workflows. Since the same seven inks remain in the press at all times, the system reduces downtime, eliminates wash-ups between jobs, and improves press utilization.<sup>13</sup> This results in shorter makereadys and more stable color separations, particularly when used in tandem with professional prepress software like Esko Equinox.<sup>13</sup>
 
@@ -169,7 +169,7 @@ For the pantone_library.md file, this means integrating "agentic" tags that allo
 
 ## Strategy for Fallbacks, Substitutions, and Approximations
 
-When a target Pantone Spot Color is not available—due to budget, printing method, or substrate—the AI must have a clear hierarchy for selecting approximations. This avoids the "fake precision" of choosing a random Hex value that won't print correctly.
+When a target Pantone Spot Color is not available-due to budget, printing method, or substrate-the AI must have a clear hierarchy for selecting approximations. This avoids the "fake precision" of choosing a random Hex value that won't print correctly.
 
 ### Fallback Hierarchy for Print Production
 
@@ -587,7 +587,7 @@ Design systems must integrate substitution logic for accessibility. If a brand g
 
 29. Color Me Hungry: Pantone, Psychology, and the Dining Experience - Total Food Service, accessed April 9, 2026, [<u>https://totalfood.com/color-me-hungry-pantone-psychology-dining-experience/</u>](https://totalfood.com/color-me-hungry-pantone-psychology-dining-experience/)
 
-30. Why is Colour So Important in Packaging Design? — grafipress, accessed April 9, 2026, [<u>https://grafipress.de/en/blogs/news/warum-ist-farbe-im-verpackungsdesign-so-wichtig</u>](https://grafipress.de/en/blogs/news/warum-ist-farbe-im-verpackungsdesign-so-wichtig)
+30. Why is Colour So Important in Packaging Design? - grafipress, accessed April 9, 2026, [<u>https://grafipress.de/en/blogs/news/warum-ist-farbe-im-verpackungsdesign-so-wichtig</u>](https://grafipress.de/en/blogs/news/warum-ist-farbe-im-verpackungsdesign-so-wichtig)
 
 31. Food and Color: What Does It All Mean? - TraceGains, accessed April 9, 2026, [<u>https://tracegains.com/blog/food-and-color-what-does-it-all-mean/</u>](https://tracegains.com/blog/food-and-color-what-does-it-all-mean/)
 

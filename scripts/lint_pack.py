@@ -1,12 +1,19 @@
 #!/usr/bin/env python3
+from __future__ import annotations
+
 import argparse
 import json
 import re
 from datetime import date, datetime
 from pathlib import Path
+import sys
 
 ROOT = Path(__file__).resolve().parents[1]
-SEMVER_RE = re.compile(r'^\d+\.\d+\.\d+$')
+sys.path.insert(0, str(ROOT / 'scripts'))
+
+from _validation import build_report, exit_code_for, issues_from_legacy, print_report, write_report
+
+VERSION_RE = re.compile(r'^\d+\.\d+(?:\.\d+)?$')
 MIRROR_DOCS = {
     'src/operator/governance/OUTPUT_CONTRACTS_BY_TASK.md': 120,
     'src/operator/governance/RUNTIME_VALIDATION_LAYER.md': 35,
@@ -14,6 +21,15 @@ MIRROR_DOCS = {
     'src/operator/governance/PACK_QUALITY_RUBRIC.md': 12,
 }
 PLACEHOLDER_PATTERNS = ['placeholder', 'tbd', 'lorem ipsum', 'route is explicit', 'required sections are visible']
+
+EM_DASH_SCAN_PATHS = [
+    'QUICKSTART.md',
+    'README.md',
+    'src/operator/**/*.md',
+    'src/skills/*.md',
+    'docs/operator/**/*.md',
+    'dist/**/*.md',
+]
 
 
 def check_frontmatter(path: Path, required_fields):
@@ -54,7 +70,6 @@ def startup_conflict_checks(pack_root: Path):
     return errors
 
 
-
 def continuity_version_checks(pack_root: Path, version: str):
     errors = []
     current_files = {
@@ -69,7 +84,6 @@ def continuity_version_checks(pack_root: Path, version: str):
                 errors.append(f'continuity file out of sync: {rel} missing {snippet}')
     index_files = [
         'src/knowledge-base/indices/source_doc_sections.json',
-        'src/knowledge-base/indices/source_section_map.json',
         'src/knowledge-base/indices/runtime_summary_map.json',
     ]
     for rel in index_files:
@@ -78,17 +92,14 @@ def continuity_version_checks(pack_root: Path, version: str):
             errors.append(f'index metadata version mismatch: {rel}')
     return errors
 
-def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument('pack_root', nargs='?', default='.')
-    parser.add_argument('--strict', action='store_true')
-    args = parser.parse_args()
-    pack_root = Path(args.pack_root).resolve()
-    errors, warnings = [], []
+
+def lint_pack(pack_root: Path | str = ROOT) -> dict:
+    pack_root = Path(pack_root).resolve()
+    errors, warnings, infos = [], [], []
 
     manifest = json.loads((pack_root / 'PACK_MANIFEST.json').read_text(encoding='utf-8'))
     version = manifest.get('version')
-    if not SEMVER_RE.match(str(version or '')):
+    if not VERSION_RE.match(str(version or '')):
         errors.append(f'manifest version invalid: {version}')
     readme = (pack_root / 'README.md').read_text(encoding='utf-8')
     if f'v{version}' not in readme:
@@ -122,13 +133,21 @@ def main():
             errors.append(f'mirror doc too thin: {rel} ({lines} < {min_lines})')
 
     for folder, required in [
-        ('skills', ['skill_version', 'source_reference', 'last_updated', 'synchronized', 'canonical_owner', 'domain']),
+        ('src/skills', ['skill_version', 'source_reference', 'last_updated', 'synchronized', 'canonical_owner', 'domain']),
         ('src/knowledge-base/summaries', ['summary_version', 'source_reference', 'last_updated', 'synchronized', 'domain'])
     ]:
         for path in (pack_root / folder).glob('*.md'):
             e, w = check_frontmatter(path, required)
             errors.extend(e)
             warnings.extend(w)
+
+    for pattern in EM_DASH_SCAN_PATHS:
+        for path in pack_root.glob(pattern):
+            if not path.is_file():
+                continue
+            text = path.read_text(encoding='utf-8', errors='ignore')
+            if '—' in text:
+                errors.append(f'em dash found in AI-facing file: {path.relative_to(pack_root)}')
 
     for folder in ['examples', 'projects/designpilot', 'tests/evals']:
         for path in (pack_root / folder).rglob('*'):
@@ -156,6 +175,35 @@ def main():
         if not (pack_root / rel).exists():
             errors.append(f'missing v2.5.0 control file: {rel}')
 
+    # V4: Warn on decisions with fewer than 4 any_of tokens -- likely undetectable
+    contracts_path = pack_root / 'src' / 'schemas' / 'task_contracts.json'
+    if contracts_path.exists():
+        contracts = json.loads(contracts_path.read_text(encoding='utf-8'))
+        for task in contracts.get('tasks', []):
+            for dec in task.get('required_decisions', []):
+                n = len(dec.get('any_of', []))
+                if n < 4:
+                    warnings.append(
+                        f"decision '{dec['id']}' in '{task['task_id']}' has {n} any_of token(s) "
+                        f"(minimum 4 recommended) -- may not be reliably detectable"
+                    )
+
+    # V5: Warn if section_aliases.json is missing or doesn't cover all required sections
+    aliases_path = pack_root / 'src' / 'schemas' / 'section_aliases.json'
+    if not aliases_path.exists():
+        errors.append('section_aliases.json missing -- add src/schemas/section_aliases.json')
+    else:
+        aliases = json.loads(aliases_path.read_text(encoding='utf-8')).get('aliases', {})
+        if contracts_path.exists():
+            for task in contracts.get('tasks', []):
+                for sec in task.get('required_sections', []):
+                    name = sec.get('name', sec) if isinstance(sec, dict) else sec
+                    if name.lower() not in aliases:
+                        warnings.append(
+                            f"required section '{name}' in '{task['task_id']}' has no entry in "
+                            f"section_aliases.json -- add aliases to improve model heading matching"
+                        )
+
     errors.extend(startup_conflict_checks(pack_root))
     errors.extend(continuity_version_checks(pack_root, version))
 
@@ -165,18 +213,23 @@ def main():
     if (pack_root / '__pycache__').exists():
         warnings.append('__pycache__ directory present')
 
-    if errors:
-        print('FAIL')
-        for e in errors:
-            print('  ERROR', e)
-        for w in warnings:
-            print('  WARN', w)
-        if args.strict:
-            raise SystemExit(1)
-    else:
-        print('PASS')
-        for w in warnings:
-            print('  WARN', w)
+    report = build_report(
+        'lint_pack',
+        issues_from_legacy(errors=errors, warnings=warnings, infos=infos, source='scripts/lint_pack.py'),
+        metrics={'version': version, 'required_examples': len(required_examples), 'missing_examples': len(missing_examples)},
+    )
+    return report
+
+
+def main() -> None:
+    parser = argparse.ArgumentParser()
+    parser.add_argument('pack_root', nargs='?', default='.')
+    parser.add_argument('--strict', action='store_true', help='Deprecated; errors already fail by default. Kept for compatibility.')
+    args = parser.parse_args()
+    report = lint_pack(Path(args.pack_root))
+    write_report(Path(args.pack_root).resolve() / 'dist' / 'lint_pack_report.json', report)
+    print_report(report)
+    raise SystemExit(exit_code_for(report))
 
 
 if __name__ == '__main__':

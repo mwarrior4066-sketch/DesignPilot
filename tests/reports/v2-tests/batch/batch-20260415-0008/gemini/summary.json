@@ -1,0 +1,849 @@
+{
+  "provider": "gemini",
+  "model": "gemini-2.5-flash",
+  "mode": "pack",
+  "tests_run": 20,
+  "errors": 0,
+  "pass_count": 19,
+  "pass_rate": 0.95,
+  "gate_passed": true,
+  "avg_composite": 86.2,
+  "rubric_means": {
+    "intent_alignment": 4.5,
+    "actionability": 3.75,
+    "structural_rigor": 4.65,
+    "evidence_use": 3.5,
+    "implementation_realism": 3.85
+  },
+  "passed_by_rubric_only": 2,
+  "rubric_decisive_count": 2,
+  "results": [
+    {
+      "test_id": "pass-01",
+      "title": "UI structure critique canonical pass",
+      "task": "ui_structure_critique",
+      "mode": "pack",
+      "validator_decision": "PASS",
+      "validator_score": 96,
+      "validator_pass": true,
+      "rubric_mean": 3.6,
+      "rubric_gate_pass": true,
+      "composite_score": 86.4,
+      "composite_pass": true,
+      "rubric_decisive": false,
+      "passed": true,
+      "passed_by": "validator",
+      "latency_seconds": 17.11,
+      "issues": [
+        {
+          "id": "missing_rationale",
+          "severity": "soft",
+          "detail": "causal language not attached near recommendations \u2014 add \"because/without which/this requires\" adjacent to each recommendation"
+        }
+      ],
+      "warnings": [],
+      "unmatched_sections": [],
+      "vocab_warnings": [],
+      "rubric": {
+        "intent_alignment": 4,
+        "actionability": 3,
+        "structural_rigor": 4,
+        "evidence_use": 3,
+        "implementation_realism": 4,
+        "rationale": "Intent alignment: Response directly audits the stated issues (small CTA, inaccessible colors) and frames them within B2B SaaS context; minor drift into speculative 'information overload' not explicitly flagged in prompt. | Actionability: Recommendations are directional but lack specificity\u2014e.g., 'increase size and contrast' without concrete pixel targets, button dimensions, or color palette examples; WCAG reference is correct but no tool links or before/after contrast ratios provided. | Structural_rigor: Clear problem-finding, finding-to-recommendation mapping, and tradeoff articulation; decision logic is hierarchical (accessibility first) and justified; SESSION_STATE adds unnecessary meta-markup without substantive value. | Evidence_use: WCAG 2.1 AA/AAA cited appropriately; 'color contrast checker' mentioned but not linked; claims about user behavior rest on 'standard UX principles' rather than quantified thresholds (e.g., minimum button size, acceptable contrast ratios); confidence boundary acknowledged. | Implementation_realism: Suggestions are technically feasible (resize CTA, swap colors, add borders/icons); however, no consideration of CMS constraints, breakpoint impacts, or dev effort; assumes simple linear implementation without discussing rollout risk or A/B testing. Verbosity and jargon density ('hierarchy_winner', 'intervention_order', 'tradeoff_resolution') reduce clarity without adding precision."
+      },
+      "output_file": "tests/live_outputs/batch/batch-20260415-0008/gemini/pass-01_pack.md"
+    },
+    {
+      "test_id": "pass-02",
+      "title": "Component specification canonical pass",
+      "task": "component_spec",
+      "mode": "pack",
+      "validator_decision": "AUTO_REVISE",
+      "validator_score": 90,
+      "validator_pass": true,
+      "rubric_mean": 4.4,
+      "rubric_gate_pass": true,
+      "composite_score": 89.2,
+      "composite_pass": true,
+      "rubric_decisive": false,
+      "passed": true,
+      "passed_by": "validator",
+      "latency_seconds": 17.18,
+      "issues": [],
+      "warnings": [
+        {
+          "id": "thin_section",
+          "severity": "soft",
+          "detail": "section Accessibility and implementation notes too thin: 0 < 35"
+        },
+        {
+          "id": "missing_alternative",
+          "severity": "soft",
+          "detail": "no alternative path was named"
+        }
+      ],
+      "unmatched_sections": [],
+      "vocab_warnings": [],
+      "rubric": {
+        "intent_alignment": 5,
+        "actionability": 4,
+        "structural_rigor": 5,
+        "evidence_use": 4,
+        "implementation_realism": 4,
+        "rationale": "Response directly addresses all requirements (primary action, secondary dropdown, keyboard support, disabled/loading states, mobile touch targets) without digression. | Designer can immediately extract anatomy, state matrix, and accessibility rules; developer has clear ARIA mapping and interaction logic, though CSS/code examples would accelerate implementation. | Hierarchical organization (purpose \u2192 anatomy \u2192 states \u2192 accessibility) with explicit decision logic (e.g., Tab focus sequence, Escape behavior, disabled prevents re-submission). | Claims tied to WCAG 2.1 SC 2.5.5 (44\u00d744px target), HTML disabled attribute, aria-expanded semantics; could strengthen with specific contrast ratios or loading animation duration thresholds. | Proposal is technically sound (focus management, pointer-events: none, role/aria mapping follow WAI-ARIA menu pattern); operationally believable but lacks consideration of dropdown positioning collision detection on mobile or specific loader UX (spinner vs. text replacement trade-offs)."
+      },
+      "output_file": "tests/live_outputs/batch/batch-20260415-0008/gemini/pass-02_pack.md"
+    },
+    {
+      "test_id": "pass-03",
+      "title": "Dashboard audit canonical pass",
+      "task": "dashboard_audit",
+      "mode": "pack",
+      "validator_decision": "AUTO_REVISE",
+      "validator_score": 92,
+      "validator_pass": true,
+      "rubric_mean": 4.6,
+      "rubric_gate_pass": true,
+      "composite_score": 92.0,
+      "composite_pass": true,
+      "rubric_decisive": false,
+      "passed": true,
+      "passed_by": "validator",
+      "latency_seconds": 14.32,
+      "issues": [
+        {
+          "id": "missing_rationale",
+          "severity": "soft",
+          "detail": "causal language not attached near recommendations \u2014 add \"because/without which/this requires\" adjacent to each recommendation"
+        }
+      ],
+      "warnings": [
+        {
+          "id": "missing_alternative",
+          "severity": "soft",
+          "detail": "no alternative path was named"
+        }
+      ],
+      "unmatched_sections": [],
+      "vocab_warnings": [],
+      "rubric": {
+        "intent_alignment": 5,
+        "actionability": 4,
+        "structural_rigor": 5,
+        "evidence_use": 5,
+        "implementation_realism": 4,
+        "rationale": "The response directly addresses all three audit failures (KPIs, chart, navigation) without drift. | Designers can immediately act on the three rebuild recommendations, though some proposals (e.g., 'interactive legend') lack specific implementation specs. | The response follows strict hierarchy: role \u2192 failures \u2192 evidence \u2192 rebuild path, with explicit decision labels and tradeoff acknowledgment. | Claims are grounded in explicit constraints (cognitive load, scan cost threshold), artifact types (comparison, mapping), and principle-based reasoning (7\u00b12 heuristic). | Recommendations are technically feasible but the 'interactive legend' and grouping strategies lack detail on interaction patterns, responsive behavior, or validation criteria for group cardinality."
+      },
+      "output_file": "tests/live_outputs/batch/batch-20260415-0008/gemini/pass-03_pack.md"
+    },
+    {
+      "test_id": "pass-04",
+      "title": "Backend feasibility canonical pass",
+      "task": "backend_feasibility_review",
+      "mode": "pack",
+      "validator_decision": "FAIL",
+      "validator_score": 87,
+      "validator_pass": false,
+      "rubric_mean": 4.6,
+      "rubric_gate_pass": true,
+      "composite_score": 89.0,
+      "composite_pass": true,
+      "rubric_decisive": true,
+      "passed": true,
+      "passed_by": "rubric",
+      "latency_seconds": 25.34,
+      "issues": [
+        {
+          "id": "unsupported_superlative",
+          "severity": "hard",
+          "detail": "battle-tested used without the required proof class"
+        }
+      ],
+      "warnings": [
+        {
+          "id": "missing_route_traceability",
+          "severity": "soft",
+          "detail": "visible trace was expected but route metadata is not recoverable enough for debugging"
+        }
+      ],
+      "unmatched_sections": [],
+      "vocab_warnings": [],
+      "rubric": {
+        "intent_alignment": 5,
+        "actionability": 4,
+        "structural_rigor": 5,
+        "evidence_use": 4,
+        "implementation_realism": 5,
+        "rationale": "Response directly addresses all three requested elements (hidden requirements, feasibility assessment, phased path) with zero drift. | Actionability is high with specific library names (Yjs, ShareDB) and concrete steps, but Phase 2-3 lack explicit tech stack decisions (Node.js chosen but alternatives not weighed). | Structure is exemplary: clear hierarchy (requirements \u2192 blockers \u2192 phases), sequential logic, and decision gates at each phase checkpoint. | Evidence is strong (REST/WebSocket mismatch, CRDT complexity, schema redesign) but could quantify scaling thresholds (e.g., 'concurrent connections per instance') or cite specific failure modes. | Implementation is realistic: correctly identifies microservice isolation as mandatory, acknowledges library dependency over custom OT, and phases PoC \u2192 service \u2192 scalability with measurable gates."
+      },
+      "output_file": "tests/live_outputs/batch/batch-20260415-0008/gemini/pass-04_pack.md"
+    },
+    {
+      "test_id": "pass-05",
+      "title": "PDF plus accessibility compound ask",
+      "task": "pdf_remediation_plan",
+      "mode": "pack",
+      "validator_decision": "PASS",
+      "validator_score": 100,
+      "validator_pass": true,
+      "rubric_mean": 4.2,
+      "rubric_gate_pass": true,
+      "composite_score": 93.6,
+      "composite_pass": true,
+      "rubric_decisive": false,
+      "passed": true,
+      "passed_by": "validator",
+      "latency_seconds": 15.09,
+      "issues": [],
+      "warnings": [],
+      "unmatched_sections": [],
+      "vocab_warnings": [],
+      "rubric": {
+        "intent_alignment": 5,
+        "actionability": 4,
+        "structural_rigor": 5,
+        "evidence_use": 3,
+        "implementation_realism": 4,
+        "rationale": "Response directly addresses all stated problems (two-column layout, pull quotes, untagged images, broken TOC links) with no drift. | Designer/developer can immediately execute either path (InDesign or Acrobat), though Acrobat steps lack specific UI navigation detail for some complex tasks like Order panel reordering. | Answer demonstrates clear hierarchy (problem framing \u2192 failure states \u2192 two conditional remediation paths \u2192 verification \u2192 risk controls) with explicit sequencing and decision logic. | Claims are functional but lack threshold data or empirical grounding; e.g., 'broken links' are identified as failures but no validation criteria are provided, and 'logical reading order' is asserted without reference to WCAG criteria or specific metrics. | Proposal is technically sound and operationally credible; InDesign-first path is established best practice, Acrobat fallback is realistic but labor-intensive as stated; verification steps are standard industry practice."
+      },
+      "output_file": "tests/live_outputs/batch/batch-20260415-0008/gemini/pass-05_pack.md"
+    },
+    {
+      "test_id": "pass-06",
+      "title": "Brand positioning canonical pass",
+      "task": "brand_positioning_pass",
+      "mode": "pack",
+      "validator_decision": "AUTO_REVISE",
+      "validator_score": 78,
+      "validator_pass": true,
+      "rubric_mean": 3.2,
+      "rubric_gate_pass": true,
+      "composite_score": 72.4,
+      "composite_pass": true,
+      "rubric_decisive": false,
+      "passed": true,
+      "passed_by": "validator",
+      "latency_seconds": 14.91,
+      "issues": [],
+      "warnings": [
+        {
+          "id": "thin_section",
+          "severity": "soft",
+          "detail": "section Positioning frame too thin: 20 < 35"
+        },
+        {
+          "id": "thin_section",
+          "severity": "soft",
+          "detail": "section Trust and proof burden too thin: 18 < 30"
+        },
+        {
+          "id": "thin_section",
+          "severity": "soft",
+          "detail": "section Messaging consequences too thin: 8 < 25"
+        },
+        {
+          "id": "missing_alternative",
+          "severity": "soft",
+          "detail": "no alternative path was named"
+        }
+      ],
+      "unmatched_sections": [],
+      "vocab_warnings": [],
+      "rubric": {
+        "intent_alignment": 4,
+        "actionability": 3,
+        "structural_rigor": 4,
+        "evidence_use": 2,
+        "implementation_realism": 3,
+        "rationale": "Response directly addresses the positioning ask and avoids tangential strategy work, but doesn't prescribe immediate next steps like messaging templates or positioning statement syntax. | The output gives strategic direction and tone principles, but lacks concrete artifacts (e.g., a one-line positioning statement, feature prioritization matrix, or campaign brief skeleton) that a designer or marketer could hand off immediately. | Answer is well-organized with clear sections (audience, competitors, positioning frame, trust logic, messaging), logical flow, and explicit trade-offs stated, though the decision tree could be sharper on *why* this territory beats alternatives. | Claims about trust-building and freelancer pain points are intuitive but lack quantified thresholds, user research citations, or competitive win/loss data; proof burden section lists *what* to show but not baseline metrics for validation. | The positioning is plausible and the trust-through-transparency model is operationally sound, but the response doesn't address go-to-market sequencing, how to validate positioning with early users, or realistic resource constraints for implementing the proactive guidance pillar."
+      },
+      "output_file": "tests/live_outputs/batch/batch-20260415-0008/gemini/pass-06_pack.md"
+    },
+    {
+      "test_id": "pass-07",
+      "title": "Case study plus brand framing compound ask",
+      "task": "case_study_rewrite",
+      "mode": "pack",
+      "validator_decision": "FAIL",
+      "validator_score": 72,
+      "validator_pass": false,
+      "rubric_mean": 4.2,
+      "rubric_gate_pass": true,
+      "composite_score": 76.8,
+      "composite_pass": true,
+      "rubric_decisive": true,
+      "passed": true,
+      "passed_by": "rubric",
+      "latency_seconds": 9.62,
+      "issues": [
+        {
+          "id": "missing_tradeoff",
+          "severity": "hard",
+          "detail": "no explicit tradeoff language found"
+        },
+        {
+          "id": "missing_required_decision",
+          "severity": "hard",
+          "detail": "missing required decision `honesty_tradeoff`: Resolves narrative smoothness against evidentiary honesty."
+        },
+        {
+          "id": "overclaim_without_evidence",
+          "severity": "hard",
+          "detail": "overclaim rule `no_external_validation_claim` triggered by: validated"
+        }
+      ],
+      "warnings": [],
+      "unmatched_sections": [],
+      "vocab_warnings": [],
+      "rubric": {
+        "intent_alignment": 5,
+        "actionability": 4,
+        "structural_rigor": 5,
+        "evidence_use": 3,
+        "implementation_realism": 4,
+        "rationale": "Response directly transforms vague anecdote into portfolio-ready case study with clear problem-process-solution-outcome structure. | Designer can immediately copy structure and adapt to their own project; specific section headers and artifact types (wireframes, prototypes) guide next steps, though could specify metrics collection method. | Four-part hierarchy (Problem\u2192Process\u2192Solution\u2192Outcome) with logical sequence and clear decision gates (research\u2192wireframes\u2192prototypes\u2192collaboration) demonstrates rigorous thinking. | Claims conversion improvement but provides no detail on baseline, measurement window, sample size, or statistical confidence\u201440% lacks supporting thresholds or proof type (A/B test, analytics snapshot, etc.). | Technical feasibility and cross-functional collaboration are credible; however, the solution list remains abstract (\"simplified information architecture\") without concrete examples of what changed or how engineering constraints were resolved."
+      },
+      "output_file": "tests/live_outputs/batch/batch-20260415-0008/gemini/pass-07_pack.md"
+    },
+    {
+      "test_id": "pass-08",
+      "title": "Accessibility audit canonical pass",
+      "task": "accessibility_feedback_audit",
+      "mode": "pack",
+      "validator_decision": "AUTO_REVISE",
+      "validator_score": 94,
+      "validator_pass": true,
+      "rubric_mean": 5.0,
+      "rubric_gate_pass": true,
+      "composite_score": 96.4,
+      "composite_pass": true,
+      "rubric_decisive": false,
+      "passed": true,
+      "passed_by": "validator",
+      "latency_seconds": 16.35,
+      "issues": [],
+      "warnings": [
+        {
+          "id": "thin_section",
+          "severity": "soft",
+          "detail": "section Repair priorities too thin: 40 < 45"
+        }
+      ],
+      "unmatched_sections": [],
+      "vocab_warnings": [],
+      "rubric": {
+        "intent_alignment": 5,
+        "actionability": 5,
+        "structural_rigor": 5,
+        "evidence_use": 5,
+        "implementation_realism": 5,
+        "rationale": "Response directly addresses all four requested elements (failures, prioritized inventory, repair plan, verification methods) without drift. | Designers and developers can immediately execute each repair with specific code patterns (aria-label, label elements, aria-live, accessibilityLabel) and platform guidance (iOS/Android equivalents). | Answer uses clear hierarchy (barrier inventory \u2192 priority tiers \u2192 repair-by-repair plan), logical sequencing (critical before high), and decision logic for when to apply which techniques. | Every claim is anchored to explicit WCAG rules (1.1.1, 2.4.4, 3.3.2, 1.3.1, 1.4.1, 4.1.2) with threshold-based evidence (color contrast AAA, aria-live assertive vs. polite, visible + programmatic labels). | Proposals are technically credible (native label associations, aria-live regions, accessibilityLabel on mobile) and operationally feasible (standard mobile accessibility patterns already supported by iOS/Android frameworks)."
+      },
+      "output_file": "tests/live_outputs/batch/batch-20260415-0008/gemini/pass-08_pack.md"
+    },
+    {
+      "test_id": "pass-09",
+      "title": "Color system canonical pass",
+      "task": "color_system_spec",
+      "mode": "pack",
+      "validator_decision": "AUTO_REVISE",
+      "validator_score": 96,
+      "validator_pass": true,
+      "rubric_mean": 4.4,
+      "rubric_gate_pass": true,
+      "composite_score": 92.8,
+      "composite_pass": true,
+      "rubric_decisive": false,
+      "passed": true,
+      "passed_by": "validator",
+      "latency_seconds": 22.85,
+      "issues": [],
+      "warnings": [
+        {
+          "id": "missing_alternative",
+          "severity": "soft",
+          "detail": "no alternative path was named"
+        }
+      ],
+      "unmatched_sections": [],
+      "vocab_warnings": [],
+      "rubric": {
+        "intent_alignment": 5,
+        "actionability": 4,
+        "structural_rigor": 5,
+        "evidence_use": 4,
+        "implementation_realism": 4,
+        "rationale": "Response directly addresses all four requested areas (semantic roles, token structure, contrast rules, migration plan) without drift. | Designers and developers can immediately adopt the token naming convention and hex values; however, the dark-mode data visualization colors lack explicit luminance calibration guidance, requiring some interpretation. | Answer demonstrates clear hierarchy (Role Model \u2192 Token Map \u2192 Contrast Rules \u2192 Migration), decision logic within phases, and explicit sequencing from tokenization through deprecation. | Claims are grounded in WCAG AA thresholds (4.5:1 for normal text, 3:1 for large), no-color-only semantics principle, and explicit testing methods; dark-mode contrast validation is mentioned but not proved with actual ratio checks. | Migration phases are operationally realistic and prioritize high-risk areas (status, critical feedback) first, though Phase 1 tokenization cost and existing codebase complexity are not quantified\u2014some legacy systems may struggle with retroactive refactoring."
+      },
+      "output_file": "tests/live_outputs/batch/batch-20260415-0008/gemini/pass-09_pack.md"
+    },
+    {
+      "test_id": "pass-10",
+      "title": "Graphic critique canonical pass",
+      "task": "graphic_critique",
+      "mode": "pack",
+      "validator_decision": "PASS",
+      "validator_score": 96,
+      "validator_pass": true,
+      "rubric_mean": 4.6,
+      "rubric_gate_pass": true,
+      "composite_score": 94.4,
+      "composite_pass": true,
+      "rubric_decisive": false,
+      "passed": true,
+      "passed_by": "validator",
+      "latency_seconds": 11.23,
+      "issues": [
+        {
+          "id": "missing_rationale",
+          "severity": "soft",
+          "detail": "causal language not attached near recommendations \u2014 add \"because/without which/this requires\" adjacent to each recommendation"
+        }
+      ],
+      "warnings": [],
+      "unmatched_sections": [],
+      "vocab_warnings": [],
+      "rubric": {
+        "intent_alignment": 5,
+        "actionability": 4,
+        "structural_rigor": 5,
+        "evidence_use": 4,
+        "implementation_realism": 5,
+        "rationale": "The response directly addresses the user's critique and proposes a comprehensive fix to the hierarchy problem. | A designer can immediately identify four rebuild moves with concrete tactics (text containers, typeface swaps, muted backgrounds, logo repositioning), though some recommendations lack specificity on exact sizing or opacity values. | The answer flows from communication goal \u2192 failures \u2192 rebuild moves \u2192 tradeoff analysis, with clear logical nesting and decision trees throughout. | Claims about legibility and contrast are sound but reference WCAG without threshold specifics; the 'distance and emphasis tradeoff' section frames the problem well but lacks quantitative scannability metrics. | The proposed solutions (overlays, blur, contrast fixes, container-based layouts) are standard, proven techniques that reflect real production constraints and vendor capabilities."
+      },
+      "output_file": "tests/live_outputs/batch/batch-20260415-0008/gemini/pass-10_pack.md"
+    },
+    {
+      "test_id": "pass-11",
+      "title": "Layout reconstruction from legacy artifact",
+      "task": "layout_reconstruction_plan",
+      "mode": "pack",
+      "validator_decision": "AUTO_REVISE",
+      "validator_score": 92,
+      "validator_pass": true,
+      "rubric_mean": 2.0,
+      "rubric_gate_pass": false,
+      "composite_score": 71.2,
+      "composite_pass": true,
+      "rubric_decisive": false,
+      "passed": true,
+      "passed_by": "validator",
+      "latency_seconds": 19.23,
+      "issues": [
+        {
+          "id": "missing_rationale",
+          "severity": "soft",
+          "detail": "causal language not attached near recommendations \u2014 add \"because/without which/this requires\" adjacent to each recommendation"
+        }
+      ],
+      "warnings": [
+        {
+          "id": "missing_alternative",
+          "severity": "soft",
+          "detail": "no alternative path was named"
+        }
+      ],
+      "unmatched_sections": [],
+      "vocab_warnings": [],
+      "rubric": {
+        "intent_alignment": 2,
+        "actionability": 2,
+        "structural_rigor": 3,
+        "evidence_use": 1,
+        "implementation_realism": 2,
+        "rationale": "Response frames the problem theoretically but never specifies *what to extract from the PDF itself*\u2014no concrete extraction checklist, parsing workflow, or file output format (JSON token file, CSS variables, Figma tokens, spreadsheet structure). | Designer cannot act: no tool recommendations (Adobe, Python scripts, Figma plugins), no extraction template, no sample output format, and no priority ranking of what to extract first. | Structure exists (problem framing, findings, recommendations, tradeoffs) but collapses into generic modernization advice rather than a sequenced extraction-then-translation pipeline with decision gates. | Zero evidence: no thresholds for confidence (e.g., 'grid spacing inferred with 70% confidence if gap between items is consistent \u00b12px'), no constraint documentation, no proof types for extracting grid vs. spacing vs. typography. | Unrealistic: assumes manual PDF analysis without specifying who does it, how long, what tool, or how to handle ambiguity in old diagrams; 'infer breakpoints' and 'infer responsive behavior' are vague; no mention of actual implementation blockers (e.g., CSS Grid vs. Flexbox trade-offs, token syntax for target platform, migration timeline)."
+      },
+      "output_file": "tests/live_outputs/batch/batch-20260415-0008/gemini/pass-11_pack.md"
+    },
+    {
+      "test_id": "pass-12",
+      "title": "Type system canonical pass",
+      "task": "type_system_recommendation",
+      "mode": "pack",
+      "validator_decision": "AUTO_REVISE",
+      "validator_score": 91,
+      "validator_pass": true,
+      "rubric_mean": 4.8,
+      "rubric_gate_pass": true,
+      "composite_score": 93.0,
+      "composite_pass": true,
+      "rubric_decisive": false,
+      "passed": true,
+      "passed_by": "validator",
+      "latency_seconds": 21.91,
+      "issues": [],
+      "warnings": [
+        {
+          "id": "thin_section",
+          "severity": "soft",
+          "detail": "section Scale and role map too thin: 24 < 40"
+        },
+        {
+          "id": "missing_route_traceability",
+          "severity": "soft",
+          "detail": "visible trace was expected but route metadata is not recoverable enough for debugging"
+        }
+      ],
+      "unmatched_sections": [],
+      "vocab_warnings": [],
+      "rubric": {
+        "intent_alignment": 5,
+        "actionability": 5,
+        "structural_rigor": 5,
+        "evidence_use": 4,
+        "implementation_realism": 5,
+        "rationale": "Response directly addresses all four requested components (reading contexts, scale/role map, readability rules, phased adoption) with zero drift. | Designers can immediately apply the scale table, token names, and specific CSS properties (tabular-nums, line-height ratios); developers have fallback stacks and WCAG thresholds. | Answer follows clear hierarchy: contexts \u2192 typeface selection \u2192 detailed scale table \u2192 rules with numerical justifications \u2192 seven-step adoption sequence. | Claims are grounded in WCAG 2.1 AA thresholds and Inter's documented features, but lacks explicit research citations (e.g., no CPL studies or fintech usability benchmarks cited, though recommendations are standard). | Phased rollout sequence is operationally credible, token-based abstraction is real-world practice, and component-library approach aligns with actual design systems\u2014no unrealistic demands on teams."
+      },
+      "output_file": "tests/live_outputs/batch/batch-20260415-0008/gemini/pass-12_pack.md"
+    },
+    {
+      "test_id": "pass-13",
+      "title": "UX research gap map canonical pass",
+      "task": "ux_research_gap_map",
+      "mode": "pack",
+      "validator_decision": "PASS",
+      "validator_score": 100,
+      "validator_pass": true,
+      "rubric_mean": 3.2,
+      "rubric_gate_pass": true,
+      "composite_score": 85.6,
+      "composite_pass": true,
+      "rubric_decisive": false,
+      "passed": true,
+      "passed_by": "validator",
+      "latency_seconds": 11.32,
+      "issues": [],
+      "warnings": [],
+      "unmatched_sections": [],
+      "vocab_warnings": [],
+      "rubric": {
+        "intent_alignment": 4,
+        "actionability": 3,
+        "structural_rigor": 4,
+        "evidence_use": 3,
+        "implementation_realism": 2,
+        "rationale": "Response directly addresses the gap-mapping ask and prioritizes the 60% drop-off correctly as the first focus, but the three-phase sequence lacks specificity on resource allocation and timing windows. | Team can initiate Phase 1 interviews immediately, but Phase 2 and 3 lack concrete recruitment criteria, sample sizes, or success metrics\u2014no designer knows whether 5-8 power users is adequate or how to segment them. | Clear hierarchy (known \u2192 gaps \u2192 three-phase plan) with logical sequencing and decision impacts articulated, though decision framings (hierarchy_winner, kpi_failure) are jargon-heavy. | Claims reference evidence classes (behavioral metric, motivation gap) but don't anchor to concrete thresholds (e.g., what drop-off rate would justify skipping this phase?) or link recommendations to the specific 3 interviews and 2 usability tests already completed. | Assumes access to event logging, micro-surveys, and segmented usage analytics without verifying current infrastructure; suggests 5-8 power user interviews without accounting for recruitment friction in B2B settings or accounting for the team's research capacity to execute all three phases in parallel."
+      },
+      "output_file": "tests/live_outputs/batch/batch-20260415-0008/gemini/pass-13_pack.md"
+    },
+    {
+      "test_id": "pass-14",
+      "title": "Front-end architecture canonical pass",
+      "task": "frontend_implementation_review",
+      "mode": "pack",
+      "validator_decision": "AUTO_REVISE",
+      "validator_score": 81,
+      "validator_pass": true,
+      "rubric_mean": 4.4,
+      "rubric_gate_pass": true,
+      "composite_score": 83.8,
+      "composite_pass": true,
+      "rubric_decisive": false,
+      "passed": true,
+      "passed_by": "validator",
+      "latency_seconds": 17.5,
+      "issues": [],
+      "warnings": [
+        {
+          "id": "thin_section",
+          "severity": "soft",
+          "detail": "section Boundary and state model too thin: 33 < 45"
+        },
+        {
+          "id": "thin_section",
+          "severity": "soft",
+          "detail": "section Risks and safer path too thin: 0 < 30"
+        },
+        {
+          "id": "missing_alternative",
+          "severity": "soft",
+          "detail": "no alternative path was named"
+        },
+        {
+          "id": "missing_route_traceability",
+          "severity": "soft",
+          "detail": "visible trace was expected but route metadata is not recoverable enough for debugging"
+        }
+      ],
+      "unmatched_sections": [],
+      "vocab_warnings": [],
+      "rubric": {
+        "intent_alignment": 5,
+        "actionability": 4,
+        "structural_rigor": 5,
+        "evidence_use": 4,
+        "implementation_realism": 4,
+        "rationale": "Response directly addresses all four core asks (safer architecture, state handling, accessibility, permissions) without tangent | Specific technical recommendations (unified status enum, SSR/PPR, native buttons, pessimistic updates) are implementable, though SSR/PPR requires team capability assessment | Clear hierarchical structure: framing \u2192 boundary model \u2192 rendering strategy \u2192 risks summary, with explicit decision rationale at each level | Claims tied to concrete failure modes (FOUC, race conditions, impossible states) and standards (WCAG), though some threshold definitions (e.g., 'large' dataset trigger point) remain implicit | Hybrid SSR/PPR approach is sound but glosses deployment complexity; pessimistic updates for scheduling are operationally realistic but may not scale uniformly across all recurring edit patterns"
+      },
+      "output_file": "tests/live_outputs/batch/batch-20260415-0008/gemini/pass-14_pack.md"
+    },
+    {
+      "test_id": "pass-15",
+      "title": "Backend architecture spec canonical pass",
+      "task": "backend_architecture_spec",
+      "mode": "pack",
+      "validator_decision": "AUTO_REVISE",
+      "validator_score": 93,
+      "validator_pass": true,
+      "rubric_mean": 4.4,
+      "rubric_gate_pass": true,
+      "composite_score": 91.0,
+      "composite_pass": true,
+      "rubric_decisive": false,
+      "passed": true,
+      "passed_by": "validator",
+      "latency_seconds": 22.6,
+      "issues": [],
+      "warnings": [
+        {
+          "id": "missing_alternative",
+          "severity": "soft",
+          "detail": "no alternative path was named"
+        },
+        {
+          "id": "missing_route_traceability",
+          "severity": "soft",
+          "detail": "visible trace was expected but route metadata is not recoverable enough for debugging"
+        }
+      ],
+      "unmatched_sections": [],
+      "vocab_warnings": [],
+      "rubric": {
+        "intent_alignment": 5,
+        "actionability": 4,
+        "structural_rigor": 5,
+        "evidence_use": 4,
+        "implementation_realism": 4,
+        "rationale": "Response directly addresses all six stated requirements (team workspaces, cursor feeds, approval workflows, webhooks, data residency, audit trails, future automation) without digression. | Designers can immediately identify six core services, their ownership boundaries, and technology choices (Kafka, Redis Queue, NoSQL feeds); however, specific schema examples or deployment patterns would accelerate implementation. | Clear hierarchical service breakdown with explicit authority boundaries, consistency stance decisions mapped to use cases, and failure modes (graceful degradation, idempotency, DLQs) showing decision logic. | Claims tie to thresholds and constraints (e.g., \"strong consistency required **because** conflicting updates must be prevented,\" \"eventual consistency acceptable **because** delay doesn't compromise integrity\"); regional residency verified by automated checks. | Proposal relies on off-the-shelf components (Kafka, Redis, OpenTelemetry) and standard patterns (event sourcing, circuit breakers); multi-region sharding and tenant isolation are operationally complex but achievable; no speculation on unproven techniques."
+      },
+      "output_file": "tests/live_outputs/batch/batch-20260415-0008/gemini/pass-15_pack.md"
+    },
+    {
+      "test_id": "pass-16",
+      "title": "API reliability and security canonical pass",
+      "task": "api_reliability_security_review",
+      "mode": "pack",
+      "validator_decision": "AUTO_REVISE",
+      "validator_score": 75,
+      "validator_pass": true,
+      "rubric_mean": 4.4,
+      "rubric_gate_pass": true,
+      "composite_score": 80.2,
+      "composite_pass": true,
+      "rubric_decisive": false,
+      "passed": true,
+      "passed_by": "validator",
+      "latency_seconds": 18.58,
+      "issues": [],
+      "warnings": [
+        {
+          "id": "thin_section",
+          "severity": "soft",
+          "detail": "section Authorization and resource protection too thin: 29 < 45"
+        },
+        {
+          "id": "thin_section",
+          "severity": "soft",
+          "detail": "section Idempotency and async lifecycle too thin: 22 < 45"
+        },
+        {
+          "id": "thin_section",
+          "severity": "soft",
+          "detail": "section Resilience and observability too thin: 25 < 35"
+        },
+        {
+          "id": "missing_alternative",
+          "severity": "soft",
+          "detail": "no alternative path was named"
+        },
+        {
+          "id": "missing_route_traceability",
+          "severity": "soft",
+          "detail": "visible trace was expected but route metadata is not recoverable enough for debugging"
+        }
+      ],
+      "unmatched_sections": [],
+      "vocab_warnings": [],
+      "rubric": {
+        "intent_alignment": 5,
+        "actionability": 4,
+        "structural_rigor": 5,
+        "evidence_use": 4,
+        "implementation_realism": 4,
+        "rationale": "Response directly addresses all four requested audit areas (failure semantics, authorization, idempotency, resilience) with no drift. | Recommendations are specific enough for immediate implementation (e.g., RFC 9457, Idempotency-Key header, 202 Accepted) but some details like circuit breaker configuration lack concrete thresholds. | Answer follows a rigorous problem-finding \u2192 findings \u2192 recommendations structure within each section, with clear hierarchies and decision logic. | Claims are grounded in standards (RFC 9457, HTTP semantics) and concrete failure modes, though some assertions (e.g., BOLA vulnerability) lack explicit proof that the endpoint exhibits it. | Proposal is realistic: async job model with status polling is standard practice, structured logging/metrics are established patterns, but the response underestimates migration complexity and doesn't address backward compatibility or rollout strategy."
+      },
+      "output_file": "tests/live_outputs/batch/batch-20260415-0008/gemini/pass-16_pack.md"
+    },
+    {
+      "test_id": "pass-17",
+      "title": "Adaptive explanation tiers preserve route truth",
+      "task": "frontend_implementation_review",
+      "mode": "pack",
+      "validator_decision": "FAIL",
+      "validator_score": 79,
+      "validator_pass": false,
+      "rubric_mean": 2.0,
+      "rubric_gate_pass": false,
+      "composite_score": 63.4,
+      "composite_pass": false,
+      "rubric_decisive": false,
+      "passed": false,
+      "passed_by": "none",
+      "latency_seconds": 21.16,
+      "issues": [
+        {
+          "id": "unsupported_superlative",
+          "severity": "hard",
+          "detail": "enterprise-grade used without the required proof class"
+        }
+      ],
+      "warnings": [
+        {
+          "id": "missing_alternative",
+          "severity": "soft",
+          "detail": "no alternative path was named"
+        },
+        {
+          "id": "missing_next_step_guidance",
+          "severity": "soft",
+          "detail": "designer-readable guidance is missing a visible next move"
+        },
+        {
+          "id": "missing_route_traceability",
+          "severity": "soft",
+          "detail": "visible trace was expected but route metadata is not recoverable enough for debugging"
+        }
+      ],
+      "unmatched_sections": [],
+      "vocab_warnings": [],
+      "rubric": {
+        "intent_alignment": 2,
+        "actionability": 2,
+        "structural_rigor": 3,
+        "evidence_use": 1,
+        "implementation_realism": 2,
+        "rationale": "Intent alignment: Response delivers tier-level analysis but governing recommendations are vague (e.g., 'prioritize' and 'should be adopted') rather than explicit decision statements with conditions | Actionability: A team cannot act on 'implement Redux for enterprise' without thresholds for team size, feature count, or complexity metrics\u2014no decision tree or transition criteria provided | Structural_rigor: Tiers are clearly labeled and each has a governing recommendation, but the logic for *when* to switch from Context to Redux lacks quantified gates or decision matrices | Evidence_use: Claims like 'predictable state container,' 'architecture tax,' and 'CSR island' are asserted without thresholds, benchmarks, or reference to specific failure modes; no concrete proof that Context causes performance issues at scale | Implementation_realism: Suggesting Redux for 'enterprise complexity' is too abstract; no guidance on migration path, team readiness, tooling adoption, or measured cost\u2013benefit breakeven point."
+      },
+      "output_file": "tests/live_outputs/batch/batch-20260415-0008/gemini/pass-17_pack.md"
+    },
+    {
+      "test_id": "pass-18",
+      "title": "Designer response filter preserves backend constraints",
+      "task": "api_reliability_security_review",
+      "mode": "pack",
+      "validator_decision": "AUTO_REVISE",
+      "validator_score": 93,
+      "validator_pass": true,
+      "rubric_mean": 3.8,
+      "rubric_gate_pass": true,
+      "composite_score": 86.2,
+      "composite_pass": true,
+      "rubric_decisive": false,
+      "passed": true,
+      "passed_by": "validator",
+      "latency_seconds": 16.73,
+      "issues": [],
+      "warnings": [
+        {
+          "id": "missing_alternative",
+          "severity": "soft",
+          "detail": "no alternative path was named"
+        },
+        {
+          "id": "missing_route_traceability",
+          "severity": "soft",
+          "detail": "visible trace was expected but route metadata is not recoverable enough for debugging"
+        }
+      ],
+      "unmatched_sections": [],
+      "vocab_warnings": [],
+      "rubric": {
+        "intent_alignment": 4,
+        "actionability": 3,
+        "structural_rigor": 5,
+        "evidence_use": 4,
+        "implementation_realism": 3,
+        "rationale": "Intent alignment strong: response addresses all four stated concerns (errors, authz, idempotency, observability) with explicit governing decisions as requested. | Actionability limited: RFC 9457 schema is clear, but idempotency-key implementation lacks specifics (retention window? conflict resolution detail?), and authz check doesn't state *how* to verify admin status. | Structural rigor excellent: each concern follows decision\u2192reasoning\u2192trade-off pattern; session state confirms commitment tracking. | Evidence use solid: RFC 9457, BOLA, deny-by-default, trace_id are concrete standards; \"409 Conflict on duplicate\" is testable. | Implementation realism weakened by hand-waving on idempotency storage lifetime and missing detail on authz query patterns (query user\u2192role for each {id}?); async note is defensive but dilutes focus."
+      },
+      "output_file": "tests/live_outputs/batch/batch-20260415-0008/gemini/pass-18_pack.md"
+    },
+    {
+      "test_id": "pass-19",
+      "title": "Text humanization canonical pass",
+      "task": "text_humanization_revision",
+      "mode": "pack",
+      "validator_decision": "AUTO_REVISE",
+      "validator_score": 94,
+      "validator_pass": true,
+      "rubric_mean": 4.8,
+      "rubric_gate_pass": true,
+      "composite_score": 94.8,
+      "composite_pass": true,
+      "rubric_decisive": false,
+      "passed": true,
+      "passed_by": "validator",
+      "latency_seconds": 9.17,
+      "issues": [],
+      "warnings": [
+        {
+          "id": "thin_section",
+          "severity": "soft",
+          "detail": "section Revised passage too thin: 8 < 26"
+        }
+      ],
+      "unmatched_sections": [],
+      "vocab_warnings": [],
+      "rubric": {
+        "intent_alignment": 5,
+        "actionability": 5,
+        "structural_rigor": 5,
+        "evidence_use": 4,
+        "implementation_realism": 5,
+        "rationale": "The response directly addresses the ask (rewrite + upfront methodology) without digression. A designer or developer can immediately apply the revision and replication logic to similar sentences. The structure (job \u2192 patterns \u2192 guard \u2192 revision \u2192 explanation) is hierarchical and decision-transparent. Pattern identification is concrete but could cite readability metrics or word-count reduction as quantitative proof rather than description alone. The proposal is pragmatic and immediately implementable across similar corporate prose."
+      },
+      "output_file": "tests/live_outputs/batch/batch-20260415-0008/gemini/pass-19_pack.md"
+    },
+    {
+      "test_id": "pass-20",
+      "title": "Backend Architecture Spec",
+      "task": "backend_architecture_spec",
+      "mode": "pack",
+      "validator_decision": "AUTO_REVISE",
+      "validator_score": 93,
+      "validator_pass": true,
+      "rubric_mean": 4.4,
+      "rubric_gate_pass": true,
+      "composite_score": 91.0,
+      "composite_pass": true,
+      "rubric_decisive": false,
+      "passed": true,
+      "passed_by": "validator",
+      "latency_seconds": 16.65,
+      "issues": [],
+      "warnings": [
+        {
+          "id": "missing_alternative",
+          "severity": "soft",
+          "detail": "no alternative path was named"
+        },
+        {
+          "id": "missing_route_traceability",
+          "severity": "soft",
+          "detail": "visible trace was expected but route metadata is not recoverable enough for debugging"
+        }
+      ],
+      "unmatched_sections": [],
+      "vocab_warnings": [],
+      "rubric": {
+        "intent_alignment": 5,
+        "actionability": 4,
+        "structural_rigor": 5,
+        "evidence_use": 4,
+        "implementation_realism": 4,
+        "rationale": "Response directly addresses all four requirements (multi-tenant, team workspaces, cursor-based feeds, approval workflows, webhooks) without drift. | Developers can immediately begin service design, schema definition, and infrastructure planning, though some technology selections (Kafka vs. RabbitMQ, Redis vs. Memcached) require follow-up decisions. | Clear hierarchical authority model, explicit consistency boundaries (strong for critical paths, eventual for feeds), distinct service ownership, and decision tree structure (e.g., partitioning options with chosen path). | Claims are anchored to concrete constraints: ACID guarantees for scheduling, HMAC-SHA256 for webhook verification, exponential backoff with DLQs for retries, cursor-based pagination for feed pagination; however, thresholds for SLA targets and cache TTLs are absent. | Proposal is operationally realistic (PostgreSQL + Kafka + Redis is a standard stack, event-driven architecture is proven), but assumes no guidance on tenant scale (single-tenant SaaS vs. 10k+ multi-tenant) which affects partitioning cost-benefit and observability overhead justification."
+      },
+      "output_file": "tests/live_outputs/batch/batch-20260415-0008/gemini/pass-20_pack.md"
+    }
+  ]
+}

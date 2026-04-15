@@ -1,16 +1,16 @@
 # Active State
 
-- Current release: v2.6.1
+- Current release: v3.0
 - Manifest status: canonical
 - Continuity sync: pass
 - Proof sync: pass
 - Runtime sync: pass
-- Last refresh: 2026-04-12T00:49:20Z
+- Last refresh: 2026-04-15T01:11:32Z
 
-- Project goal: prove that DesignPilot is a routed, evidence-constrained design operator system without overstating outcome proof while keeping the broader capability surface synchronized with real proof and release discipline
-- Active phase: continuity and release synchronization on top of the stable v2.6.1 system
-- Active task: synchronize v2.6.1 release authority across project context, indices, runtime metadata, proof artifacts, and release packaging while preserving v2.4.0 and v2.4.2 only as milestone history
+- Project goal: prove that DesignPilot is a routed, evidence-constrained design operator system without overstating outcome proof while keeping capability, proof, validation, and release language synchronized
+- Active phase: validator, proof, and public-claim alignment on the v3.0 release line
+- Active task: synchronize v3.0 release authority across project context, validation tools, proof artifacts, examples, and public documentation
 - Workspace mode: filesystem
-- Files being worked on: project context, bundle manifest, proof stack, release scripts, knowledge-base indices, and benchmark receipts
-- Blockers: no production outcome proof yet
-- Next action: capture more production-adjacent validation artifacts while keeping continuity, proof language, and release metadata aligned to the current manifest
+- Files being worked on: project context, validation scripts, proof stack, examples, changelog, public docs, structured continuity state
+- Blockers: no Tier 3 designer outcome proof yet
+- Next action: capture production-adjacent validation artifacts while keeping public claims scoped to the current evidence tier

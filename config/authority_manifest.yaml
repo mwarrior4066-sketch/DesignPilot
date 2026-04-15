@@ -1,0 +1,89 @@
+version: 1
+registry_purpose: Canonical surface ownership and authority pointers for maintainers.
+authorities:
+  startup:
+    source_startup_authority: src/operator/core/MASTER_CHAT_OPERATOR.md
+    compiled_operator_entrypoint: dist/DESIGNPILOT_DEPLOY.md
+    operator_front_door: QUICKSTART.md
+    operator_quickstart: QUICKSTART.md
+    startup_mode_selector: docs/operator/DEPLOYMENT_GUIDE.md
+    session_onboarding_prompt: dist/SESSION_ZERO.md
+    public_readme: README.md
+  release:
+    version_manifest: PACK_MANIFEST.json
+    release_history: CHANGELOG.md
+    packaging_script: scripts/package_release.py
+    handoff_manifest: HANDOFF_MANIFEST.json
+    handoff_readme: HANDOFF_README.md
+  compilation:
+    compile_script: scripts/compile_designpilot.py
+    runtime_overlay_script: scripts/generate_runtime_overlay.py
+    deploy_config: config/deploy_manifest.yaml
+    profile_config: config/profile_map.yaml
+    generated_operator_surface:
+    - dist/DESIGNPILOT_DEPLOY.md
+    - dist/DEPLOY_CORE.md
+    - dist/DEPLOY_UI.md
+    - dist/DEPLOY_BRAND.md
+    - dist/DEPLOY_LITE.md
+    - dist/SESSION_ZERO.md
+    - dist/manifest.json
+    - dist/runtime/lite_index.json
+    - dist/runtime/route_cards/
+    - dist/runtime/contracts_lite/
+    - dist/runtime/starters/
+    - dist/runtime/START_HERE.md
+    - dist/runtime/TASK_CHOOSER.md
+    - dist/runtime/launchers_index.json
+    - dist/runtime/task_launchers/
+  continuity:
+    protocol: src/operator/project/PROJECT_STATE_PROTOCOL.md
+    filesystem_schema: src/operator/project/PROJECT_FILE_SYSTEM_PROTOCOL.md
+    logging_protocol: src/operator/project/PROJECT_LOGGING_PROTOCOL.md
+    refresh_script: scripts/refresh_project_continuity.py
+    workspace_validator: scripts/validate_project_workspace.py
+    flagship_project_root: projects/designpilot/
+    authoritative_state_files:
+    - projects/designpilot/context/state/continuity_evergreen.json
+    - projects/designpilot/context/state/release_state.json
+    - projects/designpilot/context/ACTIVE_STATE.md
+    - projects/designpilot/context/CASE_STUDY_ROADMAP.md
+    - projects/designpilot/context/TASK_QUEUE.md
+    - projects/designpilot/handoff/DOWNLOAD_BUNDLE_MANIFEST.md
+    structured_state_files:
+    - projects/designpilot/context/state/continuity_evergreen.json
+    - projects/designpilot/context/state/release_state.json
+  proof:
+    flagship_proof_root: projects/designpilot/
+    public_proof_root: proof/
+    evaluation_root: evals/
+    proof_refresh_script: scripts/refresh_proof_status.py
+    proof_status_summary: proof/PROOF_STATUS.md
+    proof_status_json: proof/status.json
+    proof_benchmark_index: proof/benchmarks/README.md
+    proof_review_index: proof/reviews/README.md
+    proof_receipt_index: proof/receipts/README.md
+    proof_templates_root: proof/templates/
+    proof_boundaries:
+    - docs/proof/EVIDENCE_HIERARCHY.md
+    - docs/proof/CLAIM_BOUNDARIES.md
+    public_release_artifact_script: scripts/generate_integrity_artifacts.py
+ownership:
+  generated_outputs:
+  - dist/
+  - HANDOFF_MANIFEST.json
+  - HANDOFF_README.md
+  - proof/artifacts/
+  authoritative_inputs:
+  - src/
+  - config/deploy_manifest.yaml
+  - config/profile_map.yaml
+  - PACK_MANIFEST.json
+  - src/operator/project/PROJECT_STATE_PROTOCOL.md
+  - src/operator/project/PROJECT_FILE_SYSTEM_PROTOCOL.md
+  - src/operator/project/PROJECT_LOGGING_PROTOCOL.md
+notes:
+- The source startup authority and the compiled operator entrypoint are intentionally
+  different surfaces.
+- Maintainers should change source files and generators, then regenerate deploy artifacts.
+- Do not hand-edit generated files in dist/ except for local debugging.

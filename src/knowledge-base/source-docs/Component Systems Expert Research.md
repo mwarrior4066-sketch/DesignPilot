@@ -73,7 +73,7 @@ Even strong design systems fail without enforcement and clear ownership; governa
 5) **Reuse-first defaults.** The expert must prefer extending an existing component (new prop, new token hook) over minting a new component. Drift is a known systemic risk when teams extend independently. [\[37\]](https://www.nngroup.com/articles/design-system-enforcer/?utm_source=chatgpt.com)
 
 **Exception rules.**  
-- A product team may “fork” a component only under a documented emergency: security, legal, or critical delivery constraint—and must file a merge-back or deprecation plan. (Heuristic tied to governance drift risks.) [\[37\]](https://www.nngroup.com/articles/design-system-enforcer/?utm_source=chatgpt.com)  
+- A product team may “fork” a component only under a documented emergency: security, legal, or critical delivery constraint-and must file a merge-back or deprecation plan. (Heuristic tied to governance drift risks.) [\[37\]](https://www.nngroup.com/articles/design-system-enforcer/?utm_source=chatgpt.com)  
 - Components that require domain-specific workflows (e.g., specialized medical charting) can remain local, but must still meet accessibility and token contracts. [\[38\]](https://www.w3.org/TR/WCAG22/)
 
 **Fallback logic.**  
@@ -101,7 +101,7 @@ If governance is missing or unclear:
 ### Documentation and handoff standards
 
 **Definition.**  
-Documentation and handoff standards are the minimum required artifacts that make a component implementable and testable in production: behavior, states, accessibility, tokens, and code integration—not just visuals. [\[43\]](https://designsystem.digital.gov/)
+Documentation and handoff standards are the minimum required artifacts that make a component implementable and testable in production: behavior, states, accessibility, tokens, and code integration-not just visuals. [\[43\]](https://designsystem.digital.gov/)
 
 **Why it matters for a Component Systems Expert.**  
 An expert agent must be able to produce “implementation-ready” decisions: what to build, how it behaves, what tokens it uses, and how to verify it. Mature systems publish component pages that include when-to-use guidance, variants, anatomy, sizing, interaction rules, and accessibility. Carbon’s data table page, for example, includes explicit behavior rules (sorting states, toolbar action limits, batch-mode effects, loading guidance) and separate accessibility guidance (keyboard interaction, tab order for controls within tables). [\[44\]](https://carbondesignsystem.com/components/data-table/usage/)
@@ -154,7 +154,7 @@ If documentation is incomplete:
 - **Composition rules** define which components can contain or align with others, including ordering rules and layout constraints for groups. [\[57\]](https://carbondesignsystem.com/components/button/usage/)
 
 **Why it matters for a Component Systems Expert.**  
-Variant explosion is a primary source of drift: every additional variant multiplies state coverage, accessibility burden, responsive behavior, and theming requirements. Mature systems constrain variance while giving explicit composition guidance—for example, Carbon’s button guidance specifies primary-button placement rules across contexts (full pages vs wizards), recommended variant combinations within button groups, and spacing constraints around icons and labels. [\[58\]](https://carbondesignsystem.com/components/button/usage/)
+Variant explosion is a primary source of drift: every additional variant multiplies state coverage, accessibility burden, responsive behavior, and theming requirements. Mature systems constrain variance while giving explicit composition guidance-for example, Carbon’s button guidance specifies primary-button placement rules across contexts (full pages vs wizards), recommended variant combinations within button groups, and spacing constraints around icons and labels. [\[58\]](https://carbondesignsystem.com/components/button/usage/)
 
 **Default rules.**  
 1) **Variants must map to user intent.** Do not create visual-only variants; each variant must correspond to a distinct semantic intent or interaction role (primary vs destructive vs tertiary, selectable vs expandable, etc.). Carbon’s button and data table docs demonstrate intent-based variants (danger styles, selection/expansion variants). [\[59\]](https://carbondesignsystem.com/components/button/usage/)  
@@ -208,7 +208,7 @@ When a request asks for a new variant/size:
 ### Required state coverage by component type
 
 **Definition.**  
-State coverage is the complete set of interactive, validation, and lifecycle states a component must support—across input modalities (mouse, keyboard, touch) and contexts (forms, tables, dialogs)—including how states layer and how focus moves. [\[77\]](https://www.w3.org/WAI/ARIA/apg/practices/keyboard-interface/?utm_source=chatgpt.com)
+State coverage is the complete set of interactive, validation, and lifecycle states a component must support-across input modalities (mouse, keyboard, touch) and contexts (forms, tables, dialogs)-including how states layer and how focus moves. [\[77\]](https://www.w3.org/WAI/ARIA/apg/practices/keyboard-interface/?utm_source=chatgpt.com)
 
 **Why it matters for a Component Systems Expert.**  
 States are where production quality breaks: missing focus styles, unclear disabled/read-only differences, improper keyboard behavior, and incomplete loading/empty/error states cause accessibility failures and user confusion. Research and system guidance explicitly emphasize distinguishing multiple interaction states (e.g., 5 button states: enabled, disabled, hovered, focused, pressed). [\[78\]](https://www.nngroup.com/articles/button-states-communicate-interaction/?utm_source=chatgpt.com)
@@ -428,7 +428,7 @@ If theme tokens produce contrast failures:
 Dense-data component rules govern how tables/grids, filters, toolbars, pagination, batch actions, and inline actions behave in data-heavy screens (dashboards, admin panels), including performance strategies (progressive loading, virtualization) and accessibility constraints. [\[164\]](https://carbondesignsystem.com/components/data-table/usage/)
 
 **Why it matters for a Component Systems Expert.**  
-Dense-data UIs are where component systems are most likely to fail: keyboard navigation becomes complex, focus can be lost, selection states multiply, and performance constraints push teams toward custom grids that often degrade accessibility. Carbon’s data table documentation is unusually explicit about variants, row sizes, toolbar limits, sorting states, batch-mode effects, and loading strategies—representing the level of guidance required for a production “expert agent.” [\[142\]](https://carbondesignsystem.com/components/data-table/usage/)
+Dense-data UIs are where component systems are most likely to fail: keyboard navigation becomes complex, focus can be lost, selection states multiply, and performance constraints push teams toward custom grids that often degrade accessibility. Carbon’s data table documentation is unusually explicit about variants, row sizes, toolbar limits, sorting states, batch-mode effects, and loading strategies-representing the level of guidance required for a production “expert agent.” [\[142\]](https://carbondesignsystem.com/components/data-table/usage/)
 
 **Default rules.**  
 1) **Choose the correct table model: static table vs interactive grid.**  
@@ -484,7 +484,7 @@ Carbon points to pagination and other components for data navigation; pagination
 ### Failure modes in component systems
 
 **Definition.**  
-Failure modes are the recurring ways component systems degrade in production: drift, inconsistency, inaccessible behavior, variant explosion, broken theming, and documentation rot—leading teams to bypass the system and rebuild UI ad hoc. [\[177\]](https://www.nngroup.com/articles/design-system-enforcer/?utm_source=chatgpt.com)
+Failure modes are the recurring ways component systems degrade in production: drift, inconsistency, inaccessible behavior, variant explosion, broken theming, and documentation rot-leading teams to bypass the system and rebuild UI ad hoc. [\[177\]](https://www.nngroup.com/articles/design-system-enforcer/?utm_source=chatgpt.com)
 
 **Why it matters for a Component Systems Expert.**  
 The expert agent must not only recommend the “happy path,” but detect early signals of drift and enforce guardrails. NNGroup explicitly argues that design systems fail without someone enforcing rules; without enforcement, teams interpret components differently, creating inconsistencies and accessibility gaps. [\[178\]](https://www.nngroup.com/articles/design-system-enforcer/?utm_source=chatgpt.com)
@@ -701,7 +701,7 @@ Responsive and theming
 
 **E. 20 stress-test prompts**
 
-1\) “We need a new ‘super-primary’ button for marketing AND product UI—should it be one component?”  
+1\) “We need a new ‘super-primary’ button for marketing AND product UI-should it be one component?”  
 2) “This icon-only action in a dense table row is 16×16. Make it compliant without changing visuals.” [\[22\]](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html)  
 3) “Add 11 actions to the data table toolbar, all visible on desktop.” [\[64\]](https://carbondesignsystem.com/components/data-table/usage/)  
 4) “Design a selectable + expandable table where ‘select all’ needs an indeterminate state.” [\[64\]](https://carbondesignsystem.com/components/data-table/usage/)  
@@ -718,7 +718,7 @@ Responsive and theming
 15) “A list of links in text fails target size. Apply WCAG exceptions correctly.” [\[22\]](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html)  
 16) “We added a custom ARIA role to a native element and now screen readers behave oddly. Diagnose.” [\[229\]](https://www.w3.org/TR/html-aria/)  
 17) “Data table sorting needs three states + keyboard toggle. Specify state model and tests.” [\[219\]](https://carbondesignsystem.com/components/data-table/usage/)  
-18) “A dense toolbar has adjacent small icon targets. Use spacing exception rather than resizing—validate.” [\[22\]](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html)  
+18) “A dense toolbar has adjacent small icon targets. Use spacing exception rather than resizing-validate.” [\[22\]](https://www.w3.org/WAI/WCAG22/Understanding/target-size-minimum.html)  
 19) “Define governance workflow for adding a new component, including community comment period and status.” [\[16\]](https://designsystem.digital.gov/components/lifecycle/)  
 20) “Our design tokens need to be shared across tools. Choose a token format and validation approach.” [\[230\]](https://www.designtokens.org/tr/drafts/format/?utm_source=chatgpt.com)
 

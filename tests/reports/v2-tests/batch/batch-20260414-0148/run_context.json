@@ -1,0 +1,15 @@
+{
+  "purpose": "First 5-test smoke run across all 6 providers",
+  "pack_version": "2.8",
+  "is_diagnostic": true,
+  "is_valid_quality_signal": false,
+  "known_issues": [
+    "Mistral SDK import broken \u2014 MistralClient not found in installed package (0/0 tests run, scores invalid)",
+    "DeepSeek billing error \u2014 account had zero balance (0/0 tests run, scores invalid)",
+    "Gemini max_tokens=2000 bug \u2014 outputs truncated at 120 tokens, causing near-zero validator scores",
+    "Only 5 tests run (old suite) \u2014 not representative of full task coverage"
+  ],
+  "note": "Infrastructure debugging run. Scores do not reflect pack quality.",
+  "run_id": "batch-20260414-0148",
+  "written_at": "2026-04-14"
+}

@@ -1,0 +1,474 @@
+{
+  "run_id": "batch-20260414-0148",
+  "run_date": "2026-04-14T01:53:31.687956+00:00",
+  "mode": "pack",
+  "providers_tested": [
+    "claude",
+    "gemini",
+    "openai",
+    "xai",
+    "mistral",
+    "deepseek"
+  ],
+  "tests_run": 5,
+  "cross_model_gate": 0.7,
+  "ranking": [
+    {
+      "provider": "claude",
+      "model": "claude-sonnet-4-6",
+      "mode": "pack",
+      "tests_run": 5,
+      "errors": 0,
+      "pass_count": 5,
+      "pass_rate": 1.0,
+      "gate_passed": true,
+      "rubric_means": {
+        "intent_alignment": 5,
+        "actionability": 4,
+        "structural_rigor": 5,
+        "evidence_use": 4,
+        "implementation_realism": 4.2
+      },
+      "passed_by_rubric_only": 0
+    },
+    {
+      "provider": "openai",
+      "model": "gpt-4.1",
+      "mode": "pack",
+      "tests_run": 4,
+      "errors": 1,
+      "pass_count": 4,
+      "pass_rate": 1.0,
+      "gate_passed": true,
+      "rubric_means": {
+        "intent_alignment": 5,
+        "actionability": 4,
+        "structural_rigor": 5,
+        "evidence_use": 4,
+        "implementation_realism": 4.5
+      },
+      "passed_by_rubric_only": 0
+    },
+    {
+      "provider": "xai",
+      "model": "grok-3-fast",
+      "mode": "pack",
+      "tests_run": 5,
+      "errors": 0,
+      "pass_count": 5,
+      "pass_rate": 1.0,
+      "gate_passed": true,
+      "rubric_means": {
+        "intent_alignment": 4.4,
+        "actionability": 3.4,
+        "structural_rigor": 4.6,
+        "evidence_use": 3.2,
+        "implementation_realism": 3.8
+      },
+      "passed_by_rubric_only": 3
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-2.5-flash",
+      "mode": "pack",
+      "tests_run": 5,
+      "errors": 0,
+      "pass_count": 2,
+      "pass_rate": 0.4,
+      "gate_passed": false,
+      "rubric_means": {
+        "intent_alignment": 3,
+        "actionability": 2.2,
+        "structural_rigor": 3.2,
+        "evidence_use": 1.6,
+        "implementation_realism": 2.6
+      },
+      "passed_by_rubric_only": 2
+    },
+    {
+      "provider": "mistral",
+      "model": "mistral-large-latest",
+      "mode": "pack",
+      "tests_run": 0,
+      "errors": 5,
+      "pass_count": 0,
+      "pass_rate": 0.0,
+      "gate_passed": false,
+      "rubric_means": {
+        "intent_alignment": null,
+        "actionability": null,
+        "structural_rigor": null,
+        "evidence_use": null,
+        "implementation_realism": null
+      },
+      "passed_by_rubric_only": 0
+    },
+    {
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "mode": "pack",
+      "tests_run": 0,
+      "errors": 5,
+      "pass_count": 0,
+      "pass_rate": 0.0,
+      "gate_passed": false,
+      "rubric_means": {
+        "intent_alignment": null,
+        "actionability": null,
+        "structural_rigor": null,
+        "evidence_use": null,
+        "implementation_realism": null
+      },
+      "passed_by_rubric_only": 0
+    }
+  ],
+  "test_comparison": [
+    {
+      "test_id": "cm-01",
+      "title": "Cross-model: Pricing page UI critique",
+      "task": "ui_structure_critique",
+      "providers": {
+        "claude": {
+          "passed": true,
+          "passed_by": "validator",
+          "validator_score": 88,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": 4.6,
+          "latency_seconds": 45.75,
+          "issues": []
+        },
+        "gemini": {
+          "passed": false,
+          "passed_by": "none",
+          "validator_score": 6,
+          "validator_decision": "FAIL",
+          "rubric_mean": 1.6,
+          "latency_seconds": 25.66,
+          "issues": [
+            "missing_section",
+            "missing_section",
+            "low_information_density",
+            "missing_tradeoff",
+            "missing_rationale",
+            "missing_required_decision",
+            "missing_required_decision",
+            "missing_evidence_class",
+            "missing_evidence_class"
+          ]
+        },
+        "openai": {
+          "passed": true,
+          "passed_by": "validator",
+          "validator_score": 100,
+          "validator_decision": "PASS",
+          "rubric_mean": 4.6,
+          "latency_seconds": 15.35,
+          "issues": []
+        },
+        "xai": {
+          "passed": true,
+          "passed_by": "rubric",
+          "validator_score": 90,
+          "validator_decision": "FAIL",
+          "rubric_mean": 4.6,
+          "latency_seconds": 15.23,
+          "issues": [
+            "missing_rationale"
+          ]
+        },
+        "mistral": {
+          "passed": null,
+          "error": true
+        },
+        "deepseek": {
+          "passed": null,
+          "error": true
+        }
+      },
+      "all_passed": false,
+      "all_failed": false,
+      "split": true,
+      "passed_count": 3
+    },
+    {
+      "test_id": "cm-02",
+      "title": "Cross-model: Brand guidelines PDF reconstruction",
+      "task": "layout_reconstruction_plan",
+      "providers": {
+        "claude": {
+          "passed": true,
+          "passed_by": "validator",
+          "validator_score": 78,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": 4.6,
+          "latency_seconds": 46.71,
+          "issues": []
+        },
+        "gemini": {
+          "passed": false,
+          "passed_by": "none",
+          "validator_score": 68,
+          "validator_decision": "FAIL",
+          "rubric_mean": 2.6,
+          "latency_seconds": 18.8,
+          "issues": [
+            "missing_evidence_class",
+            "missing_evidence_class"
+          ]
+        },
+        "openai": {
+          "passed": true,
+          "passed_by": "validator",
+          "validator_score": 96,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": 4.6,
+          "latency_seconds": 57.59,
+          "issues": []
+        },
+        "xai": {
+          "passed": true,
+          "passed_by": "validator",
+          "validator_score": 96,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": 4.0,
+          "latency_seconds": 26.81,
+          "issues": []
+        },
+        "mistral": {
+          "passed": null,
+          "error": true
+        },
+        "deepseek": {
+          "passed": null,
+          "error": true
+        }
+      },
+      "all_passed": false,
+      "all_failed": false,
+      "split": true,
+      "passed_count": 3
+    },
+    {
+      "test_id": "cm-03",
+      "title": "Cross-model: Permissions-heavy scheduling dashboard",
+      "task": "frontend_implementation_review",
+      "providers": {
+        "claude": {
+          "passed": true,
+          "passed_by": "validator",
+          "validator_score": 78,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": 4.4,
+          "latency_seconds": 43.53,
+          "issues": []
+        },
+        "gemini": {
+          "passed": true,
+          "passed_by": "rubric",
+          "validator_score": 78,
+          "validator_decision": "FAIL",
+          "rubric_mean": 3.2,
+          "latency_seconds": 13.78,
+          "issues": [
+            "missing_tradeoff",
+            "missing_required_decision"
+          ]
+        },
+        "openai": {
+          "passed": true,
+          "passed_by": "validator",
+          "validator_score": 100,
+          "validator_decision": "PASS",
+          "rubric_mean": 4.2,
+          "latency_seconds": 29.61,
+          "issues": []
+        },
+        "xai": {
+          "passed": true,
+          "passed_by": "rubric",
+          "validator_score": 83,
+          "validator_decision": "FAIL",
+          "rubric_mean": 3.2,
+          "latency_seconds": 18.8,
+          "issues": [
+            "unsupported_superlative"
+          ]
+        },
+        "mistral": {
+          "passed": null,
+          "error": true
+        },
+        "deepseek": {
+          "passed": null,
+          "error": true
+        }
+      },
+      "all_passed": false,
+      "all_failed": false,
+      "split": true,
+      "passed_count": 4
+    },
+    {
+      "test_id": "cm-04",
+      "title": "Cross-model: POST /exports PDF endpoint",
+      "task": "api_reliability_security_review",
+      "providers": {
+        "claude": {
+          "passed": true,
+          "passed_by": "validator",
+          "validator_score": 84,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": 4.4,
+          "latency_seconds": 42.01,
+          "issues": []
+        },
+        "gemini": {
+          "passed": false,
+          "passed_by": "none",
+          "validator_score": 47,
+          "validator_decision": "FAIL",
+          "rubric_mean": 2.0,
+          "latency_seconds": 14.88,
+          "issues": [
+            "missing_tradeoff",
+            "missing_required_decision",
+            "missing_required_decision",
+            "missing_evidence_class"
+          ]
+        },
+        "openai": {
+          "passed": true,
+          "passed_by": "validator",
+          "validator_score": 96,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": 4.6,
+          "latency_seconds": 43.79,
+          "issues": []
+        },
+        "xai": {
+          "passed": true,
+          "passed_by": "validator",
+          "validator_score": 94,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": 4.4,
+          "latency_seconds": 12.23,
+          "issues": []
+        },
+        "mistral": {
+          "passed": null,
+          "error": true
+        },
+        "deepseek": {
+          "passed": null,
+          "error": true
+        }
+      },
+      "all_passed": false,
+      "all_failed": false,
+      "split": true,
+      "passed_count": 3
+    },
+    {
+      "test_id": "cm-05",
+      "title": "Cross-model: Fintech brand positioning",
+      "task": "brand_positioning_pass",
+      "providers": {
+        "claude": {
+          "passed": true,
+          "passed_by": "validator",
+          "validator_score": 100,
+          "validator_decision": "PASS",
+          "rubric_mean": 4.2,
+          "latency_seconds": 37.63,
+          "issues": []
+        },
+        "gemini": {
+          "passed": true,
+          "passed_by": "rubric",
+          "validator_score": 90,
+          "validator_decision": "FAIL",
+          "rubric_mean": 3.2,
+          "latency_seconds": 15.43,
+          "issues": [
+            "missing_rationale"
+          ]
+        },
+        "openai": {
+          "passed": null,
+          "error": true
+        },
+        "xai": {
+          "passed": true,
+          "passed_by": "rubric",
+          "validator_score": 90,
+          "validator_decision": "FAIL",
+          "rubric_mean": 3.2,
+          "latency_seconds": 11.8,
+          "issues": [
+            "missing_tradeoff"
+          ]
+        },
+        "mistral": {
+          "passed": null,
+          "error": true
+        },
+        "deepseek": {
+          "passed": null,
+          "error": true
+        }
+      },
+      "all_passed": false,
+      "all_failed": false,
+      "split": true,
+      "passed_count": 3
+    }
+  ],
+  "rubric_comparison": {
+    "intent_alignment": {
+      "claude": 5,
+      "gemini": 3,
+      "openai": 5,
+      "xai": 4.4,
+      "mistral": null,
+      "deepseek": null
+    },
+    "actionability": {
+      "claude": 4,
+      "gemini": 2.2,
+      "openai": 4,
+      "xai": 3.4,
+      "mistral": null,
+      "deepseek": null
+    },
+    "structural_rigor": {
+      "claude": 5,
+      "gemini": 3.2,
+      "openai": 5,
+      "xai": 4.6,
+      "mistral": null,
+      "deepseek": null
+    },
+    "evidence_use": {
+      "claude": 4,
+      "gemini": 1.6,
+      "openai": 4,
+      "xai": 3.2,
+      "mistral": null,
+      "deepseek": null
+    },
+    "implementation_realism": {
+      "claude": 4.2,
+      "gemini": 2.6,
+      "openai": 4.5,
+      "xai": 3.8,
+      "mistral": null,
+      "deepseek": null
+    }
+  },
+  "alias_drift_candidates": {},
+  "consistency": {
+    "all_passed": 0,
+    "all_failed": 0,
+    "split": 5
+  }
+}

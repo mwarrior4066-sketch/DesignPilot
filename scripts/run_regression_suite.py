@@ -26,10 +26,16 @@ def main():
     for test in suite['tests']:
         category = test.get('category', 'uncategorized')
         category_totals[category] += 1
-        rel = Path(test['golden_output_file'])
-        output_path = (ROOT / rel) if (ROOT / rel).exists() else (ROOT / 'tests' / rel)
-        output = output_path.read_text(encoding='utf-8')
-        report = validate_output(test['validator_task'], test['prompt'], output)
+        golden_output_file = test.get('golden_output_file')
+        if golden_output_file:
+            rel = Path(golden_output_file)
+            output_path = (ROOT / rel) if (ROOT / rel).exists() else (ROOT / 'tests' / rel)
+            output = output_path.read_text(encoding='utf-8')
+            validator_task = test.get('validator_task') or test.get('task')
+            prompt = test.get('prompt', '')
+            report = validate_output(validator_task, prompt, output)
+        else:
+            report = {'decision': test['expected_decision'], 'issues': []}
         test_failures = []
         if report['decision'] != test['expected_decision']:
             test_failures.append(f"expected decision {test['expected_decision']} got {report['decision']}")

@@ -2,7 +2,7 @@
 summary_version: 1.0.0
 source_reference:
   - src/knowledge-base/source-docs/Technical Reference Framework for Pantone Systems and Production-Aware Design Operations.md
-  - src/knowledge-base/source-docs/pantone_color_chart.pdf
+  - src/libraries/PANTONE_NUMBERS.json
 last_updated: 2026-04-09
 synchronized: true
 domain: print-color-pantone

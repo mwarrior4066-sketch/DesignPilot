@@ -6,7 +6,7 @@
 
 The analytical examination of the sixteen documented failures within the "DesignPilot" build session reveals a design system suffering from advanced "structural debt," an architectural condition where the foundational patterns are unable to support the cumulative weight of content growth and iterative feature demands.1 Unlike "technical debt," which often manifests as localized code inefficiencies or individual visual bugs, structural debt is emergent and systemic; it signifies a failure in the underlying abstractions and interaction models.1 The recurring need for full-system rebuilds (#14) suggests that the initial construction lacked a "single source of truth," forcing the development team into a "The Invisibility Tax" scenario, where up to 42% of resources were diverted toward maintaining legacy errors rather than delivering new value.4
 
-The primary diagnostic finding is that the system was built using a "symptom-first" rather than a "roadmap-first" methodology. This led to "Strategic Debt"—conscious but poorly executed shortcuts taken under pressure—and "Accidental Debt," emerging from a lack of understanding regarding the complex interdependencies between typography, color perception, and spatial math.6 For instance, the use of pure black #000000 backgrounds (#01) and subsequent "contrast shock" (#02) highlights a failure in Tier 2 Design Tokens, where brightness inversion was used as a crude proxy for narrative rhythm.7
+The primary diagnostic finding is that the system was built using a "symptom-first" rather than a "roadmap-first" methodology. This led to "Strategic Debt"-conscious but poorly executed shortcuts taken under pressure-and "Accidental Debt," emerging from a lack of understanding regarding the complex interdependencies between typography, color perception, and spatial math.6 For instance, the use of pure black #000000 backgrounds (#01) and subsequent "contrast shock" (#02) highlights a failure in Tier 2 Design Tokens, where brightness inversion was used as a crude proxy for narrative rhythm.7
 
 Furthermore, the document architecture failed to integrate "Information Design Wayfinding." Navigational markers like ghost numerals (#03) and section labels (#04) were treated as decorative "chartjunk" rather than functional landmarks, leading to cognitive overload and "Information Chunking" failures.10 The absence of a table of contents (TOC) and chapter structure (#11) confirms that the system was initially envisioned as a flat sequence of aesthetic assets rather than a structured information environment.7
 
@@ -18,13 +18,13 @@ The following matrix maps the symptoms identified in the problem catalogue to th
 
 ### Deep Research Roadmap: A Production-Level Remediation Strategy
 
-#### Phase 1: Research — Human Perception and Dark Mode Standards
+#### Phase 1: Research - Human Perception and Dark Mode Standards
 
 The documented failure of the pure black background (#01) is grounded in the "halation effect" and physiological eye strain. Research into Material Design and dark UI standards demonstrates that pure black (#000000) eliminates the ability to express depth via shadows and creates an excessive contrast ratio that induces visual fatigue.18 For professional documents, a base surface of #121212 or a warm amber-dark like #1D1810 provides a superior foundation because it allows for "Elevation Surfaces".7
 
-In a dark theme, elevation is not communicated through shadows (which are invisible against black) but through "Lightness Overlays"—semi-transparent white layers applied to the base color.18 Higher elevation elements (e.g., cards or buttons) must use lighter surface colors to signal importance.18 Furthermore, research from MIT’s AgeLab suggests that while dark mode may benefit those with "cloudy ocular media" by reducing scattered light, it can be less effective for rapid text scanning in high-ambient-light environments.37 This necessitates the inclusion of "Temperature Shifts" (moving between cool and warm darks) rather than full brightness inversions to maintain "Tonal Consistency" while providing narrative rhythm.7
+In a dark theme, elevation is not communicated through shadows (which are invisible against black) but through "Lightness Overlays"-semi-transparent white layers applied to the base color.18 Higher elevation elements (e.g., cards or buttons) must use lighter surface colors to signal importance.18 Furthermore, research from MIT’s AgeLab suggests that while dark mode may benefit those with "cloudy ocular media" by reducing scattered light, it can be less effective for rapid text scanning in high-ambient-light environments.37 This necessitates the inclusion of "Temperature Shifts" (moving between cool and warm darks) rather than full brightness inversions to maintain "Tonal Consistency" while providing narrative rhythm.7
 
-#### Phase 2: Strategy — Information Density and Cognitive Load
+#### Phase 2: Strategy - Information Density and Cognitive Load
 
 The core strategy for a technical presentation must revolve around Andrew Quagliata’s metrics for "Information Density," which define the relationship between word count, information chunks, and cognitive effort.11 An "information chunk" is any distinct group of content the audience perceives as a standalone unit.11 The build failures noted in Issues #09 and #10 resulted from a disregard for these thresholds.
 
@@ -38,9 +38,9 @@ High-Density Pre-read: Word counts of ~170 words and 4-5 chunks, intended for in
 
 When a slide exceeds these word or chunk counts, the strategy must dictate a "Concept Split," preventing the "Wall of Text" failure mode common in industrial decks.27 This mirrors the McKinsey structure, where content is categorized to avoid duplication and organized from most to least impactful.40
 
-#### Phase 3: Information Architecture — Navigational Wayfinding
+#### Phase 3: Information Architecture - Navigational Wayfinding
 
-The "Flat Sequence" failure (#11) is a primary indicator of absent Information Architecture (IA). Production-level IA for documents must apply Kevin Lynch’s five spatial elements—Paths, Edges, Districts, Nodes, and Landmarks—to the digital canvas.21
+The "Flat Sequence" failure (#11) is a primary indicator of absent Information Architecture (IA). Production-level IA for documents must apply Kevin Lynch’s five spatial elements-Paths, Edges, Districts, Nodes, and Landmarks-to the digital canvas.21
 
 Paths: The logical reading order and narrative flow established by vertical logic.41
 
@@ -54,7 +54,7 @@ Landmarks: Unique visual identities at each location, such as a large gold chapt
 
 To solve "Chrome Duplication" (#04), the IA must distinguish between "Identification Signs" (confirming where the user has arrived) and "Directional Signs" (guiding the user where to go).44 Section labels belong in the persistent header chrome (District-level ID), while slide headlines must be unique to the local content (Landmark-level ID).22
 
-#### Phase 4: UX Structure — Archetypal Slide Skeletons
+#### Phase 4: UX Structure - Archetypal Slide Skeletons
 
 UX structure defines the "Skeletons" that house components.28 The "floating content" failure in Issue #08 indicates a breakdown in "Proximity Rules." In UX design, elements that share visual characteristics or spatial proximity are perceived as related.28 The restoration of the deck requires a restricted set of layouts:
 
@@ -66,7 +66,7 @@ Centre Layout: Used exclusively for chapter dividers, opening slides, and closin
 
 Dynamic Modular Grid: Dividing the slide into 36 or 48 equal fields to allow for asymmetrical pairings (e.g., 7 columns for evidence, 5 for sidebar comments).16
 
-#### Phase 5: UI System — Mathematical Grid Foundations and Vertical Rhythm
+#### Phase 5: UI System - Mathematical Grid Foundations and Vertical Rhythm
 
 The most critical restoration step for the DesignPilot system is the transition from arbitrary spacing to a formalized "Vertical Rhythm" and the 8pt grid system.14 Vertical rhythm is achieved when all design elements are aligned to evenly spaced horizontal lines, creating a predictable and professional experience.48
 
@@ -82,7 +82,7 @@ $$CH = \frac{CB - (G \times (N-1))}{N}$$
 
 This formula prevents "Bottom Dead Zones" by ensuring components scale to the container’s geometric limits rather than being hard-coded to arbitrary heights (#16).7
 
-#### Phase 6: Style Guide — Tonal Consistency and Decorative Restraint
+#### Phase 6: Style Guide - Tonal Consistency and Decorative Restraint
 
 A production-level style guide must prioritize "Clarity Over Decoration".10 The failure of "Ghost Numerals" (#03, #12) stems from treating functional navigation as an aesthetic watermark.7 The guide must establish that visual hierarchy is created through three primary tools: Size (Bigger = more important), Weight (Bolder = more important), and Contrast (High contrast = focus point).28
 
@@ -94,13 +94,13 @@ Chartjunk Prohibition: Remove any decorative lines (overshoots in #06) that do n
 
 Temperature Consistency: When shifting between sections, maintain "Tonal Harmony." Moving from a dark cool gray to a dark warm amber provides sections a unique identity without forcing the eye to readapt to new brightness levels.7
 
-#### Phase 7: Design Tokens — Semantic Abstraction for Scalability
+#### Phase 7: Design Tokens - Semantic Abstraction for Scalability
 
 To prevent the "Manual Update Fatigue" seen in Issue #13, the system must utilize a three-tier design token architecture.8 This decouples the visual value from the functional intent.
 
 By using tokens, theme switching becomes a single logic change. The user’s desire to "make all pages look like the warm ones" (#13) would be a one-line update in the token mapping file rather than a manual audit of 20 slides.7
 
-#### Phase 8: Implementation — Character Fit and Dynamic Content Logic
+#### Phase 8: Implementation - Character Fit and Dynamic Content Logic
 
 Implementation for code-generated PDFs must include "Collision Detection" and "Fit-Content" heuristics to solve clipping issues (#15).31 A fit-content algorithm ensures that an element never exceeds its intrinsic size or its container's limits.32
 
@@ -110,7 +110,7 @@ $$Max\_Chars = \frac{Cell\_Width - (Padding \times 2)}{Average\_Char\_Width}$$
 
 If the content exceeds this threshold, the implementation engine must trigger an automated "Truncation with Tooltip" or a "Font-Step-Down" rule (e.g., dropping from 16pt to 14pt).31 To solve "Label Collision" (#10), the system must enforce a single-word label constraint or an auto-wrap logic that respects the 8pt vertical rhythm.7
 
-#### Phase 9: Validation/QA — Automated Visual Regression and Preflight
+#### Phase 9: Validation/QA - Automated Visual Regression and Preflight
 
 The final phase introduces a "Automated Visual Regression Testing" (AVRT) framework.30 AVRT works as a "visual safety net," capturing screenshots of every slide build and performing pixel-by-pixel comparisons against an approved "Baseline".24
 
@@ -226,7 +226,7 @@ Step 5: Final Deprecation: Once the narrative flow is restored and the AVRT base
 
 The restoration of the DesignPilot build system requires a paradigm shift from "Visual Design" to "Document Engineering." By treating a PDF or presentation as a structured information environment governed by mathematical grids, semantic tokens, and cognitive density thresholds, the design operator can eliminate the structural debt that triggers the need for continuous rebuilds.
 
-Success is measured not by the aesthetic polish of a single slide, but by the stability of the system when subjected to variable content. The integration of automated visual regression testing and preflight heuristics provides the "visual safety net" necessary to scale a deck from a flat 10-slide sequence to a complex 200-page report without systemic breakage. The roadmap—beginning with fundamental research into color perception and ending with automated validation—ensures that the real upstream causes of failure are addressed at the architectural level, transforming the design system into a robust, high-velocity production asset.
+Success is measured not by the aesthetic polish of a single slide, but by the stability of the system when subjected to variable content. The integration of automated visual regression testing and preflight heuristics provides the "visual safety net" necessary to scale a deck from a flat 10-slide sequence to a complex 200-page report without systemic breakage. The roadmap-beginning with fundamental research into color perception and ending with automated validation-ensures that the real upstream causes of failure are addressed at the architectural level, transforming the design system into a robust, high-velocity production asset.
 
 Works cited
 
@@ -326,7 +326,7 @@ Using Heuristic Evaluation to Enhance the Visual Display of a Provider Dashboard
 
 Vertical Rhythm In Typography - 8th Light, accessed April 9, 2026, https://8thlight.com/insights/vertical-rhythm-in-typography
 
-Vertical Rhythm — Make Your Web Content More Readable | by Ryan Yu | Medium, accessed April 9, 2026, https://medium.com/@iamryanyu/vertical-rhythm-make-your-web-content-more-readable-cb719e0f77fc
+Vertical Rhythm - Make Your Web Content More Readable | by Ryan Yu | Medium, accessed April 9, 2026, https://medium.com/@iamryanyu/vertical-rhythm-make-your-web-content-more-readable-cb719e0f77fc
 
 How to make a grid in Keynote with alignment guides + Pro Tips! - Medium, accessed April 9, 2026, https://medium.com/@madeinkeynote/learn-how-to-make-perfect-modular-grids-in-keynote-with-shortcuts-8234cba7a49c
 

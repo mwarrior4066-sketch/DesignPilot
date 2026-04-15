@@ -1,0 +1,14 @@
+{
+  "purpose": "Mistral rate limit fix verification \u2014 Mistral only",
+  "pack_version": "2.8",
+  "is_diagnostic": true,
+  "is_valid_quality_signal": false,
+  "known_issues": [
+    "Single-provider run \u2014 not a full cross-model quality signal",
+    "Delay increased to 30s to avoid rate limits"
+  ],
+  "fixed_from": "Mistral delay increased from 8s to 30s; SDK fixed to use OpenAI-compatible endpoint",
+  "note": "Mistral-only confirmation run. 17/19 passing.",
+  "run_id": "batch-20260414-0319",
+  "written_at": "2026-04-14"
+}

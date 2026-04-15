@@ -1,0 +1,483 @@
+{
+  "run_id": "batch-20260414-0346",
+  "run_date": "2026-04-14T10:23:00.663406+00:00",
+  "mode": "pack",
+  "providers_tested": [
+    "mistral"
+  ],
+  "tests_run": 19,
+  "cross_model_gate": 0.7,
+  "ranking": [
+    {
+      "provider": "mistral",
+      "model": "mistral-large-latest",
+      "mode": "pack",
+      "tests_run": 19,
+      "errors": 0,
+      "pass_count": 18,
+      "pass_rate": 0.947,
+      "gate_passed": true,
+      "rubric_means": {
+        "intent_alignment": 4.75,
+        "actionability": 4,
+        "structural_rigor": 5,
+        "evidence_use": 4.25,
+        "implementation_realism": 4.25
+      },
+      "passed_by_rubric_only": 4,
+      "avg_composite": 89.7,
+      "rubric_decisive_count": 4
+    }
+  ],
+  "test_comparison": [
+    {
+      "test_id": "pass-01",
+      "title": "UI structure critique canonical pass",
+      "task": "ui_structure_critique",
+      "providers": {
+        "mistral": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 89.6,
+          "rubric_decisive": false,
+          "validator_score": 88,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": 4.6,
+          "latency_seconds": 38.02,
+          "issues": []
+        }
+      },
+      "all_passed": true,
+      "all_failed": false,
+      "split": false,
+      "passed_count": 1
+    },
+    {
+      "test_id": "pass-02",
+      "title": "Component specification canonical pass",
+      "task": "component_spec",
+      "providers": {
+        "mistral": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 96.0,
+          "rubric_decisive": false,
+          "validator_score": 96,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": 4.8,
+          "latency_seconds": 36.8,
+          "issues": []
+        }
+      },
+      "all_passed": true,
+      "all_failed": false,
+      "split": false,
+      "passed_count": 1
+    },
+    {
+      "test_id": "pass-03",
+      "title": "Dashboard audit canonical pass",
+      "task": "dashboard_audit",
+      "providers": {
+        "mistral": {
+          "passed": true,
+          "passed_by": "rubric",
+          "composite_score": 76.0,
+          "rubric_decisive": true,
+          "validator_score": 76,
+          "validator_decision": "FAIL",
+          "rubric_mean": 3.8,
+          "latency_seconds": 83.88,
+          "issues": [
+            "missing_required_decision"
+          ]
+        }
+      },
+      "all_passed": true,
+      "all_failed": false,
+      "split": false,
+      "passed_count": 1
+    },
+    {
+      "test_id": "pass-04",
+      "title": "Backend feasibility canonical pass",
+      "task": "backend_feasibility_review",
+      "providers": {
+        "mistral": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 87.2,
+          "rubric_decisive": false,
+          "validator_score": 84,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": 4.6,
+          "latency_seconds": 93.29,
+          "issues": []
+        }
+      },
+      "all_passed": true,
+      "all_failed": false,
+      "split": false,
+      "passed_count": 1
+    },
+    {
+      "test_id": "pass-05",
+      "title": "PDF plus accessibility compound ask",
+      "task": "pdf_remediation_plan",
+      "providers": {
+        "mistral": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 94.0,
+          "rubric_decisive": false,
+          "validator_score": 94,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": null,
+          "latency_seconds": 83.59,
+          "issues": []
+        }
+      },
+      "all_passed": true,
+      "all_failed": false,
+      "split": false,
+      "passed_count": 1
+    },
+    {
+      "test_id": "pass-06",
+      "title": "Brand positioning canonical pass",
+      "task": "brand_positioning_pass",
+      "providers": {
+        "mistral": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 100.0,
+          "rubric_decisive": false,
+          "validator_score": 100,
+          "validator_decision": "PASS",
+          "rubric_mean": null,
+          "latency_seconds": 85.01,
+          "issues": []
+        }
+      },
+      "all_passed": true,
+      "all_failed": false,
+      "split": false,
+      "passed_count": 1
+    },
+    {
+      "test_id": "pass-07",
+      "title": "Case study plus brand framing compound ask",
+      "task": "case_study_rewrite",
+      "providers": {
+        "mistral": {
+          "passed": true,
+          "passed_by": "rubric",
+          "composite_score": 82.0,
+          "rubric_decisive": true,
+          "validator_score": 82,
+          "validator_decision": "FAIL",
+          "rubric_mean": null,
+          "latency_seconds": 90.64,
+          "issues": [
+            "missing_section"
+          ]
+        }
+      },
+      "all_passed": true,
+      "all_failed": false,
+      "split": false,
+      "passed_count": 1
+    },
+    {
+      "test_id": "pass-08",
+      "title": "Accessibility audit canonical pass",
+      "task": "accessibility_feedback_audit",
+      "providers": {
+        "mistral": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 100.0,
+          "rubric_decisive": false,
+          "validator_score": 100,
+          "validator_decision": "PASS",
+          "rubric_mean": null,
+          "latency_seconds": 82.09,
+          "issues": []
+        }
+      },
+      "all_passed": true,
+      "all_failed": false,
+      "split": false,
+      "passed_count": 1
+    },
+    {
+      "test_id": "pass-09",
+      "title": "Color system canonical pass",
+      "task": "color_system_spec",
+      "providers": {
+        "mistral": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 100.0,
+          "rubric_decisive": false,
+          "validator_score": 100,
+          "validator_decision": "PASS",
+          "rubric_mean": null,
+          "latency_seconds": 30.1,
+          "issues": []
+        }
+      },
+      "all_passed": true,
+      "all_failed": false,
+      "split": false,
+      "passed_count": 1
+    },
+    {
+      "test_id": "pass-10",
+      "title": "Graphic critique canonical pass",
+      "task": "graphic_critique",
+      "providers": {
+        "mistral": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 100.0,
+          "rubric_decisive": false,
+          "validator_score": 100,
+          "validator_decision": "PASS",
+          "rubric_mean": null,
+          "latency_seconds": 33.35,
+          "issues": []
+        }
+      },
+      "all_passed": true,
+      "all_failed": false,
+      "split": false,
+      "passed_count": 1
+    },
+    {
+      "test_id": "pass-11",
+      "title": "Layout reconstruction from legacy artifact",
+      "task": "layout_reconstruction_plan",
+      "providers": {
+        "mistral": {
+          "passed": true,
+          "passed_by": "rubric",
+          "composite_score": 86.0,
+          "rubric_decisive": true,
+          "validator_score": 86,
+          "validator_decision": "FAIL",
+          "rubric_mean": null,
+          "latency_seconds": 88.93,
+          "issues": [
+            "missing_rationale"
+          ]
+        }
+      },
+      "all_passed": true,
+      "all_failed": false,
+      "split": false,
+      "passed_count": 1
+    },
+    {
+      "test_id": "pass-12",
+      "title": "Type system canonical pass",
+      "task": "type_system_recommendation",
+      "providers": {
+        "mistral": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 100.0,
+          "rubric_decisive": false,
+          "validator_score": 100,
+          "validator_decision": "PASS",
+          "rubric_mean": null,
+          "latency_seconds": 92.26,
+          "issues": []
+        }
+      },
+      "all_passed": true,
+      "all_failed": false,
+      "split": false,
+      "passed_count": 1
+    },
+    {
+      "test_id": "pass-13",
+      "title": "UX research gap map canonical pass",
+      "task": "ux_research_gap_map",
+      "providers": {
+        "mistral": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 97.0,
+          "rubric_decisive": false,
+          "validator_score": 97,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": null,
+          "latency_seconds": 89.08,
+          "issues": []
+        }
+      },
+      "all_passed": true,
+      "all_failed": false,
+      "split": false,
+      "passed_count": 1
+    },
+    {
+      "test_id": "pass-14",
+      "title": "Front-end architecture canonical pass",
+      "task": "frontend_implementation_review",
+      "providers": {
+        "mistral": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 78.0,
+          "rubric_decisive": false,
+          "validator_score": 78,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": null,
+          "latency_seconds": 92.79,
+          "issues": []
+        }
+      },
+      "all_passed": true,
+      "all_failed": false,
+      "split": false,
+      "passed_count": 1
+    },
+    {
+      "test_id": "pass-15",
+      "title": "Backend architecture spec canonical pass",
+      "task": "backend_architecture_spec",
+      "providers": {
+        "mistral": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 90.0,
+          "rubric_decisive": false,
+          "validator_score": 90,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": null,
+          "latency_seconds": 79.77,
+          "issues": []
+        }
+      },
+      "all_passed": true,
+      "all_failed": false,
+      "split": false,
+      "passed_count": 1
+    },
+    {
+      "test_id": "pass-16",
+      "title": "API reliability and security canonical pass",
+      "task": "api_reliability_security_review",
+      "providers": {
+        "mistral": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 93.0,
+          "rubric_decisive": false,
+          "validator_score": 93,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": null,
+          "latency_seconds": 87.59,
+          "issues": []
+        }
+      },
+      "all_passed": true,
+      "all_failed": false,
+      "split": false,
+      "passed_count": 1
+    },
+    {
+      "test_id": "pass-17",
+      "title": "Adaptive explanation tiers preserve route truth",
+      "task": "frontend_implementation_review",
+      "providers": {
+        "mistral": {
+          "passed": true,
+          "passed_by": "rubric",
+          "composite_score": 73.0,
+          "rubric_decisive": true,
+          "validator_score": 73,
+          "validator_decision": "FAIL",
+          "rubric_mean": null,
+          "latency_seconds": 94.46,
+          "issues": [
+            "missing_required_decision"
+          ]
+        }
+      },
+      "all_passed": true,
+      "all_failed": false,
+      "split": false,
+      "passed_count": 1
+    },
+    {
+      "test_id": "pass-18",
+      "title": "Designer response filter preserves backend constraints",
+      "task": "api_reliability_security_review",
+      "providers": {
+        "mistral": {
+          "passed": false,
+          "passed_by": "validator",
+          "composite_score": 69.0,
+          "rubric_decisive": false,
+          "validator_score": 69,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": null,
+          "latency_seconds": 70.1,
+          "issues": []
+        }
+      },
+      "all_passed": false,
+      "all_failed": true,
+      "split": false,
+      "passed_count": 0
+    },
+    {
+      "test_id": "pass-19",
+      "title": "Text humanization canonical pass",
+      "task": "text_humanization_revision",
+      "providers": {
+        "mistral": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 94.0,
+          "rubric_decisive": false,
+          "validator_score": 94,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": null,
+          "latency_seconds": 35.29,
+          "issues": []
+        }
+      },
+      "all_passed": true,
+      "all_failed": false,
+      "split": false,
+      "passed_count": 1
+    }
+  ],
+  "rubric_comparison": {
+    "intent_alignment": {
+      "mistral": 4.75
+    },
+    "actionability": {
+      "mistral": 4
+    },
+    "structural_rigor": {
+      "mistral": 5
+    },
+    "evidence_use": {
+      "mistral": 4.25
+    },
+    "implementation_realism": {
+      "mistral": 4.25
+    }
+  },
+  "alias_drift_candidates": {},
+  "consistency": {
+    "all_passed": 18,
+    "all_failed": 1,
+    "split": 0
+  }
+}

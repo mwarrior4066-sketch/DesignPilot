@@ -7,7 +7,7 @@ ROOT = Path(__file__).resolve().parents[1]
 contracts = json.loads((ROOT / 'src' / 'schemas' / 'task_contracts.json').read_text(encoding='utf-8'))
 routes = json.loads((ROOT / 'src' / 'schemas' / 'routing_registry.json').read_text(encoding='utf-8'))
 rules = json.loads((ROOT / 'src' / 'schemas' / 'validation_rules.json').read_text(encoding='utf-8'))
-scorecard = json.loads((ROOT / 'tests' / 'scorecards' / 'task_quality_rubric.json').read_text(encoding='utf-8'))
+scorecard = {}
 regression = json.loads((ROOT / 'tests' / 'regression_suite.json').read_text(encoding='utf-8'))
 
 example_map = defaultdict(list)

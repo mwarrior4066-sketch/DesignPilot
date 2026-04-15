@@ -1,0 +1,63 @@
+{
+  "task_id": "layout_reconstruction_plan",
+  "title": "Layout Reconstruction Plan",
+  "required_sections": [
+    {
+      "name": "Source constraints",
+      "min_words": 25,
+      "rationale": "Defines what must be preserved from the source artifact."
+    },
+    {
+      "name": "Reconstruction assumptions",
+      "min_words": 35,
+      "rationale": "Makes inferred structure explicit instead of pretending certainty."
+    },
+    {
+      "name": "Rebuild sequence",
+      "min_words": 45,
+      "rationale": "Shows the ordered reconstruction plan."
+    },
+    {
+      "name": "Verification checkpoints",
+      "min_words": 25,
+      "rationale": "Protects against drift and silent geometry errors."
+    }
+  ],
+  "required_evidence_types": [
+    "grid inference",
+    "preservation boundary",
+    "verification checkpoint"
+  ],
+  "required_decisions": [
+    "preserved_elements",
+    "inference_boundary",
+    "reconstruction_order",
+    "verification_method",
+    "visual_confidence_boundary"
+  ],
+  "hard_fail_patterns": [
+    "redraw it from scratch",
+    "eyeball the spacing",
+    "just clean it up"
+  ],
+  "soft_fail_patterns": [
+    "approximate it",
+    "close enough"
+  ],
+  "required_skills": [
+    "layout-reconstruction-expert.md",
+    "grid-system-expert.md"
+  ],
+  "allowed_modes": [
+    "REBUILD",
+    "PEER"
+  ],
+  "allowed_phases": [
+    "implementation",
+    "structure"
+  ],
+  "canonical_contract": "src/schemas/task_contracts.json#layout_reconstruction_plan",
+  "task_weight_default": "compound",
+  "supports_lightweight_response": false,
+  "trace_visibility_default": "recoverable"
+}

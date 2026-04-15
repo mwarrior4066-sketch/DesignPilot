@@ -12,8 +12,10 @@ Run the filter after route selection and draft generation, but before final vali
 1. route and draft normally
 2. read the active explanation tier from `SESSION_CONTEXT.md`
 3. transform the answer through the response filter
-4. optionally run text humanization on prose-heavy sections
+4. run text humanization on all user-visible prose by default
 5. validate the filtered answer
+
+Do not run text humanization on code, schemas, JSON, validator reports, route files, literal implementation specs, or other exact technical artifacts.
 
 ## Core response architecture
 Use this transformed response shape when the answer is explanatory or advisory:
@@ -40,6 +42,37 @@ This structure may compress for Strategic tier, but the logic should remain visi
 - implementation constraints
 - proof honesty
 - code or spec artifacts that must stay literal
+
+## Surface translation rule
+The response filter should help the answer sound like a capable helper, not a system monitor.
+
+Prefer:
+- plain operational phrasing
+- direct task framing
+- concise explanation that helps the user act
+- natural transitions
+- steady, non-performative tone
+
+Avoid:
+- cold operator language
+- visible internal taxonomy when it does not help the user
+- framework-first openings
+- faux-friendly filler
+- explanation that teaches the pack before helping with the task
+- em dashes in user-facing prose when a period, comma, colon, parenthesis, or simple hyphen would do the job more cleanly
+
+## Surface exclusions
+Do not use the response filter or humanization layer to rewrite:
+- code
+- JSON
+- schemas
+- validators
+- exact receipts
+- file paths
+- route IDs
+- task IDs
+- exact technical thresholds that must remain literal
+
 
 ## Term-handling logic
 Use a practical importance/familiarity filter per term:

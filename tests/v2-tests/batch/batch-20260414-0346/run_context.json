@@ -1,0 +1,13 @@
+{
+  "purpose": "Mistral 19/19 confirmation",
+  "pack_version": "2.8",
+  "is_diagnostic": true,
+  "is_valid_quality_signal": false,
+  "known_issues": [
+    "Single-provider run \u2014 not a full cross-model quality signal"
+  ],
+  "fixed_from": "Confirmed Mistral 19/19 with 30s inter-call delay",
+  "note": "Mistral-only. 19/19 confirmed. Pack ready for full cross-model run.",
+  "run_id": "batch-20260414-0346",
+  "written_at": "2026-04-14"
+}

@@ -1,0 +1,17 @@
+{
+  "validator": "validate_release_consistency",
+  "decision": "PASS",
+  "warn_only": false,
+  "issue_counts": {
+    "BLOCKER": 0,
+    "ERROR": 0,
+    "WARN": 0,
+    "INFO": 0
+  },
+  "issues": [],
+  "metrics": {
+    "current_release_line": "v3.0",
+    "proof_handoff_files_scanned": 30
+  },
+  "metadata": {}
+}

@@ -1,0 +1,20 @@
+{
+  "run_id": "benchmark-run-###",
+  "prompt_id": "Prompt ##",
+  "task_type": "task_slug",
+  "baseline_system": "comparison_system",
+  "pack_system": "designpilot_release_or_variant",
+  "baseline_score": 0.0,
+  "pack_score": 0.0,
+  "score_delta": 0.0,
+  "reviewer_note": "What changed materially and why it mattered.",
+  "unresolved_weakness": "What still limits the claim.",
+  "win_type": "implementation-based / evidentiary / structural",
+  "bias_controls": [
+    "same prompt",
+    "shared rubric"
+  ],
+  "evidence_gap": "What evidence is still missing.",
+  "next_move": "What follow-up would strengthen the proof.",
+  "summary": "One-paragraph bounded interpretation of the result."
+}

@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>DesignPilot — All Batch Runs</title>
+<style>
+  body {font-family:system-ui,sans-serif;margin:2rem auto;max-width:1300px;font-size:13px;color:#1a1a1a}
+  h1 {font-size:1.3rem;margin-bottom:0.2rem}
+  .meta {color:#777;font-size:0.82rem;margin-bottom:1rem}
+  table {border-collapse:collapse;width:100%}
+  th,td {padding:0.4rem 0.6rem;border:1px solid #e0e0e0;text-align:center;vertical-align:middle}
+  th {background:#f5f5f5;font-size:0.8rem;text-transform:uppercase;letter-spacing:.04em}
+  td.run-id-cell {text-align:left;font-family:monospace;font-size:0.82rem;min-width:280px}
+  td.run-id-cell a {color:#1a5faa;text-decoration:none}
+  td.run-id-cell a:hover {text-decoration:underline}
+  td.tests-n {color:#777;font-size:0.82rem}
+  td.na {color:#ccc}
+  td.purpose-cell {text-align:left;font-size:0.8rem;color:#555;max-width:200px}
+  .run-quality td {background-color:#f0f8ff}
+  .run-partial td {background-color:#fffff0}
+  .run-diagnostic td {background-color:#f9f9f9;color:#aaa}
+  .separator td {background:#1a1a1a;color:#fff;font-weight:700;font-size:0.8rem;
+    letter-spacing:.08em;padding:0.5rem;text-align:center;text-transform:uppercase}
+  .sep-label {opacity:.8}
+  .badge {display:inline-block;font-size:0.6rem;font-family:monospace;font-weight:700;
+    letter-spacing:.06em;border-radius:3px;padding:1px 5px;margin-left:6px;vertical-align:middle}
+  .badge-quality {background:#c6f0c6;color:#1a6b1a}
+  .badge-partial {background:#fff0c6;color:#7a5a00}
+  .badge-diag {background:#e8e8e8;color:#888}
+  .expand-btn {background:none;border:none;cursor:pointer;font-size:0.75rem;
+    color:#888;padding:0 4px;transition:transform 0.15s}
+  .expand-btn.open {transform:rotate(90deg)}
+  .details-row td {background:#f5f5f5;text-align:left;padding:0.75rem 1rem}
+  .details-cell {font-size:0.82rem;color:#444}
+  .issues-list {margin:0.3rem 0 0 1.2rem;padding:0;font-size:0.82rem;color:#c44}
+  .issues-list li {margin-bottom:3px}
+  .legend {display:flex;gap:1.5rem;margin-bottom:1rem;font-size:0.8rem;flex-wrap:wrap}
+  .legend-item {display:flex;align-items:center;gap:0.4rem}
+  .swatch {width:18px;height:14px;border-radius:2px;border:1px solid #ddd}
+</style>
+</head>
+<body>
+<h1>DesignPilot — All Batch Runs</h1>
+<p class="meta">Composite score (60% validator + 40% rubric, 0–100). Cell border: green = gate PASS, red = gate FAIL.<br>
+Click ▶ on any row to see run purpose and known issues. Grayed/strikethrough scores indicate diagnostic runs where infrastructure — not pack quality — caused the result.</p>
+
+<div class="legend">
+  <div class="legend-item"><div class="swatch" style="background:#f0f8ff"></div> <span class="badge badge-quality">QUALITY</span> Valid pack quality signal</div>
+  <div class="legend-item"><div class="swatch" style="background:#fffff0"></div> <span class="badge badge-partial">PARTIAL</span> Incomplete or known issue</div>
+  <div class="legend-item"><div class="swatch" style="background:#f9f9f9"></div> <span class="badge badge-diag">DIAGNOSTIC</span> Infrastructure debugging — scores grayed out</div>
+</div>
+
+<table>
+  <tr><th>Run</th><th>Tests</th><th style="background:#d4e9ff;padding:6px 10px">claude</th><th style="background:#fdd4d4;padding:6px 10px">deepseek</th><th style="background:#fff3d4;padding:6px 10px">gemini</th><th style="background:#d4f4f4;padding:6px 10px">mistral</th><th style="background:#d4f4d4;padding:6px 10px">openai</th><th style="background:#f4d4f4;padding:6px 10px">xai</th><th>Purpose</th></tr>
+  
+<tr class="run-row run-diagnostic">
+  <td class="run-id-cell">
+    <button class="expand-btn" onclick="toggleDetails('batch_20260414_0148')" title="Show details">▶</button>
+    <a href="batch/batch-20260414-0148/comparative_report.html">batch-20260414-0148</a>
+    <span class="badge badge-diag">DIAGNOSTIC</span>
+  </td>
+  <td class="tests-n">5</td>
+  <td style="background:#d4e9ff;border-left:3px solid #2a8a2a;opacity:0.35"><span style="text-decoration:line-through;font-weight:700">—</span><br><small style="color:#888">100%</small></td><td style="background:#fdd4d4;border-left:3px solid #cc3333;opacity:0.35"><span style="text-decoration:line-through;font-weight:700">—</span><br><small style="color:#888">0%</small></td><td style="background:#fff3d4;border-left:3px solid #cc3333;opacity:0.35"><span style="text-decoration:line-through;font-weight:700">—</span><br><small style="color:#888">40%</small></td><td style="background:#d4f4f4;border-left:3px solid #cc3333;opacity:0.35"><span style="text-decoration:line-through;font-weight:700">—</span><br><small style="color:#888">0%</small></td><td style="background:#d4f4d4;border-left:3px solid #2a8a2a;opacity:0.35"><span style="text-decoration:line-through;font-weight:700">—</span><br><small style="color:#888">100%</small></td><td style="background:#f4d4f4;border-left:3px solid #2a8a2a;opacity:0.35"><span style="text-decoration:line-through;font-weight:700">—</span><br><small style="color:#888">100%</small></td>
+  <td class="purpose-cell">First 5-test smoke run across all 6 providers</td>
+</tr>
+<tr class="details-row" id="details_batch_20260414_0148" style="display:none">
+  <td colspan="9" class="details-cell">
+    <strong>Purpose:</strong> First 5-test smoke run across all 6 providers<br>
+    <strong>Known issues:</strong><ul class="issues-list"><li>Mistral SDK import broken — MistralClient not found in installed package (0/0 tests run, scores invalid)</li><li>DeepSeek billing error — account had zero balance (0/0 tests run, scores invalid)</li><li>Gemini max_tokens=2000 bug — outputs truncated at 120 tokens, causing near-zero validator scores</li><li>Only 5 tests run (old suite) — not representative of full task coverage</li></ul>
+    <br><strong>⚠ Scores grayed out</strong> — this is a diagnostic run. Scores reflect infrastructure failures, not pack quality.
+  </td>
+</tr>
+
+<tr class="run-row run-diagnostic">
+  <td class="run-id-cell">
+    <button class="expand-btn" onclick="toggleDetails('batch_20260414_0203')" title="Show details">▶</button>
+    <a href="batch/batch-20260414-0203/comparative_report.html">batch-20260414-0203</a>
+    <span class="badge badge-diag">DIAGNOSTIC</span>
+  </td>
+  <td class="tests-n">5</td>
+  <td style="background:#d4e9ff;border-left:3px solid #2a8a2a;opacity:0.35"><span style="text-decoration:line-through;font-weight:700">—</span><br><small style="color:#888">100%</small></td><td style="background:#fdd4d4;border-left:3px solid #2a8a2a;opacity:0.35"><span style="text-decoration:line-through;font-weight:700">—</span><br><small style="color:#888">100%</small></td><td style="background:#fff3d4;border-left:3px solid #cc3333;opacity:0.35"><span style="text-decoration:line-through;font-weight:700">—</span><br><small style="color:#888">60%</small></td><td style="background:#d4f4f4;border-left:3px solid #cc3333;opacity:0.35"><span style="text-decoration:line-through;font-weight:700">—</span><br><small style="color:#888">0%</small></td><td style="background:#d4f4d4;border-left:3px solid #2a8a2a;opacity:0.35"><span style="text-decoration:line-through;font-weight:700">—</span><br><small style="color:#888">100%</small></td><td style="background:#f4d4f4;border-left:3px solid #2a8a2a;opacity:0.35"><span style="text-decoration:line-through;font-weight:700">—</span><br><small style="color:#888">100%</small></td>
+  <td class="purpose-cell">DeepSeek billing fix verification; 5-test suite</td>
+</tr>
+<tr class="details-row" id="details_batch_20260414_0203" style="display:none">
+  <td colspan="9" class="details-cell">
+    <strong>Purpose:</strong> DeepSeek billing fix verification; 5-test suite<br>
+    <strong>Known issues:</strong><ul class="issues-list"><li>Mistral SDK still broken — same import error (0/0 tests run)</li><li>Gemini max_tokens=2000 bug still present — outputs still truncated</li><li>Only 5 tests run — not representative of full task coverage</li></ul>
+    <br><strong>⚠ Scores grayed out</strong> — this is a diagnostic run. Scores reflect infrastructure failures, not pack quality.
+  </td>
+</tr>
+
+<tr class="run-row run-diagnostic">
+  <td class="run-id-cell">
+    <button class="expand-btn" onclick="toggleDetails('batch_20260414_0215')" title="Show details">▶</button>
+    <a href="batch/batch-20260414-0215/comparative_report.html">batch-20260414-0215</a>
+    <span class="badge badge-diag">DIAGNOSTIC</span>
+  </td>
+  <td class="tests-n">19</td>
+  <td style="background:#d4e9ff;border-left:3px solid #2a8a2a;opacity:0.35"><span style="text-decoration:line-through;font-weight:700">89</span><br><small style="color:#888">100%</small></td><td style="background:#fdd4d4;border-left:3px solid #2a8a2a;opacity:0.35"><span style="text-decoration:line-through;font-weight:700">86</span><br><small style="color:#888">100%</small></td><td style="background:#fff3d4;border-left:3px solid #cc3333;opacity:0.35"><span style="text-decoration:line-through;font-weight:700">40</span><br><small style="color:#888">21%</small></td><td style="background:#d4f4f4;border-left:3px solid #cc3333;opacity:0.35"><span style="text-decoration:line-through;font-weight:700">—</span><br><small style="color:#888">0%</small></td><td style="background:#d4f4d4;border-left:3px solid #2a8a2a;opacity:0.35"><span style="text-decoration:line-through;font-weight:700">82</span><br><small style="color:#888">79%</small></td><td style="background:#f4d4f4;border-left:3px solid #2a8a2a;opacity:0.35"><span style="text-decoration:line-through;font-weight:700">86</span><br><small style="color:#888">90%</small></td>
+  <td class="purpose-cell">First 19-test suite run; Mistral rate limit diagnosis</td>
+</tr>
+<tr class="details-row" id="details_batch_20260414_0215" style="display:none">
+  <td colspan="9" class="details-cell">
+    <strong>Purpose:</strong> First 19-test suite run; Mistral rate limit diagnosis<br>
+    <strong>Known issues:</strong><ul class="issues-list"><li>Mistral rate limit hit — 8s delay too short, all 5 tests errored (0/0 valid)</li><li>Gemini max_tokens=2000 bug still present — 26% pass rate reflects truncation, not quality</li><li>Mistral SDK import bug not yet fixed — even with fixed delay, would have failed</li></ul>
+    <br><strong>⚠ Scores grayed out</strong> — this is a diagnostic run. Scores reflect infrastructure failures, not pack quality.
+  </td>
+</tr>
+
+<tr class="run-row run-diagnostic">
+  <td class="run-id-cell">
+    <button class="expand-btn" onclick="toggleDetails('batch_20260414_0253')" title="Show details">▶</button>
+    <a href="batch/batch-20260414-0253/comparative_report.html">batch-20260414-0253</a>
+    <span class="badge badge-diag">DIAGNOSTIC</span>
+  </td>
+  <td class="tests-n">19</td>
+  <td style="background:#d4e9ff;border-left:3px solid #2a8a2a;opacity:0.35"><span style="text-decoration:line-through;font-weight:700">90</span><br><small style="color:#888">100%</small></td><td style="background:#fdd4d4;border-left:3px solid #2a8a2a;opacity:0.35"><span style="text-decoration:line-through;font-weight:700">87</span><br><small style="color:#888">95%</small></td><td style="background:#fff3d4;border-left:3px solid #cc3333;opacity:0.35"><span style="text-decoration:line-through;font-weight:700">47</span><br><small style="color:#888">32%</small></td><td style="background:#d4f4f4;border-left:3px solid #cc3333;opacity:0.35"><span style="text-decoration:line-through;font-weight:700">—</span><br><small style="color:#888">0%</small></td><td style="background:#d4f4d4;border-left:3px solid #2a8a2a;opacity:0.35"><span style="text-decoration:line-through;font-weight:700">85</span><br><small style="color:#888">84%</small></td><td style="background:#f4d4f4;border-left:3px solid #2a8a2a;opacity:0.35"><span style="text-decoration:line-through;font-weight:700">87</span><br><small style="color:#888">95%</small></td>
+  <td class="purpose-cell">Parallel runner test; 19-test suite</td>
+</tr>
+<tr class="details-row" id="details_batch_20260414_0253" style="display:none">
+  <td colspan="9" class="details-cell">
+    <strong>Purpose:</strong> Parallel runner test; 19-test suite<br>
+    <strong>Known issues:</strong><ul class="issues-list"><li>Comparative report was missing — reconstructed from provider summaries</li><li>Mistral still erroring (SDK import)</li><li>Gemini max_tokens bug still present — 58% largely reflects truncation artifacts</li></ul>
+    <br><strong>⚠ Scores grayed out</strong> — this is a diagnostic run. Scores reflect infrastructure failures, not pack quality.
+  </td>
+</tr>
+
+<tr class="run-row run-diagnostic">
+  <td class="run-id-cell">
+    <button class="expand-btn" onclick="toggleDetails('batch_20260414_0319')" title="Show details">▶</button>
+    <a href="batch/batch-20260414-0319/comparative_report.html">batch-20260414-0319</a>
+    <span class="badge badge-diag">DIAGNOSTIC</span>
+  </td>
+  <td class="tests-n">17</td>
+  <td class="na">—</td><td class="na">—</td><td class="na">—</td><td style="background:#d4f4f4;border-left:3px solid #2a8a2a;opacity:0.35"><span style="text-decoration:line-through;font-weight:700">88</span><br><small style="color:#888">100%</small></td><td class="na">—</td><td class="na">—</td>
+  <td class="purpose-cell">Mistral rate limit fix verification — Mistral only</td>
+</tr>
+<tr class="details-row" id="details_batch_20260414_0319" style="display:none">
+  <td colspan="9" class="details-cell">
+    <strong>Purpose:</strong> Mistral rate limit fix verification — Mistral only<br>
+    <strong>Known issues:</strong><ul class="issues-list"><li>Single-provider run — not a full cross-model quality signal</li><li>Delay increased to 30s to avoid rate limits</li></ul>
+    <br><strong>⚠ Scores grayed out</strong> — this is a diagnostic run. Scores reflect infrastructure failures, not pack quality.
+  </td>
+</tr>
+
+<tr class="run-row run-diagnostic">
+  <td class="run-id-cell">
+    <button class="expand-btn" onclick="toggleDetails('batch_20260414_0346')" title="Show details">▶</button>
+    <a href="batch/batch-20260414-0346/comparative_report.html">batch-20260414-0346</a>
+    <span class="badge badge-diag">DIAGNOSTIC</span>
+  </td>
+  <td class="tests-n">19</td>
+  <td class="na">—</td><td class="na">—</td><td class="na">—</td><td style="background:#d4f4f4;border-left:3px solid #2a8a2a;opacity:0.35"><span style="text-decoration:line-through;font-weight:700">90</span><br><small style="color:#888">95%</small></td><td class="na">—</td><td class="na">—</td>
+  <td class="purpose-cell">Mistral 19/19 confirmation</td>
+</tr>
+<tr class="details-row" id="details_batch_20260414_0346" style="display:none">
+  <td colspan="9" class="details-cell">
+    <strong>Purpose:</strong> Mistral 19/19 confirmation<br>
+    <strong>Known issues:</strong><ul class="issues-list"><li>Single-provider run — not a full cross-model quality signal</li></ul>
+    <br><strong>⚠ Scores grayed out</strong> — this is a diagnostic run. Scores reflect infrastructure failures, not pack quality.
+  </td>
+</tr>
+<tr class="separator"><td colspan="9">
+            <span class="sep-label">── v3.0 pack deployed ──</span>
+        </td></tr>
+
+<tr class="run-row run-partial">
+  <td class="run-id-cell">
+    <button class="expand-btn" onclick="toggleDetails('batch_20260414_0609')" title="Show details">▶</button>
+    <a href="batch/batch-20260414-0609/comparative_report.html">batch-20260414-0609</a>
+    <span class="badge badge-partial">PARTIAL</span>
+  </td>
+  <td class="tests-n">19</td>
+  <td style="background:#d4e9ff;border-left:3px solid #2a8a2a;opacity:1.0"><strong style="font-size:1.05rem">91</strong><br><small style="color:#555">100%</small></td><td style="background:#fdd4d4;border-left:3px solid #2a8a2a;opacity:1.0"><strong style="font-size:1.05rem">88</strong><br><small style="color:#555">100%</small></td><td style="background:#fff3d4;border-left:3px solid #cc3333;opacity:1.0"><strong style="font-size:1.05rem">40</strong><br><small style="color:#555">21%</small></td><td style="background:#d4f4f4;border-left:3px solid #2a8a2a;opacity:1.0"><strong style="font-size:1.05rem">87</strong><br><small style="color:#555">100%</small></td><td style="background:#d4f4d4;border-left:3px solid #2a8a2a;opacity:1.0"><strong style="font-size:1.05rem">85</strong><br><small style="color:#555">90%</small></td><td style="background:#f4d4f4;border-left:3px solid #2a8a2a;opacity:1.0"><strong style="font-size:1.05rem">87</strong><br><small style="color:#555">95%</small></td>
+  <td class="purpose-cell">First v3.0 pack run — all 6 providers, 19 tests</td>
+</tr>
+<tr class="details-row" id="details_batch_20260414_0609" style="display:none">
+  <td colspan="9" class="details-cell">
+    <strong>Purpose:</strong> First v3.0 pack run — all 6 providers, 19 tests<br>
+    <strong>Known issues:</strong><ul class="issues-list"><li>Gemini used wrong model (gemini-2.5-flash) — thinking mode caused near-zero scores on many tests</li><li>Gemini 21% reflects model/thinking config error, not pack quality</li><li>thinking_config parameter rejected by OpenAI-compatible endpoint (400 error on some tests)</li></ul>
+    
+  </td>
+</tr>
+
+<tr class="run-row run-quality">
+  <td class="run-id-cell">
+    <button class="expand-btn" onclick="toggleDetails('batch_20260414_0734')" title="Show details">▶</button>
+    <a href="batch/batch-20260414-0734/comparative_report.html">batch-20260414-0734</a>
+    <span class="badge badge-quality">QUALITY</span>
+  </td>
+  <td class="tests-n">19</td>
+  <td style="background:#d4e9ff;border-left:3px solid #2a8a2a;opacity:1.0"><strong style="font-size:1.05rem">89</strong><br><small style="color:#555">100%</small></td><td style="background:#fdd4d4;border-left:3px solid #2a8a2a;opacity:1.0"><strong style="font-size:1.05rem">80</strong><br><small style="color:#555">90%</small></td><td style="background:#fff3d4;border-left:3px solid #2a8a2a;opacity:1.0"><strong style="font-size:1.05rem">82</strong><br><small style="color:#555">82%</small></td><td style="background:#d4f4f4;border-left:3px solid #2a8a2a;opacity:1.0"><strong style="font-size:1.05rem">82</strong><br><small style="color:#555">95%</small></td><td style="background:#d4f4d4;border-left:3px solid #2a8a2a;opacity:1.0"><strong style="font-size:1.05rem">78</strong><br><small style="color:#555">84%</small></td><td style="background:#f4d4f4;border-left:3px solid #2a8a2a;opacity:1.0"><strong style="font-size:1.05rem">82</strong><br><small style="color:#555">74%</small></td>
+  <td class="purpose-cell">Gemini model and thinking mode fix verification</td>
+</tr>
+<tr class="details-row" id="details_batch_20260414_0734" style="display:none">
+  <td colspan="9" class="details-cell">
+    <strong>Purpose:</strong> Gemini model and thinking mode fix verification<br>
+    <em>No known infrastructure issues</em>
+    
+  </td>
+</tr>
+
+<tr class="run-row run-quality">
+  <td class="run-id-cell">
+    <button class="expand-btn" onclick="toggleDetails('batch_20260414_0844')" title="Show details">▶</button>
+    <a href="batch/batch-20260414-0844/comparative_report.html">batch-20260414-0844</a>
+    <span class="badge badge-quality">QUALITY</span>
+  </td>
+  <td class="tests-n">19</td>
+  <td style="background:#d4e9ff;border-left:3px solid #2a8a2a;opacity:1.0"><strong style="font-size:1.05rem">91</strong><br><small style="color:#555">100%</small></td><td style="background:#fdd4d4;border-left:3px solid #2a8a2a;opacity:1.0"><strong style="font-size:1.05rem">81</strong><br><small style="color:#555">84%</small></td><td style="background:#fff3d4;border-left:3px solid #2a8a2a;opacity:1.0"><strong style="font-size:1.05rem">79</strong><br><small style="color:#555">89%</small></td><td style="background:#d4f4f4;border-left:3px solid #2a8a2a;opacity:1.0"><strong style="font-size:1.05rem">87</strong><br><small style="color:#555">95%</small></td><td style="background:#d4f4d4;border-left:3px solid #2a8a2a;opacity:1.0"><strong style="font-size:1.05rem">80</strong><br><small style="color:#555">90%</small></td><td style="background:#f4d4f4;border-left:3px solid #2a8a2a;opacity:1.0"><strong style="font-size:1.05rem">81</strong><br><small style="color:#555">74%</small></td>
+  <td class="purpose-cell">Stable baseline — all 6 providers, full suite</td>
+</tr>
+<tr class="details-row" id="details_batch_20260414_0844" style="display:none">
+  <td colspan="9" class="details-cell">
+    <strong>Purpose:</strong> Stable baseline — all 6 providers, full suite<br>
+    <em>No known infrastructure issues</em>
+    
+  </td>
+</tr>
+
+</table>
+
+<script>
+function toggleDetails(id) {
+  var row = document.getElementById('details_' + id);
+  var btn = event.currentTarget;
+  if (row.style.display === 'none') {
+    row.style.display = 'table-row';
+    btn.classList.add('open');
+  } else {
+    row.style.display = 'none';
+    btn.classList.remove('open');
+  }
+}
+</script>
+</body>
+</html>

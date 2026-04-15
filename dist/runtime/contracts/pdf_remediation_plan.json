@@ -1,0 +1,63 @@
+{
+  "task_id": "pdf_remediation_plan",
+  "title": "PDF Remediation Plan",
+  "required_sections": [
+    {
+      "name": "Current failure state",
+      "min_words": 25,
+      "rationale": "Names the real accessibility/document integrity problem."
+    },
+    {
+      "name": "Remediation sequence",
+      "min_words": 45,
+      "rationale": "Orders the steps so semantics are preserved."
+    },
+    {
+      "name": "Verification checks",
+      "min_words": 35,
+      "rationale": "Shows how success is confirmed."
+    },
+    {
+      "name": "Risk controls",
+      "min_words": 25,
+      "rationale": "Prevents destructive edits and copy-paste damage."
+    }
+  ],
+  "required_evidence_types": [
+    "tagging rule",
+    "reading-order rule",
+    "verification method"
+  ],
+  "required_decisions": [
+    "semantic_failure",
+    "reading_order_or_extraction",
+    "verification_method",
+    "destructive_shortcut_rejected"
+  ],
+  "hard_fail_patterns": [
+    "flatten the pdf",
+    "rasterize the page",
+    "just use OCR only"
+  ],
+  "soft_fail_patterns": [
+    "make it accessible somehow"
+  ],
+  "required_skills": [
+    "document-accessibility-expert.md",
+    "pdf-layout-expert.md"
+  ],
+  "allowed_modes": [
+    "AUDIT",
+    "REBUILD",
+    "PEER"
+  ],
+  "allowed_phases": [
+    "structure",
+    "specs",
+    "implementation"
+  ],
+  "canonical_contract": "src/schemas/task_contracts.json#pdf_remediation_plan",
+  "task_weight_default": "compound",
+  "supports_lightweight_response": false,
+  "trace_visibility_default": "recoverable"
+}

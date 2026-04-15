@@ -1,0 +1,931 @@
+{
+  "provider": "openai",
+  "model": "gpt-4.1",
+  "mode": "pack",
+  "tests_run": 20,
+  "errors": 0,
+  "pass_count": 19,
+  "pass_rate": 0.95,
+  "gate_passed": true,
+  "avg_composite": 86.0,
+  "rubric_means": {
+    "intent_alignment": 4.95,
+    "actionability": 4.2,
+    "structural_rigor": 5,
+    "evidence_use": 3.75,
+    "implementation_realism": 4.45
+  },
+  "passed_by_rubric_only": 6,
+  "rubric_decisive_count": 5,
+  "results": [
+    {
+      "test_id": "pass-01",
+      "title": "UI structure critique canonical pass",
+      "task": "ui_structure_critique",
+      "mode": "pack",
+      "validator_decision": "PASS",
+      "validator_score": 100,
+      "validator_pass": true,
+      "rubric_mean": 4.4,
+      "rubric_gate_pass": true,
+      "composite_score": 95.2,
+      "composite_pass": true,
+      "rubric_decisive": false,
+      "passed": true,
+      "passed_by": "validator",
+      "latency_seconds": 28.51,
+      "issues": [],
+      "warnings": [],
+      "unmatched_sections": [],
+      "vocab_warnings": [],
+      "rubric": {
+        "intent_alignment": 5,
+        "actionability": 4,
+        "structural_rigor": 5,
+        "evidence_use": 4,
+        "implementation_realism": 4,
+        "rationale": "Response directly addresses both stated issues (small CTA, inaccessible color-coding) without scope drift. | Designer can immediately implement: increase button size/padding, apply contrast checker tool, add badge/border to Pro tier\u2014but lacks specific pixel values or before/after mockup references. | Answer is well-organized (problem framing \u2192 findings by component \u2192 recommendations by priority \u2192 tradeoffs) with clear decision hierarchy. | WCAG 2.1 citations and contrast ratio thresholds (4.5:1, 44px hit area, 16px+ font) are explicit; tool recommendations (WebAIM, axe, Coblis) strengthen claims, though no live audit results provided. | Proposals are technically feasible (CSS border/badge, contrast ratio adjustment, semantic markup) and operationally realistic for B2B SaaS context, but suggested headline size reduction and accessibility audit additions add scope beyond the original ask."
+      },
+      "output_file": "tests/live_outputs/batch/batch-20260415-0008/openai/pass-01_pack.md"
+    },
+    {
+      "test_id": "pass-02",
+      "title": "Component specification canonical pass",
+      "task": "component_spec",
+      "mode": "pack",
+      "validator_decision": "AUTO_REVISE",
+      "validator_score": 96,
+      "validator_pass": true,
+      "rubric_mean": 4.4,
+      "rubric_gate_pass": true,
+      "composite_score": 92.8,
+      "composite_pass": true,
+      "rubric_decisive": false,
+      "passed": true,
+      "passed_by": "validator",
+      "latency_seconds": 27.37,
+      "issues": [],
+      "warnings": [
+        {
+          "id": "missing_alternative",
+          "severity": "soft",
+          "detail": "no alternative path was named"
+        }
+      ],
+      "unmatched_sections": [],
+      "vocab_warnings": [],
+      "rubric": {
+        "intent_alignment": 5,
+        "actionability": 4,
+        "structural_rigor": 5,
+        "evidence_use": 4,
+        "implementation_realism": 4,
+        "rationale": "Response directly addresses all five requirements (primary action, dropdown, keyboard, disabled, loading, mobile) without scope creep. | Anatomy, state matrix, and keyboard/ARIA notes enable immediate dev/design work, though code examples or Figma tokens would strengthen handoff. | Hierarchical structure (purpose \u2192 anatomy \u2192 states \u2192 implementation) with clear decision logic in state matrix and tradeoff analysis. | References WCAG AAA/AA thresholds (44x24px), explicit focus management rules, and aria patterns; could cite ARIA authoring practices spec URL. | Proposal is credible (split button pattern well-established), constraints realistic (no impossible accessibility claims), but lacks specific CSS/React patterns or edge case handling (e.g., menu placement on small screens)."
+      },
+      "output_file": "tests/live_outputs/batch/batch-20260415-0008/openai/pass-02_pack.md"
+    },
+    {
+      "test_id": "pass-03",
+      "title": "Dashboard audit canonical pass",
+      "task": "dashboard_audit",
+      "mode": "pack",
+      "validator_decision": "AUTO_REVISE",
+      "validator_score": 88,
+      "validator_pass": true,
+      "rubric_mean": 4.4,
+      "rubric_gate_pass": true,
+      "composite_score": 88.0,
+      "composite_pass": true,
+      "rubric_decisive": false,
+      "passed": true,
+      "passed_by": "validator",
+      "latency_seconds": 22.06,
+      "issues": [],
+      "warnings": [
+        {
+          "id": "thin_section",
+          "severity": "soft",
+          "detail": "section Key failures too thin: 0 < 45"
+        },
+        {
+          "id": "thin_section",
+          "severity": "soft",
+          "detail": "section Recommended rebuild path too thin: 0 < 35"
+        }
+      ],
+      "unmatched_sections": [],
+      "vocab_warnings": [],
+      "rubric": {
+        "intent_alignment": 5,
+        "actionability": 4,
+        "structural_rigor": 5,
+        "evidence_use": 4,
+        "implementation_realism": 4,
+        "rationale": "Response directly addresses all three audit targets (KPI row, chart, sidebar) without tangent. | Designer can immediately mock reference values, move legend, and group sidebar items; 'Next step' is crisp but could specify mockup format/tools. | Answer is hierarchical (role \u2192 failures \u2192 evidence \u2192 rebuild path \u2192 tradeoffs \u2192 next step) with clear decision sequence. | Claims cite established authorities (Few, Tufte, NN/g, Krug) and threshold norms (5\u20137 items per group, legend visibility), though lacks quantified scan-time or click-cost evidence. | Proposed changes (KPI context, Y-axis labels, legend repositioning, sidebar grouping) are standard UX patterns with low implementation friction; tradeoff framing is honest about cost-benefit."
+      },
+      "output_file": "tests/live_outputs/batch/batch-20260415-0008/openai/pass-03_pack.md"
+    },
+    {
+      "test_id": "pass-04",
+      "title": "Backend feasibility canonical pass",
+      "task": "backend_feasibility_review",
+      "mode": "pack",
+      "validator_decision": "AUTO_REVISE",
+      "validator_score": 84,
+      "validator_pass": true,
+      "rubric_mean": 4.6,
+      "rubric_gate_pass": true,
+      "composite_score": 87.2,
+      "composite_pass": true,
+      "rubric_decisive": false,
+      "passed": true,
+      "passed_by": "validator",
+      "latency_seconds": 38.57,
+      "issues": [],
+      "warnings": [
+        {
+          "id": "thin_section",
+          "severity": "soft",
+          "detail": "section Hidden system requirements too thin: 8 < 45"
+        },
+        {
+          "id": "thin_section",
+          "severity": "soft",
+          "detail": "section Feasibility assessment too thin: 31 < 35"
+        },
+        {
+          "id": "missing_alternative",
+          "severity": "soft",
+          "detail": "no alternative path was named"
+        }
+      ],
+      "unmatched_sections": [],
+      "vocab_warnings": [],
+      "rubric": {
+        "intent_alignment": 5,
+        "actionability": 4,
+        "structural_rigor": 5,
+        "evidence_use": 4,
+        "implementation_realism": 5,
+        "rationale": "Response directly addresses the ask (feasibility review, hidden requirements, blockers, phased path) without drift. | Actionability slightly reduced because Phase 1\u20134 lack specific library configs, schema examples, or code stubs\u2014designer/dev must still research integration details. | Clear hierarchy (hidden requirements \u2192 blockers \u2192 phased path) with explicit decision logic at each phase (preserve/sacrifice trade-offs). | Evidence anchored to concrete constraints (REST limitations, CRDT/OT algorithms, PostgreSQL persistence friction) and references proven libraries (Yjs, ShareDB, Automerge). | Proposal is technically sound and operationally realistic\u2014acknowledges memory/scaling surfaces, Redis for multi-instance, feature flags, and incremental rollout."
+      },
+      "output_file": "tests/live_outputs/batch/batch-20260415-0008/openai/pass-04_pack.md"
+    },
+    {
+      "test_id": "pass-05",
+      "title": "PDF plus accessibility compound ask",
+      "task": "pdf_remediation_plan",
+      "mode": "pack",
+      "validator_decision": "AUTO_REVISE",
+      "validator_score": 94,
+      "validator_pass": true,
+      "rubric_mean": 4.2,
+      "rubric_gate_pass": true,
+      "composite_score": 90.0,
+      "composite_pass": true,
+      "rubric_decisive": false,
+      "passed": true,
+      "passed_by": "validator",
+      "latency_seconds": 13.37,
+      "issues": [],
+      "warnings": [
+        {
+          "id": "thin_section",
+          "severity": "soft",
+          "detail": "section Remediation sequence too thin: 0 < 45"
+        }
+      ],
+      "unmatched_sections": [],
+      "vocab_warnings": [],
+      "rubric": {
+        "intent_alignment": 5,
+        "actionability": 4,
+        "structural_rigor": 5,
+        "evidence_use": 3,
+        "implementation_realism": 4,
+        "rationale": "Response directly addresses all stated problems (two-column layout, pull quotes, decorative images, broken TOC) with no drift. | Designer can immediately open Acrobat and follow steps 1\u20136 sequentially; minor gap: no specific Acrobat menu paths for some older versions. | Answer uses clear hierarchical sequence (failure state \u2192 remediation steps \u2192 verification \u2192 risk controls) with decision logic (decorative vs. informative images). | Claims lack explicit WCAG thresholds or standards citations; no mention of WCAG 2.1 Level AA or PDF/UA standards that would anchor recommendations. | Proposal assumes Acrobat Pro access and manual tagging feasibility; realistic for most corporate workflows but underestimates effort for complex multi-page documents; testing tools (NVDA, PAC) are freely available, reducing risk."
+      },
+      "output_file": "tests/live_outputs/batch/batch-20260415-0008/openai/pass-05_pack.md"
+    },
+    {
+      "test_id": "pass-06",
+      "title": "Brand positioning canonical pass",
+      "task": "brand_positioning_pass",
+      "mode": "pack",
+      "validator_decision": "FAIL",
+      "validator_score": 66,
+      "validator_pass": false,
+      "rubric_mean": 4.2,
+      "rubric_gate_pass": true,
+      "composite_score": 73.2,
+      "composite_pass": true,
+      "rubric_decisive": true,
+      "passed": true,
+      "passed_by": "rubric",
+      "latency_seconds": 18.79,
+      "issues": [
+        {
+          "id": "missing_evidence_class",
+          "severity": "hard",
+          "detail": "missing evidence class `implementation_constraint`: Uses a real constraint such as trust, usability, or category convention."
+        },
+        {
+          "id": "overclaim_without_evidence",
+          "severity": "hard",
+          "detail": "overclaim rule `no_market_superiority` triggered by: leading"
+        }
+      ],
+      "warnings": [
+        {
+          "id": "thin_section",
+          "severity": "soft",
+          "detail": "section Audience and problem too thin: 0 < 25"
+        },
+        {
+          "id": "thin_section",
+          "severity": "soft",
+          "detail": "section Positioning frame too thin: 28 < 35"
+        },
+        {
+          "id": "missing_alternative",
+          "severity": "soft",
+          "detail": "no alternative path was named"
+        }
+      ],
+      "unmatched_sections": [],
+      "vocab_warnings": [],
+      "rubric": {
+        "intent_alignment": 5,
+        "actionability": 4,
+        "structural_rigor": 5,
+        "evidence_use": 3,
+        "implementation_realism": 4,
+        "rationale": "Response directly answers the positioning ask with a clear, differentiated territory (freelance-native) that avoids competitor overlap. Designers and PMs can immediately operationalize the voice, visual cues, and feature priorities, though some messaging examples could be more concrete. Structure is rigorous\u2014problem \u2192 positioning frame \u2192 components \u2192 proof burden \u2192 consequences\u2014with explicit tradeoffs stated. Claims about trust (PCI, FDIC, support channels) are stated without thresholds or validation criteria; proof requirements are listed but not ranked by impact. Proposal is realistic but underspecifies go-to-market sequencing and assumes deep product differentiation (e.g., 'frictionless tax prep') without validating freelancer demand primacy or willingness to trade SMB breadth."
+      },
+      "output_file": "tests/live_outputs/batch/batch-20260415-0008/openai/pass-06_pack.md"
+    },
+    {
+      "test_id": "pass-07",
+      "title": "Case study plus brand framing compound ask",
+      "task": "case_study_rewrite",
+      "mode": "pack",
+      "validator_decision": "FAIL",
+      "validator_score": 56,
+      "validator_pass": false,
+      "rubric_mean": 3.6,
+      "rubric_gate_pass": true,
+      "composite_score": 62.4,
+      "composite_pass": false,
+      "rubric_decisive": false,
+      "passed": false,
+      "passed_by": "rubric",
+      "latency_seconds": 7.31,
+      "issues": [
+        {
+          "id": "missing_tradeoff",
+          "severity": "hard",
+          "detail": "no explicit tradeoff language found"
+        },
+        {
+          "id": "missing_required_decision",
+          "severity": "hard",
+          "detail": "missing required decision `honesty_tradeoff`: Resolves narrative smoothness against evidentiary honesty."
+        },
+        {
+          "id": "missing_evidence_class",
+          "severity": "hard",
+          "detail": "missing evidence class `narrative_proof_boundary`: Uses explicit claim-to-proof boundary language."
+        }
+      ],
+      "warnings": [
+        {
+          "id": "thin_section",
+          "severity": "soft",
+          "detail": "section Problem too thin: 22 < 25"
+        },
+        {
+          "id": "thin_section",
+          "severity": "soft",
+          "detail": "section Process too thin: 0 < 35"
+        },
+        {
+          "id": "thin_section",
+          "severity": "soft",
+          "detail": "section Outcome and proof too thin: 22 < 35"
+        }
+      ],
+      "unmatched_sections": [],
+      "vocab_warnings": [],
+      "rubric": {
+        "intent_alignment": 4,
+        "actionability": 3,
+        "structural_rigor": 5,
+        "evidence_use": 2,
+        "implementation_realism": 4,
+        "rationale": "The rewrite directly addresses the ask to make the portfolio case study compelling and structured, maintaining all original claims. | A designer could use this as a portfolio template, but lacks specific design decisions, metrics methodology, or screenshots/artifacts to reference during interviews. | The response follows a clear problem-process-outcome-learnings hierarchy with logical flow and appropriate subsections. | The 40% conversion claim is presented without baseline context, sample size, testing duration, or competitive benchmarks; 'unclear instructions' and 'overwhelming experience' lack supporting data from research. | The structure and writing style are portfolio-appropriate and achievable, though the vagueness about research methods and collaboration artifacts suggests this may not reflect a rigorous design process."
+      },
+      "output_file": "tests/live_outputs/batch/batch-20260415-0008/openai/pass-07_pack.md"
+    },
+    {
+      "test_id": "pass-08",
+      "title": "Accessibility audit canonical pass",
+      "task": "accessibility_feedback_audit",
+      "mode": "pack",
+      "validator_decision": "PASS",
+      "validator_score": 96,
+      "validator_pass": true,
+      "rubric_mean": 5.0,
+      "rubric_gate_pass": true,
+      "composite_score": 97.6,
+      "composite_pass": true,
+      "rubric_decisive": false,
+      "passed": true,
+      "passed_by": "validator",
+      "latency_seconds": 17.08,
+      "issues": [
+        {
+          "id": "missing_rationale",
+          "severity": "soft",
+          "detail": "causal language not attached near recommendations \u2014 add \"because/without which/this requires\" adjacent to each recommendation"
+        }
+      ],
+      "warnings": [],
+      "unmatched_sections": [],
+      "vocab_warnings": [],
+      "rubric": {
+        "intent_alignment": 5,
+        "actionability": 5,
+        "structural_rigor": 5,
+        "evidence_use": 5,
+        "implementation_realism": 5,
+        "rationale": "Response directly addresses all four requested components (failures, prioritised inventory, repair plan, verification) with no drift. | Designer/developer can immediately act on each repair step with concrete implementation guidance (visible labels, ARIA attributes, live regions, native accessibility APIs). | Answer progresses logically from problem framing \u2192 barrier taxonomy \u2192 sequential remediation \u2192 testable verification, with clear hierarchy and decision logic throughout. | Every claim is anchored to specific WCAG rules (2.4.6, 1.3.1, 4.1.2, 3.3.2, 1.4.1, 3.3.1, 4.1.3), user impact is explicit, and verification thresholds are measurable (contrast ratio 4.5:1, screen reader announcement confirmation). | Proposals are technically sound (ARIA live regions, platform-native accessibility APIs, color+icon pairing, label association) and operationally feasible for standard mobile development workflows."
+      },
+      "output_file": "tests/live_outputs/batch/batch-20260415-0008/openai/pass-08_pack.md"
+    },
+    {
+      "test_id": "pass-09",
+      "title": "Color system canonical pass",
+      "task": "color_system_spec",
+      "mode": "pack",
+      "validator_decision": "AUTO_REVISE",
+      "validator_score": 86,
+      "validator_pass": true,
+      "rubric_mean": 4.8,
+      "rubric_gate_pass": true,
+      "composite_score": 90.0,
+      "composite_pass": true,
+      "rubric_decisive": false,
+      "passed": true,
+      "passed_by": "validator",
+      "latency_seconds": 35.09,
+      "issues": [],
+      "warnings": [
+        {
+          "id": "thin_section",
+          "severity": "soft",
+          "detail": "section Role model too thin: 0 < 25"
+        },
+        {
+          "id": "missing_alternative",
+          "severity": "soft",
+          "detail": "no alternative path was named"
+        },
+        {
+          "id": "missing_next_step_guidance",
+          "severity": "soft",
+          "detail": "designer-readable guidance is missing a visible next move"
+        }
+      ],
+      "unmatched_sections": [],
+      "vocab_warnings": [],
+      "rubric": {
+        "intent_alignment": 5,
+        "actionability": 5,
+        "structural_rigor": 5,
+        "evidence_use": 4,
+        "implementation_realism": 5,
+        "rationale": "Response directly addresses all five requirements (semantic roles, token structure, contrast rules, dark mode, migration plan) with zero scope drift. | Designers and developers can immediately use the token map, copy hex values, implement state logic, and execute the 8-step migration plan without clarification. | Hierarchy is clear (roles \u2192 token map \u2192 rules \u2192 migration); decision logic chains from audit to deprecation; sequences are numbered and follow dependency order. | Claims cite WCAG AA thresholds (4.5:1, 3:1) and non-color semantics explicitly, but lack specific tool names or test results; evidence would strengthen with \"tested with Axe\" or sample contrast reports. | Plan is operationally realistic: alias layer avoids big bang refactor; side-by-side mapping is standard practice; linting enforcement and regression testing are achievable within typical SaaS release cycles."
+      },
+      "output_file": "tests/live_outputs/batch/batch-20260415-0008/openai/pass-09_pack.md"
+    },
+    {
+      "test_id": "pass-10",
+      "title": "Graphic critique canonical pass",
+      "task": "graphic_critique",
+      "mode": "pack",
+      "validator_decision": "FAIL",
+      "validator_score": 72,
+      "validator_pass": false,
+      "rubric_mean": 4.2,
+      "rubric_gate_pass": true,
+      "composite_score": 76.8,
+      "composite_pass": true,
+      "rubric_decisive": true,
+      "passed": true,
+      "passed_by": "rubric",
+      "latency_seconds": 18.1,
+      "issues": [
+        {
+          "id": "missing_section",
+          "severity": "hard",
+          "detail": "missing section: Communication goal"
+        },
+        {
+          "id": "missing_section",
+          "severity": "hard",
+          "detail": "missing section: Composition failures"
+        }
+      ],
+      "warnings": [
+        {
+          "id": "missing_next_step_guidance",
+          "severity": "soft",
+          "detail": "designer-readable guidance is missing a visible next move"
+        }
+      ],
+      "unmatched_sections": [
+        "missing section: Communication goal",
+        "missing section: Composition failures"
+      ],
+      "vocab_warnings": [],
+      "rubric": {
+        "intent_alignment": 5,
+        "actionability": 4,
+        "structural_rigor": 5,
+        "evidence_use": 3,
+        "implementation_realism": 4,
+        "rationale": "Response directly addresses the hierarchy problem stated in the user prompt and avoids tangential advice. | Designer can immediately apply reordering (eyebrow text, date repositioning, overlay technique), though some recommendations (e.g., 'support the logo with text') lack specific mockup or placement guidance. | Answer follows clear problem-findings-recommendations-tradeoffs structure with explicit causality (e.g., full-bleed photo causes contrast issues). | Claims about hierarchy failure and readability risk are stated as observations rather than tied to specific design thresholds (e.g., minimum contrast ratio, readable point size against photo). | Recommendations assume standard poster production capabilities (overlays, font sizing, repositioning) and acknowledge real design tension (drama vs. clarity), though some solutions are generic best practices rather than bespoke to this layout."
+      },
+      "output_file": "tests/live_outputs/batch/batch-20260415-0008/openai/pass-10_pack.md"
+    },
+    {
+      "test_id": "pass-11",
+      "title": "Layout reconstruction from legacy artifact",
+      "task": "layout_reconstruction_plan",
+      "mode": "pack",
+      "validator_decision": "FAIL",
+      "validator_score": 80,
+      "validator_pass": false,
+      "rubric_mean": 4.4,
+      "rubric_gate_pass": true,
+      "composite_score": 83.2,
+      "composite_pass": true,
+      "rubric_decisive": true,
+      "passed": true,
+      "passed_by": "rubric",
+      "latency_seconds": 11.6,
+      "issues": [
+        {
+          "id": "missing_rationale",
+          "severity": "hard",
+          "detail": "no explicit rationale language found"
+        }
+      ],
+      "warnings": [
+        {
+          "id": "thin_section",
+          "severity": "soft",
+          "detail": "section Source constraints too thin: 0 < 25"
+        },
+        {
+          "id": "missing_alternative",
+          "severity": "soft",
+          "detail": "no alternative path was named"
+        }
+      ],
+      "unmatched_sections": [],
+      "vocab_warnings": [],
+      "rubric": {
+        "intent_alignment": 5,
+        "actionability": 4,
+        "structural_rigor": 5,
+        "evidence_use": 4,
+        "implementation_realism": 4,
+        "rationale": "Response directly addresses the ask of extracting and translating a 2018 layout system into modern templates with no drift. | Designer can immediately begin systematic extraction, validation, and translation using the provided 6-step sequence and checklist, though concrete tool recommendations (Figma tokens, CSS Grid config examples) would sharpen execution. | Clear hierarchy of extraction \u2192 validation \u2192 translation \u2192 modern adaptation with explicit decision gates and dependency sequencing throughout. | Claims grounded in concrete artifact types (grid diagrams, margin tables, baseline alignment), validation through overlay checks, and explicit confidence-level flagging (high/medium/low), though no thresholds for acceptable measurement variance. | Proposal is technically sound and operationally feasible within typical design workflows; assumes PDF-to-measurement-to-code pipeline is realistic but doesn't address OCR/automation trade-offs or measurement error tolerances."
+      },
+      "output_file": "tests/live_outputs/batch/batch-20260415-0008/openai/pass-11_pack.md"
+    },
+    {
+      "test_id": "pass-12",
+      "title": "Type system canonical pass",
+      "task": "type_system_recommendation",
+      "mode": "pack",
+      "validator_decision": "AUTO_REVISE",
+      "validator_score": 90,
+      "validator_pass": true,
+      "rubric_mean": 4.8,
+      "rubric_gate_pass": true,
+      "composite_score": 92.4,
+      "composite_pass": true,
+      "rubric_decisive": false,
+      "passed": true,
+      "passed_by": "validator",
+      "latency_seconds": 30.76,
+      "issues": [
+        {
+          "id": "missing_rationale",
+          "severity": "soft",
+          "detail": "causal language not attached near recommendations \u2014 add \"because/without which/this requires\" adjacent to each recommendation"
+        }
+      ],
+      "warnings": [
+        {
+          "id": "thin_section",
+          "severity": "soft",
+          "detail": "section Adoption guidance too thin: 0 < 25"
+        }
+      ],
+      "unmatched_sections": [],
+      "vocab_warnings": [],
+      "rubric": {
+        "intent_alignment": 5,
+        "actionability": 5,
+        "structural_rigor": 5,
+        "evidence_use": 4,
+        "implementation_realism": 5,
+        "rationale": "Response directly addresses all four requested areas (reading contexts, scale/role map, readability rules, phasing) with no drift. | Designer can immediately apply typeface choices, weight assignments, feature flags (tnum), and CSS values (line-height, contrast ratios, max-widths) to production. | Answer follows clear hierarchy: constraint analysis \u2192 typeface selection \u2192 role table \u2192 metrics \u2192 phased rollout sequence with decision gates. | Claims cite WCAG AA (verifiable standard) and Inter's numeral design, but lacks threshold evidence for some choices (e.g., why 16\u201318px specifically, or data on scan speed gains from tabular figures in fintech contexts). | Proposal is technically sound (variable fonts, font-feature-settings, baseline grids are standard practice), operationally feasible (5-phase rollout is realistic), and explicitly acknowledges tradeoffs and fallback requirements for engineering."
+      },
+      "output_file": "tests/live_outputs/batch/batch-20260415-0008/openai/pass-12_pack.md"
+    },
+    {
+      "test_id": "pass-13",
+      "title": "UX research gap map canonical pass",
+      "task": "ux_research_gap_map",
+      "mode": "pack",
+      "validator_decision": "PASS",
+      "validator_score": 100,
+      "validator_pass": true,
+      "rubric_mean": 4.8,
+      "rubric_gate_pass": true,
+      "composite_score": 98.4,
+      "composite_pass": true,
+      "rubric_decisive": false,
+      "passed": true,
+      "passed_by": "validator",
+      "latency_seconds": 18.41,
+      "issues": [],
+      "warnings": [],
+      "unmatched_sections": [],
+      "vocab_warnings": [],
+      "rubric": {
+        "intent_alignment": 5,
+        "actionability": 5,
+        "structural_rigor": 5,
+        "evidence_use": 5,
+        "implementation_realism": 4,
+        "rationale": "Response directly addresses the mapping request, naming six concrete gaps with explicit constraints tied to existing data. | Each gap includes a named research method (intercept interviews, funnel analytics, competitive review, contextual inquiry) with clear success criteria, allowing immediate task assignment. | Answer uses hierarchical framing (known evidence \u2192 critical gaps \u2192 research plan \u2192 decision impact), with explicit sequencing and tradeoff reasoning that reveals decision logic. | Claims are anchored to specific thresholds (60% drop-off as severity marker, sample-size constraint on usability tests, 3\u20135 competitors for benchmarking) and proof types (descriptive vs. diagnostic, qualitative vs. quantitative). | Plan is operationally sound, but assumes budget and stakeholder buy-in for multi-method research; rapid abandonment study scope (intercept + surveys + sessions) may exceed typical timeline if 60% drop-off spans multiple user segments requiring segmented sampling."
+      },
+      "output_file": "tests/live_outputs/batch/batch-20260415-0008/openai/pass-13_pack.md"
+    },
+    {
+      "test_id": "pass-14",
+      "title": "Front-end architecture canonical pass",
+      "task": "frontend_implementation_review",
+      "mode": "pack",
+      "validator_decision": "PASS",
+      "validator_score": 100,
+      "validator_pass": true,
+      "rubric_mean": 4.4,
+      "rubric_gate_pass": true,
+      "composite_score": 95.2,
+      "composite_pass": true,
+      "rubric_decisive": false,
+      "passed": true,
+      "passed_by": "validator",
+      "latency_seconds": 15.82,
+      "issues": [],
+      "warnings": [],
+      "unmatched_sections": [],
+      "vocab_warnings": [],
+      "rubric": {
+        "intent_alignment": 5,
+        "actionability": 4,
+        "structural_rigor": 5,
+        "evidence_use": 4,
+        "implementation_realism": 4,
+        "rationale": "Response directly addresses the unsafe patterns (boolean state, div buttons, client-side permission logic, monolithic rendering) and proposes concrete alternatives (FSM state, semantic buttons, server-first rendering, data-fetching libraries) without drift. | Designer/developer can immediately refactor state model and button markup; filter chip and SSR migration require architectural decisions but next moves provide sequencing. | Answer progresses logically from principles \u2192 boundaries \u2192 rendering \u2192 risks, with clear decision trees (e.g., hydrate only interactive islands, not whole page) and explicit tradeoff articulation. | Claims are grounded in standards (WCAG 2.1, semantic HTML), best practices (finite-state machines, server-side permission checks), and concrete failure modes (contradictory booleans, broken a11y); could strengthen with specific rollback scenario or permission-denial example. | Feasible with standard tech stack (React Query, SSR frameworks); server-side filtering and permission checks are standard practice; optimistic rollback is well-proven; only mild risk is team capacity for SSR shift, not technical viability."
+      },
+      "output_file": "tests/live_outputs/batch/batch-20260415-0008/openai/pass-14_pack.md"
+    },
+    {
+      "test_id": "pass-15",
+      "title": "Backend architecture spec canonical pass",
+      "task": "backend_architecture_spec",
+      "mode": "pack",
+      "validator_decision": "AUTO_REVISE",
+      "validator_score": 71,
+      "validator_pass": true,
+      "rubric_mean": 4.2,
+      "rubric_gate_pass": true,
+      "composite_score": 76.2,
+      "composite_pass": true,
+      "rubric_decisive": false,
+      "passed": true,
+      "passed_by": "validator",
+      "latency_seconds": 22.76,
+      "issues": [
+        {
+          "id": "missing_rationale",
+          "severity": "soft",
+          "detail": "causal language not attached near recommendations \u2014 add \"because/without which/this requires\" adjacent to each recommendation"
+        }
+      ],
+      "warnings": [
+        {
+          "id": "thin_section",
+          "severity": "soft",
+          "detail": "section Core model and authority boundaries too thin: 0 < 45"
+        },
+        {
+          "id": "thin_section",
+          "severity": "soft",
+          "detail": "section Data, consistency, and delivery design too thin: 0 < 50"
+        },
+        {
+          "id": "thin_section",
+          "severity": "soft",
+          "detail": "section Observability and failure posture too thin: 0 < 30"
+        },
+        {
+          "id": "missing_alternative",
+          "severity": "soft",
+          "detail": "no alternative path was named"
+        },
+        {
+          "id": "missing_route_traceability",
+          "severity": "soft",
+          "detail": "visible trace was expected but route metadata is not recoverable enough for debugging"
+        }
+      ],
+      "unmatched_sections": [],
+      "vocab_warnings": [],
+      "rubric": {
+        "intent_alignment": 5,
+        "actionability": 4,
+        "structural_rigor": 5,
+        "evidence_use": 3,
+        "implementation_realism": 4,
+        "rationale": "Response directly addressed all ask dimensions (multi-tenancy, feeds, workflows, webhooks, residency, audit, future automation) without drift. | Designers can act on service decomposition, data model, and contracts immediately; some gaps in concrete queue/CDC technology choices limit immediate Dev handoff. | Clear hierarchy (framing \u2192 boundaries \u2192 data/consistency \u2192 observability \u2192 tradeoffs) with explicit decision logic and sequencing; strong logical flow. | Claims lack specific thresholds (e.g., audit retention SLOs, webhook retry counts, automation execution quotas are named but not defined); compliance/safety arguments are sound but not linked to measurable constraints. | Proposal is technically sound (outbox pattern, CDC, idempotency, regional isolation all proven); operational complexity acknowledged, but regional clustering and logical separation risks not deeply stress-tested against scale or failure scenarios."
+      },
+      "output_file": "tests/live_outputs/batch/batch-20260415-0008/openai/pass-15_pack.md"
+    },
+    {
+      "test_id": "pass-16",
+      "title": "API reliability and security canonical pass",
+      "task": "api_reliability_security_review",
+      "mode": "pack",
+      "validator_decision": "AUTO_REVISE",
+      "validator_score": 69,
+      "validator_pass": true,
+      "rubric_mean": 4.6,
+      "rubric_gate_pass": true,
+      "composite_score": 78.2,
+      "composite_pass": true,
+      "rubric_decisive": false,
+      "passed": true,
+      "passed_by": "validator",
+      "latency_seconds": 33.29,
+      "issues": [],
+      "warnings": [
+        {
+          "id": "thin_section",
+          "severity": "soft",
+          "detail": "section Failure semantics too thin: 0 < 30"
+        },
+        {
+          "id": "thin_section",
+          "severity": "soft",
+          "detail": "section Authorization and resource protection too thin: 0 < 45"
+        },
+        {
+          "id": "thin_section",
+          "severity": "soft",
+          "detail": "section Idempotency and async lifecycle too thin: 0 < 45"
+        },
+        {
+          "id": "thin_section",
+          "severity": "soft",
+          "detail": "section Resilience and observability too thin: 0 < 35"
+        },
+        {
+          "id": "missing_alternative",
+          "severity": "soft",
+          "detail": "no alternative path was named"
+        },
+        {
+          "id": "missing_route_traceability",
+          "severity": "soft",
+          "detail": "visible trace was expected but route metadata is not recoverable enough for debugging"
+        }
+      ],
+      "unmatched_sections": [],
+      "vocab_warnings": [],
+      "rubric": {
+        "intent_alignment": 5,
+        "actionability": 4,
+        "structural_rigor": 5,
+        "evidence_use": 4,
+        "implementation_realism": 5,
+        "rationale": "Response directly addresses all four requested audit areas (failure semantics, authorization, idempotency, resilience) without drift. | Recommendations are concrete (RFC 7807, idempotency-key header, 202 Accepted pattern, trace IDs) but lack code examples or implementation sequencing for complex items like async migration. | Answer uses clear section hierarchy with findings\u2192recommendations\u2192tradeoffs for each domain, showing logical decision flow and dependencies. | Claims are grounded in standards (RFC citations, HTTP semantics, Stripe idempotency pattern) and specific failure modes, though some resilience guidance (circuit breakers) lacks threshold criteria. | Proposals are operationally realistic: async job queues, status polling, and rate-limiting are industry-standard; migration path is credible despite effort."
+      },
+      "output_file": "tests/live_outputs/batch/batch-20260415-0008/openai/pass-16_pack.md"
+    },
+    {
+      "test_id": "pass-17",
+      "title": "Adaptive explanation tiers preserve route truth",
+      "task": "frontend_implementation_review",
+      "mode": "pack",
+      "validator_decision": "FAIL",
+      "validator_score": 79,
+      "validator_pass": false,
+      "rubric_mean": 4.4,
+      "rubric_gate_pass": true,
+      "composite_score": 82.6,
+      "composite_pass": true,
+      "rubric_decisive": true,
+      "passed": true,
+      "passed_by": "rubric",
+      "latency_seconds": 12.1,
+      "issues": [
+        {
+          "id": "missing_required_decision",
+          "severity": "hard",
+          "detail": "missing required decision `rendering_model`: Chooses the rendering strategy instead of implying it."
+        }
+      ],
+      "warnings": [
+        {
+          "id": "thin_section",
+          "severity": "soft",
+          "detail": "section Boundary and state model too thin: 26 < 45"
+        },
+        {
+          "id": "missing_alternative",
+          "severity": "soft",
+          "detail": "no alternative path was named"
+        },
+        {
+          "id": "missing_route_traceability",
+          "severity": "soft",
+          "detail": "visible trace was expected but route metadata is not recoverable enough for debugging"
+        }
+      ],
+      "unmatched_sections": [],
+      "vocab_warnings": [],
+      "rubric": {
+        "intent_alignment": 5,
+        "actionability": 4,
+        "structural_rigor": 5,
+        "evidence_use": 3,
+        "implementation_realism": 5,
+        "rationale": "Response directly addresses the three-tier framework with explicit decision statements at each level, satisfying the core ask. A designer/developer can immediately adopt the local-state-first strategy and identify concrete trigger conditions (tangled data flow, untraceable effects) to revisit. Clear hierarchy (Functional \u2192 Integrative \u2192 Strategic) with logical progression from mechanics to principles to organizational trade-offs. Claims lack quantitative thresholds or citation of specific pain-point metrics (e.g., 'more than N cross-component subscribers' or 'update frequency >100ms matters'). Recommendations are grounded in real React trade-offs and reflect industry consensus; progression from Context to Redux is technically sound and operationally credible for teams of various sizes."
+      },
+      "output_file": "tests/live_outputs/batch/batch-20260415-0008/openai/pass-17_pack.md"
+    },
+    {
+      "test_id": "pass-18",
+      "title": "Designer response filter preserves backend constraints",
+      "task": "api_reliability_security_review",
+      "mode": "pack",
+      "validator_decision": "FAIL",
+      "validator_score": 83,
+      "validator_pass": false,
+      "rubric_mean": 4.6,
+      "rubric_gate_pass": true,
+      "composite_score": 86.6,
+      "composite_pass": true,
+      "rubric_decisive": true,
+      "passed": true,
+      "passed_by": "rubric",
+      "latency_seconds": 24.83,
+      "issues": [
+        {
+          "id": "missing_required_decision",
+          "severity": "hard",
+          "detail": "missing required decision `authorization_perimeter`: Names the authorization boundary and relevant API risk."
+        }
+      ],
+      "warnings": [
+        {
+          "id": "thin_section",
+          "severity": "soft",
+          "detail": "section Authorization and resource protection too thin: 38 < 45"
+        },
+        {
+          "id": "missing_route_traceability",
+          "severity": "soft",
+          "detail": "visible trace was expected but route metadata is not recoverable enough for debugging"
+        }
+      ],
+      "unmatched_sections": [],
+      "vocab_warnings": [],
+      "rubric": {
+        "intent_alignment": 5,
+        "actionability": 4,
+        "structural_rigor": 5,
+        "evidence_use": 4,
+        "implementation_realism": 5,
+        "rationale": "Response directly addresses all four architectural concerns (auth, idempotency, error contract, status codes) without drift. | Designers can immediately implement each decision (add role check, add idempotency-key header or uniqueness constraint, restructure error envelope, map 403 vs 401), though idempotency strategy choice is left to the team. | Hierarchy is explicit: decisions stated first, reasoning follows, risks and safer path anchor the logic; clear decision\u2192rationale\u2192implementation pattern. | Claims are grounded in RFC 9457, role-based access control principles, and HTTP semantics (403 vs 401); some claims lack quantified thresholds (e.g., when duplicate risk becomes unacceptable) but are defensible. | Proposals are standard (idempotency keys, structured errors, RBAC checks, status code mapping) and technically feasible in any modern stack; no speculative or bleeding-edge assumptions."
+      },
+      "output_file": "tests/live_outputs/batch/batch-20260415-0008/openai/pass-18_pack.md"
+    },
+    {
+      "test_id": "pass-19",
+      "title": "Text humanization canonical pass",
+      "task": "text_humanization_revision",
+      "mode": "pack",
+      "validator_decision": "AUTO_REVISE",
+      "validator_score": 94,
+      "validator_pass": true,
+      "rubric_mean": 4.8,
+      "rubric_gate_pass": true,
+      "composite_score": 94.8,
+      "composite_pass": true,
+      "rubric_decisive": false,
+      "passed": true,
+      "passed_by": "validator",
+      "latency_seconds": 4.11,
+      "issues": [],
+      "warnings": [
+        {
+          "id": "thin_section",
+          "severity": "soft",
+          "detail": "section Revised passage too thin: 10 < 26"
+        }
+      ],
+      "unmatched_sections": [],
+      "vocab_warnings": [],
+      "rubric": {
+        "intent_alignment": 5,
+        "actionability": 5,
+        "structural_rigor": 5,
+        "evidence_use": 4,
+        "implementation_realism": 5,
+        "rationale": "Response directly addresses the three-part request (job, patterns, guard) and delivers a clear revision with line-by-line change explanation. | A designer or writer can immediately apply the revision and understand the reasoning behind each substitution. | The answer follows a logical sequence: context \u2192 diagnosis \u2192 preservation strategy \u2192 solution \u2192 detailed change log. | Claims about wordiness and passive voice are well-observed but lack specific readability metrics (e.g., word count reduction from 25 to 13 words, passive-to-active ratio); the guard is stated but not validated against the revision. | The rewrite is immediately implementable and reflects actual business-document conventions; no technical or operational barriers exist."
+      },
+      "output_file": "tests/live_outputs/batch/batch-20260415-0008/openai/pass-19_pack.md"
+    },
+    {
+      "test_id": "pass-20",
+      "title": "Backend Architecture Spec",
+      "task": "backend_architecture_spec",
+      "mode": "pack",
+      "validator_decision": "AUTO_REVISE",
+      "validator_score": 71,
+      "validator_pass": true,
+      "rubric_mean": 4.6,
+      "rubric_gate_pass": true,
+      "composite_score": 79.4,
+      "composite_pass": true,
+      "rubric_decisive": false,
+      "passed": true,
+      "passed_by": "validator",
+      "latency_seconds": 33.77,
+      "issues": [
+        {
+          "id": "missing_rationale",
+          "severity": "soft",
+          "detail": "causal language not attached near recommendations \u2014 add \"because/without which/this requires\" adjacent to each recommendation"
+        }
+      ],
+      "warnings": [
+        {
+          "id": "thin_section",
+          "severity": "soft",
+          "detail": "section Core model and authority boundaries too thin: 0 < 45"
+        },
+        {
+          "id": "thin_section",
+          "severity": "soft",
+          "detail": "section Data, consistency, and delivery design too thin: 0 < 50"
+        },
+        {
+          "id": "thin_section",
+          "severity": "soft",
+          "detail": "section Observability and failure posture too thin: 0 < 30"
+        },
+        {
+          "id": "missing_alternative",
+          "severity": "soft",
+          "detail": "no alternative path was named"
+        },
+        {
+          "id": "missing_route_traceability",
+          "severity": "soft",
+          "detail": "visible trace was expected but route metadata is not recoverable enough for debugging"
+        }
+      ],
+      "unmatched_sections": [],
+      "vocab_warnings": [],
+      "rubric": {
+        "intent_alignment": 5,
+        "actionability": 4,
+        "structural_rigor": 5,
+        "evidence_use": 4,
+        "implementation_realism": 5,
+        "rationale": "Response directly addresses all requested features (multi-tenancy, workspaces, feeds, approvals, webhooks) with clear scoping and no drift. | Designers/engineers can immediately extract concrete decisions (PostgreSQL + Redis, cursor-based pagination, exponential backoff), though some patterns (row-level security enforcement mechanism) need implementation-level detail. | Answer exhibits strong hierarchy (framing \u2192 model \u2192 data/consistency \u2192 observability), explicit decision sequences (feed pagination logic, approval state immutability), and clear authority flow boundaries. | Claims are anchored to specific constraints (at-least-once webhook semantics, strong consistency for approvals, eventual delivery for integrations) and tradeoffs explicitly stated (tenant partitioning complicates cross-tenant analytics). | Proposal reflects realistic SaaS patterns (soft deletes, dead-letter queues, circuit breakers, trace IDs, idempotency keys); no over-engineered or speculative components; correctly identifies tenant isolation as non-negotiable and acknowledges operational complexity without overstatement."
+      },
+      "output_file": "tests/live_outputs/batch/batch-20260415-0008/openai/pass-20_pack.md"
+    }
+  ]
+}
