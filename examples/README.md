@@ -29,3 +29,5 @@ Current direct coverage includes:
 - layout reconstruction plan
 - type system recommendation
 - UX research gap map
+
+- `real-brief-backend-feasibility-review.md` - real-use-case style backend feasibility review with explicit prototype and production claim boundaries.

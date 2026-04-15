@@ -1,0 +1,17 @@
+{
+  "validator": "validate_examples",
+  "decision": "PASS",
+  "warn_only": false,
+  "issue_counts": {
+    "BLOCKER": 0,
+    "ERROR": 0,
+    "WARN": 0,
+    "INFO": 0
+  },
+  "issues": [],
+  "metrics": {
+    "checked_examples": 18,
+    "required_examples": 17
+  },
+  "metadata": {}
+}

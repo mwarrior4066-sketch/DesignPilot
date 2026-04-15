@@ -1,0 +1,12 @@
+{
+  "version": "3.0",
+  "proof_model": "tiered",
+  "tiers": {
+    "tier_1_structural_compliance": "strong: validation suite and 45-test regression suite pass",
+    "tier_2_output_quality": "moderate-to-strong for implementation-aware routes, weaker for judgment-heavy communication routes",
+    "tier_3_designer_outcome": "open: no real-world outcome claim made"
+  },
+  "current_claim_boundary": "DesignPilot can claim structured, internally validated, implementation-aware output quality for tested tasks. It cannot yet claim production outcome proof.",
+  "current_release_line": "v3.0",
+  "release_status_source": "RELEASE_STATUS.json"
+}

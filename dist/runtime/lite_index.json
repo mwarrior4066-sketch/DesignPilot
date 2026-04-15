@@ -1,0 +1,279 @@
+{
+  "version": "1.0",
+  "artifact": "dist/DEPLOY_LITE.md",
+  "routes": {
+    "rt_accessibility_feedback_audit": {
+      "task_id": "accessibility_feedback_audit",
+      "title": "Accessibility Feedback Audit",
+      "route_doc": "dist/runtime/route_cards/rt_accessibility_feedback_audit.md",
+      "contract_doc": "dist/runtime/contracts_lite/accessibility_feedback_audit.md",
+      "starter_doc": "dist/runtime/starters/accessibility_feedback_audit.md",
+      "recommended_profile": "dist/DEPLOY_UI.md",
+      "lightweight_eligible": true,
+      "visual_input_supported": true,
+      "governing_skills": [
+        "accessibility-feedback-expert.md",
+        "ui-system-expert.md"
+      ]
+    },
+    "rt_api_reliability_security": {
+      "task_id": "api_reliability_security_review",
+      "title": "API Reliability and Security Review",
+      "route_doc": "dist/runtime/route_cards/rt_api_reliability_security.md",
+      "contract_doc": "dist/runtime/contracts_lite/api_reliability_security_review.md",
+      "starter_doc": "",
+      "recommended_profile": "dist/DEPLOY_UI.md",
+      "lightweight_eligible": false,
+      "visual_input_supported": false,
+      "governing_skills": [
+        "api-reliability-security-expert.md",
+        "back-end-systems-architect.md",
+        "back-end-aware-planner.md"
+      ]
+    },
+    "rt_backend_feasibility": {
+      "task_id": "backend_feasibility_review",
+      "title": "Back-End Feasibility Review",
+      "route_doc": "dist/runtime/route_cards/rt_backend_feasibility.md",
+      "contract_doc": "dist/runtime/contracts_lite/backend_feasibility_review.md",
+      "starter_doc": "",
+      "recommended_profile": "dist/DEPLOY_UI.md",
+      "lightweight_eligible": false,
+      "visual_input_supported": false,
+      "governing_skills": [
+        "back-end-aware-planner.md",
+        "front-end-handoff-expert.md"
+      ]
+    },
+    "rt_backend_systems_architecture": {
+      "task_id": "backend_architecture_spec",
+      "title": "Back-End Architecture Spec",
+      "route_doc": "dist/runtime/route_cards/rt_backend_systems_architecture.md",
+      "contract_doc": "dist/runtime/contracts_lite/backend_architecture_spec.md",
+      "starter_doc": "",
+      "recommended_profile": "dist/DEPLOY_UI.md",
+      "lightweight_eligible": false,
+      "visual_input_supported": false,
+      "governing_skills": [
+        "back-end-systems-architect.md",
+        "back-end-aware-planner.md",
+        "api-reliability-security-expert.md"
+      ]
+    },
+    "rt_brand_positioning": {
+      "task_id": "brand_positioning_pass",
+      "title": "Brand Positioning Pass",
+      "route_doc": "dist/runtime/route_cards/rt_brand_positioning.md",
+      "contract_doc": "dist/runtime/contracts_lite/brand_positioning_pass.md",
+      "starter_doc": "dist/runtime/starters/brand_positioning_pass.md",
+      "recommended_profile": "dist/DEPLOY_BRAND.md",
+      "lightweight_eligible": true,
+      "visual_input_supported": false,
+      "governing_skills": [
+        "brand-strategy-expert.md",
+        "content-and-case-study-expert.md"
+      ]
+    },
+    "rt_case_study_rewrite": {
+      "task_id": "case_study_rewrite",
+      "title": "Case Study Rewrite",
+      "route_doc": "dist/runtime/route_cards/rt_case_study_rewrite.md",
+      "contract_doc": "dist/runtime/contracts_lite/case_study_rewrite.md",
+      "starter_doc": "dist/runtime/starters/case_study_rewrite.md",
+      "recommended_profile": "dist/DEPLOY_BRAND.md",
+      "lightweight_eligible": true,
+      "visual_input_supported": false,
+      "governing_skills": [
+        "content-and-case-study-expert.md"
+      ]
+    },
+    "rt_color_system_spec": {
+      "task_id": "color_system_spec",
+      "title": "Color System Specification",
+      "route_doc": "dist/runtime/route_cards/rt_color_system_spec.md",
+      "contract_doc": "dist/runtime/contracts_lite/color_system_spec.md",
+      "starter_doc": "dist/runtime/starters/color_system_spec.md",
+      "recommended_profile": "dist/DEPLOY_UI.md",
+      "lightweight_eligible": true,
+      "visual_input_supported": false,
+      "governing_skills": [
+        "color-system-expert.md",
+        "accessibility-feedback-expert.md"
+      ]
+    },
+    "rt_component_spec": {
+      "task_id": "component_spec",
+      "title": "Component Specification",
+      "route_doc": "dist/runtime/route_cards/rt_component_spec.md",
+      "contract_doc": "dist/runtime/contracts_lite/component_spec.md",
+      "starter_doc": "dist/runtime/starters/component_spec.md",
+      "recommended_profile": "dist/DEPLOY_UI.md",
+      "lightweight_eligible": true,
+      "visual_input_supported": false,
+      "governing_skills": [
+        "component-systems-expert.md",
+        "front-end-handoff-expert.md"
+      ]
+    },
+    "rt_dashboard_audit": {
+      "task_id": "dashboard_audit",
+      "title": "Dashboard Audit",
+      "route_doc": "dist/runtime/route_cards/rt_dashboard_audit.md",
+      "contract_doc": "dist/runtime/contracts_lite/dashboard_audit.md",
+      "starter_doc": "dist/runtime/starters/dashboard_audit.md",
+      "recommended_profile": "dist/DEPLOY_UI.md",
+      "lightweight_eligible": true,
+      "visual_input_supported": true,
+      "governing_skills": [
+        "dashboard-data-expert.md",
+        "ui-system-expert.md"
+      ]
+    },
+    "rt_frontend_architecture": {
+      "task_id": "frontend_implementation_review",
+      "title": "Front-End Implementation Review",
+      "route_doc": "dist/runtime/route_cards/rt_frontend_architecture.md",
+      "contract_doc": "dist/runtime/contracts_lite/frontend_implementation_review.md",
+      "starter_doc": "",
+      "recommended_profile": "dist/DEPLOY_UI.md",
+      "lightweight_eligible": false,
+      "visual_input_supported": false,
+      "governing_skills": [
+        "front-end-architecture-expert.md",
+        "front-end-handoff-expert.md",
+        "accessibility-feedback-expert.md"
+      ]
+    },
+    "rt_graphic_critique": {
+      "task_id": "graphic_critique",
+      "title": "Graphic Critique",
+      "route_doc": "dist/runtime/route_cards/rt_graphic_critique.md",
+      "contract_doc": "dist/runtime/contracts_lite/graphic_critique.md",
+      "starter_doc": "dist/runtime/starters/graphic_critique.md",
+      "recommended_profile": "dist/DEPLOY_BRAND.md",
+      "lightweight_eligible": true,
+      "visual_input_supported": true,
+      "governing_skills": [
+        "graphic-design-expert.md",
+        "type-system-expert.md"
+      ]
+    },
+    "rt_layout_reconstruction_plan": {
+      "task_id": "layout_reconstruction_plan",
+      "title": "Layout Reconstruction Plan",
+      "route_doc": "dist/runtime/route_cards/rt_layout_reconstruction_plan.md",
+      "contract_doc": "dist/runtime/contracts_lite/layout_reconstruction_plan.md",
+      "starter_doc": "",
+      "recommended_profile": "dist/DEPLOY_UI.md",
+      "lightweight_eligible": false,
+      "visual_input_supported": true,
+      "governing_skills": [
+        "layout-reconstruction-expert.md",
+        "grid-system-expert.md"
+      ]
+    },
+    "rt_pdf_remediation": {
+      "task_id": "pdf_remediation_plan",
+      "title": "PDF Remediation Plan",
+      "route_doc": "dist/runtime/route_cards/rt_pdf_remediation.md",
+      "contract_doc": "dist/runtime/contracts_lite/pdf_remediation_plan.md",
+      "starter_doc": "",
+      "recommended_profile": "dist/DEPLOY_UI.md",
+      "lightweight_eligible": false,
+      "visual_input_supported": true,
+      "governing_skills": [
+        "document-accessibility-expert.md",
+        "pdf-layout-expert.md"
+      ]
+    },
+    "rt_text_humanization": {
+      "task_id": "text_humanization_revision",
+      "title": "Text Humanization Revision",
+      "route_doc": "dist/runtime/route_cards/rt_text_humanization.md",
+      "contract_doc": "dist/runtime/contracts_lite/text_humanization_revision.md",
+      "starter_doc": "dist/runtime/starters/text_humanization_revision.md",
+      "recommended_profile": "dist/DEPLOY_BRAND.md",
+      "lightweight_eligible": true,
+      "visual_input_supported": false,
+      "governing_skills": [
+        "text-humanization-expert.md",
+        "content-and-case-study-expert.md"
+      ]
+    },
+    "rt_type_system_recommendation": {
+      "task_id": "type_system_recommendation",
+      "title": "Type System Recommendation",
+      "route_doc": "dist/runtime/route_cards/rt_type_system_recommendation.md",
+      "contract_doc": "dist/runtime/contracts_lite/type_system_recommendation.md",
+      "starter_doc": "dist/runtime/starters/type_system_recommendation.md",
+      "recommended_profile": "dist/DEPLOY_UI.md",
+      "lightweight_eligible": true,
+      "visual_input_supported": false,
+      "governing_skills": [
+        "type-system-expert.md",
+        "accessibility-feedback-expert.md"
+      ]
+    },
+    "rt_ui_structure_critique": {
+      "task_id": "ui_structure_critique",
+      "title": "UI Structure Critique",
+      "route_doc": "dist/runtime/route_cards/rt_ui_structure_critique.md",
+      "contract_doc": "dist/runtime/contracts_lite/ui_structure_critique.md",
+      "starter_doc": "dist/runtime/starters/ui_structure_critique.md",
+      "recommended_profile": "dist/DEPLOY_UI.md",
+      "lightweight_eligible": true,
+      "visual_input_supported": true,
+      "governing_skills": [
+        "ui-system-expert.md",
+        "grid-system-expert.md"
+      ]
+    },
+    "rt_ux_research_gap_map": {
+      "task_id": "ux_research_gap_map",
+      "title": "UX Research Gap Map",
+      "route_doc": "dist/runtime/route_cards/rt_ux_research_gap_map.md",
+      "contract_doc": "dist/runtime/contracts_lite/ux_research_gap_map.md",
+      "starter_doc": "dist/runtime/starters/ux_research_gap_map.md",
+      "recommended_profile": "dist/DEPLOY_BRAND.md",
+      "lightweight_eligible": true,
+      "visual_input_supported": false,
+      "governing_skills": [
+        "ux-research-expert.md",
+        "content-and-case-study-expert.md"
+      ]
+    },
+    "rt_visual_input": {
+      "task_id": "visual_input_prepass",
+      "title": "Visual Input Prepass",
+      "route_doc": "dist/runtime/route_cards/rt_visual_input.md",
+      "contract_doc": "",
+      "starter_doc": "",
+      "recommended_profile": "dist/DEPLOY_CORE.md",
+      "lightweight_eligible": false,
+      "visual_input_supported": false,
+      "governing_skills": []
+    }
+  },
+  "lightweight_eligible_routes": [
+    "rt_accessibility_feedback_audit",
+    "rt_brand_positioning",
+    "rt_case_study_rewrite",
+    "rt_color_system_spec",
+    "rt_component_spec",
+    "rt_dashboard_audit",
+    "rt_graphic_critique",
+    "rt_text_humanization",
+    "rt_type_system_recommendation",
+    "rt_ui_structure_critique",
+    "rt_ux_research_gap_map"
+  ],
+  "escalation_only_routes": [
+    "rt_api_reliability_security",
+    "rt_backend_feasibility",
+    "rt_backend_systems_architecture",
+    "rt_frontend_architecture",
+    "rt_layout_reconstruction_plan",
+    "rt_pdf_remediation",
+    "rt_visual_input"
+  ]
+}

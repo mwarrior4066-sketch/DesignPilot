@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "project": {
+    "name": "DesignPilot",
+    "slug": "designpilot"
+  },
+  "goal": "prove that DesignPilot is a routed, evidence-constrained design operator system without overstating outcome proof while keeping the broader capability surface synchronized with real proof and release discipline",
+  "proof_boundaries": {
+    "internal_operator_proof": "strong",
+    "comparative_proof": "strong",
+    "external_confidence_proof": "improving",
+    "production_outcome_proof": "open"
+  },
+  "done_before": [
+    "stabilized the proof, continuity, and release-hardening base in v2.3.0",
+    "separated the system doc from the case-study proof layer",
+    "added a canonical project workspace with continuity files"
+  ],
+  "bundle_export_posture": "controlled-release ready, not production-outcome proven"
+}

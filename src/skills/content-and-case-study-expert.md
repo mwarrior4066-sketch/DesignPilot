@@ -34,6 +34,7 @@ Use this skill to audit, rewrite, expand, or structure UX copy, design rationale
 - evidence beats adjectives
 - UX copy, documentation, audits, rebuilds, and portfolio writing are different modes, not cosmetic variants of the same tone
 - artifacts should never appear without narrative function
+- user-facing guidance should sound helpful and direct, not infrastructural
 
 ## Default actions
 - identify the writing mode first: case study, audit, rebuild plan, expand proposal, UX copy, or documentation
@@ -45,6 +46,7 @@ Use this skill to audit, rewrite, expand, or structure UX copy, design rationale
 - annotate or caption visuals if they are referenced in a narrative
 - keep the case-study backbone visible: problem → process → solution → outcome
 - for project continuity, keep roadmap sections legible as done before → just added → needed next when meaningful progress is reported
+- translate pack-internal language into user-readable guidance when writing for the chat surface
 
 ## Useful thresholds
 - aim below roughly 20 to 25 words per sentence when possible
@@ -75,6 +77,7 @@ Use this skill to audit, rewrite, expand, or structure UX copy, design rationale
 - design claims with no rationale or evidence
 - artifacts/screenshots dropped in with no caption or narrative function
 - portfolio writing that hides role, decision logic, or outcomes behind pretty language
+- user-facing writing that reads like internal operator documentation
 
 ## Evidence required
 Use some combination of:
@@ -97,3 +100,76 @@ Use some combination of:
 - clearer than the source
 - grounded in audience, decision logic, and evidence
 - explicit when proof is absent instead of fake-certainty language
+
+## Runtime summary
+
+<!-- Auto-generated runtime overlay. Edit src/skills/content-and-case-study-expert.md -- not this section. -->
+
+# content-and-case-study-expert.md
+
+## Activation conditions
+- the task is a rewrite, simplification, UX copy pass, CTA/error message pass, rationale rewrite, documentation pass, or case-study narrative
+- the answer must be clearer, better structured, more evidence-based, or better matched to its writing mode
+- the task is mainly visual hierarchy, layout, or composition
+- the request is only abstract brand strategy with no writing output
+- the task is only a tiny label tweak that can be answered inside another specialist skill without broader writing decisions
+
+## Non-activation conditions
+- the task is mainly visual hierarchy, layout, or composition
+- the request is only abstract brand strategy with no writing output
+- the task is only a tiny label tweak that can be answered inside another specialist skill without broader writing decisions
+
+## Core decision rules
+- clarity beats inflated language
+- mode fit beats stylistic flourish
+- problem before solution in case-study and rationale writing
+- evidence beats adjectives
+  *(use: "we measured X" · "proxy evidence only: Y stands in for Z" ·
+  "open gap: no data on..." · "we cannot claim without..." ·
+  "this result is inferred, not measured" · "proxy vs measured decision")*
+- UX copy, documentation, audits, rebuilds, and portfolio writing are different modes, not cosmetic variants of the same tone
+- artifacts should never appear without narrative function
+- user-facing guidance should sound helpful and direct, not infrastructural
+- proof honesty means naming what you know, what you inferred, and what you don't have
+  *(use: "the claim only demonstrates..." · "what remains unverified" ·
+  "narrative clarity vs proof precision" · "rather than overstating..." ·
+  "honesty tradeoff: smoothness vs accuracy")*
+
+## Required vocabulary
+Separate evidence: `we measured` · `proxy evidence` · `inferred from` · `open gap` · `cannot claim without`
+Name honesty gaps: `what remains unverified` · `proxy vs measured` · `claim boundary` · `cannot prove`
+
+## Failure traps
+- writing a rebuild answer like an audit
+- writing a case study like marketing copy
+- writing documentation like a personal story
+- error messages with no recovery step
+- design claims with no rationale or evidence
+- artifacts/screenshots dropped in with no caption or narrative function
+- portfolio writing that hides role, decision logic, or outcomes behind pretty language
+- user-facing writing that reads like internal operator documentation
+
+## Summary dependencies
+- writing-and-case-study-summary.md
+- Case-Study Structure and Narrative Order.md
+
+## Escalation triggers
+- specialist audiences may need necessary domain terms, but explain them if they create friction
+- long-form case studies may be richer, but still need a front-loaded structure and visible outcomes
+- brand tone can add character, but not at the cost of comprehension or actionability
+- exploratory concept work may rely on logic and hypothesis rather than hard metrics, but the uncertainty must be named
+- if the mode is unclear, infer it from the request and make the choice explicit in the response structure
+- if the audience is unclear, default to plain language
+- if the text is too dense, chunk it instead of merely shortening it
+- if evidence is weak, mark the claim as inference or hypothesis instead of pretending certainty
+
+## Adjacent handoff rules
+- hand off to `ux-research-expert.md` when claims must tie back to research
+- hand off to `brand-strategy-expert.md` when tone, audience fit, or claim burden depends on strategy
+- hand off to `graphic-design-expert.md` when captions, slide copy, or poster text must respond to distance or format logic
+- hand off to `text-humanization-expert.md` when the structure is right but the prose still sounds formulaic or machine-shaped
+
+## Canonical fallback
+- `src/skills/content-and-case-study-expert.md`
+- `src/knowledge-base/summaries/writing-and-case-study-summary.md`
+- `src/knowledge-base/summaries/Case-Study Structure and Narrative Order.md`

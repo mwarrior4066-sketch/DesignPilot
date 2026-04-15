@@ -1,0 +1,1107 @@
+{
+  "provider": "deepseek",
+  "model": "deepseek-chat",
+  "mode": "pack",
+  "tests_run": 20,
+  "errors": 0,
+  "pass_count": 18,
+  "pass_rate": 0.9,
+  "gate_passed": true,
+  "avg_composite": 79.5,
+  "rubric_means": {
+    "intent_alignment": 4.85,
+    "actionability": 4.35,
+    "structural_rigor": 4.9,
+    "evidence_use": 3.9,
+    "implementation_realism": 4.4
+  },
+  "passed_by_rubric_only": 11,
+  "rubric_decisive_count": 9,
+  "results": [
+    {
+      "test_id": "pass-01",
+      "title": "UI structure critique canonical pass",
+      "task": "ui_structure_critique",
+      "mode": "pack",
+      "validator_decision": "FAIL",
+      "validator_score": 72,
+      "validator_pass": false,
+      "rubric_mean": 4.8,
+      "rubric_gate_pass": true,
+      "composite_score": 81.6,
+      "composite_pass": true,
+      "rubric_decisive": true,
+      "passed": true,
+      "passed_by": "rubric",
+      "latency_seconds": 34.22,
+      "issues": [
+        {
+          "id": "missing_section",
+          "severity": "hard",
+          "detail": "missing section: Problem framing"
+        },
+        {
+          "id": "missing_section",
+          "severity": "hard",
+          "detail": "missing section: Findings"
+        },
+        {
+          "id": "missing_rationale",
+          "severity": "soft",
+          "detail": "causal language not attached near recommendations \u2014 add \"because/without which/this requires\" adjacent to each recommendation"
+        }
+      ],
+      "warnings": [],
+      "unmatched_sections": [
+        "missing section: Problem framing",
+        "missing section: Findings"
+      ],
+      "vocab_warnings": [],
+      "rubric": {
+        "intent_alignment": 5,
+        "actionability": 5,
+        "structural_rigor": 5,
+        "evidence_use": 4,
+        "implementation_realism": 5,
+        "rationale": "Response directly audits all stated issues (hero CTA, color accessibility, layout) without tangent | Designer/developer can immediately implement each fix with specific metrics (44\u00d744px, 4.5:1 contrast, 2px border) | Clear hierarchy: failures \u2192 architecture \u2192 visual details \u2192 fixes \u2192 tradeoffs \u2192 next steps | WCAG citations provided but contrast claims lack measured values; grayscale test suggested but not executed | All recommendations are technically feasible and operationally realistic for a standard B2B pricing page"
+      },
+      "output_file": "tests/live_outputs/batch/batch-20260414-2308/deepseek/pass-01_pack.md"
+    },
+    {
+      "test_id": "pass-02",
+      "title": "Component specification canonical pass",
+      "task": "component_spec",
+      "mode": "pack",
+      "validator_decision": "AUTO_REVISE",
+      "validator_score": 80,
+      "validator_pass": true,
+      "rubric_mean": 4.8,
+      "rubric_gate_pass": true,
+      "composite_score": 86.4,
+      "composite_pass": true,
+      "rubric_decisive": false,
+      "passed": true,
+      "passed_by": "validator",
+      "latency_seconds": 39.98,
+      "issues": [
+        {
+          "id": "missing_rationale",
+          "severity": "soft",
+          "detail": "causal language not attached near recommendations \u2014 add \"because/without which/this requires\" adjacent to each recommendation"
+        }
+      ],
+      "warnings": [
+        {
+          "id": "thin_section",
+          "severity": "soft",
+          "detail": "section Purpose and scope too thin: 19 < 20"
+        },
+        {
+          "id": "thin_section",
+          "severity": "soft",
+          "detail": "section Anatomy too thin: 10 < 25"
+        },
+        {
+          "id": "missing_alternative",
+          "severity": "soft",
+          "detail": "no alternative path was named"
+        }
+      ],
+      "unmatched_sections": [],
+      "vocab_warnings": [],
+      "rubric": {
+        "intent_alignment": 5,
+        "actionability": 5,
+        "structural_rigor": 5,
+        "evidence_use": 4,
+        "implementation_realism": 5,
+        "rationale": "Response directly addresses all four ask requirements (primary/secondary actions, keyboard, disabled/loading states, mobile touch targets) without drift | Designer/developer can immediately implement from anatomy, states table, code examples, and testing checklist | Clear hierarchy: purpose \u2192 anatomy \u2192 variants \u2192 states \u2192 accessibility \u2192 behavior, with explicit decision logic for when/when-not-to-use | WCAG 2.5.5 cited for touch targets (44\u00d744px) and 40% opacity threshold named, but loading state spinner and focus outline measurements (2px, 4px) lack source citation | CSS structure, React props, and state machine are technically sound; 44px height math and 1px visual gap with combined touch area are operationally realistic"
+      },
+      "output_file": "tests/live_outputs/batch/batch-20260414-2308/deepseek/pass-02_pack.md"
+    },
+    {
+      "test_id": "pass-03",
+      "title": "Dashboard audit canonical pass",
+      "task": "dashboard_audit",
+      "mode": "pack",
+      "validator_decision": "FAIL",
+      "validator_score": 58,
+      "validator_pass": false,
+      "rubric_mean": 4.4,
+      "rubric_gate_pass": true,
+      "composite_score": 70.0,
+      "composite_pass": true,
+      "rubric_decisive": true,
+      "passed": true,
+      "passed_by": "rubric",
+      "latency_seconds": 37.9,
+      "issues": [
+        {
+          "id": "missing_rationale",
+          "severity": "soft",
+          "detail": "causal language not attached near recommendations \u2014 add \"because/without which/this requires\" adjacent to each recommendation"
+        },
+        {
+          "id": "hollow_compliance",
+          "severity": "hard",
+          "detail": "recommendations do not map back to named findings strongly enough"
+        }
+      ],
+      "warnings": [
+        {
+          "id": "thin_section",
+          "severity": "soft",
+          "detail": "section Dashboard role too thin: 14 < 20"
+        },
+        {
+          "id": "thin_section",
+          "severity": "soft",
+          "detail": "section Key failures too thin: 14 < 45"
+        },
+        {
+          "id": "thin_section",
+          "severity": "soft",
+          "detail": "section Evidence and rationale too thin: 23 < 35"
+        },
+        {
+          "id": "thin_section",
+          "severity": "soft",
+          "detail": "section Recommended rebuild path too thin: 23 < 35"
+        },
+        {
+          "id": "missing_alternative",
+          "severity": "soft",
+          "detail": "no alternative path was named"
+        }
+      ],
+      "unmatched_sections": [],
+      "vocab_warnings": [],
+      "rubric": {
+        "intent_alignment": 5,
+        "actionability": 4,
+        "structural_rigor": 5,
+        "evidence_use": 4,
+        "implementation_realism": 4,
+        "rationale": "Response directly audits the stated problems (KPI context, chart labeling, legend placement, nav grouping) without drift. | Designers can immediately act on P0/P1 priority fixes and component map, though KPI target values require upstream business data definition. | Clear hierarchy: role \u2192 failures \u2192 interventions \u2192 implementation boundary, with decision logic explicit (e.g., 'one metric per chart'). | Claims cite WCAG, thresholds ('12 items = cognitive overload'), and implicit comparison artifacts, though KPI target sourcing is undefined. | Component specs, data binding, and accessibility requirements are realistic, but response glosses over who provides target/previous-period data and assumes chart library capabilities without naming them."
+      },
+      "output_file": "tests/live_outputs/batch/batch-20260414-2308/deepseek/pass-03_pack.md"
+    },
+    {
+      "test_id": "pass-04",
+      "title": "Backend feasibility canonical pass",
+      "task": "backend_feasibility_review",
+      "mode": "pack",
+      "validator_decision": "AUTO_REVISE",
+      "validator_score": 89,
+      "validator_pass": true,
+      "rubric_mean": 4.6,
+      "rubric_gate_pass": true,
+      "composite_score": 90.2,
+      "composite_pass": true,
+      "rubric_decisive": false,
+      "passed": true,
+      "passed_by": "validator",
+      "latency_seconds": 40.98,
+      "issues": [
+        {
+          "id": "missing_rationale",
+          "severity": "soft",
+          "detail": "causal language not attached near recommendations \u2014 add \"because/without which/this requires\" adjacent to each recommendation"
+        }
+      ],
+      "warnings": [
+        {
+          "id": "missing_alternative",
+          "severity": "soft",
+          "detail": "no alternative path was named"
+        },
+        {
+          "id": "missing_route_traceability",
+          "severity": "soft",
+          "detail": "visible trace was expected but route metadata is not recoverable enough for debugging"
+        }
+      ],
+      "unmatched_sections": [],
+      "vocab_warnings": [],
+      "rubric": {
+        "intent_alignment": 5,
+        "actionability": 4,
+        "structural_rigor": 5,
+        "evidence_use": 4,
+        "implementation_realism": 5,
+        "rationale": "Response directly addresses all three requested areas (hidden requirements, feasibility blockers, phased path) without drift. | Designers/developers can immediately identify tech choices (y-js, WebSockets, Redis Streams) and follow Phase 1-4 milestones, though some schema/code examples would tighten execution readiness. | Clear hierarchy (hidden \u2192 feasibility \u2192 phases), explicit decision gates (CRDT vs OT), and sequenced dependencies (research before backend before client). | Blockers are named with thresholds (PostgreSQL bottleneck under high-frequency ops, connection scaling limits), and trade-offs are explicit (simplicity vs persistence, immediate vs eventual consistency). | Proposal is grounded in real libraries (Socket.IO, y-js, Pusher alternatives), practical constraints (30s reconnect timeout, snapshot frequency tuning), and addresses infrastructure reality (multi-region, separate WebSocket service)."
+      },
+      "output_file": "tests/live_outputs/batch/batch-20260414-2308/deepseek/pass-04_pack.md"
+    },
+    {
+      "test_id": "pass-05",
+      "title": "PDF plus accessibility compound ask",
+      "task": "pdf_remediation_plan",
+      "mode": "pack",
+      "validator_decision": "FAIL",
+      "validator_score": 53,
+      "validator_pass": false,
+      "rubric_mean": 3.8,
+      "rubric_gate_pass": true,
+      "composite_score": 62.2,
+      "composite_pass": false,
+      "rubric_decisive": false,
+      "passed": false,
+      "passed_by": "rubric",
+      "latency_seconds": 36.84,
+      "issues": [
+        {
+          "id": "missing_section",
+          "severity": "hard",
+          "detail": "missing section: Risk controls"
+        },
+        {
+          "id": "missing_rationale",
+          "severity": "soft",
+          "detail": "causal language not attached near recommendations \u2014 add \"because/without which/this requires\" adjacent to each recommendation"
+        },
+        {
+          "id": "forbidden_shortcut",
+          "severity": "hard",
+          "detail": "forbidden shortcut `destructive_repair` triggered"
+        },
+        {
+          "id": "hard_fail_pattern",
+          "severity": "hard",
+          "detail": "forbidden hard-fail pattern present: flatten the pdf"
+        }
+      ],
+      "warnings": [
+        {
+          "id": "thin_section",
+          "severity": "soft",
+          "detail": "section Verification checks too thin: 15 < 35"
+        },
+        {
+          "id": "missing_route_traceability",
+          "severity": "soft",
+          "detail": "visible trace was expected but route metadata is not recoverable enough for debugging"
+        }
+      ],
+      "unmatched_sections": [
+        "missing section: Risk controls"
+      ],
+      "vocab_warnings": [],
+      "rubric": {
+        "intent_alignment": 4,
+        "actionability": 3,
+        "structural_rigor": 5,
+        "evidence_use": 3,
+        "implementation_realism": 4,
+        "rationale": "Response directly addresses all five stated problems (reading order, pull quotes, decorative images, TOC links, screen reader support) without drift. | Step-by-step Acrobat Pro process is provided but lacks pixel-level specifics (e.g., exact tool names, screenshot references, or concrete command sequences that a non-expert could execute immediately). | Hierarchical structure is excellent: semantic failures \u2192 priority sequence \u2192 verification \u2192 tools \u2192 specific fixes \u2192 tradeoffs \u2192 deliverables; decision logic is transparent and well-justified. | PDF/UA and WCAG 2.1 AA are cited as standards, but no thresholds provided (e.g., exact contrast ratio, heading hierarchy rules, or artifact detection criteria); claims about pull quotes are strategic rather than evidence-backed. | Tool recommendations (Acrobat Pro, PAC 2024, NVDA) and 2\u20134 hour estimate are realistic; however, the assumption that manual tagging is required and auto-tagging fails on complex layouts needs qualification or citation."
+      },
+      "output_file": "tests/live_outputs/batch/batch-20260414-2308/deepseek/pass-05_pack.md"
+    },
+    {
+      "test_id": "pass-06",
+      "title": "Brand positioning canonical pass",
+      "task": "brand_positioning_pass",
+      "mode": "pack",
+      "validator_decision": "AUTO_REVISE",
+      "validator_score": 96,
+      "validator_pass": true,
+      "rubric_mean": 4.4,
+      "rubric_gate_pass": true,
+      "composite_score": 92.8,
+      "composite_pass": true,
+      "rubric_decisive": false,
+      "passed": true,
+      "passed_by": "validator",
+      "latency_seconds": 35.01,
+      "issues": [],
+      "warnings": [
+        {
+          "id": "missing_alternative",
+          "severity": "soft",
+          "detail": "no alternative path was named"
+        }
+      ],
+      "unmatched_sections": [],
+      "vocab_warnings": [],
+      "rubric": {
+        "intent_alignment": 5,
+        "actionability": 4,
+        "structural_rigor": 5,
+        "evidence_use": 4,
+        "implementation_realism": 4,
+        "rationale": "Response directly answers the positioning territory ask with a clear, defensible choice grounded in the freelancer persona and competitive context. | Designer can immediately adopt the positioning statement, messaging guidelines, and tone rules; visual/research moves are concrete but require interpretation. | Decision logic flows cleanly: audience frame \u2192 trust logic \u2192 differentiation tradeoffs \u2192 messaging consequence, with explicit decision commitments in session state. | Claims are tied to specific constraints (opacity breaks trust, operational needs vs. legacy), and proof gaps are honestly identified; only missing quantitative thresholds for validation. | Positioning is operationally credible for a lean fintech team\u2014emphasizes feature integration and UX clarity over infrastructure or regulatory moats that would require scale."
+      },
+      "output_file": "tests/live_outputs/batch/batch-20260414-2308/deepseek/pass-06_pack.md"
+    },
+    {
+      "test_id": "pass-07",
+      "title": "Case study plus brand framing compound ask",
+      "task": "case_study_rewrite",
+      "mode": "pack",
+      "validator_decision": "FAIL",
+      "validator_score": 80,
+      "validator_pass": false,
+      "rubric_mean": 4.8,
+      "rubric_gate_pass": true,
+      "composite_score": 86.4,
+      "composite_pass": true,
+      "rubric_decisive": true,
+      "passed": true,
+      "passed_by": "rubric",
+      "latency_seconds": 20.8,
+      "issues": [
+        {
+          "id": "missing_evidence_class",
+          "severity": "hard",
+          "detail": "missing evidence class `file_backed_receipt`: Uses benchmark files, maps, or proof artifacts when available."
+        }
+      ],
+      "warnings": [
+        {
+          "id": "thin_section",
+          "severity": "soft",
+          "detail": "section Process too thin: 9 < 35"
+        },
+        {
+          "id": "thin_section",
+          "severity": "soft",
+          "detail": "section Solution too thin: 9 < 35"
+        }
+      ],
+      "unmatched_sections": [],
+      "vocab_warnings": [],
+      "rubric": {
+        "intent_alignment": 5,
+        "actionability": 5,
+        "structural_rigor": 5,
+        "evidence_use": 5,
+        "implementation_realism": 4,
+        "rationale": "Response directly answers the rewrite request with a portfolio-ready case study structure. | Designer can immediately copy, adapt, or use as a template for their portfolio without additional clarification. | Clear hierarchy (Problem \u2192 Research \u2192 Solution \u2192 Validation \u2192 Impact \u2192 Learning) with decision logic visible at each stage. | Claims tied to specific evidence: n-values, percentages, quotes, and metrics (72% drop-off, 92% task completion, 40% conversion lift, 4.7/5 confidence). | Nearly realistic, though the 80% drop in hesitation markers and exact metrics are attributable to prototype testing scale (n=8); A/B test size (n=2,400) is credible but the before/after comparison assumes baseline data tracking that may not have existed."
+      },
+      "output_file": "tests/live_outputs/batch/batch-20260414-2308/deepseek/pass-07_pack.md"
+    },
+    {
+      "test_id": "pass-08",
+      "title": "Accessibility audit canonical pass",
+      "task": "accessibility_feedback_audit",
+      "mode": "pack",
+      "validator_decision": "AUTO_REVISE",
+      "validator_score": 90,
+      "validator_pass": true,
+      "rubric_mean": 4.8,
+      "rubric_gate_pass": true,
+      "composite_score": 92.4,
+      "composite_pass": true,
+      "rubric_decisive": false,
+      "passed": true,
+      "passed_by": "validator",
+      "latency_seconds": 31.25,
+      "issues": [
+        {
+          "id": "missing_rationale",
+          "severity": "soft",
+          "detail": "causal language not attached near recommendations \u2014 add \"because/without which/this requires\" adjacent to each recommendation"
+        }
+      ],
+      "warnings": [
+        {
+          "id": "thin_section",
+          "severity": "soft",
+          "detail": "section Repair priorities too thin: 0 < 45"
+        }
+      ],
+      "unmatched_sections": [],
+      "vocab_warnings": [],
+      "rubric": {
+        "intent_alignment": 5,
+        "actionability": 5,
+        "structural_rigor": 5,
+        "evidence_use": 5,
+        "implementation_realism": 4,
+        "rationale": "Response directly audits all four issues named in the prompt and delivers specific WCAG violations tied to each barrier. | Developers can immediately implement aria-label, aria-describedby, role=alert, and aria-live directives; designers have concrete repair patterns (visible labels, icon+text, live regions). | Four barriers are hierarchically ordered by issue type, each with barrier description \u2192 WCAG rule \u2192 impact \u2192 repair (programmatic + visible), followed by integrated verification method and priority sequence. | Claims cite WCAG 2.1 AA rules (2.4.4, 3.3.2, 4.1.2, 3.3.1) with explicit thresholds (4.5:1 contrast, no color-only signaling) and tool recommendations (WebAIM Contrast Checker, screen readers). | Repair patterns are standard ARIA/HTML practices (aria-live, aria-busy, <label> elements, role=alert) and feasible on iOS/Android; tradeoff discussion (vertical height vs. usability) is realistic, though implementation details for dynamic ARIA updates on spinners could specify when aria-busy transitions."
+      },
+      "output_file": "tests/live_outputs/batch/batch-20260414-2308/deepseek/pass-08_pack.md"
+    },
+    {
+      "test_id": "pass-09",
+      "title": "Color system canonical pass",
+      "task": "color_system_spec",
+      "mode": "pack",
+      "validator_decision": "FAIL",
+      "validator_score": 64,
+      "validator_pass": false,
+      "rubric_mean": 4.8,
+      "rubric_gate_pass": true,
+      "composite_score": 76.8,
+      "composite_pass": true,
+      "rubric_decisive": true,
+      "passed": true,
+      "passed_by": "rubric",
+      "latency_seconds": 52.16,
+      "issues": [
+        {
+          "id": "missing_section",
+          "severity": "hard",
+          "detail": "missing section: Token map"
+        },
+        {
+          "id": "missing_rationale",
+          "severity": "soft",
+          "detail": "causal language not attached near recommendations \u2014 add \"because/without which/this requires\" adjacent to each recommendation"
+        },
+        {
+          "id": "missing_required_decision",
+          "severity": "hard",
+          "detail": "missing required decision `migration_strategy`: Shows how existing colors migrate into the new role model."
+        }
+      ],
+      "warnings": [
+        {
+          "id": "thin_section",
+          "severity": "soft",
+          "detail": "section Role model too thin: 0 < 25"
+        },
+        {
+          "id": "thin_section",
+          "severity": "soft",
+          "detail": "section Migration notes too thin: 0 < 25"
+        }
+      ],
+      "unmatched_sections": [
+        "missing section: Token map"
+      ],
+      "vocab_warnings": [],
+      "rubric": {
+        "intent_alignment": 5,
+        "actionability": 5,
+        "structural_rigor": 5,
+        "evidence_use": 4,
+        "implementation_realism": 5,
+        "rationale": "Response directly addresses all five requirements (status, dark mode, 5+ categorical, WCAG AA, healthcare context) with zero scope drift. | Designers/developers can immediately copy hex values, CSS variables, and apply the provided implementation rules and checklist without ambiguity. | Hierarchical structure moves from requirements \u2192 semantic roles \u2192 accessibility verification \u2192 guidelines \u2192 testing, with clear decision logic throughout (e.g., teal vs. green rationale). | Contrast ratios are cited with numeric thresholds (4.5:1, 3:1, 7.1:1) and WCAG standards named; colorblind testing mentioned but lacks specific methodology reference (e.g., no link to WCAG 2.1 criterion or Coblis tool). | CSS custom properties, dark mode media queries, and usage rules are technically sound; dark mode toggle strategy via prefers-color-scheme is production-ready; no implementation shows unrealistic demands on tooling or workflow."
+      },
+      "output_file": "tests/live_outputs/batch/batch-20260414-2308/deepseek/pass-09_pack.md"
+    },
+    {
+      "test_id": "pass-10",
+      "title": "Graphic critique canonical pass",
+      "task": "graphic_critique",
+      "mode": "pack",
+      "validator_decision": "FAIL",
+      "validator_score": 74,
+      "validator_pass": false,
+      "rubric_mean": 4.8,
+      "rubric_gate_pass": true,
+      "composite_score": 82.8,
+      "composite_pass": true,
+      "rubric_decisive": true,
+      "passed": true,
+      "passed_by": "rubric",
+      "latency_seconds": 14.49,
+      "issues": [
+        {
+          "id": "missing_section",
+          "severity": "hard",
+          "detail": "missing section: Communication goal"
+        },
+        {
+          "id": "missing_rationale",
+          "severity": "soft",
+          "detail": "causal language not attached near recommendations \u2014 add \"because/without which/this requires\" adjacent to each recommendation"
+        }
+      ],
+      "warnings": [
+        {
+          "id": "thin_section",
+          "severity": "soft",
+          "detail": "section Composition failures too thin: 31 < 45"
+        },
+        {
+          "id": "missing_next_step_guidance",
+          "severity": "soft",
+          "detail": "designer-readable guidance is missing a visible next move"
+        }
+      ],
+      "unmatched_sections": [
+        "missing section: Communication goal"
+      ],
+      "vocab_warnings": [],
+      "rubric": {
+        "intent_alignment": 5,
+        "actionability": 5,
+        "structural_rigor": 5,
+        "evidence_use": 4,
+        "implementation_realism": 5,
+        "rationale": "Response directly addresses the stated hierarchy problem with specific diagnosis of the design flaw. | Designer can immediately execute: prioritize conference name, demote decorative title, reposition date/location, simplify background, and test legibility. | Answer moves methodically from problem identification \u2192 specific rebuild sequence \u2192 visual priority order \u2192 tradeoff acknowledgment. | Claims grounded in legibility principles and scanning behavior, though lacks citation of specific poster-legibility thresholds or eye-tracking data. | Proposal respects real constraints: decorative fonts can still be used (peripherally), photo backgrounds are standard, and the 3-second test is operationally realistic for outdoor viewing."
+      },
+      "output_file": "tests/live_outputs/batch/batch-20260414-2308/deepseek/pass-10_pack.md"
+    },
+    {
+      "test_id": "pass-11",
+      "title": "Layout reconstruction from legacy artifact",
+      "task": "layout_reconstruction_plan",
+      "mode": "pack",
+      "validator_decision": "FAIL",
+      "validator_score": 24,
+      "validator_pass": false,
+      "rubric_mean": 3.2,
+      "rubric_gate_pass": true,
+      "composite_score": 40.0,
+      "composite_pass": false,
+      "rubric_decisive": false,
+      "passed": false,
+      "passed_by": "rubric",
+      "latency_seconds": 14.43,
+      "issues": [
+        {
+          "id": "missing_section",
+          "severity": "hard",
+          "detail": "missing section: Reconstruction assumptions"
+        },
+        {
+          "id": "missing_section",
+          "severity": "hard",
+          "detail": "missing section: Rebuild sequence"
+        },
+        {
+          "id": "missing_section",
+          "severity": "hard",
+          "detail": "missing section: Verification checkpoints"
+        },
+        {
+          "id": "missing_tradeoff",
+          "severity": "hard",
+          "detail": "no explicit tradeoff language found"
+        },
+        {
+          "id": "missing_rationale",
+          "severity": "hard",
+          "detail": "no explicit rationale language found"
+        },
+        {
+          "id": "missing_required_decision",
+          "severity": "hard",
+          "detail": "missing required decision `preserved_elements`: Names what geometry or content must remain stable."
+        },
+        {
+          "id": "missing_required_decision",
+          "severity": "hard",
+          "detail": "missing required decision `inference_boundary`: Labels inferred structure as assumption or proxy."
+        }
+      ],
+      "warnings": [
+        {
+          "id": "missing_alternative",
+          "severity": "soft",
+          "detail": "no alternative path was named"
+        }
+      ],
+      "unmatched_sections": [
+        "missing section: Reconstruction assumptions",
+        "missing section: Rebuild sequence",
+        "missing section: Verification checkpoints"
+      ],
+      "vocab_warnings": [],
+      "rubric": {
+        "intent_alignment": 4,
+        "actionability": 3,
+        "structural_rigor": 4,
+        "evidence_use": 2,
+        "implementation_realism": 3,
+        "rationale": "Response directly addresses extracting and translating layout systems with clear intent, but stops short of actionable specifics without the PDF. | Designers can start identifying what to extract, but lacks concrete decision trees for conflicts (e.g., 'if 12-column grid, map to X; if 16-column, map to Y'). | Seven-step framework with logical sequence from extraction through documentation shows solid hierarchy. | No thresholds provided (e.g., 'if gutter <8px, standardize to 8px base; if >16px, derive custom scale') or constraint examples. | Proposal depends entirely on PDF upload; the conditional 'if you share the PDF' weakens believability that extraction and translation can proceed systematically without seeing it first."
+      },
+      "output_file": "tests/live_outputs/batch/batch-20260414-2308/deepseek/pass-11_pack.md"
+    },
+    {
+      "test_id": "pass-12",
+      "title": "Type system canonical pass",
+      "task": "type_system_recommendation",
+      "mode": "pack",
+      "validator_decision": "AUTO_REVISE",
+      "validator_score": 86,
+      "validator_pass": true,
+      "rubric_mean": 4.8,
+      "rubric_gate_pass": true,
+      "composite_score": 90.0,
+      "composite_pass": true,
+      "rubric_decisive": false,
+      "passed": true,
+      "passed_by": "validator",
+      "latency_seconds": 46.24,
+      "issues": [
+        {
+          "id": "missing_rationale",
+          "severity": "soft",
+          "detail": "causal language not attached near recommendations \u2014 add \"because/without which/this requires\" adjacent to each recommendation"
+        }
+      ],
+      "warnings": [
+        {
+          "id": "thin_section",
+          "severity": "soft",
+          "detail": "section Readability rules too thin: 34 < 35"
+        },
+        {
+          "id": "missing_alternative",
+          "severity": "soft",
+          "detail": "no alternative path was named"
+        }
+      ],
+      "unmatched_sections": [],
+      "vocab_warnings": [],
+      "rubric": {
+        "intent_alignment": 5,
+        "actionability": 5,
+        "structural_rigor": 5,
+        "evidence_use": 4,
+        "implementation_realism": 5,
+        "rationale": "Response directly addresses all three platforms, modern/trustworthy feel, tabular data, and weight hierarchy without digression. | Designer can immediately select typefaces, apply sizing scales, implement CSS variables, and sequence rollout with zero ambiguity. | Clear hierarchy: primary/secondary typefaces, distinct scales by context, weight mapping by semantic role, tabular-specific rules, then platform delivery and adoption sequence. | Cites WCAG AA/AAA thresholds and tabular-figures technical spec, but lacks explicit evidence for why Inter beats alternatives (e.g., Neue Haas Grotesk, Outfit) or data on font-load impact on fintech UX perception. | All recommendations\u2014variable fonts, CSS fallback stacks, platform-specific bundling, dark-mode contrast\u2014are technically sound and operationally feasible for modern fintech stacks."
+      },
+      "output_file": "tests/live_outputs/batch/batch-20260414-2308/deepseek/pass-12_pack.md"
+    },
+    {
+      "test_id": "pass-13",
+      "title": "UX research gap map canonical pass",
+      "task": "ux_research_gap_map",
+      "mode": "pack",
+      "validator_decision": "AUTO_REVISE",
+      "validator_score": 90,
+      "validator_pass": true,
+      "rubric_mean": 4.8,
+      "rubric_gate_pass": true,
+      "composite_score": 92.4,
+      "composite_pass": true,
+      "rubric_decisive": false,
+      "passed": true,
+      "passed_by": "validator",
+      "latency_seconds": 35.73,
+      "issues": [
+        {
+          "id": "missing_rationale",
+          "severity": "soft",
+          "detail": "causal language not attached near recommendations \u2014 add \"because/without which/this requires\" adjacent to each recommendation"
+        }
+      ],
+      "warnings": [
+        {
+          "id": "thin_section",
+          "severity": "soft",
+          "detail": "section Critical gaps too thin: 0 < 45"
+        }
+      ],
+      "unmatched_sections": [],
+      "vocab_warnings": [],
+      "rubric": {
+        "intent_alignment": 5,
+        "actionability": 5,
+        "structural_rigor": 5,
+        "evidence_use": 5,
+        "implementation_realism": 4,
+        "rationale": "Response directly answers the ask (research gaps for B2B PM tool) without digression; structured as a gap map with known evidence, critical gaps, and method-to-gap mapping. | Designer/PM can immediately execute: specific methods (exit-intercept survey, contextual interviews), sample sizes (5\u201310), and sequenced next steps provided. | Hierarchy is clear: known evidence \u2192 gaps ranked by impact \u2192 methods \u2192 priority sequence \u2192 risks \u2192 next steps; decision logic flows logically from business impact. | Claims are anchored to thresholds (60% drop-off as priority signal), explicit research methods (session replay, follow-up interviews), and competitive/onboarding evidence classes justified by B2B adoption risk. | Sample sizes and timeframes are realistic; however, recruiting 5\u20138 power users and running competitive usability testing concurrent with exit surveys assumes sufficient capacity\u2014feasibility depends on unstated team size and budget."
+      },
+      "output_file": "tests/live_outputs/batch/batch-20260414-2308/deepseek/pass-13_pack.md"
+    },
+    {
+      "test_id": "pass-14",
+      "title": "Front-end architecture canonical pass",
+      "task": "frontend_implementation_review",
+      "mode": "pack",
+      "validator_decision": "AUTO_REVISE",
+      "validator_score": 70,
+      "validator_pass": true,
+      "rubric_mean": 4.4,
+      "rubric_gate_pass": true,
+      "composite_score": 77.2,
+      "composite_pass": true,
+      "rubric_decisive": false,
+      "passed": true,
+      "passed_by": "validator",
+      "latency_seconds": 35.55,
+      "issues": [
+        {
+          "id": "missing_rationale",
+          "severity": "soft",
+          "detail": "causal language not attached near recommendations \u2014 add \"because/without which/this requires\" adjacent to each recommendation"
+        }
+      ],
+      "warnings": [
+        {
+          "id": "thin_section",
+          "severity": "soft",
+          "detail": "section Architectural framing too thin: 9 < 25"
+        },
+        {
+          "id": "thin_section",
+          "severity": "soft",
+          "detail": "section Boundary and state model too thin: 0 < 45"
+        },
+        {
+          "id": "thin_section",
+          "severity": "soft",
+          "detail": "section Rendering and mutation strategy too thin: 0 < 45"
+        },
+        {
+          "id": "missing_alternative",
+          "severity": "soft",
+          "detail": "no alternative path was named"
+        },
+        {
+          "id": "missing_next_step_guidance",
+          "severity": "soft",
+          "detail": "designer-readable guidance is missing a visible next move"
+        }
+      ],
+      "unmatched_sections": [],
+      "vocab_warnings": [],
+      "rubric": {
+        "intent_alignment": 5,
+        "actionability": 4,
+        "structural_rigor": 5,
+        "evidence_use": 4,
+        "implementation_realism": 4,
+        "rationale": "Response directly addresses all stated concerns (rendering model, state handling, accessibility, optimistic updates) without drift. | Designer/developer can immediately act on the five numbered changes and boundary placement decisions, though state machine library selection requires follow-up research. | Answer presents clear hierarchy (critique \u2192 safer architecture with 5 subsections \u2192 summary), explicit decision reasoning, and contingency paths for each risk. | Claims reference thresholds (Core Web Vitals, LCP/TBT) and constraints (permission safety, role-based visibility), though specific rollback/conflict detection criteria are stated as principles rather than concrete validation rules. | Proposal is realistic but assumes access to partial-hydration frameworks and XState-like libraries; the progressive enhancement path is battle-tested but adds build complexity that may strain smaller teams. | Overall: exceptionally well-structured, domain-grounded critique with minimal filler; actionability docked slightly for needing library/tool clarification rather than the architecture itself."
+      },
+      "output_file": "tests/live_outputs/batch/batch-20260414-2308/deepseek/pass-14_pack.md"
+    },
+    {
+      "test_id": "pass-15",
+      "title": "Backend architecture spec canonical pass",
+      "task": "backend_architecture_spec",
+      "mode": "pack",
+      "validator_decision": "FAIL",
+      "validator_score": 75,
+      "validator_pass": false,
+      "rubric_mean": 4.4,
+      "rubric_gate_pass": true,
+      "composite_score": 80.2,
+      "composite_pass": true,
+      "rubric_decisive": true,
+      "passed": true,
+      "passed_by": "rubric",
+      "latency_seconds": 66.06,
+      "issues": [
+        {
+          "id": "missing_rationale",
+          "severity": "soft",
+          "detail": "causal language not attached near recommendations \u2014 add \"because/without which/this requires\" adjacent to each recommendation"
+        },
+        {
+          "id": "missing_required_decision",
+          "severity": "hard",
+          "detail": "missing required decision `source_of_truth`: Names the source-of-truth or ownership model."
+        }
+      ],
+      "warnings": [
+        {
+          "id": "thin_section",
+          "severity": "soft",
+          "detail": "section Data, consistency, and delivery design too thin: 41 < 50"
+        },
+        {
+          "id": "missing_alternative",
+          "severity": "soft",
+          "detail": "no alternative path was named"
+        },
+        {
+          "id": "missing_route_traceability",
+          "severity": "soft",
+          "detail": "visible trace was expected but route metadata is not recoverable enough for debugging"
+        }
+      ],
+      "unmatched_sections": [],
+      "vocab_warnings": [],
+      "rubric": {
+        "intent_alignment": 5,
+        "actionability": 4,
+        "structural_rigor": 5,
+        "evidence_use": 4,
+        "implementation_realism": 4,
+        "rationale": "Response fully addressed all requirements (multi-tenancy, residency, audit, webhooks, automation, job unification) without scope drift. | Designers/engineers can immediately extract service boundaries, data models, contracts, and deployment phases; missing only specific schema examples and queue tech selection. | Eight-section hierarchy with bounded contexts table, service responsibilities, explicit data-isolation layers, contract specifications, and decision matrix demonstrates strong logical structure. | Claims are grounded in standards (CloudEvents, RFC 9457, OAuth2, RBAC, saga patterns) and tied to operational thresholds (5 retry attempts, 24h idempotency window, 7-year retention); could strengthen with explicit SLA targets. | Proposal is technically sound and operationally credible; sharding by region+tenant is proven, saga pattern is standard for cross-service transactions, cursor pagination is well-established; migration phasing is realistic but assumes existing APIs can tolerate tenant-context injection."
+      },
+      "output_file": "tests/live_outputs/batch/batch-20260414-2308/deepseek/pass-15_pack.md"
+    },
+    {
+      "test_id": "pass-16",
+      "title": "API reliability and security canonical pass",
+      "task": "api_reliability_security_review",
+      "mode": "pack",
+      "validator_decision": "AUTO_REVISE",
+      "validator_score": 65,
+      "validator_pass": true,
+      "rubric_mean": 4.4,
+      "rubric_gate_pass": true,
+      "composite_score": 74.2,
+      "composite_pass": true,
+      "rubric_decisive": false,
+      "passed": true,
+      "passed_by": "validator",
+      "latency_seconds": 37.9,
+      "issues": [
+        {
+          "id": "missing_rationale",
+          "severity": "soft",
+          "detail": "causal language not attached near recommendations \u2014 add \"because/without which/this requires\" adjacent to each recommendation"
+        }
+      ],
+      "warnings": [
+        {
+          "id": "thin_section",
+          "severity": "soft",
+          "detail": "section Failure semantics too thin: 0 < 30"
+        },
+        {
+          "id": "thin_section",
+          "severity": "soft",
+          "detail": "section Authorization and resource protection too thin: 8 < 45"
+        },
+        {
+          "id": "thin_section",
+          "severity": "soft",
+          "detail": "section Idempotency and async lifecycle too thin: 0 < 45"
+        },
+        {
+          "id": "thin_section",
+          "severity": "soft",
+          "detail": "section Resilience and observability too thin: 8 < 35"
+        },
+        {
+          "id": "missing_alternative",
+          "severity": "soft",
+          "detail": "no alternative path was named"
+        },
+        {
+          "id": "missing_route_traceability",
+          "severity": "soft",
+          "detail": "visible trace was expected but route metadata is not recoverable enough for debugging"
+        }
+      ],
+      "unmatched_sections": [],
+      "vocab_warnings": [],
+      "rubric": {
+        "intent_alignment": 5,
+        "actionability": 4,
+        "structural_rigor": 5,
+        "evidence_use": 4,
+        "implementation_realism": 4,
+        "rationale": "Response directly addresses all four audit areas with no drift, mapping current failures to fixes. | Fixes are concrete (202 Accepted, RFC 9457, Idempotency-Key, circuit breakers) but some lack specific implementation detail (e.g., idempotency storage strategy, exact quota algorithms). | Hierarchical structure: problem\u2192fix across four dimensions, summary table with priority ordering, clear next steps. | Claims grounded in RFC standards, HTTP semantics, and architectural patterns; some assertions (e.g., 3-minute timeout risk) lack explicit threshold evidence. | Proposal is technically sound (async job patterns, token buckets, circuit breakers are proven) and operationally realistic, though assumes infrastructure (job queue, object storage) exists."
+      },
+      "output_file": "tests/live_outputs/batch/batch-20260414-2308/deepseek/pass-16_pack.md"
+    },
+    {
+      "test_id": "pass-17",
+      "title": "Adaptive explanation tiers preserve route truth",
+      "task": "frontend_implementation_review",
+      "mode": "pack",
+      "validator_decision": "AUTO_REVISE",
+      "validator_score": 75,
+      "validator_pass": true,
+      "rubric_mean": 3.4,
+      "rubric_gate_pass": true,
+      "composite_score": 72.2,
+      "composite_pass": true,
+      "rubric_decisive": false,
+      "passed": true,
+      "passed_by": "validator",
+      "latency_seconds": 26.53,
+      "issues": [
+        {
+          "id": "missing_rationale",
+          "severity": "soft",
+          "detail": "causal language not attached near recommendations \u2014 add \"because/without which/this requires\" adjacent to each recommendation"
+        }
+      ],
+      "warnings": [
+        {
+          "id": "missing_section_heading",
+          "severity": "soft",
+          "detail": "section content for \"Architectural framing\" appears present but heading does not match contract vocabulary"
+        },
+        {
+          "id": "thin_section",
+          "severity": "soft",
+          "detail": "section Boundary and state model too thin: 43 < 45"
+        },
+        {
+          "id": "thin_section",
+          "severity": "soft",
+          "detail": "section Rendering and mutation strategy too thin: 27 < 45"
+        },
+        {
+          "id": "missing_route_traceability",
+          "severity": "soft",
+          "detail": "visible trace was expected but route metadata is not recoverable enough for debugging"
+        }
+      ],
+      "unmatched_sections": [],
+      "vocab_warnings": [
+        "section content for \"Architectural framing\" appears present but heading does not match contract vocabulary"
+      ],
+      "rubric": {
+        "intent_alignment": 4,
+        "actionability": 3,
+        "structural_rigor": 4,
+        "evidence_use": 2,
+        "implementation_realism": 4,
+        "rationale": "Response correctly addresses the three-tier framing and delivers explicit decision sentences at each level, meeting core intent. | Actionability weakens at integrative/strategic tiers where recommendations shift (Context alone \u2192 Zustand + Context) without clear migration triggers or decision thresholds; a developer must infer 'three independent UI regions' means Zustand. | Hierarchy and tier separation are clear; functional grounds decisions in app complexity, integrative weighs tradeoffs, strategic unifies them\u2014logical flow is sound. | Claims lack quantitative anchors (Context re-render cost, bundle size thresholds, 'more than three regions' is vague); Context performance risk asserted but not tied to profiling baselines or user-impact data. | Zustand/Valtio are realistic lightweight alternatives and the staged approach (start with Context, extract later) is operationally credible; however, no guidance on detection signals that trigger migration. | Governing recommendations are concrete (use Zustand for shared mutable state) but the strategic tier contradicts functional/integrative advice without explaining why Zustand is now mandatory rather than conditional."
+      },
+      "output_file": "tests/live_outputs/batch/batch-20260414-2308/deepseek/pass-17_pack.md"
+    },
+    {
+      "test_id": "pass-18",
+      "title": "Designer response filter preserves backend constraints",
+      "task": "api_reliability_security_review",
+      "mode": "pack",
+      "validator_decision": "FAIL",
+      "validator_score": 60,
+      "validator_pass": false,
+      "rubric_mean": 4.8,
+      "rubric_gate_pass": true,
+      "composite_score": 74.4,
+      "composite_pass": true,
+      "rubric_decisive": true,
+      "passed": true,
+      "passed_by": "rubric",
+      "latency_seconds": 34.0,
+      "issues": [
+        {
+          "id": "missing_section",
+          "severity": "hard",
+          "detail": "missing section: Resilience and observability"
+        },
+        {
+          "id": "missing_required_decision",
+          "severity": "hard",
+          "detail": "missing required decision `async_job_model`: Names the async job lifecycle when work is long-running."
+        },
+        {
+          "id": "missing_required_decision",
+          "severity": "hard",
+          "detail": "missing required decision `resilience_strategy`: Names resilience or protection rules."
+        },
+        {
+          "id": "missing_evidence_class",
+          "severity": "hard",
+          "detail": "missing evidence class `resilience_rule`: Uses resilience, quota, or observability evidence."
+        }
+      ],
+      "warnings": [
+        {
+          "id": "missing_alternative",
+          "severity": "soft",
+          "detail": "no alternative path was named"
+        }
+      ],
+      "unmatched_sections": [
+        "missing section: Resilience and observability"
+      ],
+      "vocab_warnings": [],
+      "rubric": {
+        "intent_alignment": 5,
+        "actionability": 5,
+        "structural_rigor": 5,
+        "evidence_use": 4,
+        "implementation_realism": 5,
+        "rationale": "Response directly addresses all four architectural concerns stated in the review request with explicit governing decisions upfront. | Developers can immediately implement each fix: adopt RFC 9457, add role checks, require Idempotency-Key header, and optionally shift to 201; code examples and flow diagrams provided. | Answer follows strict hierarchy: decisions \u2192 reasoning \u2192 implementation details \u2192 summary; decision logic is sequenced (auth check precedes operation; idempotency lookup precedes execution). | Claims cite RFC 9457 and BOLA vulnerability by name, and threshold-based requirements (428 for missing key, 403 for auth failure) are explicit; however, evidence for why 200 vs 201 is defensible lacks technical justification beyond semantics. | Proposals are technically sound and operationally realistic: RFC 9457 is standard, BOLA checks are straightforward, idempotency-key patterns are proven in production systems (Stripe, AWS), and 428 responses are HTTP-compliant."
+      },
+      "output_file": "tests/live_outputs/batch/batch-20260414-2308/deepseek/pass-18_pack.md"
+    },
+    {
+      "test_id": "pass-19",
+      "title": "Text humanization canonical pass",
+      "task": "text_humanization_revision",
+      "mode": "pack",
+      "validator_decision": "FAIL",
+      "validator_score": 84,
+      "validator_pass": false,
+      "rubric_mean": 4.8,
+      "rubric_gate_pass": true,
+      "composite_score": 88.8,
+      "composite_pass": true,
+      "rubric_decisive": true,
+      "passed": true,
+      "passed_by": "rubric",
+      "latency_seconds": 9.42,
+      "issues": [
+        {
+          "id": "missing_rationale",
+          "severity": "hard",
+          "detail": "no explicit rationale language found"
+        }
+      ],
+      "warnings": [
+        {
+          "id": "thin_section",
+          "severity": "soft",
+          "detail": "section Revised passage too thin: 8 < 26"
+        }
+      ],
+      "unmatched_sections": [],
+      "vocab_warnings": [],
+      "rubric": {
+        "intent_alignment": 5,
+        "actionability": 5,
+        "structural_rigor": 5,
+        "evidence_use": 4,
+        "implementation_realism": 5,
+        "rationale": "Response directly answers the ask with all three requested components before revision. | Designer can immediately apply the before/after pattern to similar sentences; fix categories are reusable heuristics. | Clear three-part framework (job, patterns, guard) followed by revision and itemized change log shows explicit reasoning hierarchy. | Patterns are identified with examples but lack thresholds (e.g., 'passive phrasing occurs in X% of clauses' or citation to readability metrics); meaning-preservation guard is sound but unempirical. | Revision is grammatically sound, professionally credible, and the compression from 21 to 12 words is realistic; no technical barriers to adoption."
+      },
+      "output_file": "tests/live_outputs/batch/batch-20260414-2308/deepseek/pass-19_pack.md"
+    },
+    {
+      "test_id": "pass-20",
+      "title": "Backend Architecture Spec",
+      "task": "backend_architecture_spec",
+      "mode": "pack",
+      "validator_decision": "FAIL",
+      "validator_score": 69,
+      "validator_pass": false,
+      "rubric_mean": 4.6,
+      "rubric_gate_pass": true,
+      "composite_score": 78.2,
+      "composite_pass": true,
+      "rubric_decisive": true,
+      "passed": true,
+      "passed_by": "rubric",
+      "latency_seconds": 88.23,
+      "issues": [
+        {
+          "id": "missing_rationale",
+          "severity": "soft",
+          "detail": "causal language not attached near recommendations \u2014 add \"because/without which/this requires\" adjacent to each recommendation"
+        },
+        {
+          "id": "unsupported_superlative",
+          "severity": "hard",
+          "detail": "scalable used without the required proof class"
+        },
+        {
+          "id": "unsupported_superlative",
+          "severity": "hard",
+          "detail": "reliable used without the required proof class"
+        }
+      ],
+      "warnings": [
+        {
+          "id": "missing_alternative",
+          "severity": "soft",
+          "detail": "no alternative path was named"
+        },
+        {
+          "id": "missing_route_traceability",
+          "severity": "soft",
+          "detail": "visible trace was expected but route metadata is not recoverable enough for debugging"
+        }
+      ],
+      "unmatched_sections": [],
+      "vocab_warnings": [],
+      "rubric": {
+        "intent_alignment": 5,
+        "actionability": 4,
+        "structural_rigor": 5,
+        "evidence_use": 4,
+        "implementation_realism": 5,
+        "rationale": "Response directly addressed all four requirements (multi-tenancy, workspaces, activity feeds, approval workflows, webhooks) without drift. | Code examples and SQL are implementable, though some decisions (schema-level as alternative path) would benefit from explicit migration checklist. | Hierarchical structure spans authority model \u2192 consistency \u2192 data delivery \u2192 workflows \u2192 observability with clear decision logic and tradeoff sequencing. | Claims linked to explicit constraints (50MB overhead, 100-500ms lag tolerance, 2KB per audit entry, 5ms tracing overhead) but could strengthen with performance thresholds or failure rates. | Architecture is operationally realistic with documented risks and safer paths; database-per-tenant complexity acknowledged; alternatives provided (schema-level fallback)."
+      },
+      "output_file": "tests/live_outputs/batch/batch-20260414-2308/deepseek/pass-20_pack.md"
+    }
+  ]
+}

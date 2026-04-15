@@ -1,0 +1,16 @@
+{
+  "validator": "validate_project_workspace",
+  "decision": "PASS",
+  "warn_only": false,
+  "issue_counts": {
+    "BLOCKER": 0,
+    "ERROR": 0,
+    "WARN": 0,
+    "INFO": 0
+  },
+  "issues": [],
+  "metrics": {
+    "checked_projects": 1
+  },
+  "metadata": {}
+}

@@ -1,0 +1,62 @@
+{
+  "task_id": "color_system_spec",
+  "title": "Color System Specification",
+  "required_sections": [
+    {
+      "name": "Role model",
+      "min_words": 25,
+      "rationale": "Defines semantic color roles instead of a loose palette."
+    },
+    {
+      "name": "Token map",
+      "min_words": 40,
+      "rationale": "Maps roles to tokens, aliases, or state usage."
+    },
+    {
+      "name": "Contrast and state rules",
+      "min_words": 35,
+      "rationale": "Prevents color-only semantics and contrast drift."
+    },
+    {
+      "name": "Migration notes",
+      "min_words": 25,
+      "rationale": "Shows how to move from the current palette safely."
+    }
+  ],
+  "required_evidence_types": [
+    "semantic role",
+    "contrast threshold",
+    "state rule"
+  ],
+  "required_decisions": [
+    "semantic_roles",
+    "state_mapping",
+    "contrast_boundary",
+    "migration_strategy"
+  ],
+  "hard_fail_patterns": [
+    "pick nicer colors",
+    "brand color everywhere",
+    "palette only"
+  ],
+  "soft_fail_patterns": [
+    "could feel fresher",
+    "more vibrant maybe"
+  ],
+  "required_skills": [
+    "color-system-expert.md",
+    "accessibility-feedback-expert.md"
+  ],
+  "allowed_modes": [
+    "REBUILD",
+    "PEER"
+  ],
+  "allowed_phases": [
+    "tokens",
+    "ui"
+  ],
+  "canonical_contract": "src/schemas/task_contracts.json#color_system_spec",
+  "task_weight_default": "standard",
+  "supports_lightweight_response": true,
+  "trace_visibility_default": "recoverable"
+}

@@ -1,0 +1,29 @@
+{
+  "run_id": "proxy-run-2026-04-13_ux_research_gap_map",
+  "pack_version": "3.0",
+  "baseline_label": "none_proxy_mode",
+  "prompt_id": "ux_research_gap_map",
+  "run_date": "2026-04-13",
+  "evaluator_label": "static_runtime_validator",
+  "evidence_mode": "proxy",
+  "scores": {
+    "validator_score": 100,
+    "validator_decision": "PASS",
+    "evidence_classes": [
+      "benchmark_artifact",
+      "comparison_artifact",
+      "file_backed_receipt",
+      "narrative_proof_boundary",
+      "permission_rule",
+      "research_artifact",
+      "reviewer_confidence_artifact",
+      "state_or_behavior_rule",
+      "verification_method"
+    ],
+    "issue_count": 0
+  },
+  "overall_preference": "pack",
+  "notes": "Proxy evidence: static validator scored golden example output for ux_research_gap_map. Score 100/100. Decision: PASS. No issues.",
+  "issues": [],
+  "warnings": []
+}

@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "DesignPilot Proof Status",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "version",
+    "generated_at",
+    "layers",
+    "what_the_repo_currently_demonstrates",
+    "what_the_repo_does_not_yet_demonstrate",
+    "freshness"
+  ],
+  "properties": {
+    "schema_version": {"type": "integer"},
+    "version": {"type": "string"},
+    "generated_at": {"type": "string"},
+    "layers": {
+      "type": "object",
+      "required": [
+        "internal_consistency_regression",
+        "comparative_benchmarks",
+        "external_or_blinded_reviews",
+        "downstream_artifact_receipts"
+      ]
+    },
+    "what_the_repo_currently_demonstrates": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "what_the_repo_does_not_yet_demonstrate": {
+      "type": "array",
+      "items": {"type": "string"}
+    },
+    "freshness": {
+      "type": "object",
+      "required": [
+        "benchmarks_last_updated",
+        "reviews_last_updated",
+        "receipts_last_updated"
+      ],
+      "properties": {
+        "benchmarks_last_updated": {"type": "string"},
+        "reviews_last_updated": {"type": "string"},
+        "receipts_last_updated": {"type": "string"}
+      }
+    }
+  },
+  "additionalProperties": true
+}

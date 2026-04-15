@@ -1,25 +1,28 @@
 #!/usr/bin/env python3
+from __future__ import annotations
+
+import json
 import re
-import sys
 from datetime import datetime, timezone
 from pathlib import Path
+import sys
 
 ROOT = Path(__file__).resolve().parents[1]
 PROJECTS = ROOT / 'projects'
-REQ_ROOT_DIRS = ['process', 'finalized', 'problems_and_solutions', 'context', 'handoff']
+sys.path.insert(0, str(ROOT / 'scripts'))
+
+from _validation import build_report, exit_code_for, issue, print_report, write_report
+
 REQ_ROOT_FILES = ['README.md']
+REQ_ROOT_DIRS = ['process', 'finalized', 'problems_and_solutions', 'context', 'handoff']
 REQ_CONTEXT = ['PROJECT_OVERVIEW.md', 'ACTIVE_STATE.md', 'TASK_QUEUE.md', 'WORKSPACE_MODE.md', 'CASE_STUDY_ROADMAP.md']
 REQ_PROBLEMS = ['PROBLEM_LOG.md', 'DECISION_LOG.md', 'PROJECT_SPECIFIC_ERRORS.md']
 REQ_HANDOFF = ['HANDOFF_NOTES.md', 'IMPLEMENTATION_CHECKLIST.md', 'OPEN_QUESTIONS.md', 'DOWNLOAD_BUNDLE_MANIFEST.md']
 REQ_PROCESS = ['briefs', 'research', 'strategy', 'structure', 'design', 'specs', 'reviews', 'iterations', 'assets']
 REQ_FINALIZED = ['deliverables', 'exports', 'approved_specs', 'release_notes']
 FLAGSHIP_PROOF = [
-    'process/research/proof/FIXED_PROMPT_SET.md',
-    'process/specs/proof/COMPARATIVE_SCORECARD.md',
     'process/structure/case-study/CLAIM_TO_PROOF_MAP.md',
-    'process/reviews/benchmarks/benchmark-run-001.json',
-    'process/reviews/external_signals/TRUST_SIGNAL_LOG.md',
-    'finalized/deliverables/proof/PROOF_STACK_SUMMARY.md'
+    'finalized/deliverables/proof/PROOF_STACK_SUMMARY.md',
 ]
 ROADMAP_SECTIONS = [
     '## Project identity',
@@ -106,6 +109,7 @@ def ensure_sections(text: str, sections, errors, path_label):
 def split_entries(text: str):
     return [chunk.strip() for chunk in re.split(r'(?=^## )', text, flags=re.MULTILINE) if chunk.strip().startswith('## ')]
 
+
 def ensure_entry_fields(text: str, fields, errors, file_label):
     entries = split_entries(text)
     if not entries:
@@ -123,6 +127,61 @@ def newest_date(paths):
         return None
     latest = max(candidates, key=lambda p: p.stat().st_mtime).stat().st_mtime
     return datetime.fromtimestamp(latest, tz=timezone.utc)
+
+
+def check_structured_state(project_dir: Path, errors: list[str]):
+    state_dir = project_dir / 'context' / 'state'
+    if not state_dir.is_dir():
+        errors.append('missing context/state/')
+        return
+    evergreen_path = state_dir / 'continuity_evergreen.json'
+    release_path = state_dir / 'release_state.json'
+    for path in [evergreen_path, release_path]:
+        if not path.exists():
+            errors.append(f'missing {path.relative_to(project_dir)}')
+            return
+    evergreen = json.loads(evergreen_path.read_text(encoding='utf-8'))
+    release = json.loads(release_path.read_text(encoding='utf-8'))
+    required_release_fields = {
+        'current_release', 'last_continuity_refresh', 'artifact_freshness_anchor', 'workspace_freshness',
+        'current_phase', 'active_task', 'next_steps', 'blockers', 'proof_counts', 'pending_artifacts'
+    }
+    missing = sorted(required_release_fields - set(release.keys()))
+    if missing:
+        errors.append('release_state.json missing fields: ' + ', '.join(missing))
+    if 'project' not in evergreen or 'goal' not in evergreen or 'proof_boundaries' not in evergreen:
+        errors.append('continuity_evergreen.json missing required identity fields')
+
+    roadmap_text = read(project_dir / 'context' / 'CASE_STUDY_ROADMAP.md')
+    active_text = read(project_dir / 'context' / 'ACTIVE_STATE.md')
+    bundle_text = read(project_dir / 'handoff' / 'DOWNLOAD_BUNDLE_MANIFEST.md')
+    overview_text = read(project_dir / 'context' / 'PROJECT_OVERVIEW.md')
+    task_queue_text = read(project_dir / 'context' / 'TASK_QUEUE.md')
+
+    if f"v{release['current_release']}" not in roadmap_text:
+        errors.append('roadmap not rendered from release_state current_release')
+    if f"v{release['current_release']}" not in active_text:
+        errors.append('active_state not rendered from release_state current_release')
+    if release['artifact_freshness_anchor'] != parse_bullet(roadmap_text, 'Artifact freshness anchor'):
+        errors.append('roadmap freshness anchor does not match release_state')
+    if release['artifact_freshness_anchor'] != parse_bullet(bundle_text, 'Continuity freshness anchor'):
+        errors.append('bundle freshness anchor does not match release_state')
+    if release['last_continuity_refresh'] != parse_bullet(active_text, 'Last refresh'):
+        errors.append('active_state refresh timestamp does not match release_state')
+    if evergreen['project']['name'] not in overview_text:
+        errors.append('project overview does not reflect evergreen identity state')
+    for step in release.get('next_steps', []):
+        if step not in roadmap_text:
+            errors.append('roadmap missing next step from release_state')
+            break
+    for blocker in release.get('blockers', []):
+        if blocker not in active_text:
+            errors.append('active_state missing blocker from release_state')
+            break
+    for step in release.get('active_queue', []):
+        if step not in task_queue_text:
+            errors.append('task_queue missing active_queue item from release_state')
+            break
 
 
 def check_project(project_dir: Path):
@@ -155,7 +214,6 @@ def check_project(project_dir: Path):
         if not (project_dir / 'finalized' / name).is_dir():
             errors.append(f'missing finalized/{name}/')
 
-    # Generic structured-file checks
     roadmap_path = project_dir / 'context' / 'CASE_STUDY_ROADMAP.md'
     active_path = project_dir / 'context' / 'ACTIVE_STATE.md'
     bundle_path = project_dir / 'handoff' / 'DOWNLOAD_BUNDLE_MANIFEST.md'
@@ -171,12 +229,9 @@ def check_project(project_dir: Path):
         for marker in ACTIVE_REQUIRED:
             if marker not in active_text:
                 errors.append(f'missing ACTIVE_STATE field {marker}')
-        if '- Continuity status:' in active_text:
-            pass
-        else:
-            for marker in ACTIVE_STATUS_BLOCK:
-                if marker not in active_text:
-                    errors.append(f'missing ACTIVE_STATE status block field {marker}')
+        for marker in ACTIVE_STATUS_BLOCK:
+            if marker not in active_text:
+                errors.append(f'missing ACTIVE_STATE status block field {marker}')
     if bundle_path.exists():
         bundle_text = read(bundle_path)
         for marker in BUNDLE_REQUIRED:
@@ -188,11 +243,11 @@ def check_project(project_dir: Path):
         ensure_entry_fields(read(decision_path), DECISION_FIELDS, errors, 'DECISION_LOG.md')
     if project_error_path.exists():
         project_error_text = read(project_error_path)
-        # only enforce entry structure if there are actual project errors recorded
         if '## ' in project_error_text:
             ensure_entry_fields(project_error_text, PROJECT_ERROR_FIELDS, errors, 'PROJECT_SPECIFIC_ERRORS.md')
 
     if project_dir.name == 'designpilot':
+        check_structured_state(project_dir, errors)
         for rel in FLAGSHIP_PROOF:
             if not (project_dir / rel).exists():
                 errors.append(f'missing flagship proof artifact {rel}')
@@ -251,21 +306,27 @@ def check_project(project_dir: Path):
     return errors
 
 
-def main():
-    failures = 0
-    for project_dir in sorted(PROJECTS.iterdir()):
+def validate_project_workspace(root: Path = ROOT) -> dict:
+    root = Path(root).resolve()
+    issues = []
+    checked = 0
+    for project_dir in sorted((root / 'projects').iterdir()):
         if not project_dir.is_dir() or project_dir.name.startswith('_'):
             continue
+        checked += 1
         errors = check_project(project_dir)
         if errors:
-            failures += 1
-            print(f'FAIL {project_dir.name}')
             for error in errors:
-                print(f'  ERROR {error}')
-        else:
-            print(f'PASS {project_dir.name}')
-    if failures:
-        raise SystemExit(1)
+                issues.append(issue('ERROR', f'{project_dir.name}: {error}', source='scripts/validate_project_workspace.py'))
+    report = build_report('validate_project_workspace', issues, metrics={'checked_projects': checked})
+    write_report(root / 'dist' / 'workspace_validation_report.json', report)
+    return report
+
+
+def main() -> None:
+    report = validate_project_workspace()
+    print_report(report)
+    raise SystemExit(exit_code_for(report))
 
 
 if __name__ == '__main__':

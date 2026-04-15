@@ -1,0 +1,54 @@
+{
+  "run_id": "batch-20260414-0609",
+  "run_date": "2026-04-14T10:23:00.678859+00:00",
+  "pack_version": "3.0",
+  "is_valid_quality_signal": false,
+  "providers_tested": [
+    "claude",
+    "deepseek",
+    "gemini",
+    "mistral",
+    "openai",
+    "xai"
+  ],
+  "ranking": [
+    {
+      "provider": "claude",
+      "avg_composite": 91.3,
+      "pass_rate": 1.0,
+      "gate_passed": true
+    },
+    {
+      "provider": "deepseek",
+      "avg_composite": 88.0,
+      "pass_rate": 1.0,
+      "gate_passed": true
+    },
+    {
+      "provider": "mistral",
+      "avg_composite": 87.0,
+      "pass_rate": 1.0,
+      "gate_passed": true
+    },
+    {
+      "provider": "xai",
+      "avg_composite": 86.9,
+      "pass_rate": 0.947,
+      "gate_passed": true
+    },
+    {
+      "provider": "openai",
+      "avg_composite": 84.7,
+      "pass_rate": 0.895,
+      "gate_passed": true
+    },
+    {
+      "provider": "gemini",
+      "avg_composite": 39.9,
+      "pass_rate": 0.211,
+      "gate_passed": false
+    }
+  ],
+  "tests_run": 19,
+  "cross_model_gate": 0.7
+}

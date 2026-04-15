@@ -40,8 +40,8 @@ Load skills, summaries, and templates only when routed.
 - `src/knowledge-base/source-docs/DesignPilot Problem Catalogue.md`
 - `src/knowledge-base/source-docs/Design System Failure Diagnosis and Solutions.md`
 
-- `PROJECT_FILE_SYSTEM_PROTOCOL.md` — project folder rules and automatic problem logging
-- `PROJECT_LOGGING_PROTOCOL.md` — required logs and entry formats
-- `projects/_project-template/` — default project workspace skeleton
+- `PROJECT_FILE_SYSTEM_PROTOCOL.md` - project folder rules and automatic problem logging
+- `PROJECT_LOGGING_PROTOCOL.md` - required logs and entry formats
+- `projects/_project-template/` - default project workspace skeleton
 
 - PROJECT_PORTABLE_WORKSPACE_PROTOCOL.md

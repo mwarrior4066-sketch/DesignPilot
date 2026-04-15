@@ -1,0 +1,220 @@
+{
+  "suite_version": "1.0.0",
+  "pack_version": "3.0",
+  "gate_threshold": 0.7,
+  "description": "Full DesignPilot regression suite \u2014 all 19 live-enabled tests run against all model families. Uses dual-gate scoring (validator + rubric). Gate: 70%.",
+  "model_families": [
+    {
+      "id": "openai",
+      "models": [
+        "gpt-4.1",
+        "gpt-4o"
+      ],
+      "heading_style": "formal-noun-phrase",
+      "structure": "deductive",
+      "notes": "Deductive: places executive summary before analysis. Pre-flight/post-flight gating vocabulary for constraints."
+    },
+    {
+      "id": "google",
+      "models": [
+        "gemini-2.5-pro",
+        "gemini-2.5-flash"
+      ],
+      "heading_style": "long-descriptive",
+      "structure": "mixed",
+      "notes": "Long headings often repeat task framing. Deep Research mode adds retrieval attribution vocabulary. Confidence drift on ambiguous prompts."
+    },
+    {
+      "id": "meta",
+      "models": [
+        "llama-4-maverick",
+        "llama-4-scout"
+      ],
+      "heading_style": "legalistic-or-action",
+      "structure": "deductive",
+      "notes": "Maverick: formal/legalistic (Security Perimeter Audit). Scout: flat/action-oriented (Fix Steps). Both highly steerable."
+    },
+    {
+      "id": "mistral",
+      "models": [
+        "mistral-large-3",
+        "mistral-small-4"
+      ],
+      "heading_style": "short-noun-phrase",
+      "structure": "deductive",
+      "notes": "Logic-first. Short noun-phrase headings. Magistral variant adds blockquote reasoning preambles. Small 4 produces compact outputs (use density floor 0.35)."
+    },
+    {
+      "id": "xai",
+      "models": [
+        "grok-4.1"
+      ],
+      "heading_style": "conversational",
+      "structure": "mixed",
+      "notes": "Emotionally-aware preambles. Conversational headings (The Job, What to Watch For). High sycophancy risk on ambiguous prompts."
+    },
+    {
+      "id": "deepseek",
+      "models": [
+        "deepseek-v3.2",
+        "deepseek-r1"
+      ],
+      "heading_style": "process-step",
+      "structure": "inductive",
+      "notes": "R1 wraps chain-of-thought in <think> tags -- must be stripped before scoring. Inductive: full reasoning before conclusion. Process-step vocabulary (Proposed Patches, Repair Sequence)."
+    },
+    {
+      "id": "amazon",
+      "models": [
+        "amazon.nova-pro-v1:0"
+      ],
+      "heading_style": "rag-attribution",
+      "structure": "deductive",
+      "notes": "RAG-grounded vocabulary (Reference Extraction, Semantic Pairs). AWS-native resilience terms (MTTR, incident prevention). Hierarchical Handler > Reasoning > Attribution structure."
+    }
+  ],
+  "tests": [
+    {
+      "id": "pass-01",
+      "task": "ui_structure_critique",
+      "title": "UI structure critique canonical pass",
+      "full_prompt": "Audit the pricing page for a B2B SaaS product. The hero has a large headline ('Everything your team needs'), a CTA button, and a background image. Below it: a three-column pricing table (Starter $29, Pro $79, Enterprise custom), a feature comparison table, and a testimonials strip. The CTA is small relative to the hero. The pricing table uses color-coding to highlight the Pro tier but the colors are not accessible.",
+      "category": "smoke"
+    },
+    {
+      "id": "pass-02",
+      "task": "component_spec",
+      "title": "Component specification canonical pass",
+      "full_prompt": "Write a component spec for a split button. It has a primary action (Save) and a dropdown trigger for secondary actions (Save as draft, Save and close). It needs keyboard support, disabled states, loading states, and must work on mobile touch targets.",
+      "category": "smoke"
+    },
+    {
+      "id": "pass-03",
+      "task": "dashboard_audit",
+      "title": "Dashboard audit canonical pass",
+      "full_prompt": "Audit the first view of a SaaS analytics dashboard. It has a KPI row at the top showing DAU, MRR, and churn rate as large numbers with trend arrows but no reference values or targets. Below is a 30-day line chart with no Y-axis label and four colored lines for four segments, but the legend is below the fold. The left sidebar has 12 nav items with no grouping.",
+      "category": "smoke"
+    },
+    {
+      "id": "pass-04",
+      "task": "backend_feasibility_review",
+      "title": "Backend feasibility canonical pass",
+      "full_prompt": "We want to add a real-time collaboration feature (like Google Docs) to our existing React app. The app currently uses REST APIs and PostgreSQL. Multiple users need to edit the same document simultaneously with visible cursor positions, conflict resolution, and persistent state. Review this request for backend feasibility. Cover all of: the hidden system requirements, a feasibility assessment with explicit blockers, and a safer implementation path with phased recommendations.",
+      "category": "smoke"
+    },
+    {
+      "id": "pass-05",
+      "task": "pdf_remediation_plan",
+      "title": "PDF plus accessibility compound ask",
+      "full_prompt": "Fix this PDF report so it works with screen readers and the reading order makes sense for export. The PDF was exported from InDesign. It has a two-column layout, pull quotes that interrupt the reading flow, and decorative images that are not tagged. The table of contents links are broken.",
+      "category": "compound"
+    },
+    {
+      "id": "pass-06",
+      "task": "brand_positioning_pass",
+      "title": "Brand positioning canonical pass",
+      "full_prompt": "Do a brand positioning pass for a new fintech startup targeting freelancers. They want to feel trustworthy but approachable, not like a traditional bank. Their competitors are Stripe, Mercury, and Relay. What positioning territory should they own?",
+      "category": "smoke"
+    },
+    {
+      "id": "pass-07",
+      "task": "case_study_rewrite",
+      "title": "Case study plus brand framing compound ask",
+      "full_prompt": "Rewrite this case study for a design portfolio. Original text: 'I worked on a project to redesign the onboarding flow. I did user research and found that users were confused. I made wireframes and prototypes. The redesign improved conversion by 40%. I learned a lot about user needs and collaboration with engineering.' Make it compelling and structured. In your rewrite, include one explicit design constraint or tradeoff you had to navigate.",
+      "category": "compound"
+    },
+    {
+      "id": "pass-08",
+      "task": "accessibility_feedback_audit",
+      "title": "Accessibility audit canonical pass",
+      "full_prompt": "Audit this mobile app for accessibility issues. The app has a bottom navigation bar with icon-only buttons and no labels. Form inputs have placeholder text instead of visible labels. Error messages appear in red text with no icon. The loading spinner has no announced state for screen readers. Your response should cover: what the specific accessibility failures are and which user actions they block, a prioritised inventory of each barrier with the relevant WCAG rule, an ordered repair plan, and how each repair can be verified using assistive technology.",
+      "category": "smoke"
+    },
+    {
+      "id": "pass-09",
+      "task": "color_system_spec",
+      "title": "Color system canonical pass",
+      "full_prompt": "Define a color system for a healthcare SaaS dashboard. It needs to communicate status (normal, warning, critical), support dark mode, work for data visualization with at least 5 categorical colors, and meet WCAG AA for all text. Your response should cover: the semantic color roles and what each role means, the token or alias structure that maps roles to usage, contrast and state rules that prevent color-only semantics, and a plan for migrating from the current palette to this system.",
+      "category": "smoke"
+    },
+    {
+      "id": "pass-10",
+      "task": "graphic_critique",
+      "title": "Graphic critique canonical pass",
+      "full_prompt": "Critique this poster design for a design conference. The poster has a large title at the top in a decorative typeface, the date in small gray text in the bottom corner, a full-bleed background photo of a city skyline, and the conference logo overlaid in white in the center. The hierarchy puts the title before the audience has context for what this event is.",
+      "category": "smoke"
+    },
+    {
+      "id": "pass-11",
+      "task": "layout_reconstruction_plan",
+      "title": "Layout reconstruction from legacy artifact",
+      "full_prompt": "I have a PDF of our old brand guidelines from 2018. I need to reconstruct the layout system from it to apply to new templates. The PDF has grid diagrams, margin specifications, and column layout examples. Describe what you would extract and how you would translate it into a modern layout system.",
+      "category": "compound"
+    },
+    {
+      "id": "pass-12",
+      "task": "type_system_recommendation",
+      "title": "Type system canonical pass",
+      "full_prompt": "Recommend a type system for a fintech product. It needs to work across a marketing site, a web app dashboard, and mobile. It should feel modern and trustworthy, handle tabular financial data well, and support multiple weights for hierarchy. Your response should cover: the reading contexts and constraints that govern the choices, a scale and role map assigning typefaces and weights to text roles, readability rules for line length, contrast, and spacing, and guidance on how to phase the system into the product.",
+      "category": "smoke"
+    },
+    {
+      "id": "pass-13",
+      "task": "ux_research_gap_map",
+      "title": "UX research gap map canonical pass",
+      "full_prompt": "Map the research gaps for a team redesigning a B2B project management tool. We have: 3 stakeholder interviews, 2 usability tests on the current product, and analytics showing a 60% drop-off on the project creation flow. We do not have: data on why users abandon, competitive analysis, or any research on power users.",
+      "category": "smoke"
+    },
+    {
+      "id": "pass-14",
+      "task": "frontend_implementation_review",
+      "title": "Front-end architecture canonical pass",
+      "full_prompt": "Review this front-end implementation plan for a permissions-heavy scheduling dashboard. The current proposal defaults to a large client-rendered page, stores loading and error state in separate booleans, uses custom div buttons for filter chips, and wants optimistic updates for recurring edits. The product has role-based visibility, table-heavy screens, and server-driven filters. Recommend a safer architecture with better state handling and accessibility.",
+      "category": "smoke"
+    },
+    {
+      "id": "pass-15",
+      "task": "backend_architecture_spec",
+      "title": "Backend architecture spec canonical pass",
+      "full_prompt": "Write a backend architecture spec for a multi-tenant scheduling platform with team workspaces, cursor-based activity feeds, approval workflows, and outbound webhooks to customer systems. The product must support regional data residency, audit trails, and eventually customer-defined automation rules. The current stack already has REST APIs and a relational database, but background jobs and eventing are inconsistent. Define core services, data boundaries, contracts, and operational concerns.",
+      "category": "smoke"
+    },
+    {
+      "id": "pass-16",
+      "task": "api_reliability_security_review",
+      "title": "API reliability and security canonical pass",
+      "full_prompt": "Audit this API design for reliability and security. The endpoint is POST /exports which generates a PDF report. It runs synchronously and blocks for up to 3 minutes, returns HTTP 200 for all responses including errors, has no idempotency key, leaks internal enum values in error messages, and has no retry-safe contract. Cover all of: failure semantics and error contract, authorization and resource protection, idempotency and async lifecycle, and resilience and observability.",
+      "category": "smoke"
+    },
+    {
+      "id": "pass-17",
+      "task": "frontend_implementation_review",
+      "title": "Adaptive explanation tiers preserve route truth",
+      "full_prompt": "Explain a front-end architecture decision across Functional, Integrative, and Strategic tiers. The decision: should this React app use a global state manager like Redux, or local component state with context? At the end of each tier, state the governing recommendation as one explicit decision sentence -- not a summary of the explanation, but a concrete statement of what should be done.",
+      "category": "comprehension"
+    },
+    {
+      "id": "pass-18",
+      "task": "api_reliability_security_review",
+      "title": "Designer response filter preserves backend constraints",
+      "full_prompt": "Review this API design. The endpoint is POST /api/v1/projects/{id}/members and it adds a user to a project. It returns 200 with the updated member list. There is no idempotency key. The error response is a plain string. Authorization checks if the caller is logged in but not if they are a project admin. For each architectural concern, state the governing decision explicitly before explaining the reasoning.",
+      "category": "comprehension"
+    },
+    {
+      "id": "pass-19",
+      "task": "text_humanization_revision",
+      "title": "Text humanization canonical pass",
+      "full_prompt": "Rewrite this text to read more naturally. Original: 'It is important to note that the utilization of AI-powered solutions facilitates the reallocation of human capital toward higher-value activities.' Before rewriting, state: the job of the piece, the patterns you will fix, and your meaning-preservation guard. Then provide the revision and explain what changed.",
+      "category": "comprehension"
+    },
+    {
+      "id": "pass-20",
+      "title": "Backend Architecture Spec",
+      "task": "backend_architecture_spec",
+      "prompt_file": "tests/fixtures/backend-architecture-spec.prompt.md",
+      "expected_decision": "PASS",
+      "mode": "pack",
+      "full_prompt": "Write a backend architecture spec for a multi-tenant scheduling platform with team workspaces, cursor-based activity feeds, approval workflows, and outbound webhooks to customer systems."
+    }
+  ]
+}

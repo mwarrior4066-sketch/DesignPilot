@@ -1,0 +1,61 @@
+{
+  "task_id": "brand_positioning_pass",
+  "title": "Brand Positioning Pass",
+  "required_sections": [
+    {
+      "name": "Audience and problem",
+      "min_words": 25,
+      "rationale": "Anchors brand to a real segment and pain."
+    },
+    {
+      "name": "Positioning frame",
+      "min_words": 35,
+      "rationale": "Shows category, alternative, and wedge."
+    },
+    {
+      "name": "Trust and proof burden",
+      "min_words": 30,
+      "rationale": "Prevents adjective-only branding."
+    },
+    {
+      "name": "Messaging consequences",
+      "min_words": 25,
+      "rationale": "Translates strategy into language behavior."
+    }
+  ],
+  "required_evidence_types": [
+    "segment proof",
+    "differentiation logic",
+    "trust signal"
+  ],
+  "required_decisions": [
+    "audience_frame",
+    "differentiation_frame",
+    "trust_logic",
+    "messaging_consequence"
+  ],
+  "hard_fail_patterns": [
+    "best-in-class brand",
+    "premium modern innovative"
+  ],
+  "soft_fail_patterns": [
+    "strong brand presence"
+  ],
+  "required_skills": [
+    "brand-strategy-expert.md",
+    "content-and-case-study-expert.md"
+  ],
+  "allowed_modes": [
+    "AUDIT",
+    "REBUILD",
+    "PEER"
+  ],
+  "allowed_phases": [
+    "strategy",
+    "communication"
+  ],
+  "canonical_contract": "src/schemas/task_contracts.json#brand_positioning_pass",
+  "task_weight_default": "standard",
+  "supports_lightweight_response": true,
+  "trace_visibility_default": "recoverable"
+}

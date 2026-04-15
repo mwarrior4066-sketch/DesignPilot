@@ -1,0 +1,15 @@
+{
+  "example": "examples/startup-helper-tone-pass.md",
+  "task_contract": "case_study_rewrite",
+  "validator_decision": "PASS",
+  "rubric_scores": {
+    "helper_tone": 5,
+    "startup_clarity": 4,
+    "progressive_capability_reveal": 5,
+    "constraint_preservation": 4
+  },
+  "strongest_dimension": "helper_tone",
+  "weakest_dimension": "startup_clarity",
+  "pass_justification": "The example leads with useful work, uses calm helper language, and avoids a startup capability dump while preserving structural rigor.",
+  "residual_reviewer_doubt": "The route shown is a communication-oriented proxy rather than a dedicated startup route, but the surface behavior is still clear and testable."
+}

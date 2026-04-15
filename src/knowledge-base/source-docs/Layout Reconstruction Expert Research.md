@@ -728,16 +728,16 @@ E. Twenty stress-test prompts
 1) “Given this scanned newspaper page with 6 columns and rotated sidebar ads, infer the global grid and list all non-Manhattan exceptions.”  
 2) “Reconstruct the baseline grid from a PDF report where body text is aligned but headings break rhythm; output BaselineSpec and exception policy.”  
 3) “From this dashboard screenshot with 12 cards, infer whether it’s a global 12-col grid or a tile microgrid; justify using measurable thresholds.”  
-4) “This legacy UI has margins that vary by 6–10px across screens—normalize spacing tokens without shifting the hero section.”  
+4) “This legacy UI has margins that vary by 6–10px across screens-normalize spacing tokens without shifting the hero section.”  
 5) “Infer a 12/8/4 responsive mapping from a single desktop screenshot; output low-confidence breakpoint projections and what additional evidence you need.”  
 6) “Extract layout from a PDF where text is not in reading order and kerning jumps across columns; recover reading order and grid separately.”  
-7) “Poster: large full-bleed image, rotated title, tiny footer grid—decide preserve vs redesign and explain failure risks.”  
+7) “Poster: large full-bleed image, rotated title, tiny footer grid-decide preserve vs redesign and explain failure risks.”  
 8) “Slides: infer slide master grid from 8 slides with inconsistent placements; cluster into templates and normalize.”  
 9) “UI screenshot with heavy drop shadows: ensure shadows don’t become containers; reconstruct structure.”  
 10) “Editorial spread with pull quotes spanning columns: preserve baseline and mark pull quote as controlled exception.”  
 11) “PDF with CropBox smaller than MediaBox: infer margins and safe area correctly.”  
 12) “Document with tables that break column rhythm: infer table microgrid without changing global columns.”  
-13) “Mixed artifact: left side is editorial text, right side is dashboard with charts—run mixed-genre inference and output two coordinated grids.”  
+13) “Mixed artifact: left side is editorial text, right side is dashboard with charts-run mixed-genre inference and output two coordinated grids.”  
 14) “Run XY-cut on a Manhattan bank statement and show parameter sensitivity boundaries; then switch to whitespace rectangles and compare.”  
 15) “Screenshot-to-code: detect and report omission/misarrangement failures after reconstruction; output FailureReport.”  
 16) “Infer baseline on a warped scan near a book binding; allow curvature; quantify residual.”  

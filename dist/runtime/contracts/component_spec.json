@@ -1,0 +1,61 @@
+{
+  "task_id": "component_spec",
+  "title": "Component Specification",
+  "required_sections": [
+    {
+      "name": "Purpose and scope",
+      "min_words": 20,
+      "rationale": "Defines when the component exists and where it stops."
+    },
+    {
+      "name": "Anatomy",
+      "min_words": 25,
+      "rationale": "Names the governed parts."
+    },
+    {
+      "name": "State matrix",
+      "min_words": 35,
+      "rationale": "Shows interaction and edge states."
+    },
+    {
+      "name": "Accessibility and implementation notes",
+      "min_words": 35,
+      "rationale": "Prevents front-end drift."
+    }
+  ],
+  "required_evidence_types": [
+    "state rule",
+    "aria or keyboard rule",
+    "implementation boundary"
+  ],
+  "required_decisions": [
+    "component_boundary",
+    "state_coverage",
+    "accessibility_behavior",
+    "implementation_boundary"
+  ],
+  "hard_fail_patterns": [
+    "states TBD",
+    "accessibility later"
+  ],
+  "soft_fail_patterns": [
+    "basic component",
+    "simple usage"
+  ],
+  "required_skills": [
+    "component-systems-expert.md",
+    "front-end-handoff-expert.md"
+  ],
+  "allowed_modes": [
+    "REBUILD",
+    "PEER"
+  ],
+  "allowed_phases": [
+    "specs",
+    "ui"
+  ],
+  "canonical_contract": "src/schemas/task_contracts.json#component_spec",
+  "task_weight_default": "standard",
+  "supports_lightweight_response": true,
+  "trace_visibility_default": "recoverable"
+}

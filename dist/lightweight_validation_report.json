@@ -1,14 +1,24 @@
 {
+  "validator": "validate_lightweight_path",
   "decision": "PASS",
-  "errors": [],
-  "warnings": [],
+  "warn_only": false,
+  "issue_counts": {
+    "BLOCKER": 0,
+    "ERROR": 0,
+    "WARN": 0,
+    "INFO": 0
+  },
+  "issues": [],
   "metrics": {
-    "lite_word_count": 337,
+    "lite_word_count": 376,
     "route_json_count": 18,
     "contract_json_count": 17,
     "route_doc_count": 18,
     "contract_doc_count": 17,
     "starter_doc_count": 11,
-    "lite_index_route_count": 18
-  }
+    "launcher_doc_count": 18,
+    "lite_index_route_count": 18,
+    "launchers_index_count": 18
+  },
+  "metadata": {}
 }

@@ -1,58 +1,105 @@
 {
   "bundle": "DesignPilot_Integrity_Pass",
-  "version": "2.6.1",
-  "generated_at": "2026-04-11",
-  "full_build_manifest": "dist/full_build_manifest.json",
+  "version": "3.0",
+  "generated_at": "2026-04-12",
+  "full_build_manifest": "dist/manifest.json",
   "artifacts": [
     {
+      "path": "dist/runtime/START_HERE.md",
+      "bytes": 1078,
+      "sha256": "ce2a0ec7827c79b1a67ae236297c73105d0b00bba04f66ac0d4acfff58331b3d"
+    },
+    {
+      "path": "dist/runtime/TASK_CHOOSER.md",
+      "bytes": 5336,
+      "sha256": "9095005005ff93dfd0c46e7c1f543421fba6f8f0f26ade3e9626d2281753d472"
+    },
+    {
       "path": "dist/DEPLOY_LITE.md",
-      "bytes": 2427,
-      "sha256": "fddef2fa33ed9bd7fffe9496b72704b63266a7d4df38f8d96c3ecad0c45b4389"
-    },
-    {
-      "path": "docs/operator/LIGHTWEIGHT_QUICKSTART.md",
-      "bytes": 1627,
-      "sha256": "d2bee9570f49d2ce58614329094d8345739523453ba0335a54add62d50a5472a"
-    },
-    {
-      "path": "docs/operator/STARTUP_MODES.md",
-      "bytes": 1285,
-      "sha256": "1c0a7d8ce7eedbd06fe0aaa9f2fb55587ecf14f334044748cb194e2b03c4eaea"
+      "bytes": 2734,
+      "sha256": "6296ca51b6eb4df271e69ca10ab2b65804cd67116d35d96179d0bf3a565544b9"
     },
     {
       "path": "docs/operator/ROUTE_PICKER.md",
-      "bytes": 5612,
-      "sha256": "dfc7a061e49b4d8e615d88af412d108e6a91e182d17deff12feaee73bdf448f3"
+      "bytes": 6265,
+      "sha256": "471a4a95550d831666b6e42ca5aa6d8503812498efb353cdeb8044f2bc740834"
     },
     {
       "path": "dist/lightweight_validation_report.json",
-      "bytes": 284,
-      "sha256": "5fe4330974347d60e358a52aa23cf9e6971226eff389da34e6f5775d0d7e1518"
+      "bytes": 501,
+      "sha256": "12b7da30e5abb9a7408d7f2f68d568661dcbc7482fbea8047c8777ab97937b01"
     },
     {
       "path": "dist/integrity_validation_report.json",
-      "bytes": 308,
-      "sha256": "897c6ca86e28eafa279c2a2200a1c06fbfedcaaa3ee768b1d5f553013600bf20"
+      "bytes": 530,
+      "sha256": "5689f6f503b6d2f3f0e5063e986b673c42e593cc335c9c05032e617b42758613"
+    },
+    {
+      "path": "dist/validation_suite_report.json",
+      "bytes": 671,
+      "sha256": "65115468c2ac023453048875cadd39b81806eadc8e21b823a8a476fb79a4a07e"
     },
     {
       "path": "dist/build_metrics.json",
-      "bytes": 884,
-      "sha256": "7e8ab85be2fa3524f61abc8f25466788408e6259ae56bf0d4d56cb0793c230c1"
+      "bytes": 1614,
+      "sha256": "eed9febed9b3f29b0103d1530891d4599a1201d4c5dea1b144a3e97a3831f2d7"
     },
     {
-      "path": "dist/full_build_manifest.json",
-      "bytes": 110593,
-      "sha256": "86f65c8406a600b2697e802dc46a8bdf3e533b18001699389e116b517ec47cef"
+      "path": "proof/PROOF_STATUS.md",
+      "bytes": 4481,
+      "sha256": "58957cc3cee9e1225944d1eaf60be6612f19877f7cc141aef442450f903f9f01"
     },
     {
-      "path": "dist/release_quality_report_v2.6.1.json",
-      "bytes": 1775,
-      "sha256": "18a6895b4688cd37619c1603b1a314da27b266c9b93cad853855d7f794608bef"
+      "path": "proof/status.json",
+      "bytes": 640,
+      "sha256": "74f92a63233f236863877b64cac3cdb2b65389c015bb0407b46a0f96c09a6162"
     },
     {
-      "path": "proof/artifacts/integrity_pass_report_v2.6.1.md",
-      "bytes": 869,
-      "sha256": "8cd41a2888de0637cbe4cd74c312b39136b7ba173419d9aabc06056fbf2d455c"
+      "path": "proof/benchmarks/README.md",
+      "bytes": 679,
+      "sha256": "a161141db39dc150ad678ac6b2c33919a676a2612f3b0056f671b6dd98098b0d"
+    },
+    {
+      "path": "proof/reviews/README.md",
+      "bytes": 805,
+      "sha256": "c3e31b7f96a308363bb3b6cb16e93a5cd9ed4464693071d34a3184a7d99afdf9"
+    },
+    {
+      "path": "proof/receipts/README.md",
+      "bytes": 656,
+      "sha256": "fcb00d5c171383082845bc5905cdec48d253a665d49f4a04f63d72fe94b57103"
+    },
+    {
+      "path": "proof/artifacts/integrity_pass_report_v3.0.md",
+      "bytes": 1321,
+      "sha256": "d9a879fed7747714d7bf9284f04ca0e98917055f5621d4eae89bdf7d0b882048"
+    },
+    {
+      "path": "dist/release_consistency_report.json",
+      "bytes": 309,
+      "sha256": "3a1ac1092a11efe7b6cd57c3d8a4e868904fbaf4c16addcae8036e2eb147abfe"
+    },
+    {
+      "path": "RELEASE_STATUS.json",
+      "bytes": 158,
+      "sha256": "6326175b094a6aaa0fa5b6c0c55c8477e6249fc0f2e0dd84e3d1fa085859aa51"
+    },
+    {
+      "path": "docs/operator/DEPLOYMENT_GUIDE.md",
+      "bytes": 1676,
+      "sha256": "b20fca1b04e3b240f467fd91c71b580d4512ffc48ae8f8e715de2f9e2cafe113"
+    },
+    {
+      "path": "docs/operator/PROFILE_GUIDE.md",
+      "bytes": 4383,
+      "sha256": "315550d423a3f4b2afd56d37c70333ad54e070c644c30723221cd6cd0fa255c2"
+    },
+    {
+      "path": "dist/manifest.json",
+      "bytes": 17721,
+      "sha256": "7a2b42bd31f9321b4a81687fdea959ff56a716295b0d84a3ac8e8c0b60b01e2a"
     }
-  ]
+  ],
+  "release_line": "v3.0",
+  "release_status_source": "RELEASE_STATUS.json"
 }

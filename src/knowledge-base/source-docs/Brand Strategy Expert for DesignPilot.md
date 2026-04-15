@@ -8,7 +8,7 @@ Several research lineages are especially load‑bearing for a “strict” Brand
 
 - Competitive brand positioning relies on crisp selection of a competitive frame of reference plus “table‑stakes” points of parity and differentiating points of difference. [2]
 - Segmentation and audience fit require actionable segmentation (e.g., measurable, substantial, accessible, differentiable, actionable) and should be audited as a strategic capability rather than treated as a one‑off brainstorm. [3]
-- Trust and credibility are not a vibe; they are built from (i) perceived trustee attributes—ability/competence, benevolence, integrity—and (ii) institution‑based trust/structural assurances (especially online), with strong first‑impression effects tied to visual prominence and design. [4]
+- Trust and credibility are not a vibe; they are built from (i) perceived trustee attributes-ability/competence, benevolence, integrity-and (ii) institution‑based trust/structural assurances (especially online), with strong first‑impression effects tied to visual prominence and design. [4]
 - Usability and conventions are strategic constraints: conventions reduce cognitive load by leveraging existing mental models; “breaking conventions” is a high‑cost move that should be justified with data. [5]
 - Design aesthetics influence perceived usability (aesthetic–usability effect) and can therefore act as a trust amplifier or a deceptive veneer; the agent must treat aesthetics as a signal that can help or harm depending on context and risk. [6]
 - Distinctiveness (easy recognition via distinctive brand assets) can matter as much as or more than “meaningful differentiation” in many categories; distinctive assets should be measured rather than assumed. [7]
@@ -24,7 +24,7 @@ The agent must separate assertions from hypotheses. If evidence is missing, the 
 
 The agent must treat trust as domain- and risk‑sensitive. In high‑risk categories, trust is not optional; it is a prerequisite to consideration, and online trust formation often depends on institution‑based assurances plus salient credibility cues. [34]
 
-The agent must enforce brand‑vs‑interface separation in digital products: expressive brand signals are allowed, but they cannot degrade task success, accessibility, or predictability. Human‑centered design standards emphasize explicit understanding of users, tasks, environments, and iterative evaluation—constraints that apply regardless of brand ambition. [35]
+The agent must enforce brand‑vs‑interface separation in digital products: expressive brand signals are allowed, but they cannot degrade task success, accessibility, or predictability. Human‑centered design standards emphasize explicit understanding of users, tasks, environments, and iterative evaluation-constraints that apply regardless of brand ambition. [35]
 
 Operationally, the pack should run as a pipeline:
 
@@ -53,7 +53,7 @@ Exception rules
 - If the product is truly cross‑category, allow dual framing, but require a decision about which frame governs trust signals and UI conventions (often the higher‑risk frame). [42]
 
 Fallback logic
-If evidence for PoDs is weak: downgrade to (a) a narrower PoD, (b) a “directional hypothesis,” or (c) reframe to a less contested category with clearer PoPs—while explicitly calling out the trade‑off (loss of perceived ambition vs gain in credibility). [43]
+If evidence for PoDs is weak: downgrade to (a) a narrower PoD, (b) a “directional hypothesis,” or (c) reframe to a less contested category with clearer PoPs-while explicitly calling out the trade‑off (loss of perceived ambition vs gain in credibility). [43]
 
 Failure conditions
 - The brand cannot answer “what category am I in?” in one sentence. [44]
@@ -78,7 +78,7 @@ Definition
 Audience fit is the match between (1) the target audience’s needs, constraints, and decision heuristics and (2) the brand’s promise, signals, and experience. It includes demographic, psychographic (values/motivation), behavioral (actual actions and triggers), and contextual variables (environment, risk, urgency, device, role). Human‑centered design standards explicitly require understanding users, tasks, and environments. [50]
 
 Why it matters for a Brand Strategy Expert
-Positioning and tone are interpreted through audience priors. In online contexts and unfamiliar brands, trust formation is sensitive to perceived risk and structural assurances—making “wrong audience assumptions” a direct conversion and credibility hazard. [34]
+Positioning and tone are interpreted through audience priors. In online contexts and unfamiliar brands, trust formation is sensitive to perceived risk and structural assurances-making “wrong audience assumptions” a direct conversion and credibility hazard. [34]
 
 Default rules
 - Enforce segmentation quality criteria: segments must be measurable, substantial, accessible, differentiable, actionable (and internally coherent). [51]
@@ -87,7 +87,7 @@ Default rules
 - When “progress” is the driver, allow Jobs‑to‑Be‑Done framing to define segments by the job and circumstances rather than by user profile labels. [54]
 
 Exception rules
-- If category evidence suggests broad‑reach growth patterns conflict with narrow STP application, permit a broad targeting mode—but still require a clear category frame and strong distinctive assets. [55]
+- If category evidence suggests broad‑reach growth patterns conflict with narrow STP application, permit a broad targeting mode-but still require a clear category frame and strong distinctive assets. [55]
 - If psychographic inference is made from weak signals, the agent must either (a) refuse the inference or (b) label it as hypothesis and propose validation. [56]
 
 Fallback logic
@@ -118,7 +118,7 @@ Test cases
 ### Industry-fit rules and trust signals
 
 Definition
-Industry fit is the alignment between brand expression and (a) industry norms, (b) regulatory constraints, (c) expected trust artifacts, and (d) typical risk tolerance. Trust signals are the cues—structural assurances, proofs, policies, institutional markers, and interaction patterns—that reduce perceived risk and increase willingness to engage or transact. [34]
+Industry fit is the alignment between brand expression and (a) industry norms, (b) regulatory constraints, (c) expected trust artifacts, and (d) typical risk tolerance. Trust signals are the cues-structural assurances, proofs, policies, institutional markers, and interaction patterns-that reduce perceived risk and increase willingness to engage or transact. [34]
 
 Why it matters for a Brand Strategy Expert
 Trust is a gating factor for digital adoption with unfamiliar vendors; institution-based trust mechanisms and credibility cues directly influence intent to transact. In high‑risk domains, “novelty” can be penalized because it raises uncertainty. [66]
@@ -133,7 +133,7 @@ Exception rules
 - If the category is low‑risk, the agent may allow more expressive signals so long as they do not reduce clarity; tone can increase desirability in some contexts but must be tested. [70]
 
 Fallback logic
-If industry is unknown, default to the strictest plausible baseline: privacy transparency, clear contactability, honest scoping, and conservative claims—then require the operator to specify industry before finalizing. [71]
+If industry is unknown, default to the strictest plausible baseline: privacy transparency, clear contactability, honest scoping, and conservative claims-then require the operator to specify industry before finalizing. [71]
 
 Failure conditions
 - Trust claims without artifacts (e.g., “secure” without controls or third‑party evidence). [72]
@@ -162,7 +162,7 @@ Conventions reduce cognitive load by tapping existing mental models; breaking th
 
 Default rules
 - Conform on core interaction patterns, navigation, and critical task flows (especially where mistakes are costly). [79]
-- Differentiate primarily through: naming, narrative framing, proof systems, content strategy, distinctive visual assets, and optional expressive layers—not through surprising interaction mechanics. [80]
+- Differentiate primarily through: naming, narrative framing, proof systems, content strategy, distinctive visual assets, and optional expressive layers-not through surprising interaction mechanics. [80]
 - Evaluate visual differentiation through a “fluency lens”: beauty and preference are often increased by processing fluency; disfluent novelty can reduce trust unless the audience expects it. [81]
 
 Exception rules
@@ -191,7 +191,7 @@ Test cases
 ### Brand architecture and sub-brand logic
 
 Definition
-Brand architecture is the portfolio structure that specifies brand roles and relationships—often described along a spectrum from “branded house” to “house of brands,” including sub-brands and endorsed brands. [91]
+Brand architecture is the portfolio structure that specifies brand roles and relationships-often described along a spectrum from “branded house” to “house of brands,” including sub-brands and endorsed brands. [91]
 
 Why it matters for a Brand Strategy Expert
 Architecture governs how trust and equity transfer across products, how risk is contained, and how customers mentally organize offerings. Aaker and Joachimsthaler’s spectrum is explicitly intended to help strategists use subbrands and endorsements with “insight and subtlety,” implying that architecture is a decision system, not a naming exercise. [92]
@@ -229,7 +229,7 @@ Definition
 Voice is the enduring personality of communication; tone is situational variation based on context, user state, and topic sensitivity. A credibility system is the structured set of language, evidence, disclosures, and proofs that consistently signal competence and integrity. [101]
 
 Why it matters for a Brand Strategy Expert
-Tone measurably influences perceptions such as trustworthiness and desirability, and interaction decisions also shape brand perception—so brand strategy cannot treat UI copy and UX as separate from branding. [102]
+Tone measurably influences perceptions such as trustworthiness and desirability, and interaction decisions also shape brand perception-so brand strategy cannot treat UI copy and UX as separate from branding. [102]
 
 Default rules
 - Define voice with a small, testable set of attributes (e.g., “direct,” “calm,” “precise”), then map tone ranges for contexts (onboarding, errors, compliance, support). [103]
@@ -237,7 +237,7 @@ Default rules
 - Treat credibility as a system: claims → scope → proof → disclosure → contactability → governance. Stanford’s credibility guidance highlights practical cues such as making it easy to contact you and showing there are real people/organizations behind the site. [105]
 
 Exception rules
-- If the audience is consumer, low‑risk, and relational, a more casual tone can increase positive perception—but must still preserve comprehension and accessibility. [106]
+- If the audience is consumer, low‑risk, and relational, a more casual tone can increase positive perception-but must still preserve comprehension and accessibility. [106]
 - If required by industry rules (e.g., finance communications standards), tone must be “fair and balanced” and cannot omit material qualifications even if the brand wants punchy claims. [74]
 
 Fallback logic
@@ -268,7 +268,7 @@ Why it matters for a Brand Strategy Expert
 Interaction design decisions shape brand perception, but usability failures also damage trust and can negate brand intent. Therefore, expressive brand behavior must be constrained by usability heuristics and human‑centered design practice. [114]
 
 Default rules
-- Keep interface behaviors consistent with established standards; use brand expression through tokens (type, color system, spacing), copy voice, and controlled motion—not through nonstandard control behaviors. [115]
+- Keep interface behaviors consistent with established standards; use brand expression through tokens (type, color system, spacing), copy voice, and controlled motion-not through nonstandard control behaviors. [115]
 - Enforce accessibility as a non‑negotiable trust baseline in most digital contexts (e.g., WCAG conformance levels, testable success criteria). [116]
 - Use the aesthetic–usability effect carefully: aesthetics can raise perceived usability, but do not allow “beautiful” to mask friction; test the actual tasks. [6]
 
@@ -305,7 +305,7 @@ Definition
 Validation is the process of classifying claims by evidentiary burden, auditing what is supported, and specifying what research is required before a claim can be used as a brand promise. Research gaps are explicitly documented uncertainties that must be tested rather than asserted. [124]
 
 Why it matters for a Brand Strategy Expert
-Advertising and credibility failures are often “claim failures”: the brand signals a capability (security, compliance, performance, superiority) that it cannot prove, which is treated by regulators as deceptive if lacking a reasonable basis. Ethical research codes emphasize public confidence, duty of care, privacy protection, and responsible use—norms that map directly onto how a strategy agent should treat evidence. [125]
+Advertising and credibility failures are often “claim failures”: the brand signals a capability (security, compliance, performance, superiority) that it cannot prove, which is treated by regulators as deceptive if lacking a reasonable basis. Ethical research codes emphasize public confidence, duty of care, privacy protection, and responsible use-norms that map directly onto how a strategy agent should treat evidence. [125]
 
 Default rules
 - Maintain an Assumption Registry with: claim, claim type, audience inference, evidence, confidence, risk if wrong, validation plan. [56]
@@ -316,7 +316,7 @@ Default rules
 - Enforce “no invention”: if proof is unknown, the agent should output, “the audience assumption is weak and needs validation.” [128]
 
 Exception rules
-- If a claim is clearly subjective taste (“beautiful,” “delightful”), it can be used—but must not imply objective performance (“more accurate,” “more secure”) without evidence. [129]
+- If a claim is clearly subjective taste (“beautiful,” “delightful”), it can be used-but must not imply objective performance (“more accurate,” “more secure”) without evidence. [129]
 - If category convention uses puffery, still treat AI‑related performance claims as high‑risk because regulators have explicitly emphasized “work as advertised.” [130]
 
 Fallback logic
@@ -350,7 +350,7 @@ Definition
 Failure modes are predictable ways brand strategy becomes brittle: misframed category membership, unsupported differentiation, unvalidated audience assumptions, misapplied trust signals, and UI novelty that increases cognitive load or compliance risk. [136]
 
 Why it matters for a Brand Strategy Expert
-These failures often look “creative” or “confident” until they hit real customers. Research on online trust and usability shows that first impressions, prominent cues, and convention alignment shape whether people proceed—meaning a strategy failure can appear as a conversion failure and a credibility failure simultaneously. [137]
+These failures often look “creative” or “confident” until they hit real customers. Research on online trust and usability shows that first impressions, prominent cues, and convention alignment shape whether people proceed-meaning a strategy failure can appear as a conversion failure and a credibility failure simultaneously. [137]
 
 Default rules
 - Always run a Frame/PoP/PoD audit before endorsing differentiation claims. [2]
@@ -381,7 +381,7 @@ Test cases
 ### Output structures for strategic recommendations
 
 Definition
-Output structures are standardized formats that ensure brand recommendations are complete, comparable, and testable—reducing ambiguity and preventing the agent from outputting “brand wisdom” without decisions. [50]
+Output structures are standardized formats that ensure brand recommendations are complete, comparable, and testable-reducing ambiguity and preventing the agent from outputting “brand wisdom” without decisions. [50]
 
 Why it matters for a Brand Strategy Expert
 A strategy agent is only useful if it produces operator-ready decisions: “do this,” “don’t do this,” “here’s why,” “here’s the risk,” “here’s how to validate.” This mirrors human‑centered design’s emphasis on explicit understanding and iterative evaluation rather than one‑shot declarations. [63]
@@ -803,7 +803,7 @@ E. Stress-test prompts
 21) “The product wants to signal ‘government-grade.’ Decide what artifacts and UI constraints that implies.” [173]
 22) “A brand wants an endorsement quote from an ‘expert’ without disclosure of paid relationship. Produce the corrected policy.” [174]
 23) “A high-end visual identity reduces readability. Decide whether aesthetics can override accessibility.” [175]
-24) “A competitor uses aggressive ‘AI magic’ language and is winning. Decide whether to match, counter-position, or refuse—and why.” [40]
+24) “A competitor uses aggressive ‘AI magic’ language and is winning. Decide whether to match, counter-position, or refuse-and why.” [40]
 
 [1] [22] [43] [125] [144] FTC Policy Statement Regarding Advertising Substantiation
 

@@ -1,0 +1,12 @@
+{
+  "run_id": "proxy-run-2026-04-13",
+  "run_date": "2026-04-13",
+  "pack_version": "3.0",
+  "evidence_mode": "proxy",
+  "evaluator": "static_runtime_validator",
+  "note": "Proxy run: the static validator scored the pack's own golden example outputs. This demonstrates validator coverage and output structure but does not constitute live model evaluation. Run scripts/run_live_regression.py with ANTHROPIC_API_KEY to generate live evidence.",
+  "total_tasks": 13,
+  "pass_count": 13,
+  "pass_rate": 1.0,
+  "mean_score": 100.0
+}

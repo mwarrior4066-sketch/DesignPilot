@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>DesignPilot Batch Report — batch-20260414-0253</title>
+<style>
+  :root {
+    --great:    #d4f4e2; --great-fg:   #0a5c2e;
+    --good:     #e6f4ea; --good-fg:    #1a7a3a;
+    --marginal: #fef9e7; --marginal-fg:#7d6008;
+    --weak:     #fdebd0; --weak-fg:    #935116;
+    --fail:     #fdf0f0; --fail-fg:    #b33333;
+    --err:      #fffbe6; --err-fg:     #856404;
+    --border:   #e0e0e0;
+  }
+  * { box-sizing: border-box; }
+  body { font-family: system-ui, -apple-system, sans-serif; margin: 2rem auto;
+         max-width: 1200px; color: #1a1a1a; font-size: 13px; line-height: 1.4; }
+  h1 { font-size: 1.35rem; margin: 0 0 0.2rem; }
+  h2 { font-size: 1rem; margin: 2rem 0 0.6rem; border-bottom: 1px solid var(--border);
+        padding-bottom: 0.3rem; text-transform: uppercase; letter-spacing: 0.04em; color: #444; }
+  .meta { color: #777; font-size: 0.82rem; margin-bottom: 1.5rem; }
+  table { border-collapse: collapse; width: 100%; margin-bottom: 1.5rem; }
+  th, td { padding: 0.4rem 0.55rem; border: 1px solid var(--border); text-align: center; vertical-align: top; }
+  th { background: #f8f8f8; font-weight: 600; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.03em; }
+  td.task { text-align: left; min-width: 130px; font-size: 0.82rem; }
+  td.task small { color: #888; display: block; }
+  /* Composite score gradient cells */
+  td.c-great   { background: var(--great);    color: var(--great-fg); }
+  td.c-good    { background: var(--good);     color: var(--good-fg); }
+  td.c-marginal{ background: var(--marginal); color: var(--marginal-fg); }
+  td.c-weak    { background: var(--weak);     color: var(--weak-fg); }
+  td.c-fail    { background: var(--fail);     color: var(--fail-fg); }
+  td.c-err     { background: var(--err);      color: var(--err-fg); }
+  td.c-unknown { background: #f5f5f5; color: #999; }
+  .comp-score { font-size: 1.1rem; font-weight: 700; display: block; line-height: 1.2; }
+  .sub-scores { font-size: 0.7rem; opacity: 0.75; display: block; margin-top: 1px; }
+  .rub-badge {
+    display: inline-block; font-size: 0.6rem; font-family: monospace;
+    font-weight: 700; letter-spacing: 0.06em; color: #555;
+    background: rgba(0,0,0,0.08); border-radius: 3px;
+    padding: 0 3px; margin-left: 3px; vertical-align: middle;
+  }
+  /* Consistency column */
+  td.con { font-weight: 700; }
+  td.con-all  { color: var(--great-fg); }
+  td.con-none { color: var(--fail-fg); }
+  td.con-split{ color: #777; }
+  /* Ranking table */
+  td.comp-col { font-weight: 700; font-size: 1rem; }
+  td.gate-pass { color: var(--great-fg); font-weight: 700; }
+  td.gate-fail { color: var(--fail-fg); font-weight: 700; }
+  /* Legend */
+  .legend { display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 0.75rem; font-size: 0.8rem; }
+  .legend-item { display: flex; align-items: center; gap: 0.3rem; }
+  .legend-swatch { width: 14px; height: 14px; border-radius: 3px; border: 1px solid rgba(0,0,0,0.1); }
+  .note { font-size: 0.78rem; color: #888; margin-bottom: 0.5rem; }
+  .gap-table td { text-align: left; }
+  .summary-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.75rem; margin-bottom: 1.5rem; }
+  .stat-card { border: 1px solid var(--border); border-radius: 6px; padding: 0.75rem 1rem; }
+  .stat-card .number { font-size: 1.8rem; font-weight: 700; line-height: 1; }
+  .stat-card .label { color: #777; font-size: 0.78rem; margin-top: 0.2rem; }
+</style>
+</head>
+<body>
+<h1>DesignPilot Cross-Model Batch Report</h1>
+<div class="meta">
+  Run: <strong>batch-20260414-0253</strong> &nbsp;|&nbsp;
+  2026-04-14 10:23:00 UTC &nbsp;|&nbsp;
+  Mode: pack &nbsp;|&nbsp;
+  Gate: 70%
+</div>
+
+<div class="summary-grid">
+  <div class="stat-card">
+    <div class="number">0/19</div>
+    <div class="label">Tests all providers passed</div>
+  </div>
+  <div class="stat-card">
+    <div class="number">19/19</div>
+    <div class="label">Tests with split results</div>
+  </div>
+  <div class="stat-card">
+    <div class="number">1</div>
+    <div class="label">Alias gaps (2+ providers)</div>
+  </div>
+</div>
+
+<h2>Provider Ranking</h2>
+<table>
+  <tr><th>#</th><th>Provider</th><th>Model</th><th>Composite avg</th><th>Pass rate</th><th>RUB-decisive</th><th>Gate</th></tr>
+  <tr><td>1</td><td><strong>claude</strong></td><td>claude-sonnet-4-6</td><td class="comp-col">90</td><td>100% (19/19)</td><td>3</td><td class="gate-pass">PASS</td></tr>
+<tr><td>2</td><td><strong>xai</strong></td><td>grok-3-fast</td><td class="comp-col">87</td><td>95% (18/19)</td><td>6</td><td class="gate-pass">PASS</td></tr>
+<tr><td>3</td><td><strong>deepseek</strong></td><td>deepseek-chat</td><td class="comp-col">87</td><td>95% (18/19)</td><td>7</td><td class="gate-pass">PASS</td></tr>
+<tr><td>4</td><td><strong>openai</strong></td><td>gpt-4.1</td><td class="comp-col">85</td><td>84% (16/19)</td><td>3</td><td class="gate-pass">PASS</td></tr>
+<tr><td>5</td><td><strong>gemini</strong></td><td>gemini-2.5-flash</td><td class="comp-col">47</td><td>32% (6/19)</td><td>2</td><td class="gate-fail">FAIL</td></tr>
+<tr><td>6</td><td><strong>mistral</strong></td><td>mistral-large-latest</td><td class="comp-col">—</td><td>0% (0/0)</td><td>0</td><td class="gate-fail">FAIL</td></tr>
+
+</table>
+
+<h2>Per-Test Results</h2>
+<div class="legend">
+  <div class="legend-item"><div class="legend-swatch" style="background:var(--great)"></div> 90–100 strong pass</div>
+  <div class="legend-item"><div class="legend-swatch" style="background:var(--good)"></div> 75–89 pass</div>
+  <div class="legend-item"><div class="legend-swatch" style="background:var(--marginal)"></div> 70–74 marginal pass</div>
+  <div class="legend-item"><div class="legend-swatch" style="background:var(--weak)"></div> 55–69 weak fail</div>
+  <div class="legend-item"><div class="legend-swatch" style="background:var(--fail)"></div> 0–54 fail</div>
+</div>
+<p class="note">Score = composite (60% validator + 40% rubric). Sub-line: v=validator score, r=rubric mean. <strong>RUB</strong> badge = rubric was the decisive factor. † = rubric unavailable, validator score used alone.</p>
+<table>
+  <tr><th>Test</th><th>claude</th><th>deepseek</th><th>gemini</th><th>mistral</th><th>openai</th><th>xai</th><th>All</th></tr>
+  <tr><td class="task">pass-01<br><small>ui_structure_critique</small></td><td class="c-good"><span class="comp-score">90</span><br><span class="sub-scores">v88 · r4.6</span></td><td class="c-great"><span class="comp-score">97</span><br><span class="sub-scores">v100 · r4.6</span></td><td class="c-fail"><span class="comp-score">11</span><br><span class="sub-scores">v0 · r1.4</span></td><td class="c-err">ERR</td><td class="c-great"><span class="comp-score">98</span><br><span class="sub-scores">v100 · r4.8</span></td><td class="c-great"><span class="comp-score">97</span><br><span class="sub-scores">v100 · r4.6</span></td><td class="con con-split">~</td></tr>
+<tr><td class="task">pass-02<br><small>component_spec</small></td><td class="c-great"><span class="comp-score">96</span><br><span class="sub-scores">v96 · r4.8</span></td><td class="c-great"><span class="comp-score">98</span><br><span class="sub-scores">v100 · r4.8</span></td><td class="c-weak"><span class="comp-score">61</span><br><span class="sub-scores">v62 · r3.0</span></td><td class="c-err">ERR</td><td class="c-great"><span class="comp-score">95</span><br><span class="sub-scores">v94 · r4.8</span></td><td class="c-good"><span class="comp-score">86</span><span class="rub-badge">RUB</span><br><span class="sub-scores">v88 · r4.2</span></td><td class="con con-split">~</td></tr>
+<tr><td class="task">pass-03<br><small>dashboard_audit</small></td><td class="c-great"><span class="comp-score">94</span><br><span class="sub-scores">v90 · r5.0</span></td><td class="c-great"><span class="comp-score">94</span><br><span class="sub-scores">v96 · r4.6</span></td><td class="c-good"><span class="comp-score">88</span><br><span class="sub-scores">v96 · r3.8</span></td><td class="c-err">ERR</td><td class="c-good"><span class="comp-score">84</span><br><span class="sub-scores">v81 · r4.4</span></td><td class="c-great"><span class="comp-score">90</span><span class="rub-badge">RUB</span><br><span class="sub-scores">v86 · r4.8</span></td><td class="con con-split">~</td></tr>
+<tr><td class="task">pass-04<br><small>backend_feasibility_review</small></td><td class="c-good"><span class="comp-score">87</span><br><span class="sub-scores">v81 · r4.8</span></td><td class="c-great"><span class="comp-score">94</span><br><span class="sub-scores">v96 · r4.6</span></td><td class="c-fail"><span class="comp-score">0</span><br><span class="sub-scores">v0 · r— †</span></td><td class="c-err">ERR</td><td class="c-good"><span class="comp-score">76</span><span class="rub-badge">RUB</span><br><span class="sub-scores">v65 · r4.6</span></td><td class="c-good"><span class="comp-score">82</span><span class="rub-badge">RUB</span><br><span class="sub-scores">v76 · r4.6</span></td><td class="con con-split">~</td></tr>
+<tr><td class="task">pass-05<br><small>pdf_remediation_plan</small></td><td class="c-good"><span class="comp-score">90</span><br><span class="sub-scores">v88 · r4.6</span></td><td class="c-good"><span class="comp-score">77</span><span class="rub-badge">RUB</span><br><span class="sub-scores">v80 · r3.6</span></td><td class="c-fail"><span class="comp-score">41</span><br><span class="sub-scores">v50 · r1.4</span></td><td class="c-err">ERR</td><td class="c-great"><span class="comp-score">95</span><br><span class="sub-scores">v100 · r4.4</span></td><td class="c-good"><span class="comp-score">84</span><span class="rub-badge">RUB</span><br><span class="sub-scores">v92 · r3.6</span></td><td class="con con-split">~</td></tr>
+<tr><td class="task">pass-06<br><small>brand_positioning_pass</small></td><td class="c-good"><span class="comp-score">89</span><br><span class="sub-scores">v90 · r4.4</span></td><td class="c-marginal"><span class="comp-score">74</span><span class="rub-badge">RUB</span><br><span class="sub-scores">v76 · r3.6</span></td><td class="c-fail"><span class="comp-score">34</span><br><span class="sub-scores">v40 · r1.2</span></td><td class="c-err">ERR</td><td class="c-good"><span class="comp-score">83</span><span class="rub-badge">RUB</span><br><span class="sub-scores">v82 · r4.2</span></td><td class="c-weak"><span class="comp-score">63</span><br><span class="sub-scores">v62 · r3.2</span></td><td class="con con-split">~</td></tr>
+<tr><td class="task">pass-07<br><small>case_study_rewrite</small></td><td class="c-great"><span class="comp-score">92</span><span class="rub-badge">RUB</span><br><span class="sub-scores">v90 · r4.8</span></td><td class="c-great"><span class="comp-score">94</span><span class="rub-badge">RUB</span><br><span class="sub-scores">v92 · r4.8</span></td><td class="c-fail"><span class="comp-score">11</span><br><span class="sub-scores">v2 · r1.2</span></td><td class="c-err">ERR</td><td class="c-fail"><span class="comp-score">41</span><br><span class="sub-scores">v20 · r3.6</span></td><td class="c-great"><span class="comp-score">92</span><span class="rub-badge">RUB</span><br><span class="sub-scores">v90 · r4.8</span></td><td class="con con-split">~</td></tr>
+<tr><td class="task">pass-08<br><small>accessibility_feedback_audit</small></td><td class="c-great"><span class="comp-score">100</span><br><span class="sub-scores">v100 · r5.0</span></td><td class="c-great"><span class="comp-score">91</span><span class="rub-badge">RUB</span><br><span class="sub-scores">v90 · r4.6</span></td><td class="c-fail"><span class="comp-score">22</span><br><span class="sub-scores">v22 · r— †</span></td><td class="c-err">ERR</td><td class="c-great"><span class="comp-score">98</span><br><span class="sub-scores">v100 · r4.8</span></td><td class="c-great"><span class="comp-score">97</span><br><span class="sub-scores">v100 · r4.6</span></td><td class="con con-split">~</td></tr>
+<tr><td class="task">pass-09<br><small>color_system_spec</small></td><td class="c-good"><span class="comp-score">78</span><span class="rub-badge">RUB</span><br><span class="sub-scores">v68 · r4.6</span></td><td class="c-great"><span class="comp-score">96</span><br><span class="sub-scores">v96 · r4.8</span></td><td class="c-good"><span class="comp-score">76</span><span class="rub-badge">RUB</span><br><span class="sub-scores">v84 · r3.2</span></td><td class="c-err">ERR</td><td class="c-great"><span class="comp-score">95</span><br><span class="sub-scores">v94 · r4.8</span></td><td class="c-good"><span class="comp-score">86</span><br><span class="sub-scores">v96 · r3.6</span></td><td class="con con-split">~</td></tr>
+<tr><td class="task">pass-10<br><small>graphic_critique</small></td><td class="c-great"><span class="comp-score">91</span><br><span class="sub-scores">v90 · r4.6</span></td><td class="c-good"><span class="comp-score">90</span><br><span class="sub-scores">v88 · r4.6</span></td><td class="c-good"><span class="comp-score">86</span><br><span class="sub-scores">v90 · r4.0</span></td><td class="c-err">ERR</td><td class="c-great"><span class="comp-score">95</span><br><span class="sub-scores">v100 · r4.4</span></td><td class="c-great"><span class="comp-score">94</span><br><span class="sub-scores">v96 · r4.6</span></td><td class="con con-split">~</td></tr>
+<tr><td class="task">pass-11<br><small>layout_reconstruction_plan</small></td><td class="c-good"><span class="comp-score">88</span><br><span class="sub-scores">v82 · r4.8</span></td><td class="c-weak"><span class="comp-score">67</span><br><span class="sub-scores">v64 · r3.6</span></td><td class="c-fail"><span class="comp-score">15</span><br><span class="sub-scores">v6 · r1.4</span></td><td class="c-err">ERR</td><td class="c-good"><span class="comp-score">78</span><br><span class="sub-scores">v84 · r3.4</span></td><td class="c-good"><span class="comp-score">78</span><br><span class="sub-scores">v96 · r2.6</span></td><td class="con con-split">~</td></tr>
+<tr><td class="task">pass-12<br><small>type_system_recommendation</small></td><td class="c-great"><span class="comp-score">96</span><br><span class="sub-scores">v94 · r5.0</span></td><td class="c-great"><span class="comp-score">92</span><span class="rub-badge">RUB</span><br><span class="sub-scores">v90 · r4.8</span></td><td class="c-weak"><span class="comp-score">60</span><br><span class="sub-scores">v58 · r3.2</span></td><td class="c-err">ERR</td><td class="c-great"><span class="comp-score">90</span><span class="rub-badge">RUB</span><br><span class="sub-scores">v86 · r4.8</span></td><td class="c-great"><span class="comp-score">98</span><br><span class="sub-scores">v100 · r4.8</span></td><td class="con con-split">~</td></tr>
+<tr><td class="task">pass-13<br><small>ux_research_gap_map</small></td><td class="c-great"><span class="comp-score">93</span><br><span class="sub-scores">v88 · r5.0</span></td><td class="c-great"><span class="comp-score">98</span><br><span class="sub-scores">v100 · r4.8</span></td><td class="c-fail"><span class="comp-score">11</span><br><span class="sub-scores">v0 · r1.4</span></td><td class="c-err">ERR</td><td class="c-great"><span class="comp-score">97</span><br><span class="sub-scores">v100 · r4.6</span></td><td class="c-good"><span class="comp-score">87</span><span class="rub-badge">RUB</span><br><span class="sub-scores">v86 · r4.4</span></td><td class="con con-split">~</td></tr>
+<tr><td class="task">pass-14<br><small>frontend_implementation_review</small></td><td class="c-good"><span class="comp-score">90</span><br><span class="sub-scores">v88 · r4.6</span></td><td class="c-good"><span class="comp-score">82</span><br><span class="sub-scores">v78 · r4.4</span></td><td class="c-good"><span class="comp-score">80</span><br><span class="sub-scores">v90 · r3.2</span></td><td class="c-err">ERR</td><td class="c-good"><span class="comp-score">83</span><br><span class="sub-scores">v96 · r3.2</span></td><td class="c-good"><span class="comp-score">86</span><br><span class="sub-scores">v100 · r3.2</span></td><td class="con con-split">~</td></tr>
+<tr><td class="task">pass-15<br><small>backend_architecture_spec</small></td><td class="c-good"><span class="comp-score">88</span><br><span class="sub-scores">v88 · r4.4</span></td><td class="c-good"><span class="comp-score">84</span><br><span class="sub-scores">v78 · r4.6</span></td><td class="c-fail"><span class="comp-score">8</span><br><span class="sub-scores">v0 · r1.0</span></td><td class="c-err">ERR</td><td class="c-good"><span class="comp-score">81</span><br><span class="sub-scores">v93 · r3.2</span></td><td class="c-good"><span class="comp-score">83</span><br><span class="sub-scores">v96 · r3.2</span></td><td class="con con-split">~</td></tr>
+<tr><td class="task">pass-16<br><small>api_reliability_security_review</small></td><td class="c-great"><span class="comp-score">93</span><br><span class="sub-scores">v91 · r4.8</span></td><td class="c-good"><span class="comp-score">82</span><br><span class="sub-scores">v76 · r4.6</span></td><td class="c-weak"><span class="comp-score">58</span><br><span class="sub-scores">v56 · r3.0</span></td><td class="c-err">ERR</td><td class="c-great"><span class="comp-score">94</span><br><span class="sub-scores">v96 · r4.6</span></td><td class="c-great"><span class="comp-score">94</span><br><span class="sub-scores">v96 · r4.6</span></td><td class="con con-split">~</td></tr>
+<tr><td class="task">pass-17<br><small>frontend_implementation_review</small></td><td class="c-good"><span class="comp-score">84</span><br><span class="sub-scores">v79 · r4.6</span></td><td class="c-marginal"><span class="comp-score">70</span><span class="rub-badge">RUB</span><br><span class="sub-scores">v53 · r4.8</span></td><td class="c-fail"><span class="comp-score">51</span><br><span class="sub-scores">v63 · r1.6</span></td><td class="c-err">ERR</td><td class="c-weak"><span class="comp-score">67</span><br><span class="sub-scores">v53 · r4.4</span></td><td class="c-good"><span class="comp-score">81</span><br><span class="sub-scores">v92 · r3.2</span></td><td class="con con-split">~</td></tr>
+<tr><td class="task">pass-18<br><small>api_reliability_security_review</small></td><td class="c-good"><span class="comp-score">81</span><span class="rub-badge">RUB</span><br><span class="sub-scores">v68 · r5.0</span></td><td class="c-good"><span class="comp-score">86</span><br><span class="sub-scores">v84 · r4.4</span></td><td class="c-good"><span class="comp-score">88</span><span class="rub-badge">RUB</span><br><span class="sub-scores">v88 · r4.4</span></td><td class="c-err">ERR</td><td class="c-weak"><span class="comp-score">62</span><br><span class="sub-scores">v44 · r4.4</span></td><td class="c-good"><span class="comp-score">86</span><br><span class="sub-scores">v100 · r3.2</span></td><td class="con con-split">~</td></tr>
+<tr><td class="task">pass-19<br><small>text_humanization_revision</small></td><td class="c-great"><span class="comp-score">95</span><br><span class="sub-scores">v94 · r4.8</span></td><td class="c-good"><span class="comp-score">85</span><span class="rub-badge">RUB</span><br><span class="sub-scores">v78 · r4.8</span></td><td class="c-great"><span class="comp-score">95</span><br><span class="sub-scores">v94 · r4.8</span></td><td class="c-err">ERR</td><td class="c-great"><span class="comp-score">95</span><br><span class="sub-scores">v94 · r4.8</span></td><td class="c-great"><span class="comp-score">95</span><br><span class="sub-scores">v94 · r4.8</span></td><td class="con con-split">~</td></tr>
+
+</table>
+
+<h2>Persistent Alias Gaps</h2>
+<p class="note">Sections that hard-failed on 2+ providers — candidates for section_aliases.json update.</p>
+<table class="gap-table">
+  <tr><th>Section name</th><th>Failed providers</th><th>Count</th></tr>
+  <tr><td><code>Boundary and state model</code></td><td>deepseek, gemini, openai</td><td>3</td></tr>
+
+</table>
+
+<h2>Raw data</h2>
+<p class="note">Full structured data in <code>comparative_report.json</code> alongside this file.</p>
+</body>
+</html>

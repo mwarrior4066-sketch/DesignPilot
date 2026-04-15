@@ -10,8 +10,8 @@ Productize the lightweight startup path so it becomes a first-class operator mod
 - Added prebuilt starter packs in `dist/lite_starters/`
 - Added `dist/lite_index.json`
 - Added operator docs:
-  - `docs/operator/STARTUP_MODES.md`
-  - `docs/operator/LIGHTWEIGHT_QUICKSTART.md`
+  - `docs/operator/DEPLOYMENT_GUIDE.md`
+  - `docs/operator/DEPLOYMENT_GUIDE.md`
   - `docs/operator/ROUTE_PICKER.md`
   - updated `docs/operator/OPERATOR_QUICKSTART.md`
   - updated `docs/operator/PROFILE_GUIDE.md`

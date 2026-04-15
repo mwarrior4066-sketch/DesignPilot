@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "pack_version": "2.6.1",
+  "pack_version": "3.0",
   "documents": [
     {
       "file_name": "AI Design Operator Pack Improvement Brief.md",
@@ -1701,26 +1701,38 @@
         },
         {
           "heading": "Purpose",
-          "short_description": "This source document supports the operator pack’s formal stress-test suite and runtime validation layer.",
+          "short_description": "This source document supports the operator pack’s formal stress-test suite and runtime validation layer. It should be loaded when the pack itself is being hardened, audited, revise",
           "linked_summary": [
             "implementation-and-failover-summary.md",
             "validation-and-stress-testing-summary.md"
           ],
           "linked_routes": [],
           "linked_skills": [],
-          "estimated_token_count": 39,
+          "estimated_token_count": 43,
           "section_type": "principle"
         },
         {
-          "heading": "Architectural foundation",
-          "short_description": "Modular operator packs fail less often when they are treated as systems with explicit control layers, specialist boundaries, and deterministic validation gates.",
+          "heading": "Why validation needs its own domain",
+          "short_description": "Large operator packs fail less often when they are treated as systems with explicit control layers, specialist boundaries, and deterministic validation gates. A pack cannot rely on",
           "linked_summary": [
             "implementation-and-failover-summary.md",
             "validation-and-stress-testing-summary.md"
           ],
           "linked_routes": [],
           "linked_skills": [],
-          "estimated_token_count": 104,
+          "estimated_token_count": 103,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Core objective",
+          "short_description": "Validation should distinguish between:",
+          "linked_summary": [
+            "implementation-and-failover-summary.md",
+            "validation-and-stress-testing-summary.md"
+          ],
+          "linked_routes": [],
+          "linked_skills": [],
+          "estimated_token_count": 40,
           "section_type": "principle"
         },
         {
@@ -1732,7 +1744,7 @@
           ],
           "linked_routes": [],
           "linked_skills": [],
-          "estimated_token_count": 107,
+          "estimated_token_count": 133,
           "section_type": "anti-pattern"
         },
         {
@@ -1797,7 +1809,7 @@
         },
         {
           "heading": "Tier 5 — regression tests",
-          "short_description": "Maintain a golden set of stable prompts with known expected behavior.",
+          "short_description": "Maintain a golden set of stable prompts with known expected behavior. Compare score and failure safety over time.",
           "linked_summary": [
             "implementation-and-failover-summary.md",
             "validation-and-stress-testing-summary.md"
@@ -1816,7 +1828,7 @@
           ],
           "linked_routes": [],
           "linked_skills": [],
-          "estimated_token_count": 57,
+          "estimated_token_count": 53,
           "section_type": "principle"
         },
         {
@@ -1828,7 +1840,7 @@
           ],
           "linked_routes": [],
           "linked_skills": [],
-          "estimated_token_count": 68,
+          "estimated_token_count": 77,
           "section_type": "principle"
         },
         {
@@ -1840,12 +1852,12 @@
           ],
           "linked_routes": [],
           "linked_skills": [],
-          "estimated_token_count": 36,
+          "estimated_token_count": 49,
           "section_type": "principle"
         },
         {
           "heading": "Rubric logic",
-          "short_description": "Use weighted rubrics only after hard gates pass.",
+          "short_description": "Use weighted rubrics only after hard gates pass. A good general scoring model checks:",
           "linked_summary": [
             "implementation-and-failover-summary.md",
             "validation-and-stress-testing-summary.md"
@@ -1857,7 +1869,7 @@
         },
         {
           "heading": "Domain-specific validation",
-          "short_description": "Each specialist domain should own its deep rules, but the validation layer should know what to check at a high level.",
+          "short_description": "Each specialist domain should own deep rules, but the central validation layer should know what to check at a high level.",
           "linked_summary": [
             "implementation-and-failover-summary.md",
             "validation-and-stress-testing-summary.md"
@@ -1865,6 +1877,18 @@
           "linked_routes": [],
           "linked_skills": [],
           "estimated_token_count": 133,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Contradiction handling",
+          "short_description": "A strong pack does not merge impossible asks into one smooth answer. It should:",
+          "linked_summary": [
+            "implementation-and-failover-summary.md",
+            "validation-and-stress-testing-summary.md"
+          ],
+          "linked_routes": [],
+          "linked_skills": [],
+          "estimated_token_count": 47,
           "section_type": "principle"
         },
         {
@@ -1876,31 +1900,67 @@
           ],
           "linked_routes": [],
           "linked_skills": [],
-          "estimated_token_count": 88,
+          "estimated_token_count": 87,
           "section_type": "implementation"
         },
         {
           "heading": "Golden-set and release discipline",
-          "short_description": "A version should not ship because it “feels better.”",
+          "short_description": "A version should not ship because it “feels better.” It should ship only if:",
           "linked_summary": [
             "implementation-and-failover-summary.md",
             "validation-and-stress-testing-summary.md"
           ],
           "linked_routes": [],
           "linked_skills": [],
-          "estimated_token_count": 46,
+          "estimated_token_count": 53,
           "section_type": "principle"
         },
         {
-          "heading": "Why this matters",
-          "short_description": "Without a formal validation layer and stress suite, a design operator pack can sound expert while still failing silently.",
+          "heading": "Validation blind spots to watch",
+          "short_description": "files exist but semantically disagree",
           "linked_summary": [
             "implementation-and-failover-summary.md",
             "validation-and-stress-testing-summary.md"
           ],
           "linked_routes": [],
           "linked_skills": [],
-          "estimated_token_count": 55,
+          "estimated_token_count": 44,
+          "section_type": "principle"
+        },
+        {
+          "heading": "DesignPilot stance",
+          "short_description": "Validation is not a final cosmetic check. It is the discipline that keeps a large operator pack from becoming elaborate but unreliable.",
+          "linked_summary": [
+            "implementation-and-failover-summary.md",
+            "validation-and-stress-testing-summary.md"
+          ],
+          "linked_routes": [],
+          "linked_skills": [],
+          "estimated_token_count": 29,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Review checklist for DesignPilot",
+          "short_description": "This knowledge base should be used to ask:",
+          "linked_summary": [
+            "implementation-and-failover-summary.md",
+            "validation-and-stress-testing-summary.md"
+          ],
+          "linked_routes": [],
+          "linked_skills": [],
+          "estimated_token_count": 75,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Success conditions",
+          "short_description": "A strong validation discipline makes the package harder to fool with smooth but invalid output. It should improve both safety and maintainability by exposing failure modes before t",
+          "linked_summary": [
+            "implementation-and-failover-summary.md",
+            "validation-and-stress-testing-summary.md"
+          ],
+          "linked_routes": [],
+          "linked_skills": [],
+          "estimated_token_count": 44,
           "section_type": "principle"
         }
       ]
@@ -2313,73 +2373,106 @@
         },
         {
           "heading": "Scope",
-          "short_description": "Operational source doc for the designer-readable transformation layer.",
+          "short_description": "Operational source document for the designer-readable transformation layer. This knowledge base governs how DesignPilot converts high-density specialist output into language a desi",
           "linked_summary": [
             "ai-to-designer-filter-summary.md"
           ],
           "linked_routes": [],
           "linked_skills": [],
-          "estimated_token_count": 12,
+          "estimated_token_count": 51,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Why this layer exists",
+          "short_description": "The pack now contains specialized domains that can easily produce answers that are technically correct but difficult to use in practice. A designer often does not need every implem",
+          "linked_summary": [
+            "ai-to-designer-filter-summary.md"
+          ],
+          "linked_routes": [],
+          "linked_skills": [],
+          "estimated_token_count": 108,
           "section_type": "principle"
         },
         {
           "heading": "Core thesis",
-          "short_description": "Simplification removes detail. Translation remaps technical meaning into a domain the designer can act on.",
+          "short_description": "Simplification removes detail. Translation remaps technical meaning into a domain the operator can act on. The response filter must preserve route integrity, constraints, and proof",
           "linked_summary": [
             "ai-to-designer-filter-summary.md"
           ],
           "linked_routes": [],
           "linked_skills": [],
-          "estimated_token_count": 40,
+          "estimated_token_count": 99,
           "section_type": "principle"
         },
         {
           "heading": "Middleware position",
-          "short_description": "The filter belongs after draft generation and before final validation.",
+          "short_description": "The filter belongs **after** specialist draft generation and **before** final validation.",
           "linked_summary": [
             "ai-to-designer-filter-summary.md"
           ],
           "linked_routes": [],
           "linked_skills": [],
-          "estimated_token_count": 13,
+          "estimated_token_count": 104,
+          "section_type": "principle"
+        },
+        {
+          "heading": "What the filter is allowed to change",
+          "short_description": "The filter may change:",
+          "linked_summary": [
+            "ai-to-designer-filter-summary.md"
+          ],
+          "linked_routes": [],
+          "linked_skills": [],
+          "estimated_token_count": 60,
+          "section_type": "principle"
+        },
+        {
+          "heading": "What the filter must not change",
+          "short_description": "The filter must not change:",
+          "linked_summary": [
+            "ai-to-designer-filter-summary.md"
+          ],
+          "linked_routes": [],
+          "linked_skills": [],
+          "estimated_token_count": 64,
           "section_type": "principle"
         },
         {
           "heading": "Response architecture",
-          "short_description": "executive summary or core verdict",
+          "short_description": "Default response architecture for designer-readable transformation:",
           "linked_summary": [
             "ai-to-designer-filter-summary.md"
           ],
           "linked_routes": [],
           "linked_skills": [],
-          "estimated_token_count": 22,
+          "estimated_token_count": 103,
           "section_type": "implementation"
         },
         {
-          "heading": "What changes",
-          "short_description": "jargon density",
+          "heading": "Tier behavior",
+          "short_description": "Section from AI-to-Designer Response Filter Report.md.",
           "linked_summary": [
             "ai-to-designer-filter-summary.md"
           ],
           "linked_routes": [],
           "linked_skills": [],
-          "estimated_token_count": 12,
-          "section_type": "principle"
+          "estimated_token_count": 1,
+          "section_type": "implementation"
         },
         {
-          "heading": "What does not change",
-          "short_description": "governing route",
+          "heading": "Functional tier",
+          "short_description": "Use direct, task-led language. Minimize abstraction. Explain technical terms only when they block action.",
           "linked_summary": [
             "ai-to-designer-filter-summary.md"
           ],
           "linked_routes": [],
           "linked_skills": [],
-          "estimated_token_count": 18,
+          "estimated_token_count": 20,
           "section_type": "principle"
         },
         {
-          "heading": "Actionability rule",
-          "short_description": "Every transformed answer should direct the user toward the next useful move at the depth appropriate to the active tier.",
+          "heading": "Integrative tier",
+          "short_description": "Preserve more system logic. Show how the decision affects adjacent domains such as accessibility, front-end handoff, or component behavior.",
           "linked_summary": [
             "ai-to-designer-filter-summary.md"
           ],
@@ -2389,15 +2482,180 @@
           "section_type": "principle"
         },
         {
-          "heading": "Failure patterns",
-          "short_description": "technically correct but unreadable for the current tier",
+          "heading": "Strategic tier",
+          "short_description": "Retain more tradeoffs, sequencing, and implementation implications. The user may want governance logic, proof boundaries, or architecture rationale made visible.",
           "linked_summary": [
             "ai-to-designer-filter-summary.md"
           ],
           "linked_routes": [],
           "linked_skills": [],
-          "estimated_token_count": 36,
+          "estimated_token_count": 26,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Translation rules",
+          "short_description": "Section from AI-to-Designer Response Filter Report.md.",
+          "linked_summary": [
+            "ai-to-designer-filter-summary.md"
+          ],
+          "linked_routes": [],
+          "linked_skills": [],
+          "estimated_token_count": 1,
+          "section_type": "principle"
+        },
+        {
+          "heading": "1. Preserve the noun of record",
+          "short_description": "If a specialist identifies a specific artifact or concern, keep the official noun. For example, do not replace “object-level authorization” with “better permissions” if the narrowe",
+          "linked_summary": [
+            "ai-to-designer-filter-summary.md"
+          ],
+          "linked_routes": [],
+          "linked_skills": [],
+          "estimated_token_count": 40,
+          "section_type": "principle"
+        },
+        {
+          "heading": "2. Bridge before replacing",
+          "short_description": "When a term matters, bridge it with short explanation rather than swapping it for a vague equivalent.",
+          "linked_summary": [
+            "ai-to-designer-filter-summary.md"
+          ],
+          "linked_routes": [],
+          "linked_skills": [],
+          "estimated_token_count": 22,
+          "section_type": "principle"
+        },
+        {
+          "heading": "3. Compress scaffolding first, not constraints first",
+          "short_description": "The first thing to trim is decorative setup, not operational detail.",
+          "linked_summary": [
+            "ai-to-designer-filter-summary.md"
+          ],
+          "linked_routes": [],
+          "linked_skills": [],
+          "estimated_token_count": 14,
+          "section_type": "principle"
+        },
+        {
+          "heading": "4. Make the implication explicit",
+          "short_description": "If the answer implies a risk, name the risk directly instead of assuming the operator will infer it.",
+          "linked_summary": [
+            "ai-to-designer-filter-summary.md"
+          ],
+          "linked_routes": [],
+          "linked_skills": [],
+          "estimated_token_count": 23,
+          "section_type": "principle"
+        },
+        {
+          "heading": "5. Keep the decision boundary visible",
+          "short_description": "Do not let an easier tone obscure whether the system is passing, failing, warning, or redirecting.",
+          "linked_summary": [
+            "ai-to-designer-filter-summary.md"
+          ],
+          "linked_routes": [],
+          "linked_skills": [],
+          "estimated_token_count": 21,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Failure patterns",
+          "short_description": "Common failure patterns include:",
+          "linked_summary": [
+            "ai-to-designer-filter-summary.md"
+          ],
+          "linked_routes": [],
+          "linked_skills": [],
+          "estimated_token_count": 66,
           "section_type": "anti-pattern"
+        },
+        {
+          "heading": "Good filter behavior",
+          "short_description": "A good filtered answer should feel like:",
+          "linked_summary": [
+            "ai-to-designer-filter-summary.md"
+          ],
+          "linked_routes": [],
+          "linked_skills": [],
+          "estimated_token_count": 43,
+          "section_type": "implementation"
+        },
+        {
+          "heading": "Validation logic",
+          "short_description": "Every filtered answer should be checked for:",
+          "linked_summary": [
+            "ai-to-designer-filter-summary.md"
+          ],
+          "linked_routes": [],
+          "linked_skills": [],
+          "estimated_token_count": 68,
+          "section_type": "implementation"
+        },
+        {
+          "heading": "Use boundaries",
+          "short_description": "Use the response filter on:",
+          "linked_summary": [
+            "ai-to-designer-filter-summary.md"
+          ],
+          "linked_routes": [],
+          "linked_skills": [],
+          "estimated_token_count": 57,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Relationship to adaptive explanation",
+          "short_description": "The adaptive explanation system chooses **how much explanation** the user likely needs. The AI-to-designer response filter governs **how the chosen explanation should be expressed*",
+          "linked_summary": [
+            "ai-to-designer-filter-summary.md"
+          ],
+          "linked_routes": [],
+          "linked_skills": [],
+          "estimated_token_count": 42,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Relationship to text humanization",
+          "short_description": "Humanization restores authored texture and readability. The response filter preserves decision usability and technical truth. They may operate together, but they are not the same l",
+          "linked_summary": [
+            "ai-to-designer-filter-summary.md"
+          ],
+          "linked_routes": [],
+          "linked_skills": [],
+          "estimated_token_count": 34,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Canonical operating stance",
+          "short_description": "When in doubt:",
+          "linked_summary": [
+            "ai-to-designer-filter-summary.md"
+          ],
+          "linked_routes": [],
+          "linked_skills": [],
+          "estimated_token_count": 49,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Review checklist for DesignPilot",
+          "short_description": "Use this source to ask:",
+          "linked_summary": [
+            "ai-to-designer-filter-summary.md"
+          ],
+          "linked_routes": [],
+          "linked_skills": [],
+          "estimated_token_count": 72,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Success conditions",
+          "short_description": "This layer succeeds when the operator can act more effectively while the routed answer remains equally correct, equally bounded, and equally honest about risk.",
+          "linked_summary": [
+            "ai-to-designer-filter-summary.md"
+          ],
+          "linked_routes": [],
+          "linked_skills": [],
+          "estimated_token_count": 31,
+          "section_type": "principle"
         }
       ]
     },
@@ -2429,7 +2687,7 @@
         },
         {
           "heading": "Executive framing",
-          "short_description": "This source document captures the API reliability and security research for the v2.4.0 expansion. It treats failure semantics, authorization boundaries, idempotency, async job life",
+          "short_description": "This source document captures the API reliability and security research for the DesignPilot expansion. It treats failure semantics, authorization boundaries, idempotency, async job",
           "linked_summary": [
             "api-reliability-security-summary.md",
             "backend-planning-summary.md"
@@ -2443,7 +2701,26 @@
             "api-reliability-security-expert.md",
             "back-end-aware-planner.md"
           ],
-          "estimated_token_count": 56,
+          "estimated_token_count": 53,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Problem statement",
+          "short_description": "API quality fails in two common ways:",
+          "linked_summary": [
+            "api-reliability-security-summary.md",
+            "backend-planning-summary.md"
+          ],
+          "linked_routes": [
+            "rt_api_reliability_security",
+            "rt_backend_feasibility",
+            "rt_backend_systems_architecture"
+          ],
+          "linked_skills": [
+            "api-reliability-security-expert.md",
+            "back-end-aware-planner.md"
+          ],
+          "estimated_token_count": 74,
           "section_type": "principle"
         },
         {
@@ -2467,7 +2744,7 @@
         },
         {
           "heading": "Decision surface",
-          "short_description": "Failure envelope: type, title, status, detail, instance, plus extension fields.",
+          "short_description": "Failure envelope: type, title, status, detail, instance, plus extension fields",
           "linked_summary": [
             "api-reliability-security-summary.md",
             "backend-planning-summary.md"
@@ -2483,6 +2760,139 @@
           ],
           "estimated_token_count": 88,
           "section_type": "principle"
+        },
+        {
+          "heading": "Failure semantics",
+          "short_description": "A reliable API communicates failure clearly. Problem Details provides a strong baseline because it separates transport success from application failure. DesignPilot should challeng",
+          "linked_summary": [
+            "api-reliability-security-summary.md",
+            "backend-planning-summary.md"
+          ],
+          "linked_routes": [
+            "rt_api_reliability_security",
+            "rt_backend_feasibility",
+            "rt_backend_systems_architecture"
+          ],
+          "linked_skills": [
+            "api-reliability-security-expert.md",
+            "back-end-aware-planner.md"
+          ],
+          "estimated_token_count": 51,
+          "section_type": "anti-pattern"
+        },
+        {
+          "heading": "Authorization depth",
+          "short_description": "Security claims are weak if they stop at authentication. DesignPilot should expect explicit treatment of:",
+          "linked_summary": [
+            "api-reliability-security-summary.md",
+            "backend-planning-summary.md"
+          ],
+          "linked_routes": [
+            "rt_api_reliability_security",
+            "rt_backend_feasibility",
+            "rt_backend_systems_architecture"
+          ],
+          "linked_skills": [
+            "api-reliability-security-expert.md",
+            "back-end-aware-planner.md"
+          ],
+          "estimated_token_count": 47,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Idempotency and retries",
+          "short_description": "Idempotency matters whenever a client may retry after timeout, disconnect, or uncertain completion. The API should define:",
+          "linked_summary": [
+            "api-reliability-security-summary.md",
+            "backend-planning-summary.md"
+          ],
+          "linked_routes": [
+            "rt_api_reliability_security",
+            "rt_backend_feasibility",
+            "rt_backend_systems_architecture"
+          ],
+          "linked_skills": [
+            "api-reliability-security-expert.md",
+            "back-end-aware-planner.md"
+          ],
+          "estimated_token_count": 60,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Async lifecycle",
+          "short_description": "Long-running jobs should move to an explicit async contract. DesignPilot should expect:",
+          "linked_summary": [
+            "api-reliability-security-summary.md",
+            "backend-planning-summary.md"
+          ],
+          "linked_routes": [
+            "rt_api_reliability_security",
+            "rt_backend_feasibility",
+            "rt_backend_systems_architecture"
+          ],
+          "linked_skills": [
+            "api-reliability-security-expert.md",
+            "back-end-aware-planner.md"
+          ],
+          "estimated_token_count": 49,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Resilience patterns",
+          "short_description": "An API that claims production readiness should name at least a basic resilience posture:",
+          "linked_summary": [
+            "api-reliability-security-summary.md",
+            "backend-planning-summary.md"
+          ],
+          "linked_routes": [
+            "rt_api_reliability_security",
+            "rt_backend_feasibility",
+            "rt_backend_systems_architecture"
+          ],
+          "linked_skills": [
+            "api-reliability-security-expert.md",
+            "back-end-aware-planner.md"
+          ],
+          "estimated_token_count": 51,
+          "section_type": "implementation"
+        },
+        {
+          "heading": "Observability",
+          "short_description": "Reliability cannot be defended without observability. A credible API plan should expose:",
+          "linked_summary": [
+            "api-reliability-security-summary.md",
+            "backend-planning-summary.md"
+          ],
+          "linked_routes": [
+            "rt_api_reliability_security",
+            "rt_backend_feasibility",
+            "rt_backend_systems_architecture"
+          ],
+          "linked_skills": [
+            "api-reliability-security-expert.md",
+            "back-end-aware-planner.md"
+          ],
+          "estimated_token_count": 39,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Multi-tenant and AI-specific risk",
+          "short_description": "For AI-heavy or multi-tenant systems, DesignPilot should additionally require:",
+          "linked_summary": [
+            "api-reliability-security-summary.md",
+            "backend-planning-summary.md"
+          ],
+          "linked_routes": [
+            "rt_api_reliability_security",
+            "rt_backend_feasibility",
+            "rt_backend_systems_architecture"
+          ],
+          "linked_skills": [
+            "api-reliability-security-expert.md",
+            "back-end-aware-planner.md"
+          ],
+          "estimated_token_count": 46,
+          "section_type": "anti-pattern"
         },
         {
           "heading": "Validator-ready rules",
@@ -2502,6 +2912,82 @@
           ],
           "estimated_token_count": 79,
           "section_type": "validation"
+        },
+        {
+          "heading": "Failure patterns",
+          "short_description": "secure because authenticated” language with no authorization depth",
+          "linked_summary": [
+            "api-reliability-security-summary.md",
+            "backend-planning-summary.md"
+          ],
+          "linked_routes": [
+            "rt_api_reliability_security",
+            "rt_backend_feasibility",
+            "rt_backend_systems_architecture"
+          ],
+          "linked_skills": [
+            "api-reliability-security-expert.md",
+            "back-end-aware-planner.md"
+          ],
+          "estimated_token_count": 64,
+          "section_type": "anti-pattern"
+        },
+        {
+          "heading": "DesignPilot stance",
+          "short_description": "This domain should force the system to evaluate APIs as operational contracts. Reliability and security are not bolt-on traits; they are part of the interface itself.",
+          "linked_summary": [
+            "api-reliability-security-summary.md",
+            "backend-planning-summary.md"
+          ],
+          "linked_routes": [
+            "rt_api_reliability_security",
+            "rt_backend_feasibility",
+            "rt_backend_systems_architecture"
+          ],
+          "linked_skills": [
+            "api-reliability-security-expert.md",
+            "back-end-aware-planner.md"
+          ],
+          "estimated_token_count": 35,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Review checklist for DesignPilot",
+          "short_description": "When this knowledge base is active, the system should ask:",
+          "linked_summary": [
+            "api-reliability-security-summary.md",
+            "backend-planning-summary.md"
+          ],
+          "linked_routes": [
+            "rt_api_reliability_security",
+            "rt_backend_feasibility",
+            "rt_backend_systems_architecture"
+          ],
+          "linked_skills": [
+            "api-reliability-security-expert.md",
+            "back-end-aware-planner.md"
+          ],
+          "estimated_token_count": 77,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Deliverable implications",
+          "short_description": "This document should influence backend-feasibility review, API reliability and security review, and any architecture plan that claims production readiness. If a response recommends",
+          "linked_summary": [
+            "api-reliability-security-summary.md",
+            "backend-planning-summary.md"
+          ],
+          "linked_routes": [
+            "rt_api_reliability_security",
+            "rt_backend_feasibility",
+            "rt_backend_systems_architecture"
+          ],
+          "linked_skills": [
+            "api-reliability-security-expert.md",
+            "back-end-aware-planner.md"
+          ],
+          "estimated_token_count": 58,
+          "section_type": "principle"
         }
       ]
     },
@@ -4609,7 +5095,7 @@
         },
         {
           "heading": "Executive framing",
-          "short_description": "This source document deepens the existing accessibility domain for the v2.4.0 expansion. It shifts the pack from accessibility as surface feedback into accessibility as sequential,",
+          "short_description": "This source document deepens the existing accessibility domain for the DesignPilot expansion. It shifts the pack from accessibility as surface feedback into accessibility as sequen",
           "linked_summary": [
             "accessibility-and-feedback-summary.md"
           ],
@@ -4622,7 +5108,25 @@
           "linked_skills": [
             "accessibility-feedback-expert.md"
           ],
-          "estimated_token_count": 40,
+          "estimated_token_count": 38,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Why this document matters",
+          "short_description": "A large percentage of accessibility failures do not come from missing labels alone. They come from broken interaction models:",
+          "linked_summary": [
+            "accessibility-and-feedback-summary.md"
+          ],
+          "linked_routes": [
+            "rt_accessibility_feedback_audit",
+            "rt_color_system_spec",
+            "rt_frontend_architecture",
+            "rt_type_system_recommendation"
+          ],
+          "linked_skills": [
+            "accessibility-feedback-expert.md"
+          ],
+          "estimated_token_count": 84,
           "section_type": "principle"
         },
         {
@@ -4645,7 +5149,7 @@
         },
         {
           "heading": "Decision surface",
-          "short_description": "Native vs custom widget justification.",
+          "short_description": "Native vs custom widget justification",
           "linked_summary": [
             "accessibility-and-feedback-summary.md"
           ],
@@ -4659,6 +5163,204 @@
             "accessibility-feedback-expert.md"
           ],
           "estimated_token_count": 75,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Native versus custom",
+          "short_description": "The first accessibility decision is whether the team should build the custom widget at all. Native elements already encode a large amount of accessibility behavior. Custom widgets ",
+          "linked_summary": [
+            "accessibility-and-feedback-summary.md"
+          ],
+          "linked_routes": [
+            "rt_accessibility_feedback_audit",
+            "rt_color_system_spec",
+            "rt_frontend_architecture",
+            "rt_type_system_recommendation"
+          ],
+          "linked_skills": [
+            "accessibility-feedback-expert.md"
+          ],
+          "estimated_token_count": 113,
+          "section_type": "comparison"
+        },
+        {
+          "heading": "Focus architecture",
+          "short_description": "Focus must be designed as a system, not a byproduct.",
+          "linked_summary": [
+            "accessibility-and-feedback-summary.md"
+          ],
+          "linked_routes": [
+            "rt_accessibility_feedback_audit",
+            "rt_color_system_spec",
+            "rt_frontend_architecture",
+            "rt_type_system_recommendation"
+          ],
+          "linked_skills": [
+            "accessibility-feedback-expert.md"
+          ],
+          "estimated_token_count": 95,
+          "section_type": "implementation"
+        },
+        {
+          "heading": "Composite widgets",
+          "short_description": "Section from Accessible Component Behavior Deep Dive.md.",
+          "linked_summary": [
+            "accessibility-and-feedback-summary.md"
+          ],
+          "linked_routes": [
+            "rt_accessibility_feedback_audit",
+            "rt_color_system_spec",
+            "rt_frontend_architecture",
+            "rt_type_system_recommendation"
+          ],
+          "linked_skills": [
+            "accessibility-feedback-expert.md"
+          ],
+          "estimated_token_count": 1,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Tabs",
+          "short_description": "Tabs require a clear relationship between tablist, tabs, and tab panels. Automatic activation is acceptable only when latency is low enough that focus movement does not feel trappe",
+          "linked_summary": [
+            "accessibility-and-feedback-summary.md"
+          ],
+          "linked_routes": [
+            "rt_accessibility_feedback_audit",
+            "rt_color_system_spec",
+            "rt_frontend_architecture",
+            "rt_type_system_recommendation"
+          ],
+          "linked_skills": [
+            "accessibility-feedback-expert.md"
+          ],
+          "estimated_token_count": 52,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Dialogs",
+          "short_description": "Dialogs require focus trapping, inert or otherwise inactive background behavior, clear labelling, escape behavior, and focus restoration. A dialog that opens without a reliable fir",
+          "linked_summary": [
+            "accessibility-and-feedback-summary.md"
+          ],
+          "linked_routes": [
+            "rt_accessibility_feedback_audit",
+            "rt_color_system_spec",
+            "rt_frontend_architecture",
+            "rt_type_system_recommendation"
+          ],
+          "linked_skills": [
+            "accessibility-feedback-expert.md"
+          ],
+          "estimated_token_count": 39,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Listboxes and comboboxes",
+          "short_description": "These patterns fail frequently because teams mix input focus, option focus, and visual selection states. The component must name whether focus remains in the input, moves through o",
+          "linked_summary": [
+            "accessibility-and-feedback-summary.md"
+          ],
+          "linked_routes": [
+            "rt_accessibility_feedback_audit",
+            "rt_color_system_spec",
+            "rt_frontend_architecture",
+            "rt_type_system_recommendation"
+          ],
+          "linked_skills": [
+            "accessibility-feedback-expert.md"
+          ],
+          "estimated_token_count": 42,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Grids",
+          "short_description": "Grids need an explicit navigation model. Is the user in navigation mode or action mode? Are cells focusable, or are controls inside the cells focusable? A grid without a clear mode",
+          "linked_summary": [
+            "accessibility-and-feedback-summary.md"
+          ],
+          "linked_routes": [
+            "rt_accessibility_feedback_audit",
+            "rt_color_system_spec",
+            "rt_frontend_architecture",
+            "rt_type_system_recommendation"
+          ],
+          "linked_skills": [
+            "accessibility-feedback-expert.md"
+          ],
+          "estimated_token_count": 48,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Errors and validation",
+          "short_description": "Accessible error handling requires:",
+          "linked_summary": [
+            "accessibility-and-feedback-summary.md"
+          ],
+          "linked_routes": [
+            "rt_accessibility_feedback_audit",
+            "rt_color_system_spec",
+            "rt_frontend_architecture",
+            "rt_type_system_recommendation"
+          ],
+          "linked_skills": [
+            "accessibility-feedback-expert.md"
+          ],
+          "estimated_token_count": 49,
+          "section_type": "anti-pattern"
+        },
+        {
+          "heading": "Async and live regions",
+          "short_description": "Dynamic UI often fails because state changes are visible but silent. Good async accessibility requires:",
+          "linked_summary": [
+            "accessibility-and-feedback-summary.md"
+          ],
+          "linked_routes": [
+            "rt_accessibility_feedback_audit",
+            "rt_color_system_spec",
+            "rt_frontend_architecture",
+            "rt_type_system_recommendation"
+          ],
+          "linked_skills": [
+            "accessibility-feedback-expert.md"
+          ],
+          "estimated_token_count": 58,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Dense interfaces",
+          "short_description": "Enterprise dashboards and data-heavy tools often compress spacing and interactive zones until accessibility breaks. Touch targets, focus indicators, keyboard reachability, and visi",
+          "linked_summary": [
+            "accessibility-and-feedback-summary.md"
+          ],
+          "linked_routes": [
+            "rt_accessibility_feedback_audit",
+            "rt_color_system_spec",
+            "rt_frontend_architecture",
+            "rt_type_system_recommendation"
+          ],
+          "linked_skills": [
+            "accessibility-feedback-expert.md"
+          ],
+          "estimated_token_count": 40,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Motion and sensory safety",
+          "short_description": "Animation is not neutral. Components should define:",
+          "linked_summary": [
+            "accessibility-and-feedback-summary.md"
+          ],
+          "linked_routes": [
+            "rt_accessibility_feedback_audit",
+            "rt_color_system_spec",
+            "rt_frontend_architecture",
+            "rt_type_system_recommendation"
+          ],
+          "linked_skills": [
+            "accessibility-feedback-expert.md"
+          ],
+          "estimated_token_count": 39,
           "section_type": "principle"
         },
         {
@@ -4678,6 +5380,78 @@
           ],
           "estimated_token_count": 82,
           "section_type": "validation"
+        },
+        {
+          "heading": "Failure patterns",
+          "short_description": "custom widget chosen for styling convenience only",
+          "linked_summary": [
+            "accessibility-and-feedback-summary.md"
+          ],
+          "linked_routes": [
+            "rt_accessibility_feedback_audit",
+            "rt_color_system_spec",
+            "rt_frontend_architecture",
+            "rt_type_system_recommendation"
+          ],
+          "linked_skills": [
+            "accessibility-feedback-expert.md"
+          ],
+          "estimated_token_count": 60,
+          "section_type": "anti-pattern"
+        },
+        {
+          "heading": "DesignPilot stance",
+          "short_description": "This domain should push the pack to evaluate behavior over screenshots. A visually correct component that fails in focus, state, or announcement logic is not accessibility-complete",
+          "linked_summary": [
+            "accessibility-and-feedback-summary.md"
+          ],
+          "linked_routes": [
+            "rt_accessibility_feedback_audit",
+            "rt_color_system_spec",
+            "rt_frontend_architecture",
+            "rt_type_system_recommendation"
+          ],
+          "linked_skills": [
+            "accessibility-feedback-expert.md"
+          ],
+          "estimated_token_count": 35,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Review checklist for DesignPilot",
+          "short_description": "When this source is active, the system should ask:",
+          "linked_summary": [
+            "accessibility-and-feedback-summary.md"
+          ],
+          "linked_routes": [
+            "rt_accessibility_feedback_audit",
+            "rt_color_system_spec",
+            "rt_frontend_architecture",
+            "rt_type_system_recommendation"
+          ],
+          "linked_skills": [
+            "accessibility-feedback-expert.md"
+          ],
+          "estimated_token_count": 75,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Deliverable implications",
+          "short_description": "This document should influence accessibility feedback, component specs, dashboard audits, and front-end review whenever interaction logic matters. A visually good component that fa",
+          "linked_summary": [
+            "accessibility-and-feedback-summary.md"
+          ],
+          "linked_routes": [
+            "rt_accessibility_feedback_audit",
+            "rt_color_system_spec",
+            "rt_frontend_architecture",
+            "rt_type_system_recommendation"
+          ],
+          "linked_skills": [
+            "accessibility-feedback-expert.md"
+          ],
+          "estimated_token_count": 44,
+          "section_type": "principle"
         }
       ]
     },
@@ -4700,46 +5474,101 @@
         },
         {
           "heading": "Scope",
-          "short_description": "Working source doc for the Designer Comprehension Layer.",
+          "short_description": "Working source document for the Designer Comprehension Layer. This document defines how DesignPilot adapts explanation depth, scaffolding, terminology, and proactive clarification ",
           "linked_summary": [
             "adaptive-explanation-summary.md"
           ],
           "linked_routes": [],
           "linked_skills": [],
-          "estimated_token_count": 23,
+          "estimated_token_count": 39,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Problem statement",
+          "short_description": "The comprehension problem is not only jargon. It is mismatch between expert output and the user’s working mental model. Too much unexplained density creates overload. Too much redu",
+          "linked_summary": [
+            "adaptive-explanation-summary.md"
+          ],
+          "linked_routes": [],
+          "linked_skills": [],
+          "estimated_token_count": 91,
           "section_type": "principle"
         },
         {
           "heading": "Core thesis",
-          "short_description": "The comprehension problem is not only jargon. It is mismatch between expert output and the user’s working mental model.",
+          "short_description": "A compliant answer changes its explanation depth without changing the truth of the routed answer. Explanation control is therefore a session-state system, not a personality flouris",
           "linked_summary": [
             "adaptive-explanation-summary.md"
           ],
           "linked_routes": [],
           "linked_skills": [],
-          "estimated_token_count": 47,
+          "estimated_token_count": 35,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Design objectives",
+          "short_description": "The explanation layer should:",
+          "linked_summary": [
+            "adaptive-explanation-summary.md"
+          ],
+          "linked_routes": [],
+          "linked_skills": [],
+          "estimated_token_count": 38,
           "section_type": "principle"
         },
         {
           "heading": "Canonical tier model",
-          "short_description": "Functional",
+          "short_description": "Section from Adaptive Explanation Design Report.md.",
           "linked_summary": [
             "adaptive-explanation-summary.md"
           ],
           "linked_routes": [],
           "linked_skills": [],
-          "estimated_token_count": 4,
+          "estimated_token_count": 1,
           "section_type": "implementation"
         },
         {
-          "heading": "Startup logic",
-          "short_description": "Use a light first-load calibration with an optional deeper setup path.",
+          "heading": "Functional",
+          "short_description": "For operators who mainly need direct actionability. Use concise explanation, minimal abstraction, and plain operational language.",
           "linked_summary": [
             "adaptive-explanation-summary.md"
           ],
           "linked_routes": [],
           "linked_skills": [],
-          "estimated_token_count": 36,
+          "estimated_token_count": 21,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Integrative",
+          "short_description": "For operators who need to understand both the decision and the nearby system effects. Preserve more context, tradeoffs, and implementation relationships.",
+          "linked_summary": [
+            "adaptive-explanation-summary.md"
+          ],
+          "linked_routes": [],
+          "linked_skills": [],
+          "estimated_token_count": 27,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Strategic",
+          "short_description": "For operators who want the full reasoning surface. Preserve domain tradeoffs, evidence posture, sequencing logic, governance implications, and failure modes.",
+          "linked_summary": [
+            "adaptive-explanation-summary.md"
+          ],
+          "linked_routes": [],
+          "linked_skills": [],
+          "estimated_token_count": 39,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Startup logic",
+          "short_description": "Use a light first-load calibration with an optional deeper setup path. Avoid blunt beginner/intermediate/expert labels. Prefer goal-centric options that do not rank the user.",
+          "linked_summary": [
+            "adaptive-explanation-summary.md"
+          ],
+          "linked_routes": [],
+          "linked_skills": [],
+          "estimated_token_count": 92,
           "section_type": "implementation"
         },
         {
@@ -4750,40 +5579,161 @@
           ],
           "linked_routes": [],
           "linked_skills": [],
-          "estimated_token_count": 20,
+          "estimated_token_count": 34,
           "section_type": "implementation"
         },
         {
           "heading": "Override logic",
-          "short_description": "Support temporary local overrides that do not erase the base profile.",
+          "short_description": "Support temporary local overrides that do not erase the base profile. A user may want the session generally kept tight but ask for one answer in full strategic depth. That should b",
           "linked_summary": [
             "adaptive-explanation-summary.md"
           ],
           "linked_routes": [],
           "linked_skills": [],
-          "estimated_token_count": 25,
+          "estimated_token_count": 55,
           "section_type": "implementation"
         },
         {
           "heading": "Term strategy",
-          "short_description": "Use importance plus familiarity to decide whether to preserve, bridge, paraphrase, or omit a term.",
+          "short_description": "Use importance plus familiarity to decide whether to:",
           "linked_summary": [
             "adaptive-explanation-summary.md"
           ],
           "linked_routes": [],
           "linked_skills": [],
-          "estimated_token_count": 20,
+          "estimated_token_count": 68,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Scaffolding strategy",
+          "short_description": "Scaffolding is useful only when it changes the user’s ability to understand or act.",
+          "linked_summary": [
+            "adaptive-explanation-summary.md"
+          ],
+          "linked_routes": [],
+          "linked_skills": [],
+          "estimated_token_count": 101,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Proactivity index",
+          "short_description": "The system should vary how much anticipatory help it provides.",
+          "linked_summary": [
+            "adaptive-explanation-summary.md"
+          ],
+          "linked_routes": [],
+          "linked_skills": [],
+          "estimated_token_count": 72,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Failure patterns",
+          "short_description": "Typical explanation failures include:",
+          "linked_summary": [
+            "adaptive-explanation-summary.md"
+          ],
+          "linked_routes": [],
+          "linked_skills": [],
+          "estimated_token_count": 52,
+          "section_type": "anti-pattern"
+        },
+        {
+          "heading": "Good adaptive behavior",
+          "short_description": "A good adaptive system feels like the same expert operating at the right zoom level. It should not feel like a different persona each time the tier changes.",
+          "linked_summary": [
+            "adaptive-explanation-summary.md"
+          ],
+          "linked_routes": [],
+          "linked_skills": [],
+          "estimated_token_count": 36,
+          "section_type": "implementation"
+        },
+        {
+          "heading": "Interaction with route logic",
+          "short_description": "Adaptive explanation happens **after** route selection. It should not be allowed to change the governing specialist, the task contract, or the evidence burden.",
+          "linked_summary": [
+            "adaptive-explanation-summary.md"
+          ],
+          "linked_routes": [],
+          "linked_skills": [],
+          "estimated_token_count": 30,
+          "section_type": "implementation"
+        },
+        {
+          "heading": "Interaction with the response filter",
+          "short_description": "The comprehension layer chooses the explanation shape. The response filter expresses the answer in a designer-readable form. Together they create calibrated output, but the compreh",
+          "linked_summary": [
+            "adaptive-explanation-summary.md"
+          ],
+          "linked_routes": [],
+          "linked_skills": [],
+          "estimated_token_count": 40,
+          "section_type": "implementation"
+        },
+        {
+          "heading": "Validation logic",
+          "short_description": "A compliant answer should be checked for:",
+          "linked_summary": [
+            "adaptive-explanation-summary.md"
+          ],
+          "linked_routes": [],
+          "linked_skills": [],
+          "estimated_token_count": 39,
+          "section_type": "implementation"
+        },
+        {
+          "heading": "Safe defaults",
+          "short_description": "When calibration is incomplete:",
+          "linked_summary": [
+            "adaptive-explanation-summary.md"
+          ],
+          "linked_routes": [],
+          "linked_skills": [],
+          "estimated_token_count": 34,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Design principles for future expansion",
+          "short_description": "explanation settings should be portable across sessions and projects",
+          "linked_summary": [
+            "adaptive-explanation-summary.md"
+          ],
+          "linked_routes": [],
+          "linked_skills": [],
+          "estimated_token_count": 49,
           "section_type": "principle"
         },
         {
           "heading": "Success conditions",
-          "short_description": "A compliant answer changes its explanation depth without changing the truth of the routed answer.",
+          "short_description": "A successful adaptive explanation layer lets the same routed system serve operators with different working styles without diluting technical truth. It makes the package easier to u",
           "linked_summary": [
             "adaptive-explanation-summary.md"
           ],
           "linked_routes": [],
           "linked_skills": [],
-          "estimated_token_count": 20,
+          "estimated_token_count": 40,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Review checklist for DesignPilot",
+          "short_description": "Use this document to ask:",
+          "linked_summary": [
+            "adaptive-explanation-summary.md"
+          ],
+          "linked_routes": [],
+          "linked_skills": [],
+          "estimated_token_count": 74,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Success conditions",
+          "short_description": "Adaptive explanation succeeds when the package can serve different working styles without sounding condescending, evasive, or inconsistent. The answer should feel right-sized, not ",
+          "linked_summary": [
+            "adaptive-explanation-summary.md"
+          ],
+          "linked_routes": [],
+          "linked_skills": [],
+          "estimated_token_count": 36,
           "section_type": "principle"
         }
       ]
@@ -4807,13 +5757,24 @@
         },
         {
           "heading": "Purpose",
-          "short_description": "This document captures an architecture-level optimization proposal for improving cold-start behavior, removing bootstrap redundancy, deepening templates, clarifying knowledge-base ",
+          "short_description": "This document captures an architecture-level optimization model for improving cold-start behavior, reducing bootstrap redundancy, clarifying maintainer versus operator surfaces, st",
           "linked_summary": [
             "architecture-optimization-summary.md"
           ],
           "linked_routes": [],
           "linked_skills": [],
-          "estimated_token_count": 36,
+          "estimated_token_count": 46,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Problem statement",
+          "short_description": "Large operator packs degrade when they grow faster than their loading model. The most common symptoms are:",
+          "linked_summary": [
+            "architecture-optimization-summary.md"
+          ],
+          "linked_routes": [],
+          "linked_skills": [],
+          "estimated_token_count": 104,
           "section_type": "principle"
         },
         {
@@ -4824,7 +5785,18 @@
           ],
           "linked_routes": [],
           "linked_skills": [],
-          "estimated_token_count": 69,
+          "estimated_token_count": 86,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Design objective",
+          "short_description": "The pack should be maintainable as a large modular system while remaining usable as a small operational surface. That requires controlled loading, clear ownership, and generated ou",
+          "linked_summary": [
+            "architecture-optimization-summary.md"
+          ],
+          "linked_routes": [],
+          "linked_skills": [],
+          "estimated_token_count": 43,
           "section_type": "principle"
         },
         {
@@ -4839,80 +5811,113 @@
           "section_type": "principle"
         },
         {
-          "heading": "Tier 1: Core Navigation",
+          "heading": "Tier 1: Core navigation",
           "short_description": "MASTER_CHAT_OPERATOR.md`",
           "linked_summary": [
             "architecture-optimization-summary.md"
           ],
           "linked_routes": [],
           "linked_skills": [],
-          "estimated_token_count": 5,
+          "estimated_token_count": 22,
           "section_type": "principle"
         },
         {
-          "heading": "Tier 2: Session Memory",
+          "heading": "Tier 2: Session memory",
           "short_description": "SESSION_CONTEXT.md`",
           "linked_summary": [
             "architecture-optimization-summary.md"
           ],
           "linked_routes": [],
           "linked_skills": [],
-          "estimated_token_count": 3,
+          "estimated_token_count": 21,
           "section_type": "principle"
         },
         {
-          "heading": "Tier 3: Domain Skills",
+          "heading": "Tier 3: Domain skills",
           "short_description": "src/skills/*.md` only when routed by intent",
           "linked_summary": [
             "architecture-optimization-summary.md"
           ],
           "linked_routes": [],
           "linked_skills": [],
-          "estimated_token_count": 10,
+          "estimated_token_count": 30,
           "section_type": "principle"
         },
         {
-          "heading": "Tier 4: Contextual Knowledge",
+          "heading": "Tier 4: Contextual knowledge",
           "short_description": "src/knowledge-base/summaries/*.md` only when needed",
           "linked_summary": [
             "architecture-optimization-summary.md"
           ],
           "linked_routes": [],
           "linked_skills": [],
-          "estimated_token_count": 10,
+          "estimated_token_count": 22,
           "section_type": "principle"
         },
         {
-          "heading": "Tier 5: Output Artifacts",
+          "heading": "Tier 5: Output artifacts",
           "short_description": "src/templates/*.md` only when generating a deliverable",
           "linked_summary": [
             "architecture-optimization-summary.md"
           ],
           "linked_routes": [],
           "linked_skills": [],
-          "estimated_token_count": 10,
+          "estimated_token_count": 26,
           "section_type": "principle"
         },
         {
           "heading": "Human-vs-AI file ownership",
+          "short_description": "Section from Architectural Optimization and Structural Synthesis of DesignPilot v8.1 Operator Pack.md.",
+          "linked_summary": [
+            "architecture-optimization-summary.md"
+          ],
+          "linked_routes": [],
+          "linked_skills": [],
+          "estimated_token_count": 1,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Human-facing",
           "short_description": "README.md` = human operational manual",
           "linked_summary": [
             "architecture-optimization-summary.md"
           ],
           "linked_routes": [],
           "linked_skills": [],
-          "estimated_token_count": 14,
+          "estimated_token_count": 23,
           "section_type": "principle"
         },
         {
-          "heading": "Governance additions",
-          "short_description": "KNOWLEDGE_BASE_CONTRACT.md`",
+          "heading": "AI-facing",
+          "short_description": "bootstrap prompt layers",
           "linked_summary": [
             "architecture-optimization-summary.md"
           ],
           "linked_routes": [],
           "linked_skills": [],
-          "estimated_token_count": 8,
+          "estimated_token_count": 36,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Governance additions",
+          "short_description": "A mature pack should include:",
+          "linked_summary": [
+            "architecture-optimization-summary.md"
+          ],
+          "linked_routes": [],
+          "linked_skills": [],
+          "estimated_token_count": 38,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Knowledge-base governance",
+          "short_description": "The knowledge base should distinguish between:",
+          "linked_summary": [
+            "architecture-optimization-summary.md"
+          ],
+          "linked_routes": [],
+          "linked_skills": [],
+          "estimated_token_count": 57,
           "section_type": "principle"
         },
         {
@@ -4923,19 +5928,107 @@
           ],
           "linked_routes": [],
           "linked_skills": [],
-          "estimated_token_count": 22,
+          "estimated_token_count": 51,
           "section_type": "principle"
         },
         {
-          "heading": "Pack-level effect",
-          "short_description": "These changes reduce unconditional loading, improve retrieval precision, and make the pack easier to maintain over time.",
+          "heading": "Staleness and synchronization",
+          "short_description": "The pack should actively detect:",
           "linked_summary": [
             "architecture-optimization-summary.md"
           ],
           "linked_routes": [],
           "linked_skills": [],
-          "estimated_token_count": 22,
+          "estimated_token_count": 43,
           "section_type": "principle"
+        },
+        {
+          "heading": "Runtime discipline",
+          "short_description": "A large pack should fail closed when it lacks the correct route, contract, or evidence layer. The architecture should prefer explicit narrowing over improvized breadth.",
+          "linked_summary": [
+            "architecture-optimization-summary.md"
+          ],
+          "linked_routes": [],
+          "linked_skills": [],
+          "estimated_token_count": 32,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Cold-start optimization",
+          "short_description": "Cold-start reduction should happen through:",
+          "linked_summary": [
+            "architecture-optimization-summary.md"
+          ],
+          "linked_routes": [],
+          "linked_skills": [],
+          "estimated_token_count": 40,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Structural failure modes",
+          "short_description": "Common architectural failures include:",
+          "linked_summary": [
+            "architecture-optimization-summary.md"
+          ],
+          "linked_routes": [],
+          "linked_skills": [],
+          "estimated_token_count": 56,
+          "section_type": "anti-pattern"
+        },
+        {
+          "heading": "Validation model",
+          "short_description": "Architecture quality should be checked by asking:",
+          "linked_summary": [
+            "architecture-optimization-summary.md"
+          ],
+          "linked_routes": [],
+          "linked_skills": [],
+          "estimated_token_count": 57,
+          "section_type": "implementation"
+        },
+        {
+          "heading": "Pack-level effect",
+          "short_description": "These changes reduce unconditional loading, improve retrieval precision, strengthen maintainability, and make the pack easier to operate without exposing unnecessary architectural ",
+          "linked_summary": [
+            "architecture-optimization-summary.md"
+          ],
+          "linked_routes": [],
+          "linked_skills": [],
+          "estimated_token_count": 29,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Implementation stance",
+          "short_description": "The best optimization is not “make the pack smaller.” It is “make the pack load the right thing at the right time, then prove that the generated surfaces still tell the same truth ",
+          "linked_summary": [
+            "architecture-optimization-summary.md"
+          ],
+          "linked_routes": [],
+          "linked_skills": [],
+          "estimated_token_count": 47,
+          "section_type": "implementation"
+        },
+        {
+          "heading": "Review checklist for DesignPilot",
+          "short_description": "This document should be used to ask:",
+          "linked_summary": [
+            "architecture-optimization-summary.md"
+          ],
+          "linked_routes": [],
+          "linked_skills": [],
+          "estimated_token_count": 78,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Success criteria",
+          "short_description": "Architectural optimization succeeds when the package becomes easier to start, easier to maintain, and harder to let drift silently. Smaller token load alone is not enough if the ge",
+          "linked_summary": [
+            "architecture-optimization-summary.md"
+          ],
+          "linked_routes": [],
+          "linked_skills": [],
+          "estimated_token_count": 49,
+          "section_type": "validation"
         }
       ]
     },
@@ -5264,7 +6357,7 @@
         },
         {
           "heading": "Executive framing",
-          "short_description": "This source document captures the broader system-architecture research for the v2.4.0 expansion. It extends the existing feasibility gate into a deep architecture domain that owns ",
+          "short_description": "This source document captures the broader system-architecture research for the DesignPilot expansion. It extends the existing feasibility gate into a deep architecture domain that ",
           "linked_summary": [
             "back-end-systems-architecture-summary.md",
             "backend-planning-summary.md"
@@ -5278,7 +6371,26 @@
             "back-end-aware-planner.md",
             "back-end-systems-architect.md"
           ],
-          "estimated_token_count": 51,
+          "estimated_token_count": 48,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Problem statement",
+          "short_description": "Many design and product requests appear reasonable at the UI layer while hiding major backend implications. A system can look complete in a wireframe and still be underdefined in i",
+          "linked_summary": [
+            "back-end-systems-architecture-summary.md",
+            "backend-planning-summary.md"
+          ],
+          "linked_routes": [
+            "rt_api_reliability_security",
+            "rt_backend_feasibility",
+            "rt_backend_systems_architecture"
+          ],
+          "linked_skills": [
+            "back-end-aware-planner.md",
+            "back-end-systems-architect.md"
+          ],
+          "estimated_token_count": 84,
           "section_type": "principle"
         },
         {
@@ -5302,7 +6414,7 @@
         },
         {
           "heading": "Decision surface",
-          "short_description": "Authorization model: RBAC, ABAC, ReBAC, deny-by-default admin behavior.",
+          "short_description": "Authorization model: RBAC, ABAC, ReBAC, deny-by-default admin behavior",
           "linked_summary": [
             "back-end-systems-architecture-summary.md",
             "backend-planning-summary.md"
@@ -5317,6 +6429,158 @@
             "back-end-systems-architect.md"
           ],
           "estimated_token_count": 87,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Actors and resource model",
+          "short_description": "A credible backend plan starts by naming:",
+          "linked_summary": [
+            "back-end-systems-architecture-summary.md",
+            "backend-planning-summary.md"
+          ],
+          "linked_routes": [
+            "rt_api_reliability_security",
+            "rt_backend_feasibility",
+            "rt_backend_systems_architecture"
+          ],
+          "linked_skills": [
+            "back-end-aware-planner.md",
+            "back-end-systems-architect.md"
+          ],
+          "estimated_token_count": 64,
+          "section_type": "implementation"
+        },
+        {
+          "heading": "Authorization depth",
+          "short_description": "Authorization is not one flat question. DesignPilot should expect multiple layers:",
+          "linked_summary": [
+            "back-end-systems-architecture-summary.md",
+            "backend-planning-summary.md"
+          ],
+          "linked_routes": [
+            "rt_api_reliability_security",
+            "rt_backend_feasibility",
+            "rt_backend_systems_architecture"
+          ],
+          "linked_skills": [
+            "back-end-aware-planner.md",
+            "back-end-systems-architect.md"
+          ],
+          "estimated_token_count": 84,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Consistency posture",
+          "short_description": "Consistency decisions affect correctness, collaboration, and user trust. DesignPilot should require explicit posture when a feature depends on shared state, editing concurrency, or",
+          "linked_summary": [
+            "back-end-systems-architecture-summary.md",
+            "backend-planning-summary.md"
+          ],
+          "linked_routes": [
+            "rt_api_reliability_security",
+            "rt_backend_feasibility",
+            "rt_backend_systems_architecture"
+          ],
+          "linked_skills": [
+            "back-end-aware-planner.md",
+            "back-end-systems-architect.md"
+          ],
+          "estimated_token_count": 94,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Async lifecycle design",
+          "short_description": "Long-running operations should not be disguised as normal synchronous requests. Good architecture names:",
+          "linked_summary": [
+            "back-end-systems-architecture-summary.md",
+            "backend-planning-summary.md"
+          ],
+          "linked_routes": [
+            "rt_api_reliability_security",
+            "rt_backend_feasibility",
+            "rt_backend_systems_architecture"
+          ],
+          "linked_skills": [
+            "back-end-aware-planner.md",
+            "back-end-systems-architect.md"
+          ],
+          "estimated_token_count": 60,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Pagination and collections",
+          "short_description": "Stable pagination is a production requirement. The system should define:",
+          "linked_summary": [
+            "back-end-systems-architecture-summary.md",
+            "backend-planning-summary.md"
+          ],
+          "linked_routes": [
+            "rt_api_reliability_security",
+            "rt_backend_feasibility",
+            "rt_backend_systems_architecture"
+          ],
+          "linked_skills": [
+            "back-end-aware-planner.md",
+            "back-end-systems-architect.md"
+          ],
+          "estimated_token_count": 53,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Eventing and delivery",
+          "short_description": "If a system emits side effects or integrates across services, it should define:",
+          "linked_summary": [
+            "back-end-systems-architecture-summary.md",
+            "backend-planning-summary.md"
+          ],
+          "linked_routes": [
+            "rt_api_reliability_security",
+            "rt_backend_feasibility",
+            "rt_backend_systems_architecture"
+          ],
+          "linked_skills": [
+            "back-end-aware-planner.md",
+            "back-end-systems-architect.md"
+          ],
+          "estimated_token_count": 61,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Multi-tenancy",
+          "short_description": "DesignPilot should require explicit tenant thinking for B2B or org-based systems. The system must name:",
+          "linked_summary": [
+            "back-end-systems-architecture-summary.md",
+            "backend-planning-summary.md"
+          ],
+          "linked_routes": [
+            "rt_api_reliability_security",
+            "rt_backend_feasibility",
+            "rt_backend_systems_architecture"
+          ],
+          "linked_skills": [
+            "back-end-aware-planner.md",
+            "back-end-systems-architect.md"
+          ],
+          "estimated_token_count": 48,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Observability",
+          "short_description": "A serious backend architecture exposes:",
+          "linked_summary": [
+            "back-end-systems-architecture-summary.md",
+            "backend-planning-summary.md"
+          ],
+          "linked_routes": [
+            "rt_api_reliability_security",
+            "rt_backend_feasibility",
+            "rt_backend_systems_architecture"
+          ],
+          "linked_skills": [
+            "back-end-aware-planner.md",
+            "back-end-systems-architect.md"
+          ],
+          "estimated_token_count": 31,
           "section_type": "principle"
         },
         {
@@ -5337,6 +6601,82 @@
           ],
           "estimated_token_count": 74,
           "section_type": "validation"
+        },
+        {
+          "heading": "Failure patterns",
+          "short_description": "UI implies a feature can exist with no named source-of-truth model",
+          "linked_summary": [
+            "back-end-systems-architecture-summary.md",
+            "backend-planning-summary.md"
+          ],
+          "linked_routes": [
+            "rt_api_reliability_security",
+            "rt_backend_feasibility",
+            "rt_backend_systems_architecture"
+          ],
+          "linked_skills": [
+            "back-end-aware-planner.md",
+            "back-end-systems-architect.md"
+          ],
+          "estimated_token_count": 77,
+          "section_type": "anti-pattern"
+        },
+        {
+          "heading": "DesignPilot stance",
+          "short_description": "This knowledge base should force hidden backend consequences into the open. Its job is not to turn the pack into a code generator. Its job is to stop the system from approving desi",
+          "linked_summary": [
+            "back-end-systems-architecture-summary.md",
+            "backend-planning-summary.md"
+          ],
+          "linked_routes": [
+            "rt_api_reliability_security",
+            "rt_backend_feasibility",
+            "rt_backend_systems_architecture"
+          ],
+          "linked_skills": [
+            "back-end-aware-planner.md",
+            "back-end-systems-architect.md"
+          ],
+          "estimated_token_count": 55,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Review checklist for DesignPilot",
+          "short_description": "When this knowledge base is active, the system should ask:",
+          "linked_summary": [
+            "back-end-systems-architecture-summary.md",
+            "backend-planning-summary.md"
+          ],
+          "linked_routes": [
+            "rt_api_reliability_security",
+            "rt_backend_feasibility",
+            "rt_backend_systems_architecture"
+          ],
+          "linked_skills": [
+            "back-end-aware-planner.md",
+            "back-end-systems-architect.md"
+          ],
+          "estimated_token_count": 74,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Deliverable implications",
+          "short_description": "This document should influence backend-feasibility review, architecture specs, and any cross-domain critique where the UI implies data, auth, or event behavior. A response that tre",
+          "linked_summary": [
+            "back-end-systems-architecture-summary.md",
+            "backend-planning-summary.md"
+          ],
+          "linked_routes": [
+            "rt_api_reliability_security",
+            "rt_backend_feasibility",
+            "rt_backend_systems_architecture"
+          ],
+          "linked_skills": [
+            "back-end-aware-planner.md",
+            "back-end-systems-architect.md"
+          ],
+          "estimated_token_count": 53,
+          "section_type": "principle"
         }
       ]
     },
@@ -9720,7 +11060,6 @@
       "file_name": "Comprehensive UI_UX Project Roadmap.md",
       "linked_summaries": [
         "ui-system-summary.md",
-        "ux-cognition-summary.md",
         "ux-roadmap-summary.md"
       ],
       "sections": [
@@ -9729,7 +11068,6 @@
           "short_description": "Section from Comprehensive UI_UX Project Roadmap.md.",
           "linked_summary": [
             "ui-system-summary.md",
-            "ux-cognition-summary.md",
             "ux-roadmap-summary.md"
           ],
           "linked_routes": [
@@ -9750,7 +11088,6 @@
           "short_description": "The project begins by auditing the current state of an industry (e.g., healthcare, finance) against a theoretical \"ideal state\".",
           "linked_summary": [
             "ui-system-summary.md",
-            "ux-cognition-summary.md",
             "ux-roadmap-summary.md"
           ],
           "linked_routes": [
@@ -9771,7 +11108,6 @@
           "short_description": "Standard demographic data (age, income) is insufficient. You must map the internal logic of the user.",
           "linked_summary": [
             "ui-system-summary.md",
-            "ux-cognition-summary.md",
             "ux-roadmap-summary.md"
           ],
           "linked_routes": [
@@ -9792,7 +11128,6 @@
           "short_description": "Designing must account for the biological limits of the human eye and hand.",
           "linked_summary": [
             "ui-system-summary.md",
-            "ux-cognition-summary.md",
             "ux-roadmap-summary.md"
           ],
           "linked_routes": [
@@ -9813,7 +11148,6 @@
           "short_description": "Text is treated as a physiological trigger that can facilitate interaction or induce fatigue.",
           "linked_summary": [
             "ui-system-summary.md",
-            "ux-cognition-summary.md",
             "ux-roadmap-summary.md"
           ],
           "linked_routes": [
@@ -9834,7 +11168,6 @@
           "short_description": "The logo and brand marks are built using mathematical proportions rather than artistic intuition.",
           "linked_summary": [
             "ui-system-summary.md",
-            "ux-cognition-summary.md",
             "ux-roadmap-summary.md"
           ],
           "linked_routes": [
@@ -9855,7 +11188,6 @@
           "short_description": "This phase translates the brand and research into a rigid spatial system.",
           "linked_summary": [
             "ui-system-summary.md",
-            "ux-cognition-summary.md",
             "ux-roadmap-summary.md"
           ],
           "linked_routes": [
@@ -9876,7 +11208,6 @@
           "short_description": "The interface must be usable by everyone and provide sensory confirmation.",
           "linked_summary": [
             "ui-system-summary.md",
-            "ux-cognition-summary.md",
             "ux-roadmap-summary.md"
           ],
           "linked_routes": [
@@ -9897,7 +11228,6 @@
           "short_description": "To move from design to code without losing precision, use standardized \"Design Tokens\".",
           "linked_summary": [
             "ui-system-summary.md",
-            "ux-cognition-summary.md",
             "ux-roadmap-summary.md"
           ],
           "linked_routes": [
@@ -9918,7 +11248,6 @@
           "short_description": "The site is deployed using automated pipelines to ensure consistency between the designer's mockup and the live environment.",
           "linked_summary": [
             "ui-system-summary.md",
-            "ux-cognition-summary.md",
             "ux-roadmap-summary.md"
           ],
           "linked_routes": [
@@ -9939,7 +11268,6 @@
           "short_description": "After deployment, the project is measured by how well it helps users succeed, not just by visual appeal.",
           "linked_summary": [
             "ui-system-summary.md",
-            "ux-cognition-summary.md",
             "ux-roadmap-summary.md"
           ],
           "linked_routes": [
@@ -9960,7 +11288,6 @@
           "short_description": "The genesis of any high-impact UI/UX project is rooted in the extraction of human truths through exhaustive macro-level research. Designing in a vacuum is merely decoration; conver",
           "linked_summary": [
             "ui-system-summary.md",
-            "ux-cognition-summary.md",
             "ux-roadmap-summary.md"
           ],
           "linked_routes": [
@@ -9981,7 +11308,6 @@
           "short_description": "The research phase begins with an audit of the industry's \"current state\" against a theoretical \"ideal state\" of the user experience.<sup>1</sup> This involves identifying overarch",
           "linked_summary": [
             "ui-system-summary.md",
-            "ux-cognition-summary.md",
             "ux-roadmap-summary.md"
           ],
           "linked_routes": [
@@ -10002,7 +11328,6 @@
           "short_description": "Market research is a structured, multi-step methodology for replacing intuition with evidence.<sup>1</sup> Secondary research establishes historical context at a low cost by analyz",
           "linked_summary": [
             "ui-system-summary.md",
-            "ux-cognition-summary.md",
             "ux-roadmap-summary.md"
           ],
           "linked_routes": [
@@ -10023,7 +11348,6 @@
           "short_description": "A specialized subset of this intelligence gathering is the UX research gap analysis. This process identifies the focus area derived from the team's hypotheses and defines the discr",
           "linked_summary": [
             "ui-system-summary.md",
-            "ux-cognition-summary.md",
             "ux-roadmap-summary.md"
           ],
           "linked_routes": [
@@ -10044,7 +11368,6 @@
           "short_description": "Traditional demographic segmentation—tracking age, gender, and income—is fundamentally insufficient for modern emotional marketing and interaction design.<sup>1</sup> Two individua",
           "linked_summary": [
             "ui-system-summary.md",
-            "ux-cognition-summary.md",
             "ux-roadmap-summary.md"
           ],
           "linked_routes": [
@@ -10065,7 +11388,6 @@
           "short_description": "Psychographics uncover the underlying logic of purchasing and interaction decisions by tracking several qualitative dimensions:",
           "linked_summary": [
             "ui-system-summary.md",
-            "ux-cognition-summary.md",
             "ux-roadmap-summary.md"
           ],
           "linked_routes": [
@@ -10086,7 +11408,6 @@
           "short_description": "Unlike general marketing personas, UX design personas focus strictly on interaction behavior rather than just purchasing power.<sup>1</sup> These personas are defined by their tech",
           "linked_summary": [
             "ui-system-summary.md",
-            "ux-cognition-summary.md",
             "ux-roadmap-summary.md"
           ],
           "linked_routes": [
@@ -10107,7 +11428,6 @@
           "short_description": "The subjective experience of looking at a logo or navigating a digital interface as a smooth, continuous glide is a neurological illusion.<sup>1</sup> Physically, human visual proc",
           "linked_summary": [
             "ui-system-summary.md",
-            "ux-cognition-summary.md",
             "ux-roadmap-summary.md"
           ],
           "linked_routes": [
@@ -10128,7 +11448,6 @@
           "short_description": "Visual information is extracted exclusively during fixations, which are brief pauses in eye movement lasting between 200 and 300 milliseconds.<sup>1</sup> The movements between the",
           "linked_summary": [
             "ui-system-summary.md",
-            "ux-cognition-summary.md",
             "ux-roadmap-summary.md"
           ],
           "linked_routes": [
@@ -10149,7 +11468,6 @@
           "short_description": "The primary constraint on interface navigation is the finite capacity of human working memory, governed by Miller's Law, which states the average person can only keep \\$7 \\pm 2\\$ i",
           "linked_summary": [
             "ui-system-summary.md",
-            "ux-cognition-summary.md",
             "ux-roadmap-summary.md"
           ],
           "linked_routes": [
@@ -10170,7 +11488,6 @@
           "short_description": "Moving from psychological attribution to physical interaction, the principles of UX are deeply tethered to anthropometry—the measurement of the dimensions and proportions of the hu",
           "linked_summary": [
             "ui-system-summary.md",
-            "ux-cognition-summary.md",
             "ux-roadmap-summary.md"
           ],
           "linked_routes": [
@@ -10191,7 +11508,6 @@
           "short_description": "Mobile computing fundamentally alters the ergonomic equation by combining the display and input device into a single handheld unit.<sup>1</sup> Hand size and smartphone dimensions ",
           "linked_summary": [
             "ui-system-summary.md",
-            "ux-cognition-summary.md",
             "ux-roadmap-summary.md"
           ],
           "linked_routes": [
@@ -10212,7 +11528,6 @@
           "short_description": "For desktop computing, research prioritizes visual fields and spinal posture.<sup>1</sup> Visual displays must be placed within the upper limit of the visual field—75 degrees above",
           "linked_summary": [
             "ui-system-summary.md",
-            "ux-cognition-summary.md",
             "ux-roadmap-summary.md"
           ],
           "linked_routes": [
@@ -10233,7 +11548,6 @@
           "short_description": "To reduce cognitive friction, the interface must align with the user's mental model—internal representations formed based on past experiences.<sup>1</sup> When the actual conceptua",
           "linked_summary": [
             "ui-system-summary.md",
-            "ux-cognition-summary.md",
             "ux-roadmap-summary.md"
           ],
           "linked_routes": [
@@ -10254,7 +11568,6 @@
           "short_description": "These human behavioral patterns are codified into rigorous frameworks for interface architecture:",
           "linked_summary": [
             "ui-system-summary.md",
-            "ux-cognition-summary.md",
             "ux-roadmap-summary.md"
           ],
           "linked_routes": [
@@ -10275,7 +11588,6 @@
           "short_description": "Arrangements of data must also map to biological scanning patterns. In content-heavy interfaces, users reveal an **F-Pattern**, reading horizontally across the top, then a shorter ",
           "linked_summary": [
             "ui-system-summary.md",
-            "ux-cognition-summary.md",
             "ux-roadmap-summary.md"
           ],
           "linked_routes": [
@@ -10296,7 +11608,6 @@
           "short_description": "Advanced brand identity development transcends visual deliverables to construct an immersive, multi-dimensional ecosystem.<sup>1</sup> Historically conflated with logos and color p",
           "linked_summary": [
             "ui-system-summary.md",
-            "ux-cognition-summary.md",
             "ux-roadmap-summary.md"
           ],
           "linked_routes": [
@@ -10317,7 +11628,6 @@
           "short_description": "Segmenting audiences purely by demographic statistics is insufficient for modern emotional marketing.<sup>1</sup> Advanced non-visual identity begins with mapping psychographics to",
           "linked_summary": [
             "ui-system-summary.md",
-            "ux-cognition-summary.md",
             "ux-roadmap-summary.md"
           ],
           "linked_routes": [
@@ -10338,7 +11648,6 @@
           "short_description": "Because auditory stimuli process through the brain twenty to one hundred times faster than visual information, acoustic cues trigger immediate emotional responses that bypass consc",
           "linked_summary": [
             "ui-system-summary.md",
-            "ux-cognition-summary.md",
             "ux-roadmap-summary.md"
           ],
           "linked_routes": [
@@ -10359,7 +11668,6 @@
           "short_description": "A truly exhaustive framework utilizes tactile and olfactory stimuli to decrease cognitive load and amplify authenticity.<sup>1</sup> Haptic feedback transforms frictionless glass s",
           "linked_summary": [
             "ui-system-summary.md",
-            "ux-cognition-summary.md",
             "ux-roadmap-summary.md"
           ],
           "linked_routes": [
@@ -10380,7 +11688,6 @@
           "short_description": "In standard frameworks, copywriting is frequently an afterthought, but neuro-copywriting treats words as direct physiological triggers that can facilitate interaction or induce fat",
           "linked_summary": [
             "ui-system-summary.md",
-            "ux-cognition-summary.md",
             "ux-roadmap-summary.md"
           ],
           "linked_routes": [
@@ -10401,7 +11708,6 @@
           "short_description": "Neuro-copywriting ruthlessly eliminates extraneous load to preserve bandwidth for schema construction.<sup>1</sup> fMRI studies show that low-frequency, rare words trigger intense ",
           "linked_summary": [
             "ui-system-summary.md",
-            "ux-cognition-summary.md",
             "ux-roadmap-summary.md"
           ],
           "linked_routes": [
@@ -10422,7 +11728,6 @@
           "short_description": "Linguistic complexity is driven by the hierarchical syntactic depth of sentences.<sup>1</sup> The Plain English Protocol mandates several transformations:",
           "linked_summary": [
             "ui-system-summary.md",
-            "ux-cognition-summary.md",
             "ux-roadmap-summary.md"
           ],
           "linked_routes": [
@@ -10443,7 +11748,6 @@
           "short_description": "Narrative arcs are more effective for problem-solving machines like the human brain than repetitive listings of facts.<sup>1</sup> The \"And, But, Therefore\" template distills argum",
           "linked_summary": [
             "ui-system-summary.md",
-            "ux-cognition-summary.md",
             "ux-roadmap-summary.md"
           ],
           "linked_routes": [
@@ -10464,7 +11768,6 @@
           "short_description": "Anchor this multi-sensory ecosystem is the logo, which must be engineered through rigorous semiotic analysis and biological harmony.<sup>1</sup> Semiotics categorizes visual commun",
           "linked_summary": [
             "ui-system-summary.md",
-            "ux-cognition-summary.md",
             "ux-roadmap-summary.md"
           ],
           "linked_routes": [
@@ -10485,7 +11788,6 @@
           "short_description": "The primary visual cortex interprets raw geometric contours as emotional signals milliseconds before linguistic processing occurs.<sup>1</sup> The Bouba-Kiki effect proves that hum",
           "linked_summary": [
             "ui-system-summary.md",
-            "ux-cognition-summary.md",
             "ux-roadmap-summary.md"
           ],
           "linked_routes": [
@@ -10506,7 +11808,6 @@
           "short_description": "To ensure optical stability, professional logos utilize mathematical proportions mirroring biological harmony.<sup>1</sup> The Golden Ratio (\\$\\Phi \\approx 1.618\\$) is processed fa",
           "linked_summary": [
             "ui-system-summary.md",
-            "ux-cognition-summary.md",
             "ux-roadmap-summary.md"
           ],
           "linked_routes": [
@@ -10527,7 +11828,6 @@
           "short_description": "Relying purely on rigid geometry often yields designs that look incorrect to the human eye.<sup>1</sup> Final engineering involves Optical Compensation—deliberately breaking the ma",
           "linked_summary": [
             "ui-system-summary.md",
-            "ux-cognition-summary.md",
             "ux-roadmap-summary.md"
           ],
           "linked_routes": [
@@ -10548,7 +11848,6 @@
           "short_description": "If UX is the architectural blueprint, UI is the structural engineering and material finishes.<sup>1</sup> UI thinking employs typographic scaling, spatial grids, and color theory t",
           "linked_summary": [
             "ui-system-summary.md",
-            "ux-cognition-summary.md",
             "ux-roadmap-summary.md"
           ],
           "linked_routes": [
@@ -10569,7 +11868,6 @@
           "short_description": "Modern UI architecture relies on the 8-point grid, mandating that all sizing, padding, and margins use multiples of 8 (e.g., 16px, 24px, 32px).<sup>1</sup> This is rooted in hardwa",
           "linked_summary": [
             "ui-system-summary.md",
-            "ux-cognition-summary.md",
             "ux-roadmap-summary.md"
           ],
           "linked_routes": [
@@ -10590,7 +11888,6 @@
           "short_description": "Proper typographic execution requires attention to scale, measure, leading, and tracking.<sup>1</sup> Standard body text should be a minimum of 16px to 18px, with a line height of ",
           "linked_summary": [
             "ui-system-summary.md",
-            "ux-cognition-summary.md",
             "ux-roadmap-summary.md"
           ],
           "linked_routes": [
@@ -10611,7 +11908,6 @@
           "short_description": "Hierarchy is established through size, color, and typographic weight, but the most powerful tool is whitespace (negative space).<sup>1</sup> Whitespace is not wasted real estate; i",
           "linked_summary": [
             "ui-system-summary.md",
-            "ux-cognition-summary.md",
             "ux-roadmap-summary.md"
           ],
           "linked_routes": [
@@ -10632,7 +11928,6 @@
           "short_description": "Color is a functional mechanism for directing attention and managing visual fatigue.<sup>1</sup> To achieve visual harmony, designers rely on the 60-30-10 rule <sup>1</sup>:",
           "linked_summary": [
             "ui-system-summary.md",
-            "ux-cognition-summary.md",
             "ux-roadmap-summary.md"
           ],
           "linked_routes": [
@@ -10653,7 +11948,6 @@
           "short_description": "UX is entering a new era in 2026, where AI is reshaped from a feature into foundational infrastructure.<sup>6</sup> Interfaces are shifting from reactive to adaptive, anticipating ",
           "linked_summary": [
             "ui-system-summary.md",
-            "ux-cognition-summary.md",
             "ux-roadmap-summary.md"
           ],
           "linked_routes": [
@@ -10674,7 +11968,6 @@
           "short_description": "Users no longer click through screens; they work alongside intelligent systems.<sup>10</sup> Key patterns include:",
           "linked_summary": [
             "ui-system-summary.md",
-            "ux-cognition-summary.md",
             "ux-roadmap-summary.md"
           ],
           "linked_routes": [
@@ -10695,7 +11988,6 @@
           "short_description": "2026 interfaces fluidly combine voice, touch, gesture, and vision-based interfaces (VBIs).<sup>6</sup> Vision-based interfaces include eye tracking, facial expression analysis, and",
           "linked_summary": [
             "ui-system-summary.md",
-            "ux-cognition-summary.md",
             "ux-roadmap-summary.md"
           ],
           "linked_routes": [
@@ -10716,7 +12008,6 @@
           "short_description": "Prototyping cycles have compressed significantly through AI-powered tools.<sup>17</sup> Tools like **UX Pilot** generate interfaces from descriptions while respecting existing desi",
           "linked_summary": [
             "ui-system-summary.md",
-            "ux-cognition-summary.md",
             "ux-roadmap-summary.md"
           ],
           "linked_routes": [
@@ -10737,7 +12028,6 @@
           "short_description": "Accessibility is a set of design constraints that improves products for everyone.<sup>1</sup> The impending implementation of WCAG 3.0 introduces the **Advanced Perceptual Contrast",
           "linked_summary": [
             "ui-system-summary.md",
-            "ux-cognition-summary.md",
             "ux-roadmap-summary.md"
           ],
           "linked_routes": [
@@ -10758,7 +12048,6 @@
           "short_description": "The journey from design to deployment requires a seamless \"Design-Code Contract\".<sup>25</sup> Modern workflows utilize **Design Tokens Community Group (DTCG)** specifications to p",
           "linked_summary": [
             "ui-system-summary.md",
-            "ux-cognition-summary.md",
             "ux-roadmap-summary.md"
           ],
           "linked_routes": [
@@ -10779,7 +12068,6 @@
           "short_description": "Design tokens support aliasing, creating hierarchies of design decisions.<sup>26</sup> The specification, reaching its first stable version (2025.10) in late 2025, provides a produ",
           "linked_summary": [
             "ui-system-summary.md",
-            "ux-cognition-summary.md",
             "ux-roadmap-summary.md"
           ],
           "linked_routes": [
@@ -10800,7 +12088,6 @@
           "short_description": "The integration of Figma with GitHub and GitLab pipelines has broken down the silos between design and operations.<sup>30</sup> Tools like **GitHub Actions** and **GitLab CI/CD** a",
           "linked_summary": [
             "ui-system-summary.md",
-            "ux-cognition-summary.md",
             "ux-roadmap-summary.md"
           ],
           "linked_routes": [
@@ -10821,7 +12108,6 @@
           "short_description": "Design success in 2026 is measured not by surface-level numbers like clicks, but by how well the experience helps users succeed.<sup>36</sup>",
           "linked_summary": [
             "ui-system-summary.md",
-            "ux-cognition-summary.md",
             "ux-roadmap-summary.md"
           ],
           "linked_routes": [
@@ -10842,7 +12128,6 @@
           "short_description": "1.  **Task Success Rate:** The percentage of users who complete a defined task without assistance.<sup>36</sup>",
           "linked_summary": [
             "ui-system-summary.md",
-            "ux-cognition-summary.md",
             "ux-roadmap-summary.md"
           ],
           "linked_routes": [
@@ -10863,7 +12148,6 @@
           "short_description": "Advanced AI tools process large volumes of qualitative data—session recordings, interview transcripts, and support tickets—to surface patterns in hours rather than days.<sup>17</su",
           "linked_summary": [
             "ui-system-summary.md",
-            "ux-cognition-summary.md",
             "ux-roadmap-summary.md"
           ],
           "linked_routes": [
@@ -10884,7 +12168,6 @@
           "short_description": "The final stage of the roadmap is the effective presentation of the design process and results. Practitioners should structure the UX case study utilizing the **Minto Pyramid Princ",
           "linked_summary": [
             "ui-system-summary.md",
-            "ux-cognition-summary.md",
             "ux-roadmap-summary.md"
           ],
           "linked_routes": [
@@ -10905,7 +12188,6 @@
           "short_description": "1.  **Top (The Answer):** Start with the \"knockout punch\"—the single most impressive result, quantifiable metric, and business impact (e.g., \"Reduced resolution time by 47%\").<sup>",
           "linked_summary": [
             "ui-system-summary.md",
-            "ux-cognition-summary.md",
             "ux-roadmap-summary.md"
           ],
           "linked_routes": [
@@ -10926,7 +12208,6 @@
           "short_description": "The creation of a highly effective digital interface is a masterclass in multidisciplinary synthesis. It begins with the extraction of human truths through market research and the ",
           "linked_summary": [
             "ui-system-summary.md",
-            "ux-cognition-summary.md",
             "ux-roadmap-summary.md"
           ],
           "linked_routes": [
@@ -10947,7 +12228,6 @@
           "short_description": "1.  Framework for UI_UX and Brand Design.docx",
           "linked_summary": [
             "ui-system-summary.md",
-            "ux-cognition-summary.md",
             "ux-roadmap-summary.md"
           ],
           "linked_routes": [
@@ -14146,7 +15426,7 @@
         },
         {
           "heading": "Executive framing",
-          "short_description": "This source document captures the front-end architecture research for the v2.4.0 capability expansion. It treats front-end work as systems engineering rather than styling. The pack",
+          "short_description": "This source document captures the front-end architecture research for the DesignPilot expansion. It treats front-end work as systems engineering rather than styling. The pack shoul",
           "linked_summary": [
             "front-end-architecture-summary.md",
             "front-end-handoff-summary.md"
@@ -14160,7 +15440,26 @@
             "front-end-architecture-expert.md",
             "front-end-handoff-expert.md"
           ],
-          "estimated_token_count": 72,
+          "estimated_token_count": 68,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Problem statement",
+          "short_description": "Front-end requests are often described visually but fail structurally. The common mistakes are:",
+          "linked_summary": [
+            "front-end-architecture-summary.md",
+            "front-end-handoff-summary.md"
+          ],
+          "linked_routes": [
+            "rt_backend_feasibility",
+            "rt_component_spec",
+            "rt_frontend_architecture"
+          ],
+          "linked_skills": [
+            "front-end-architecture-expert.md",
+            "front-end-handoff-expert.md"
+          ],
+          "estimated_token_count": 92,
           "section_type": "principle"
         },
         {
@@ -14184,7 +15483,7 @@
         },
         {
           "heading": "Decision surface",
-          "short_description": "Rendering model: static, dynamic, PPR, CSR, streaming / Suspense.",
+          "short_description": "Rendering model: static, dynamic, PPR, CSR, streaming / Suspense",
           "linked_summary": [
             "front-end-architecture-summary.md",
             "front-end-handoff-summary.md"
@@ -14199,6 +15498,139 @@
             "front-end-handoff-expert.md"
           ],
           "estimated_token_count": 83,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Rendering model",
+          "short_description": "A front-end plan should name how the UI is delivered. DesignPilot should distinguish between:",
+          "linked_summary": [
+            "front-end-architecture-summary.md",
+            "front-end-handoff-summary.md"
+          ],
+          "linked_routes": [
+            "rt_backend_feasibility",
+            "rt_component_spec",
+            "rt_frontend_architecture"
+          ],
+          "linked_skills": [
+            "front-end-architecture-expert.md",
+            "front-end-handoff-expert.md"
+          ],
+          "estimated_token_count": 64,
+          "section_type": "implementation"
+        },
+        {
+          "heading": "State ownership",
+          "short_description": "State should stay as local as possible. Shared state is justified only when synchronization or multiple consumers actually require it. DesignPilot should flag:",
+          "linked_summary": [
+            "front-end-architecture-summary.md",
+            "front-end-handoff-summary.md"
+          ],
+          "linked_routes": [
+            "rt_backend_feasibility",
+            "rt_component_spec",
+            "rt_frontend_architecture"
+          ],
+          "linked_skills": [
+            "front-end-architecture-expert.md",
+            "front-end-handoff-expert.md"
+          ],
+          "estimated_token_count": 62,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Mutation architecture",
+          "short_description": "Mutation paths need explicit pending, success, error, and rollback behavior. A front-end request that says “just save the form” is underdefined until it names:",
+          "linked_summary": [
+            "front-end-architecture-summary.md",
+            "front-end-handoff-summary.md"
+          ],
+          "linked_routes": [
+            "rt_backend_feasibility",
+            "rt_component_spec",
+            "rt_frontend_architecture"
+          ],
+          "linked_skills": [
+            "front-end-architecture-expert.md",
+            "front-end-handoff-expert.md"
+          ],
+          "estimated_token_count": 62,
+          "section_type": "implementation"
+        },
+        {
+          "heading": "Semantic structure",
+          "short_description": "HTML element selection is not cosmetic. DesignPilot should evaluate whether the chosen structure actually matches the interaction model. Examples:",
+          "linked_summary": [
+            "front-end-architecture-summary.md",
+            "front-end-handoff-summary.md"
+          ],
+          "linked_routes": [
+            "rt_backend_feasibility",
+            "rt_component_spec",
+            "rt_frontend_architecture"
+          ],
+          "linked_skills": [
+            "front-end-architecture-expert.md",
+            "front-end-handoff-expert.md"
+          ],
+          "estimated_token_count": 52,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Boundary placement",
+          "short_description": "Server/client boundaries should be intentional. A plan that pushes large trees client-side for convenience should be challenged when static or server rendering could do more work c",
+          "linked_summary": [
+            "front-end-architecture-summary.md",
+            "front-end-handoff-summary.md"
+          ],
+          "linked_routes": [
+            "rt_backend_feasibility",
+            "rt_component_spec",
+            "rt_frontend_architecture"
+          ],
+          "linked_skills": [
+            "front-end-architecture-expert.md",
+            "front-end-handoff-expert.md"
+          ],
+          "estimated_token_count": 38,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Composition strategy",
+          "short_description": "Healthy front-end architecture uses bounded contexts, stable interfaces, and feature-based composition. Warning signs include:",
+          "linked_summary": [
+            "front-end-architecture-summary.md",
+            "front-end-handoff-summary.md"
+          ],
+          "linked_routes": [
+            "rt_backend_feasibility",
+            "rt_component_spec",
+            "rt_frontend_architecture"
+          ],
+          "linked_skills": [
+            "front-end-architecture-expert.md",
+            "front-end-handoff-expert.md"
+          ],
+          "estimated_token_count": 61,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Performance posture",
+          "short_description": "Performance should be treated as an architectural decision surface. DesignPilot should require at least a minimal stance on:",
+          "linked_summary": [
+            "front-end-architecture-summary.md",
+            "front-end-handoff-summary.md"
+          ],
+          "linked_routes": [
+            "rt_backend_feasibility",
+            "rt_component_spec",
+            "rt_frontend_architecture"
+          ],
+          "linked_skills": [
+            "front-end-architecture-expert.md",
+            "front-end-handoff-expert.md"
+          ],
+          "estimated_token_count": 44,
           "section_type": "principle"
         },
         {
@@ -14219,6 +15651,82 @@
           ],
           "estimated_token_count": 79,
           "section_type": "validation"
+        },
+        {
+          "heading": "Failure patterns",
+          "short_description": "beautiful component tree with no explicit state model",
+          "linked_summary": [
+            "front-end-architecture-summary.md",
+            "front-end-handoff-summary.md"
+          ],
+          "linked_routes": [
+            "rt_backend_feasibility",
+            "rt_component_spec",
+            "rt_frontend_architecture"
+          ],
+          "linked_skills": [
+            "front-end-architecture-expert.md",
+            "front-end-handoff-expert.md"
+          ],
+          "estimated_token_count": 60,
+          "section_type": "anti-pattern"
+        },
+        {
+          "heading": "DesignPilot stance",
+          "short_description": "This knowledge base should push the pack to judge front-end work as architecture: state, boundaries, semantics, mutation safety, and performance. Styling quality alone is not enoug",
+          "linked_summary": [
+            "front-end-architecture-summary.md",
+            "front-end-handoff-summary.md"
+          ],
+          "linked_routes": [
+            "rt_backend_feasibility",
+            "rt_component_spec",
+            "rt_frontend_architecture"
+          ],
+          "linked_skills": [
+            "front-end-architecture-expert.md",
+            "front-end-handoff-expert.md"
+          ],
+          "estimated_token_count": 35,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Review checklist for DesignPilot",
+          "short_description": "When this knowledge base is active, the system should ask:",
+          "linked_summary": [
+            "front-end-architecture-summary.md",
+            "front-end-handoff-summary.md"
+          ],
+          "linked_routes": [
+            "rt_backend_feasibility",
+            "rt_component_spec",
+            "rt_frontend_architecture"
+          ],
+          "linked_skills": [
+            "front-end-architecture-expert.md",
+            "front-end-handoff-expert.md"
+          ],
+          "estimated_token_count": 86,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Deliverable implications",
+          "short_description": "This document should materially shape front-end architecture review, component-spec work, dashboard audits, and UI structure critique whenever implementation realism matters. A res",
+          "linked_summary": [
+            "front-end-architecture-summary.md",
+            "front-end-handoff-summary.md"
+          ],
+          "linked_routes": [
+            "rt_backend_feasibility",
+            "rt_component_spec",
+            "rt_frontend_architecture"
+          ],
+          "linked_skills": [
+            "front-end-architecture-expert.md",
+            "front-end-handoff-expert.md"
+          ],
+          "estimated_token_count": 53,
+          "section_type": "principle"
         }
       ]
     },
@@ -15021,7 +16529,7 @@
       "sections": [
         {
           "heading": "Global Typography Intelligence Index for Production Design Systems",
-          "short_description": "Section from Global Typography Intelligence Index.md.",
+          "short_description": "Built from the uploaded Global Typography Intelligence Index and normalized against official type documentation current to April 11, 2026. -->",
           "linked_summary": [
             "typeface-database-summary.md",
             "typography-summary.md"
@@ -15033,11 +16541,28 @@
           "linked_skills": [
             "type-system-expert.md"
           ],
-          "estimated_token_count": 1,
+          "estimated_token_count": 25,
           "section_type": "principle"
         },
         {
-          "heading": "1. Why the pack needs a typography refresh",
+          "heading": "Purpose",
+          "short_description": "This source document expands the pack’s typography intelligence from general pairings into a production-aware system covering script support, variable-font behavior, dashboard typo",
+          "linked_summary": [
+            "typeface-database-summary.md",
+            "typography-summary.md"
+          ],
+          "linked_routes": [
+            "rt_graphic_critique",
+            "rt_type_system_recommendation"
+          ],
+          "linked_skills": [
+            "type-system-expert.md"
+          ],
+          "estimated_token_count": 40,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Why the pack needs a typography refresh",
           "short_description": "The pack already had typography summaries and a font library, but they leaned more on generalized pairings and role buckets than on current implementation constraints. The uploaded",
           "linked_summary": [
             "typeface-database-summary.md",
@@ -15050,11 +16575,11 @@
           "linked_skills": [
             "type-system-expert.md"
           ],
-          "estimated_token_count": 65,
+          "estimated_token_count": 86,
           "section_type": "principle"
         },
         {
-          "heading": "2. Current official anchors",
+          "heading": "Current official anchors",
           "short_description": "Section from Global Typography Intelligence Index.md.",
           "linked_summary": [
             "typeface-database-summary.md",
@@ -15089,7 +16614,7 @@
         },
         {
           "heading": "Geist",
-          "short_description": "Vercel’s official Geist site now makes an important implementation distinction: npm and zip installs include the **full glyph set** and `font-feature-settings` support, while the e",
+          "short_description": "Vercel’s official Geist site makes an implementation distinction that matters operationally: npm and zip installs include the full glyph set and `font-feature-settings` support, wh",
           "linked_summary": [
             "typeface-database-summary.md",
             "typography-summary.md"
@@ -15101,7 +16626,7 @@
           "linked_skills": [
             "type-system-expert.md"
           ],
-          "estimated_token_count": 58,
+          "estimated_token_count": 44,
           "section_type": "principle"
         },
         {
@@ -15118,12 +16643,12 @@
           "linked_skills": [
             "type-system-expert.md"
           ],
-          "estimated_token_count": 49,
+          "estimated_token_count": 46,
           "section_type": "principle"
         },
         {
           "heading": "Atkinson Hyperlegible Next",
-          "short_description": "The accessibility picture changed meaningfully in 2025 when Braille Institute expanded the Atkinson family with **Atkinson Hyperlegible Next** and **Atkinson Hyperlegible Mono**, s",
+          "short_description": "The accessibility picture changed meaningfully when Braille Institute expanded the Atkinson family with Atkinson Hyperlegible Next and Atkinson Hyperlegible Mono, seven weights, va",
           "linked_summary": [
             "typeface-database-summary.md",
             "typography-summary.md"
@@ -15135,29 +16660,12 @@
           "linked_skills": [
             "type-system-expert.md"
           ],
-          "estimated_token_count": 55,
+          "estimated_token_count": 52,
           "section_type": "principle"
         },
         {
           "heading": "Noto",
-          "short_description": "Noto remains the pack’s most important global script fallback system. Current Noto docs still emphasize that the collection covers more than 1,000 languages and over 150 writing sy",
-          "linked_summary": [
-            "typeface-database-summary.md",
-            "typography-summary.md"
-          ],
-          "linked_routes": [
-            "rt_graphic_critique",
-            "rt_type_system_recommendation"
-          ],
-          "linked_skills": [
-            "type-system-expert.md"
-          ],
-          "estimated_token_count": 62,
-          "section_type": "principle"
-        },
-        {
-          "heading": "Variable fonts in CSS",
-          "short_description": "MDN’s current guidance is still that teams should prefer high-level CSS properties like `font-weight`, `font-stretch`, and `font-style`, and use low-level `font-variation-settings`",
+          "short_description": "Noto remains the pack’s most important global-script fallback system. The collection covers more than 1,000 languages and over 150 writing systems, but CJK support must be loaded b",
           "linked_summary": [
             "typeface-database-summary.md",
             "typography-summary.md"
@@ -15173,8 +16681,8 @@
           "section_type": "principle"
         },
         {
-          "heading": "3. Production selection model",
-          "short_description": "A production typography decision should account for:",
+          "heading": "Variable fonts in CSS",
+          "short_description": "Modern CSS guidance still points teams toward high-level properties like `font-weight`, `font-stretch`, and `font-style` first, with `font-variation-settings` reserved for axis con",
           "linked_summary": [
             "typeface-database-summary.md",
             "typography-summary.md"
@@ -15186,11 +16694,28 @@
           "linked_skills": [
             "type-system-expert.md"
           ],
-          "estimated_token_count": 40,
+          "estimated_token_count": 43,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Production selection model",
+          "short_description": "A serious typography decision should account for:",
+          "linked_summary": [
+            "typeface-database-summary.md",
+            "typography-summary.md"
+          ],
+          "linked_routes": [
+            "rt_graphic_critique",
+            "rt_type_system_recommendation"
+          ],
+          "linked_skills": [
+            "type-system-expert.md"
+          ],
+          "estimated_token_count": 47,
           "section_type": "implementation"
         },
         {
-          "heading": "4. Role buckets the pack should think in",
+          "heading": "Role buckets the pack should think in",
           "short_description": "Section from Global Typography Intelligence Index.md.",
           "linked_summary": [
             "typeface-database-summary.md",
@@ -15360,7 +16885,7 @@
           "section_type": "principle"
         },
         {
-          "heading": "5. Small-size behavior",
+          "heading": "Small-size behavior",
           "short_description": "For small UI text, the pack should prefer:",
           "linked_summary": [
             "typeface-database-summary.md",
@@ -15373,12 +16898,12 @@
           "linked_skills": [
             "type-system-expert.md"
           ],
-          "estimated_token_count": 42,
+          "estimated_token_count": 44,
           "section_type": "implementation"
         },
         {
-          "heading": "6. Dashboard and dense-data typography",
-          "short_description": "Dashboards need more than a “clean sans.” The pack should specifically look for:",
+          "heading": "Dashboard and dense-data typography",
+          "short_description": "Dashboards need more than a “clean sans.” The pack should explicitly look for:",
           "linked_summary": [
             "typeface-database-summary.md",
             "typography-summary.md"
@@ -15390,12 +16915,12 @@
           "linked_skills": [
             "type-system-expert.md"
           ],
-          "estimated_token_count": 56,
+          "estimated_token_count": 64,
           "section_type": "principle"
         },
         {
-          "heading": "7. Variable-font behavior",
-          "short_description": "Variable fonts are still a strong default when they reduce file count and improve control. But the pack should now be more precise:",
+          "heading": "Variable-font behavior",
+          "short_description": "Variable fonts are a strong default when they reduce file count and improve control. But the pack should be precise:",
           "linked_summary": [
             "typeface-database-summary.md",
             "typography-summary.md"
@@ -15407,11 +16932,11 @@
           "linked_skills": [
             "type-system-expert.md"
           ],
-          "estimated_token_count": 79,
+          "estimated_token_count": 87,
           "section_type": "implementation"
         },
         {
-          "heading": "8. Localization and script-aware logic",
+          "heading": "Localization and script-aware logic",
           "short_description": "Section from Global Typography Intelligence Index.md.",
           "linked_summary": [
             "typeface-database-summary.md",
@@ -15446,7 +16971,7 @@
         },
         {
           "heading": "Arabic",
-          "short_description": "Arabic-supportive digital systems should start with families that actually solve shaping and RTL needs, such as Noto Sans Arabic, Noto Naskh Arabic, Cairo, or IBM Plex Sans Arabic.",
+          "short_description": "Arabic-supportive systems should start with families that actually solve shaping and RTL needs, such as Noto Sans Arabic, Noto Naskh Arabic, Cairo, or IBM Plex Sans Arabic. Arabic ",
           "linked_summary": [
             "typeface-database-summary.md",
             "typography-summary.md"
@@ -15458,7 +16983,7 @@
           "linked_skills": [
             "type-system-expert.md"
           ],
-          "estimated_token_count": 56,
+          "estimated_token_count": 55,
           "section_type": "principle"
         },
         {
@@ -15479,8 +17004,8 @@
           "section_type": "principle"
         },
         {
-          "heading": "9. Accessibility",
-          "short_description": "The pack should keep Atkinson, Lexend, Luciole, and Andika as high-value accessibility options, but use them intentionally rather than ritualistically. The updated Atkinson family ",
+          "heading": "Accessibility",
+          "short_description": "The pack should keep Atkinson, Lexend, Luciole, and Andika as high-value accessibility options, but use them intentionally rather than ritualistically. Readability-supportive faces",
           "linked_summary": [
             "typeface-database-summary.md",
             "typography-summary.md"
@@ -15492,11 +17017,11 @@
           "linked_skills": [
             "type-system-expert.md"
           ],
-          "estimated_token_count": 57,
+          "estimated_token_count": 48,
           "section_type": "principle"
         },
         {
-          "heading": "10. Pairing logic",
+          "heading": "Pairing logic",
           "short_description": "Avoid pairing two fonts that do the same job. Real contrast usually comes from differences in:",
           "linked_summary": [
             "typeface-database-summary.md",
@@ -15509,11 +17034,11 @@
           "linked_skills": [
             "type-system-expert.md"
           ],
-          "estimated_token_count": 34,
+          "estimated_token_count": 47,
           "section_type": "implementation"
         },
         {
-          "heading": "11. Licensing and deployment",
+          "heading": "Licensing and deployment",
           "short_description": "The pack should keep naming licensing risk explicitly.",
           "linked_summary": [
             "typeface-database-summary.md",
@@ -15526,12 +17051,12 @@
           "linked_skills": [
             "type-system-expert.md"
           ],
-          "estimated_token_count": 52,
+          "estimated_token_count": 62,
           "section_type": "principle"
         },
         {
-          "heading": "12. Resulting pack implications",
-          "short_description": "This refresh means the pack should:",
+          "heading": "Decision questions DesignPilot should ask",
+          "short_description": "What scripts does this product actually need to support?",
           "linked_summary": [
             "typeface-database-summary.md",
             "typography-summary.md"
@@ -15543,7 +17068,58 @@
           "linked_skills": [
             "type-system-expert.md"
           ],
-          "estimated_token_count": 83,
+          "estimated_token_count": 69,
+          "section_type": "principle"
+        },
+        {
+          "heading": "DesignPilot stance",
+          "short_description": "Typography should be evaluated as a production system: role, coverage, readability, fallback posture, and implementation method. The pack should not let “good taste” substitute for",
+          "linked_summary": [
+            "typeface-database-summary.md",
+            "typography-summary.md"
+          ],
+          "linked_routes": [
+            "rt_graphic_critique",
+            "rt_type_system_recommendation"
+          ],
+          "linked_skills": [
+            "type-system-expert.md"
+          ],
+          "estimated_token_count": 35,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Review checklist for DesignPilot",
+          "short_description": "Use this source to ask:",
+          "linked_summary": [
+            "typeface-database-summary.md",
+            "typography-summary.md"
+          ],
+          "linked_routes": [
+            "rt_graphic_critique",
+            "rt_type_system_recommendation"
+          ],
+          "linked_skills": [
+            "type-system-expert.md"
+          ],
+          "estimated_token_count": 87,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Success conditions",
+          "short_description": "This knowledge base succeeds when typography recommendations stop being generic mood advice and become production-aware decisions with explicit role, coverage, fallback, and deploy",
+          "linked_summary": [
+            "typeface-database-summary.md",
+            "typography-summary.md"
+          ],
+          "linked_routes": [
+            "rt_graphic_critique",
+            "rt_type_system_recommendation"
+          ],
+          "linked_skills": [
+            "type-system-expert.md"
+          ],
+          "estimated_token_count": 32,
           "section_type": "principle"
         }
       ]
@@ -16069,7 +17645,37 @@
           "linked_skills": [
             "text-humanization-expert.md"
           ],
-          "estimated_token_count": 23,
+          "estimated_token_count": 72,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Problem statement",
+          "short_description": "AI-shaped writing often looks polished before it reads as believable. Common symptoms include:",
+          "linked_summary": [
+            "text-humanization-summary.md"
+          ],
+          "linked_routes": [
+            "rt_text_humanization"
+          ],
+          "linked_skills": [
+            "text-humanization-expert.md"
+          ],
+          "estimated_token_count": 79,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Core rule",
+          "short_description": "Humanization is a revision discipline, not a style transplant. It must preserve the author’s intent, argument, and tone direction while reducing machine-shaped scaffolding.",
+          "linked_summary": [
+            "text-humanization-summary.md"
+          ],
+          "linked_routes": [
+            "rt_text_humanization"
+          ],
+          "linked_skills": [
+            "text-humanization-expert.md"
+          ],
+          "estimated_token_count": 32,
           "section_type": "principle"
         },
         {
@@ -16084,7 +17690,7 @@
           "linked_skills": [
             "text-humanization-expert.md"
           ],
-          "estimated_token_count": 52,
+          "estimated_token_count": 81,
           "section_type": "principle"
         },
         {
@@ -16099,12 +17705,57 @@
           "linked_skills": [
             "text-humanization-expert.md"
           ],
-          "estimated_token_count": 56,
+          "estimated_token_count": 79,
+          "section_type": "principle"
+        },
+        {
+          "heading": "What counts as authored texture",
+          "short_description": "Authored texture is not slang, looseness, or informality by default. It includes:",
+          "linked_summary": [
+            "text-humanization-summary.md"
+          ],
+          "linked_routes": [
+            "rt_text_humanization"
+          ],
+          "linked_skills": [
+            "text-humanization-expert.md"
+          ],
+          "estimated_token_count": 55,
           "section_type": "principle"
         },
         {
           "heading": "Anti-patterns",
-          "short_description": "predictable sentence openings repeated across the piece",
+          "short_description": "Common machine-shaped prose failures:",
+          "linked_summary": [
+            "text-humanization-summary.md"
+          ],
+          "linked_routes": [
+            "rt_text_humanization"
+          ],
+          "linked_skills": [
+            "text-humanization-expert.md"
+          ],
+          "estimated_token_count": 79,
+          "section_type": "anti-pattern"
+        },
+        {
+          "heading": "Structural caution",
+          "short_description": "Do not mistake organization for stiffness. Some writing, especially academic or technical rationale, needs formal structure. Humanization should remove mechanical repetition, not e",
+          "linked_summary": [
+            "text-humanization-summary.md"
+          ],
+          "linked_routes": [
+            "rt_text_humanization"
+          ],
+          "linked_skills": [
+            "text-humanization-expert.md"
+          ],
+          "estimated_token_count": 31,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Voice preservation strategy",
+          "short_description": "Before revising, identify the source voice on these axes:",
           "linked_summary": [
             "text-humanization-summary.md"
           ],
@@ -16115,10 +17766,145 @@
             "text-humanization-expert.md"
           ],
           "estimated_token_count": 43,
-          "section_type": "anti-pattern"
+          "section_type": "principle"
         },
         {
-          "heading": "Validator logic",
+          "heading": "Sentence-level priorities",
+          "short_description": "At the sentence level, prioritize:",
+          "linked_summary": [
+            "text-humanization-summary.md"
+          ],
+          "linked_routes": [
+            "rt_text_humanization"
+          ],
+          "linked_skills": [
+            "text-humanization-expert.md"
+          ],
+          "estimated_token_count": 44,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Paragraph-level priorities",
+          "short_description": "At the paragraph level, prioritize:",
+          "linked_summary": [
+            "text-humanization-summary.md"
+          ],
+          "linked_routes": [
+            "rt_text_humanization"
+          ],
+          "linked_skills": [
+            "text-humanization-expert.md"
+          ],
+          "estimated_token_count": 47,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Meaning-preservation rules",
+          "short_description": "Never humanize by:",
+          "linked_summary": [
+            "text-humanization-summary.md"
+          ],
+          "linked_routes": [
+            "rt_text_humanization"
+          ],
+          "linked_skills": [
+            "text-humanization-expert.md"
+          ],
+          "estimated_token_count": 39,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Special use cases",
+          "short_description": "Section from Humanizing Writing Protocol.md.",
+          "linked_summary": [
+            "text-humanization-summary.md"
+          ],
+          "linked_routes": [
+            "rt_text_humanization"
+          ],
+          "linked_skills": [
+            "text-humanization-expert.md"
+          ],
+          "estimated_token_count": 1,
+          "section_type": "example"
+        },
+        {
+          "heading": "Case studies and rationale",
+          "short_description": "Preserve the project logic and proof chain. Humanization should make the narrative feel authored, not promotional.",
+          "linked_summary": [
+            "text-humanization-summary.md"
+          ],
+          "linked_routes": [
+            "rt_text_humanization"
+          ],
+          "linked_skills": [
+            "text-humanization-expert.md"
+          ],
+          "estimated_token_count": 21,
+          "section_type": "threshold"
+        },
+        {
+          "heading": "UX or design critique",
+          "short_description": "Keep the decision edge. Do not smooth direct critique into neutral mush.",
+          "linked_summary": [
+            "text-humanization-summary.md"
+          ],
+          "linked_routes": [
+            "rt_text_humanization"
+          ],
+          "linked_skills": [
+            "text-humanization-expert.md"
+          ],
+          "estimated_token_count": 16,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Academic or research writing",
+          "short_description": "Preserve precision and structure. Humanization may reduce stiffness, but it must not remove the argumentative spine.",
+          "linked_summary": [
+            "text-humanization-summary.md"
+          ],
+          "linked_routes": [
+            "rt_text_humanization"
+          ],
+          "linked_skills": [
+            "text-humanization-expert.md"
+          ],
+          "estimated_token_count": 21,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Portfolio writing",
+          "short_description": "Preserve the author’s positioning and specificity. Avoid synthetic brand polish unless requested.",
+          "linked_summary": [
+            "text-humanization-summary.md"
+          ],
+          "linked_routes": [
+            "rt_text_humanization"
+          ],
+          "linked_skills": [
+            "text-humanization-expert.md"
+          ],
+          "estimated_token_count": 17,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Use boundaries",
+          "short_description": "Run this on prose-heavy explanation, rationale, and narrative writing. Do not run it blindly on code, schemas, strict specs, validator reports, or policy language where exact wordi",
+          "linked_summary": [
+            "text-humanization-summary.md"
+          ],
+          "linked_routes": [
+            "rt_text_humanization"
+          ],
+          "linked_skills": [
+            "text-humanization-expert.md"
+          ],
+          "estimated_token_count": 38,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Validation logic",
           "short_description": "Humanization should be checked for:",
           "linked_summary": [
             "text-humanization-summary.md"
@@ -16129,12 +17915,12 @@
           "linked_skills": [
             "text-humanization-expert.md"
           ],
-          "estimated_token_count": 29,
+          "estimated_token_count": 44,
           "section_type": "implementation"
         },
         {
-          "heading": "Use boundaries",
-          "short_description": "Run this on prose-heavy explanation, rationale, and narrative writing.",
+          "heading": "Good output characteristics",
+          "short_description": "A successful humanization pass should feel:",
           "linked_summary": [
             "text-humanization-summary.md"
           ],
@@ -16144,7 +17930,67 @@
           "linked_skills": [
             "text-humanization-expert.md"
           ],
-          "estimated_token_count": 30,
+          "estimated_token_count": 27,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Failure patterns",
+          "short_description": "Humanization fails when it:",
+          "linked_summary": [
+            "text-humanization-summary.md"
+          ],
+          "linked_routes": [
+            "rt_text_humanization"
+          ],
+          "linked_skills": [
+            "text-humanization-expert.md"
+          ],
+          "estimated_token_count": 55,
+          "section_type": "anti-pattern"
+        },
+        {
+          "heading": "Operating stance",
+          "short_description": "The humanization layer should behave like an exacting editor, not a ghostwritten personality swap. The job is to preserve what is real in the prose and remove what reads like machi",
+          "linked_summary": [
+            "text-humanization-summary.md"
+          ],
+          "linked_routes": [
+            "rt_text_humanization"
+          ],
+          "linked_skills": [
+            "text-humanization-expert.md"
+          ],
+          "estimated_token_count": 42,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Review checklist for DesignPilot",
+          "short_description": "Use this protocol to ask:",
+          "linked_summary": [
+            "text-humanization-summary.md"
+          ],
+          "linked_routes": [
+            "rt_text_humanization"
+          ],
+          "linked_skills": [
+            "text-humanization-expert.md"
+          ],
+          "estimated_token_count": 79,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Success conditions",
+          "short_description": "A successful humanization pass should make the writing easier to trust because it reads more intentional and less machine-shaped, not because it becomes softer, trendier, or more u",
+          "linked_summary": [
+            "text-humanization-summary.md"
+          ],
+          "linked_routes": [
+            "rt_text_humanization"
+          ],
+          "linked_skills": [
+            "text-humanization-expert.md"
+          ],
+          "estimated_token_count": 39,
           "section_type": "principle"
         }
       ]
@@ -16900,6 +18746,144 @@
             "layout-reconstruction-expert.md"
           ],
           "estimated_token_count": 4546,
+          "section_type": "principle"
+        }
+      ]
+    },
+    {
+      "file_name": "Motion and Interaction Feedback Expert Research.md",
+      "linked_summaries": [
+        "motion-and-interaction-feedback-summary.md"
+      ],
+      "sections": [
+        {
+          "heading": "Motion Design and Interaction Feedback Systems for AI-Assisted UI Design",
+          "short_description": "The evolution of digital interfaces has shifted the role of animation",
+          "linked_summary": [
+            "motion-and-interaction-feedback-summary.md"
+          ],
+          "linked_routes": [],
+          "linked_skills": [
+            "motion-interaction-expert.md"
+          ],
+          "estimated_token_count": 140,
+          "section_type": "implementation"
+        },
+        {
+          "heading": "Animation purpose taxonomy",
+          "short_description": "A rigorous taxonomy of animation is required to ensure that motion is",
+          "linked_summary": [
+            "motion-and-interaction-feedback-summary.md"
+          ],
+          "linked_routes": [],
+          "linked_skills": [
+            "motion-interaction-expert.md"
+          ],
+          "estimated_token_count": 866,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Duration and easing thresholds",
+          "short_description": "The effectiveness of UI motion is mathematically constrained by the",
+          "linked_summary": [
+            "motion-and-interaction-feedback-summary.md"
+          ],
+          "linked_routes": [],
+          "linked_skills": [
+            "motion-interaction-expert.md"
+          ],
+          "estimated_token_count": 658,
+          "section_type": "threshold"
+        },
+        {
+          "heading": "Feedback latency and system response rules",
+          "short_description": "Interaction design is governed by three critical latency thresholds",
+          "linked_summary": [
+            "motion-and-interaction-feedback-summary.md"
+          ],
+          "linked_routes": [],
+          "linked_skills": [
+            "motion-interaction-expert.md"
+          ],
+          "estimated_token_count": 680,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Reduced motion system",
+          "short_description": "Accessibility in motion design is a critical requirement for users with",
+          "linked_summary": [
+            "motion-and-interaction-feedback-summary.md"
+          ],
+          "linked_routes": [],
+          "linked_skills": [
+            "motion-interaction-expert.md"
+          ],
+          "estimated_token_count": 408,
+          "section_type": "principle"
+        },
+        {
+          "heading": "State transition logic",
+          "short_description": "State transitions are the visual manifestations of an interface\\'s",
+          "linked_summary": [
+            "motion-and-interaction-feedback-summary.md"
+          ],
+          "linked_routes": [],
+          "linked_skills": [
+            "motion-interaction-expert.md"
+          ],
+          "estimated_token_count": 484,
+          "section_type": "implementation"
+        },
+        {
+          "heading": "Loading patterns and skeleton screens",
+          "short_description": "Loading patterns serve to manage the psychological experience of",
+          "linked_summary": [
+            "motion-and-interaction-feedback-summary.md"
+          ],
+          "linked_routes": [],
+          "linked_skills": [
+            "motion-interaction-expert.md"
+          ],
+          "estimated_token_count": 355,
+          "section_type": "implementation"
+        },
+        {
+          "heading": "Motion failure pattern catalogue",
+          "short_description": "This catalogue identifies named motion and animation failures, providing",
+          "linked_summary": [
+            "motion-and-interaction-feedback-summary.md"
+          ],
+          "linked_routes": [],
+          "linked_skills": [
+            "motion-interaction-expert.md"
+          ],
+          "estimated_token_count": 555,
+          "section_type": "anti-pattern"
+        },
+        {
+          "heading": "Implementation handoff rules for motion",
+          "short_description": "A design handoff for motion must be a precise technical specification",
+          "linked_summary": [
+            "motion-and-interaction-feedback-summary.md"
+          ],
+          "linked_routes": [],
+          "linked_skills": [
+            "motion-interaction-expert.md"
+          ],
+          "estimated_token_count": 382,
+          "section_type": "implementation"
+        },
+        {
+          "heading": "Works cited",
+          "short_description": "1.  Understanding motion - Material Design, accessed April 12, 2026,",
+          "linked_summary": [
+            "motion-and-interaction-feedback-summary.md"
+          ],
+          "linked_routes": [],
+          "linked_skills": [
+            "motion-interaction-expert.md"
+          ],
+          "estimated_token_count": 2418,
           "section_type": "principle"
         }
       ]
@@ -18422,6 +20406,1046 @@
       ]
     },
     {
+      "file_name": "UI System Expert Research.md",
+      "linked_summaries": [
+        "ui-system-summary.md"
+      ],
+      "sections": [
+        {
+          "heading": "UI System Architecture for AI-Assisted Design Operators: A Professional Reference",
+          "short_description": "The emergence of AI-assisted design operations necessitates a transition",
+          "linked_summary": [
+            "ui-system-summary.md"
+          ],
+          "linked_routes": [
+            "rt_accessibility_feedback_audit",
+            "rt_dashboard_audit",
+            "rt_ui_structure_critique"
+          ],
+          "linked_skills": [
+            "ui-system-expert.md"
+          ],
+          "estimated_token_count": 133,
+          "section_type": "implementation"
+        },
+        {
+          "heading": "Navigation Pattern Taxonomy and Selection Logic",
+          "short_description": "Navigation serves as the skeletal framework of the digital experience,",
+          "linked_summary": [
+            "ui-system-summary.md"
+          ],
+          "linked_routes": [
+            "rt_accessibility_feedback_audit",
+            "rt_dashboard_audit",
+            "rt_ui_structure_critique"
+          ],
+          "linked_skills": [
+            "ui-system-expert.md"
+          ],
+          "estimated_token_count": 60,
+          "section_type": "implementation"
+        },
+        {
+          "heading": "Primary Navigation Archetypes",
+          "short_description": "The selection between top navigation and side navigation is governed by",
+          "linked_summary": [
+            "ui-system-summary.md"
+          ],
+          "linked_routes": [
+            "rt_accessibility_feedback_audit",
+            "rt_dashboard_audit",
+            "rt_ui_structure_critique"
+          ],
+          "linked_skills": [
+            "ui-system-expert.md"
+          ],
+          "estimated_token_count": 299,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Movement and Orientation in Hierarchical Spaces",
+          "short_description": "Navigation organizes content by establishing parent-child relationships",
+          "linked_summary": [
+            "ui-system-summary.md"
+          ],
+          "linked_routes": [
+            "rt_accessibility_feedback_audit",
+            "rt_dashboard_audit",
+            "rt_ui_structure_critique"
+          ],
+          "linked_skills": [
+            "ui-system-expert.md"
+          ],
+          "estimated_token_count": 192,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Canonical Navigation and Data Schemas",
+          "short_description": "To facilitate interoperability between diverse software systems, AI",
+          "linked_summary": [
+            "ui-system-summary.md"
+          ],
+          "linked_routes": [
+            "rt_accessibility_feedback_audit",
+            "rt_dashboard_audit",
+            "rt_ui_structure_critique"
+          ],
+          "linked_skills": [
+            "ui-system-expert.md"
+          ],
+          "estimated_token_count": 161,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Information Architecture Rules and Hierarchical Thresholds",
+          "short_description": "Information architecture (IA) defines the arrangement and labeling of",
+          "linked_summary": [
+            "ui-system-summary.md"
+          ],
+          "linked_routes": [
+            "rt_accessibility_feedback_audit",
+            "rt_dashboard_audit",
+            "rt_ui_structure_critique"
+          ],
+          "linked_skills": [
+            "ui-system-expert.md"
+          ],
+          "estimated_token_count": 42,
+          "section_type": "threshold"
+        },
+        {
+          "heading": "Breadth vs. Depth Trade-offs",
+          "short_description": "A flat hierarchy, also known as a broad structure, surfaces many",
+          "linked_summary": [
+            "ui-system-summary.md"
+          ],
+          "linked_routes": [
+            "rt_accessibility_feedback_audit",
+            "rt_dashboard_audit",
+            "rt_ui_structure_critique"
+          ],
+          "linked_skills": [
+            "ui-system-expert.md"
+          ],
+          "estimated_token_count": 211,
+          "section_type": "comparison"
+        },
+        {
+          "heading": "Measurable IA Triggers and Analytics",
+          "short_description": "An AI design operator must use quantitative metrics to determine when an",
+          "linked_summary": [
+            "ui-system-summary.md"
+          ],
+          "linked_routes": [
+            "rt_accessibility_feedback_audit",
+            "rt_dashboard_audit",
+            "rt_ui_structure_critique"
+          ],
+          "linked_skills": [
+            "ui-system-expert.md"
+          ],
+          "estimated_token_count": 110,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Cognitive Chunking and Task Modeling",
+          "short_description": "The human capacity for information processing is constrained by the",
+          "linked_summary": [
+            "ui-system-summary.md"
+          ],
+          "linked_routes": [
+            "rt_accessibility_feedback_audit",
+            "rt_dashboard_audit",
+            "rt_ui_structure_critique"
+          ],
+          "linked_skills": [
+            "ui-system-expert.md"
+          ],
+          "estimated_token_count": 156,
+          "section_type": "implementation"
+        },
+        {
+          "heading": "Action Hierarchy and CTA Logic",
+          "short_description": "Action hierarchy defines the visual prominence of interactive elements",
+          "linked_summary": [
+            "ui-system-summary.md"
+          ],
+          "linked_routes": [
+            "rt_accessibility_feedback_audit",
+            "rt_dashboard_audit",
+            "rt_ui_structure_critique"
+          ],
+          "linked_skills": [
+            "ui-system-expert.md"
+          ],
+          "estimated_token_count": 26,
+          "section_type": "implementation"
+        },
+        {
+          "heading": "Emphasis Levels and Visual Treatment",
+          "short_description": "Production-level UI systems typically utilize three to four levels of",
+          "linked_summary": [
+            "ui-system-summary.md"
+          ],
+          "linked_routes": [
+            "rt_accessibility_feedback_audit",
+            "rt_dashboard_audit",
+            "rt_ui_structure_critique"
+          ],
+          "linked_skills": [
+            "ui-system-expert.md"
+          ],
+          "estimated_token_count": 257,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Decision Tables for CTA Placement",
+          "short_description": "The placement of CTAs must align with the user\\'s focus and the nature",
+          "linked_summary": [
+            "ui-system-summary.md"
+          ],
+          "linked_routes": [
+            "rt_accessibility_feedback_audit",
+            "rt_dashboard_audit",
+            "rt_ui_structure_critique"
+          ],
+          "linked_skills": [
+            "ui-system-expert.md"
+          ],
+          "estimated_token_count": 138,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Task Risk and Reversibility",
+          "short_description": "When designing action hierarchies, an AI operator must assess the",
+          "linked_summary": [
+            "ui-system-summary.md"
+          ],
+          "linked_routes": [
+            "rt_accessibility_feedback_audit",
+            "rt_dashboard_audit",
+            "rt_ui_structure_critique"
+          ],
+          "linked_skills": [
+            "ui-system-expert.md"
+          ],
+          "estimated_token_count": 94,
+          "section_type": "anti-pattern"
+        },
+        {
+          "heading": "Task Flow and Screen State System",
+          "short_description": "A comprehensive screen state system ensures that the interface provides",
+          "linked_summary": [
+            "ui-system-summary.md"
+          ],
+          "linked_routes": [
+            "rt_accessibility_feedback_audit",
+            "rt_dashboard_audit",
+            "rt_ui_structure_critique"
+          ],
+          "linked_skills": [
+            "ui-system-expert.md"
+          ],
+          "estimated_token_count": 23,
+          "section_type": "principle"
+        },
+        {
+          "heading": "The Four Primary Screen States",
+          "short_description": "Every dynamic component in a UI system must account for the following",
+          "linked_summary": [
+            "ui-system-summary.md"
+          ],
+          "linked_routes": [
+            "rt_accessibility_feedback_audit",
+            "rt_dashboard_audit",
+            "rt_ui_structure_critique"
+          ],
+          "linked_skills": [
+            "ui-system-expert.md"
+          ],
+          "estimated_token_count": 136,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Empty State UX and Onboarding",
+          "short_description": "Empty states should never be truly empty; they are opportunities to",
+          "linked_summary": [
+            "ui-system-summary.md"
+          ],
+          "linked_routes": [
+            "rt_accessibility_feedback_audit",
+            "rt_dashboard_audit",
+            "rt_ui_structure_critique"
+          ],
+          "linked_skills": [
+            "ui-system-expert.md"
+          ],
+          "estimated_token_count": 99,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Loading Thresholds and Temporal Density",
+          "short_description": "The perception of time in a UI system is as critical as spatial density.",
+          "linked_summary": [
+            "ui-system-summary.md"
+          ],
+          "linked_routes": [
+            "rt_accessibility_feedback_audit",
+            "rt_dashboard_audit",
+            "rt_ui_structure_critique"
+          ],
+          "linked_skills": [
+            "ui-system-expert.md"
+          ],
+          "estimated_token_count": 191,
+          "section_type": "threshold"
+        },
+        {
+          "heading": "Density and Layout Hierarchy Thresholds",
+          "short_description": "Density is a measurable quantity describing the amount of information",
+          "linked_summary": [
+            "ui-system-summary.md"
+          ],
+          "linked_routes": [
+            "rt_accessibility_feedback_audit",
+            "rt_dashboard_audit",
+            "rt_ui_structure_critique"
+          ],
+          "linked_skills": [
+            "ui-system-expert.md"
+          ],
+          "estimated_token_count": 34,
+          "section_type": "threshold"
+        },
+        {
+          "heading": "The 8dp Grid and Spatial Consistency",
+          "short_description": "To ensure that assets maintain their sizing across different device",
+          "linked_summary": [
+            "ui-system-summary.md"
+          ],
+          "linked_routes": [
+            "rt_accessibility_feedback_audit",
+            "rt_dashboard_audit",
+            "rt_ui_structure_critique"
+          ],
+          "linked_skills": [
+            "ui-system-expert.md"
+          ],
+          "estimated_token_count": 78,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Information Density Thresholds",
+          "short_description": "High-density layouts are advantageous when users need to scan and",
+          "linked_summary": [
+            "ui-system-summary.md"
+          ],
+          "linked_routes": [
+            "rt_accessibility_feedback_audit",
+            "rt_dashboard_audit",
+            "rt_ui_structure_critique"
+          ],
+          "linked_skills": [
+            "ui-system-expert.md"
+          ],
+          "estimated_token_count": 160,
+          "section_type": "threshold"
+        },
+        {
+          "heading": "Readability and Line Length Metrics",
+          "short_description": "Readability is not just a matter of aesthetics; it is constrained by",
+          "linked_summary": [
+            "ui-system-summary.md"
+          ],
+          "linked_routes": [
+            "rt_accessibility_feedback_audit",
+            "rt_dashboard_audit",
+            "rt_ui_structure_critique"
+          ],
+          "linked_skills": [
+            "ui-system-expert.md"
+          ],
+          "estimated_token_count": 118,
+          "section_type": "threshold"
+        },
+        {
+          "heading": "Failure Pattern Catalogue and Diagnostic Framework",
+          "short_description": "A professional UI architecture must include a catalog of known failure",
+          "linked_summary": [
+            "ui-system-summary.md"
+          ],
+          "linked_routes": [
+            "rt_accessibility_feedback_audit",
+            "rt_dashboard_audit",
+            "rt_ui_structure_critique"
+          ],
+          "linked_skills": [
+            "ui-system-expert.md"
+          ],
+          "estimated_token_count": 30,
+          "section_type": "anti-pattern"
+        },
+        {
+          "heading": "Common UI Anti-Patterns",
+          "short_description": "1.  **Ambiguous Labeling:** Links labeled \\\"Click here\\\" frustrate users",
+          "linked_summary": [
+            "ui-system-summary.md"
+          ],
+          "linked_routes": [
+            "rt_accessibility_feedback_audit",
+            "rt_dashboard_audit",
+            "rt_ui_structure_critique"
+          ],
+          "linked_skills": [
+            "ui-system-expert.md"
+          ],
+          "estimated_token_count": 118,
+          "section_type": "anti-pattern"
+        },
+        {
+          "heading": "Root Cause Analysis (RCA) for UI Systems",
+          "short_description": "When a defect is identified, the system must dig past the symptoms to",
+          "linked_summary": [
+            "ui-system-summary.md"
+          ],
+          "linked_routes": [
+            "rt_accessibility_feedback_audit",
+            "rt_dashboard_audit",
+            "rt_ui_structure_critique"
+          ],
+          "linked_skills": [
+            "ui-system-expert.md"
+          ],
+          "estimated_token_count": 105,
+          "section_type": "principle"
+        },
+        {
+          "heading": "RAG and Agentic Failure Patterns",
+          "short_description": "In AI-native architectures, specific failure patterns emerge during",
+          "linked_summary": [
+            "ui-system-summary.md"
+          ],
+          "linked_routes": [
+            "rt_accessibility_feedback_audit",
+            "rt_dashboard_audit",
+            "rt_ui_structure_critique"
+          ],
+          "linked_skills": [
+            "ui-system-expert.md"
+          ],
+          "estimated_token_count": 74,
+          "section_type": "anti-pattern"
+        },
+        {
+          "heading": "Operational Decision Tables for AI Training",
+          "short_description": "To synthesize the research for AI ingestion, the following decision",
+          "linked_summary": [
+            "ui-system-summary.md"
+          ],
+          "linked_routes": [
+            "rt_accessibility_feedback_audit",
+            "rt_dashboard_audit",
+            "rt_ui_structure_critique"
+          ],
+          "linked_skills": [
+            "ui-system-expert.md"
+          ],
+          "estimated_token_count": 29,
+          "section_type": "threshold"
+        },
+        {
+          "heading": "Decision Table I: Navigation Pattern Selection",
+          "short_description": "Section from UI System Expert Research.md.",
+          "linked_summary": [
+            "ui-system-summary.md"
+          ],
+          "linked_routes": [
+            "rt_accessibility_feedback_audit",
+            "rt_dashboard_audit",
+            "rt_ui_structure_critique"
+          ],
+          "linked_skills": [
+            "ui-system-expert.md"
+          ],
+          "estimated_token_count": 48,
+          "section_type": "implementation"
+        },
+        {
+          "heading": "Decision Table II: IA resturcturing Triggers",
+          "short_description": "Section from UI System Expert Research.md.",
+          "linked_summary": [
+            "ui-system-summary.md"
+          ],
+          "linked_routes": [
+            "rt_accessibility_feedback_audit",
+            "rt_dashboard_audit",
+            "rt_ui_structure_critique"
+          ],
+          "linked_skills": [
+            "ui-system-expert.md"
+          ],
+          "estimated_token_count": 74,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Decision Table III: Action Emphasis Selection",
+          "short_description": "Section from UI System Expert Research.md.",
+          "linked_summary": [
+            "ui-system-summary.md"
+          ],
+          "linked_routes": [
+            "rt_accessibility_feedback_audit",
+            "rt_dashboard_audit",
+            "rt_ui_structure_critique"
+          ],
+          "linked_skills": [
+            "ui-system-expert.md"
+          ],
+          "estimated_token_count": 32,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Decision Table IV: Temporal State Selection",
+          "short_description": "Section from UI System Expert Research.md.",
+          "linked_summary": [
+            "ui-system-summary.md"
+          ],
+          "linked_routes": [
+            "rt_accessibility_feedback_audit",
+            "rt_dashboard_audit",
+            "rt_ui_structure_critique"
+          ],
+          "linked_skills": [
+            "ui-system-expert.md"
+          ],
+          "estimated_token_count": 56,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Conclusion",
+          "short_description": "The architecture of a UI system for AI-assisted design is a complex",
+          "linked_summary": [
+            "ui-system-summary.md"
+          ],
+          "linked_routes": [
+            "rt_accessibility_feedback_audit",
+            "rt_dashboard_audit",
+            "rt_ui_structure_critique"
+          ],
+          "linked_skills": [
+            "ui-system-expert.md"
+          ],
+          "estimated_token_count": 211,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Works cited",
+          "short_description": "1.  Top nav V.S. side nav-how to decide? \\| by Norah S \\| Bootcamp -",
+          "linked_summary": [
+            "ui-system-summary.md"
+          ],
+          "linked_routes": [
+            "rt_accessibility_feedback_audit",
+            "rt_dashboard_audit",
+            "rt_ui_structure_critique"
+          ],
+          "linked_skills": [
+            "ui-system-expert.md"
+          ],
+          "estimated_token_count": 1734,
+          "section_type": "principle"
+        }
+      ]
+    },
+    {
+      "file_name": "UX Cognition Expert Research.md",
+      "linked_summaries": [
+        "ux-cognition-summary.md"
+      ],
+      "sections": [
+        {
+          "heading": "Cognitive Foundations for AI-Assisted UX Decision-Making",
+          "short_description": "Section from UX Cognition Expert Research.md.",
+          "linked_summary": [
+            "ux-cognition-summary.md"
+          ],
+          "linked_routes": [
+            "rt_ux_research_gap_map"
+          ],
+          "linked_skills": [
+            "ux-research-expert.md"
+          ],
+          "estimated_token_count": 1,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Cognitive load framework with design thresholds",
+          "short_description": "The quantification of mental effort in user experience design is rooted",
+          "linked_summary": [
+            "ux-cognition-summary.md"
+          ],
+          "linked_routes": [
+            "rt_ux_research_gap_map"
+          ],
+          "linked_skills": [
+            "ux-research-expert.md"
+          ],
+          "estimated_token_count": 952,
+          "section_type": "threshold"
+        },
+        {
+          "heading": "Mental model alignment",
+          "short_description": "The efficacy of an interface is fundamentally a measure of the alignment",
+          "linked_summary": [
+            "ux-cognition-summary.md"
+          ],
+          "linked_routes": [
+            "rt_ux_research_gap_map"
+          ],
+          "linked_skills": [
+            "ux-research-expert.md"
+          ],
+          "estimated_token_count": 733,
+          "section_type": "implementation"
+        },
+        {
+          "heading": "Heuristics with testable criteria",
+          "short_description": "Heuristics are evidence-based general principles of interaction design",
+          "linked_summary": [
+            "ux-cognition-summary.md"
+          ],
+          "linked_routes": [
+            "rt_ux_research_gap_map"
+          ],
+          "linked_skills": [
+            "ux-research-expert.md"
+          ],
+          "estimated_token_count": 79,
+          "section_type": "validation"
+        },
+        {
+          "heading": "Severity and prioritization framework",
+          "short_description": "Evaluators utilize a 0 to 4 scale to quantify the impact of heuristic",
+          "linked_summary": [
+            "ux-cognition-summary.md"
+          ],
+          "linked_routes": [
+            "rt_ux_research_gap_map"
+          ],
+          "linked_skills": [
+            "ux-research-expert.md"
+          ],
+          "estimated_token_count": 101,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Integration of Nielsen and Shneiderman principles",
+          "short_description": "The following rules synthesize Nielsen's 10 Heuristics and Shneiderman's",
+          "linked_summary": [
+            "ux-cognition-summary.md"
+          ],
+          "linked_routes": [
+            "rt_ux_research_gap_map"
+          ],
+          "linked_skills": [
+            "ux-research-expert.md"
+          ],
+          "estimated_token_count": 552,
+          "section_type": "threshold"
+        },
+        {
+          "heading": "Physical and cognitive laws of interaction",
+          "short_description": "Interaction efficiency is modeled by two foundational laws: Fitts's Law",
+          "linked_summary": [
+            "ux-cognition-summary.md"
+          ],
+          "linked_routes": [
+            "rt_ux_research_gap_map"
+          ],
+          "linked_skills": [
+            "ux-research-expert.md"
+          ],
+          "estimated_token_count": 261,
+          "section_type": "implementation"
+        },
+        {
+          "heading": "Scanning behavior by content type",
+          "short_description": "Eyetracking evidence confirms that users do not read digital content;",
+          "linked_summary": [
+            "ux-cognition-summary.md"
+          ],
+          "linked_routes": [
+            "rt_ux_research_gap_map"
+          ],
+          "linked_skills": [
+            "ux-research-expert.md"
+          ],
+          "estimated_token_count": 61,
+          "section_type": "implementation"
+        },
+        {
+          "heading": "Standardized scanning patterns",
+          "short_description": "1.  **F-Pattern**: This is the default scanning behavior for text-heavy",
+          "linked_summary": [
+            "ux-cognition-summary.md"
+          ],
+          "linked_routes": [
+            "rt_ux_research_gap_map"
+          ],
+          "linked_skills": [
+            "ux-research-expert.md"
+          ],
+          "estimated_token_count": 363,
+          "section_type": "implementation"
+        },
+        {
+          "heading": "Reading gravity and visual hierarchy",
+          "short_description": "The Gutenberg Diagram describes \\\"Reading Gravity,\\\" the cultural",
+          "linked_summary": [
+            "ux-cognition-summary.md"
+          ],
+          "linked_routes": [
+            "rt_ux_research_gap_map"
+          ],
+          "linked_skills": [
+            "ux-research-expert.md"
+          ],
+          "estimated_token_count": 231,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Decision fatigue and choice architecture",
+          "short_description": "Decision fatigue is the depletion of self-regulatory resources (ego",
+          "linked_summary": [
+            "ux-cognition-summary.md"
+          ],
+          "linked_routes": [
+            "rt_ux_research_gap_map"
+          ],
+          "linked_skills": [
+            "ux-research-expert.md"
+          ],
+          "estimated_token_count": 84,
+          "section_type": "implementation"
+        },
+        {
+          "heading": "Principles of choice architecture",
+          "short_description": "Choice architecture is the deliberate design of the environment in which",
+          "linked_summary": [
+            "ux-cognition-summary.md"
+          ],
+          "linked_routes": [
+            "rt_ux_research_gap_map"
+          ],
+          "linked_skills": [
+            "ux-research-expert.md"
+          ],
+          "estimated_token_count": 259,
+          "section_type": "implementation"
+        },
+        {
+          "heading": "Commitment escalation and destructive patterns",
+          "short_description": "A primary failure condition in choice architecture is the \\\"Confirmation",
+          "linked_summary": [
+            "ux-cognition-summary.md"
+          ],
+          "linked_routes": [
+            "rt_ux_research_gap_map"
+          ],
+          "linked_skills": [
+            "ux-research-expert.md"
+          ],
+          "estimated_token_count": 152,
+          "section_type": "implementation"
+        },
+        {
+          "heading": "Attention cost and interruption logic",
+          "short_description": "The \\\"interruption cost\\\" is the net loss in performance and well-being",
+          "linked_summary": [
+            "ux-cognition-summary.md"
+          ],
+          "linked_routes": [
+            "rt_ux_research_gap_map"
+          ],
+          "linked_skills": [
+            "ux-research-expert.md"
+          ],
+          "estimated_token_count": 74,
+          "section_type": "implementation"
+        },
+        {
+          "heading": "Cognitive impact of attention residue",
+          "short_description": "Attention residue is the persistent mental focus on a previous task that",
+          "linked_summary": [
+            "ux-cognition-summary.md"
+          ],
+          "linked_routes": [
+            "rt_ux_research_gap_map"
+          ],
+          "linked_skills": [
+            "ux-research-expert.md"
+          ],
+          "estimated_token_count": 100,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Production rules for messaging and notifications",
+          "short_description": "To mitigate cognitive harm, system-generated messages must follow a",
+          "linked_summary": [
+            "ux-cognition-summary.md"
+          ],
+          "linked_routes": [
+            "rt_ux_research_gap_map"
+          ],
+          "linked_skills": [
+            "ux-research-expert.md"
+          ],
+          "estimated_token_count": 255,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Error recovery and forgiveness design",
+          "short_description": "Error design is a strategic choice between error prevention (removing",
+          "linked_summary": [
+            "ux-cognition-summary.md"
+          ],
+          "linked_routes": [
+            "rt_ux_research_gap_map"
+          ],
+          "linked_skills": [
+            "ux-research-expert.md"
+          ],
+          "estimated_token_count": 57,
+          "section_type": "anti-pattern"
+        },
+        {
+          "heading": "Prevention strategies and validation timing",
+          "short_description": "1.  **Structural Constraints**: The system must use logic to eliminate",
+          "linked_summary": [
+            "ux-cognition-summary.md"
+          ],
+          "linked_routes": [
+            "rt_ux_research_gap_map"
+          ],
+          "linked_skills": [
+            "ux-research-expert.md"
+          ],
+          "estimated_token_count": 165,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Error message writing rules",
+          "short_description": "A well-formed error message serves as a \\\"teachable moment\\\" that helps",
+          "linked_summary": [
+            "ux-cognition-summary.md"
+          ],
+          "linked_routes": [
+            "rt_ux_research_gap_map"
+          ],
+          "linked_skills": [
+            "ux-research-expert.md"
+          ],
+          "estimated_token_count": 224,
+          "section_type": "anti-pattern"
+        },
+        {
+          "heading": "Cognitive failure pattern catalogue",
+          "short_description": "Production-level audits must identify the following ten cognitive",
+          "linked_summary": [
+            "ux-cognition-summary.md"
+          ],
+          "linked_routes": [
+            "rt_ux_research_gap_map"
+          ],
+          "linked_skills": [
+            "ux-research-expert.md"
+          ],
+          "estimated_token_count": 26,
+          "section_type": "anti-pattern"
+        },
+        {
+          "heading": "1. The Ghosting Placeholder",
+          "short_description": "Definition**: Placing critical formatting instructions only as",
+          "linked_summary": [
+            "ux-cognition-summary.md"
+          ],
+          "linked_routes": [
+            "rt_ux_research_gap_map"
+          ],
+          "linked_skills": [
+            "ux-research-expert.md"
+          ],
+          "estimated_token_count": 66,
+          "section_type": "principle"
+        },
+        {
+          "heading": "2. Mystery Meat Navigation",
+          "short_description": "Definition**: A set of identical or ambiguous abstract icons that",
+          "linked_summary": [
+            "ux-cognition-summary.md"
+          ],
+          "linked_routes": [
+            "rt_ux_research_gap_map"
+          ],
+          "linked_skills": [
+            "ux-research-expert.md"
+          ],
+          "estimated_token_count": 65,
+          "section_type": "principle"
+        },
+        {
+          "heading": "3. The Scolding on Blur",
+          "short_description": "Definition**: Triggering a \\\"Required field\\\" error the moment a",
+          "linked_summary": [
+            "ux-cognition-summary.md"
+          ],
+          "linked_routes": [
+            "rt_ux_research_gap_map"
+          ],
+          "linked_skills": [
+            "ux-research-expert.md"
+          ],
+          "estimated_token_count": 68,
+          "section_type": "principle"
+        },
+        {
+          "heading": "4. The Blind Man's Error",
+          "short_description": "Definition**: Indicating an error state exclusively through a",
+          "linked_summary": [
+            "ux-cognition-summary.md"
+          ],
+          "linked_routes": [
+            "rt_ux_research_gap_map"
+          ],
+          "linked_skills": [
+            "ux-research-expert.md"
+          ],
+          "estimated_token_count": 72,
+          "section_type": "anti-pattern"
+        },
+        {
+          "heading": "5. The Context Switch Penalty",
+          "short_description": "Definition**: Forcing a user to open a new browser tab or window",
+          "linked_summary": [
+            "ux-cognition-summary.md"
+          ],
+          "linked_routes": [
+            "rt_ux_research_gap_map"
+          ],
+          "linked_skills": [
+            "ux-research-expert.md"
+          ],
+          "estimated_token_count": 77,
+          "section_type": "principle"
+        },
+        {
+          "heading": "6. The Analysis Paralysis Feed",
+          "short_description": "Definition**: Presenting a massive, flat list of options with",
+          "linked_summary": [
+            "ux-cognition-summary.md"
+          ],
+          "linked_routes": [
+            "rt_ux_research_gap_map"
+          ],
+          "linked_skills": [
+            "ux-research-expert.md"
+          ],
+          "estimated_token_count": 64,
+          "section_type": "principle"
+        },
+        {
+          "heading": "7. The Vanishing Progress Bar",
+          "short_description": "Definition**: A status indicator that disappears as soon as the",
+          "linked_summary": [
+            "ux-cognition-summary.md"
+          ],
+          "linked_routes": [
+            "rt_ux_research_gap_map"
+          ],
+          "linked_skills": [
+            "ux-research-expert.md"
+          ],
+          "estimated_token_count": 72,
+          "section_type": "principle"
+        },
+        {
+          "heading": "8. The Memory Trap",
+          "short_description": "Definition**: Requiring the user to remember a generated ID or",
+          "linked_summary": [
+            "ux-cognition-summary.md"
+          ],
+          "linked_routes": [
+            "rt_ux_research_gap_map"
+          ],
+          "linked_skills": [
+            "ux-research-expert.md"
+          ],
+          "estimated_token_count": 79,
+          "section_type": "anti-pattern"
+        },
+        {
+          "heading": "9. The Action-Momentum Interruption",
+          "short_description": "Definition**: A modal pop-up (e.g., a \\\"Rate our App\\\" survey)",
+          "linked_summary": [
+            "ux-cognition-summary.md"
+          ],
+          "linked_routes": [
+            "rt_ux_research_gap_map"
+          ],
+          "linked_skills": [
+            "ux-research-expert.md"
+          ],
+          "estimated_token_count": 87,
+          "section_type": "principle"
+        },
+        {
+          "heading": "10. The Jargon Fortress",
+          "short_description": "Definition**: Using technical system architecture labels in the",
+          "linked_summary": [
+            "ux-cognition-summary.md"
+          ],
+          "linked_routes": [
+            "rt_ux_research_gap_map"
+          ],
+          "linked_skills": [
+            "ux-research-expert.md"
+          ],
+          "estimated_token_count": 62,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Conclusions",
+          "short_description": "Design is no longer a subjective exercise of aesthetics but a cognitive",
+          "linked_summary": [
+            "ux-cognition-summary.md"
+          ],
+          "linked_routes": [
+            "rt_ux_research_gap_map"
+          ],
+          "linked_skills": [
+            "ux-research-expert.md"
+          ],
+          "estimated_token_count": 221,
+          "section_type": "principle"
+        },
+        {
+          "heading": "Works cited",
+          "short_description": "1.  Cognitive Load and UX \\| Aguayo\\'s Blog, accessed April 12, 2026,",
+          "linked_summary": [
+            "ux-cognition-summary.md"
+          ],
+          "linked_routes": [
+            "rt_ux_research_gap_map"
+          ],
+          "linked_skills": [
+            "ux-research-expert.md"
+          ],
+          "estimated_token_count": 6739,
+          "section_type": "principle"
+        }
+      ]
+    },
+    {
       "file_name": "Writing Clarity and UX Copy Expert Research.md",
       "linked_summaries": [
         "writing-and-case-study-summary.md"
@@ -18714,27 +21738,6 @@
           ],
           "estimated_token_count": 4242,
           "section_type": "principle"
-        }
-      ]
-    },
-    {
-      "file_name": "pantone_color_chart.pdf",
-      "linked_summaries": [
-        "color-and-accessibility-summary.md",
-        "pantone-production-summary.md"
-      ],
-      "sections": [
-        {
-          "heading": "pantone_color_chart.pdf",
-          "short_description": "Binary source media. Load only when the task explicitly needs the PDF asset.",
-          "linked_summary": [
-            "color-and-accessibility-summary.md",
-            "pantone-production-summary.md"
-          ],
-          "linked_routes": [],
-          "linked_skills": [],
-          "estimated_token_count": 0,
-          "section_type": "reference"
         }
       ]
     }

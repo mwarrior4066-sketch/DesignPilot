@@ -1,0 +1,27 @@
+{
+  "run_id": "proxy-run-2026-04-13_ui_structure_critique",
+  "pack_version": "3.0",
+  "baseline_label": "none_proxy_mode",
+  "prompt_id": "ui_structure_critique",
+  "run_date": "2026-04-13",
+  "evaluator_label": "static_runtime_validator",
+  "evidence_mode": "proxy",
+  "scores": {
+    "validator_score": 100,
+    "validator_decision": "PASS",
+    "evidence_classes": [
+      "benchmark_artifact",
+      "comparison_artifact",
+      "file_backed_receipt",
+      "implementation_constraint",
+      "narrative_proof_boundary",
+      "next_step_guidance",
+      "state_or_behavior_rule"
+    ],
+    "issue_count": 0
+  },
+  "overall_preference": "pack",
+  "notes": "Proxy evidence: static validator scored golden example output for ui_structure_critique. Score 100/100. Decision: PASS. No issues.",
+  "issues": [],
+  "warnings": []
+}

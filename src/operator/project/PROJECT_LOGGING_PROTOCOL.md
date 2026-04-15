@@ -36,7 +36,7 @@ Use one primary classification per entry:
 
 ## PROBLEM_LOG entry format
 ```md
-## YYYY-MM-DD HH:MM — <short issue title>
+## YYYY-MM-DD HH:MM - <short issue title>
 - Error ID:
 - Classification:
 - Context:
@@ -54,7 +54,7 @@ Use one primary classification per entry:
 
 ## DECISION_LOG entry format
 ```md
-## YYYY-MM-DD HH:MM — <decision title>
+## YYYY-MM-DD HH:MM - <decision title>
 - Decision ID:
 - Classification:
 - Context:

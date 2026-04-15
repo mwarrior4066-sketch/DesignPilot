@@ -2,7 +2,7 @@
 
 ## Research basis and design goals
 
-A “Back-End Aware Planner” (BEAP) is best treated as a planning and feasibility control plane that sits between product/design intent and engineering execution: it translates UI or workflow requests into explicit requirements on identity, authorization, data models, APIs, storage, background processing, export pipelines, and reliability behaviors—then issues a feasibility decision with a defensible rationale. This positioning aligns with how architecture reviews are intended to function as a constructive discussion of architectural decisions rather than an audit, as framed by the Amazon Web Services[1] Well-Architected guidance. [2]
+A “Back-End Aware Planner” (BEAP) is best treated as a planning and feasibility control plane that sits between product/design intent and engineering execution: it translates UI or workflow requests into explicit requirements on identity, authorization, data models, APIs, storage, background processing, export pipelines, and reliability behaviors-then issues a feasibility decision with a defensible rationale. This positioning aligns with how architecture reviews are intended to function as a constructive discussion of architectural decisions rather than an audit, as framed by the Amazon Web Services[1] Well-Architected guidance. [2]
 
 To make the planner “strict,” it should use normative requirement keywords (e.g., MUST/SHOULD/MAY) in the sense standardized for technical specifications. [3] This matters because BEAP outputs are effectively “design constraints” that downstream skills (front-end, dashboards, PDF/document, token/auth) must treat as contract, not suggestion.
 
@@ -41,11 +41,11 @@ BEAP can follow a fixed loop that mirrors established architecture/reliability p
 - Score risk and gate: if critical unknowns remain, BEAP blocks or forces a constrained alternative. Security categories like BOLA/BOPLA/BFLA are particularly useful as “design ask → back-end implication” detectors. [9]
 ## Topic rulebooks
 
-Each topic below is scoped to planning logic, feasibility detection, and correct handoff design—not production back-end coding.
+Each topic below is scoped to planning logic, feasibility detection, and correct handoff design-not production back-end coding.
 
 Translating product and design requests into back-end requirements
 1. Definition: A structured translation from UX/product asks into explicit requirements for resources, data ownership, access policies, API behaviors, storage/processing flows, and non-functional constraints; supported by resource-oriented API decomposition and architecture communication practices (C4/ADR). [24]
-2. Why it matters for BEAP: Incomplete translations create “hidden architecture” where teams discover late that a visually small feature implies pagination, long-running operations, or strict access controls—changes that can be costly or backward-incompatible. [16]
+2. Why it matters for BEAP: Incomplete translations create “hidden architecture” where teams discover late that a visually small feature implies pagination, long-running operations, or strict access controls-changes that can be costly or backward-incompatible. [16]
 3. Default rules:
 - Every request MUST produce: (a) actors, (b) resources/nouns, (c) operations/verbs, (d) access policy sketch, (e) data lifecycle, (f) sync/async classification, (g) SLO/freshness expectations. [25]
 - API resources SHOULD have canonical identifiers and predictable naming/hierarchy; aliases are allowed but responses should use canonical names. [26]
@@ -144,7 +144,7 @@ Uploads, storage, assets, and document handling
 4. Exception rules:
 - If attachments are purely optional, BEAP MAY propose “link-only attachments” (no upload pipeline) to avoid malware scanning/storage complexity, but must account for link rot and access control. [67]
 5. Fallback logic:
-- If scanning infrastructure is unavailable, fallback to restricting file types to low-risk formats (e.g., images only), strict size limits, and quarantined storage pending manual review—explicitly documented as constrained. [68]
+- If scanning infrastructure is unavailable, fallback to restricting file types to low-risk formats (e.g., images only), strict size limits, and quarantined storage pending manual review-explicitly documented as constrained. [68]
 6. Failure conditions:
 - “Upload any file type” with public serving and no authentication/authorization story is a hard blocker given known unrestricted upload abuse cases. [69]
 7. Measurable thresholds: Operator-pack defaults (tunable):
@@ -180,7 +180,7 @@ Exports, reporting, and PDF/document pipeline planning
 
 Dashboard and data dependency planning
 1. Definition: Planning dashboards as data products: metric definitions, data sources, refresh schedules, caching/freshness, filtering semantics, and permission propagation to every widget. [84]
-2. Why it matters for BEAP: Dashboards are rarely “just UI”—they encode aggregation logic, freshness requirements, and authorization rules; ignoring these yields inconsistent numbers, stale data surprises, and access leaks. [85]
+2. Why it matters for BEAP: Dashboards are rarely “just UI”-they encode aggregation logic, freshness requirements, and authorization rules; ignoring these yields inconsistent numbers, stale data surprises, and access leaks. [85]
 3. Default rules:
 - Each dashboard tile MUST declare: metric definition, grain (per day/user/etc.), source-of-truth, refresh cadence, and permission rules (tenant/object/field). [86]
 - If dashboards rely on batch processing, BEAP MUST surface batch intervals and communicate “freshness” explicitly; batch processing is common in analytics workloads. [87]
@@ -437,7 +437,7 @@ Exports & documents
 - Export file access control + expiration + retention policy defined [146]
 ## Stress-test prompts
 
-- “Design a dashboard that shows personalized KPIs for every user and a manager rollup view—no login changes needed.”
+- “Design a dashboard that shows personalized KPIs for every user and a manager rollup view-no login changes needed.”
 - “Add a CSV export button for every table in the app; it must include all columns.”
 - “Create a ‘share by link’ experience for documents where anyone with the link can view and download forever.”
 - “Make the activity feed infinite scroll and searchable by multiple filters; performance must be instant.”

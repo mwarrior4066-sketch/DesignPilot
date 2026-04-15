@@ -1,0 +1,1 @@
+Follow this pack. I need help improving the user experience of the pack itself. I want the AI to sound more like a helper, but not fake-friendly or soft. I also want users to understand what it can do without getting an info dump at the start.

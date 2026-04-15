@@ -5,13 +5,14 @@ kernel_files:
 - src/operator/core/SESSION_CONTEXT.md
 - src/operator/core/SESSION_CONTEXT_DEFAULTS.md
 - src/operator/protocols/DEGRADED_MODE_PROTOCOL.md
+- src/operator/protocols/SESSION_STATE_TRACKING_PROTOCOL.md
+- src/operator/protocols/CONTEXT_REMINDER_PROTOCOL.md
 - src/operator/protocols/VISUAL_INPUT_PROTOCOL.md
 - src/operator/protocols/LIGHTWEIGHT_RESPONSE_PROTOCOL.md
 - src/operator/protocols/ADAPTIVE_EXPLANATION_PROTOCOL.md
 - src/operator/protocols/RESPONSE_PROTOCOL.md
 - src/operator/governance/SYSTEM_PRECEDENCE.md
 - src/operator/governance/CONTROL_AUTHORITY_MAP.md
-- src/operator/governance/OUTPUT_CONTRACTS_BY_TASK.md
 - src/operator/governance/RUNTIME_VALIDATION_LAYER.md
 profiles:
   core:
@@ -78,10 +79,14 @@ generated_artifacts:
 - dist/manifest.json
 - dist/tier_profile.yaml
 - dist/validation_report.json
-- dist/lite_index.json
-- dist/lite_routes/
-- dist/lite_contracts/
-- dist/lite_starters/
+- dist/runtime/lite_index.json
+- dist/runtime/route_cards/
+- dist/runtime/contracts_lite/
+- dist/runtime/starters/
+- dist/runtime/START_HERE.md
+- dist/runtime/TASK_CHOOSER.md
+- dist/runtime/launchers_index.json
+- dist/runtime/task_launchers/
 lite_files:
 - src/runtime/boot/core_bootstrap.md
 - src/runtime/boot/runtime_precedence.md

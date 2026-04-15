@@ -1,0 +1,56 @@
+{
+  "schema_version": "1.0.0",
+  "description": "Per-turn session state emitted by the AI and injected back as context by the web integration layer.",
+  "required_fields": [
+    "route",
+    "escalation_level",
+    "decisions_committed",
+    "evidence_classes_cited",
+    "validator_flags",
+    "weak_patterns_seen",
+    "open_questions",
+    "turn"
+  ],
+  "field_types": {
+    "route": "string|null",
+    "escalation_level": "enum[lightweight,standard,compound]",
+    "decisions_committed": "array<string>",
+    "evidence_classes_cited": "array<string>",
+    "validator_flags": "array<string>",
+    "weak_patterns_seen": "array<string>",
+    "open_questions": "array<string>",
+    "turn": "integer"
+  },
+  "valid_escalation_levels": ["lightweight", "standard", "compound"],
+  "valid_validator_flag_ids": [
+    "missing_section",
+    "thin_section",
+    "low_information_density",
+    "prompt_restatement",
+    "insufficient_evidence",
+    "missing_tradeoff",
+    "fake_tradeoff",
+    "missing_rationale",
+    "missing_required_decision",
+    "missing_evidence_class",
+    "forbidden_shortcut",
+    "overclaim_without_evidence",
+    "unsupported_superlative",
+    "unsupported_specificity",
+    "route_bleed",
+    "contradiction",
+    "hollow_compliance",
+    "overconfident_visual_claim",
+    "hard_fail_pattern",
+    "soft_fail_pattern",
+    "missing_meaning_guard"
+  ],
+  "valid_weak_pattern_ids": [
+    "missing_alternative",
+    "missing_next_step_guidance",
+    "prompt_restatement",
+    "soft_fail_pattern",
+    "missing_route_traceability"
+  ],
+  "notes": "route may be null before routing is determined. turn starts at 1. emit only on non-trivial standard or compound responses."
+}

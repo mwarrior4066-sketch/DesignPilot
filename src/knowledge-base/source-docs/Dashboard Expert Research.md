@@ -10,7 +10,7 @@ The fundamental classification of a dashboard dictates its entire information ar
 
 Strategic dashboards are engineered for high-level monitoring, focusing on core KPIs and long-term trends to provide situational awareness for executive leadership.<sup>2</sup> Analytical dashboards, by contrast, involve higher levels of human involvement and interactive analytical features, such as what-if analysis, to solve optimization problems or discover new patterns.<sup>4</sup> Operational dashboards serve real-time decision support, often in high-stakes environments where immediate action is required based on rapidly changing data.<sup>4</sup>
 
-This taxonomy matters because it determines the acceptable "Visual Complexity"—the difficulty of offering a verbal description of an image—and the "Data-Ink Ratio".<sup>4</sup> An executive needs high-level trends with minimal noise, while an analyst requires granular, filterable tables to identify trends across multiple data sources.<sup>2</sup>
+This taxonomy matters because it determines the acceptable "Visual Complexity"-the difficulty of offering a verbal description of an image-and the "Data-Ink Ratio".<sup>4</sup> An executive needs high-level trends with minimal noise, while an analyst requires granular, filterable tables to identify trends across multiple data sources.<sup>2</sup>
 
 | **Dashboard Type** | **Primary Objective**    | **User Persona**      | **Typical Time Horizon** | **Interaction Depth** |
 |--------------------|--------------------------|-----------------------|--------------------------|-----------------------|
@@ -98,7 +98,7 @@ Drill-down logic allows users to move from high-level summaries to granular deta
 
 Default rules for filtering mandate that filters be placed close to the data they affect, and that active filters are always displayed near the top of the dashboard.<sup>3</sup> Exception rules apply to "Locked Benchmarks," where a specific widget might be static to serve as a baseline comparison while the rest of the dashboard is filtered.<sup>26</sup> Fallback logic requires the use of "Breadcrumbs" to allow users to easily return to high-level views.<sup>22</sup>
 
-Failure conditions occur when there is a "Trust Gap"—for example, when a user drills down into a subset of data and the numbers do not match the expected totals due to missing context or "Semantic Drift" in KPI definitions.<sup>7</sup> Measurable thresholds include "Interaction Delay" (less than 100ms for hover/focus states) and "Drill-down Depth" (avoiding more than three levels of nesting).<sup>28</sup>
+Failure conditions occur when there is a "Trust Gap"-for example, when a user drills down into a subset of data and the numbers do not match the expected totals due to missing context or "Semantic Drift" in KPI definitions.<sup>7</sup> Measurable thresholds include "Interaction Delay" (less than 100ms for hover/focus states) and "Drill-down Depth" (avoiding more than three levels of nesting).<sup>28</sup>
 
 Implementation guidance for the AI operator pack should focus on "Contextual Persistence," ensuring that when a user drills down, the original filters are passed to the target page.<sup>26</sup> The AI must handle "Edge Cases" like incomplete or offline data consistently.<sup>5</sup> Test cases include the "Multi-Selection Persistence Test," where the AI must maintain a filtered state across multiple tabs, and the "Breadcrumb Recovery Test," where the user must be able to "Drill-Up" from a level-3 detail view to the home screen in a single click.
 
@@ -106,7 +106,7 @@ Implementation guidance for the AI operator pack should focus on "Contextual Per
 
 Accessibility is a non-negotiable requirement for enterprise-grade dashboards, ensuring that information is perceivable and operable for users with diverse needs. This involves adherence to WCAG 2.1 AA standards, which mandate that color is not the *only* visual means of conveying information.<sup>19</sup> Roughly 8% of men have some form of color deficiency, making red-green indicators a common point of failure.<sup>2</sup>
 
-Effective chart labeling requires descriptive titles and labels for every axis and legend.<sup>19</sup> "Direct Labeling"—placing text directly beside data points—is preferred over indirect look-ups in legends, as it reduces cognitive effort.<sup>18</sup> Furthermore, providing the underlying data in a tabular format ensures that screen readers can access the raw information.<sup>19</sup>
+Effective chart labeling requires descriptive titles and labels for every axis and legend.<sup>19</sup> "Direct Labeling"-placing text directly beside data points-is preferred over indirect look-ups in legends, as it reduces cognitive effort.<sup>18</sup> Furthermore, providing the underlying data in a tabular format ensures that screen readers can access the raw information.<sup>19</sup>
 
 | **Accessibility Feature** | **Implementation Requirement**                   | **Benefit**                      |
 |---------------------------|--------------------------------------------------|----------------------------------|
@@ -136,7 +136,7 @@ Color choices must avoid problematic combinations like red-green or blue-purple.
 
 Default rules for color include maintaining at least a 3:1 contrast ratio between adjacent bars or pie wedges and using backplates to ensure text readability against busy backgrounds.<sup>30</sup> Exception rules allow for "Brand Palettes" only when they do not conflict with semantic color logic (e.g., do not use a blue brand color for a "Danger" alert).<sup>32</sup> Fallback logic involves the use of "Double Encoding," where color is paired with icons, labels, or patterns to ensure meaning is conveyed regardless of color perception.<sup>5</sup>
 
-Failure conditions occur when colors are used inconsistently—for example, using red for "Increase" on one chart and "Decrease" on another.<sup>32</sup> Measurable thresholds include "Color Variance" (avoiding more than 10 colors across the entire dashboard) and "Perceptual Uniformity".<sup>31</sup>
+Failure conditions occur when colors are used inconsistently-for example, using red for "Increase" on one chart and "Decrease" on another.<sup>32</sup> Measurable thresholds include "Color Variance" (avoiding more than 10 colors across the entire dashboard) and "Perceptual Uniformity".<sup>31</sup>
 
 Implementation for the AI operator pack should utilize color spaces like CIELAB to ensure that sequential palettes have perceptually equal steps. The AI must be able to automatically switch to a "Colorblind-Safe" theme if a user preference is detected.<sup>31</sup> Test cases for the AI include the "Protanopia Simulation Test," where a status indicator must remain distinct to someone with red-blindness, and the "Monochromatic Print Test," where a line chart must use distinct dash patterns for each series.<sup>18</sup>
 
@@ -155,7 +155,7 @@ A well-designed empty state consists of three elements: Informative copy (what h
 
 Default rules for empty states mandate plain, direct language and the inclusion of a primary Call-to-Action (CTA).<sup>33</sup> Exception rules apply to "Loading States," which should be used when the delay is short, whereas an empty state is used for semi-permanent absences of data.<sup>25</sup> Fallback logic involves "Teaser Data," showing users what they *could* see if they upgraded or completed a task.<sup>24</sup>
 
-Failure conditions occur when empty states lead to "Dead Ends"—screens that tell the user no data is found but provide no way to fix it.<sup>33</sup> Measurable thresholds include "Empty State Conversion Rate" (how many users take the suggested action) and "Bounce Rate" from empty screens.<sup>35</sup>
+Failure conditions occur when empty states lead to "Dead Ends"-screens that tell the user no data is found but provide no way to fix it.<sup>33</sup> Measurable thresholds include "Empty State Conversion Rate" (how many users take the suggested action) and "Bounce Rate" from empty screens.<sup>35</sup>
 
 The AI operator pack must be implemented with a "State Detector" that identifies the root cause of the null state. If the cause is a filter, the AI should suggest "Clear All Filters"; if the cause is a new account, it should prompt "Connect Data Source".<sup>35</sup> Test cases include the "Zero Search Result Test," where the AI must provide related search terms, and the "Incomplete Setup Test," where it must guide the user back to the configuration screen.
 
@@ -208,7 +208,7 @@ The Dashboard and Data-Vis Expert is a logic module designed to govern the produ
 
 4.  Accessibility is a structural requirement, not an aesthetic add-on; color must never be the sole conveyor of meaning.<sup>19</sup>
 
-5.  Trust is maintained through transparency—freshness indicators, sync statuses, and clear metric ownership.<sup>3</sup>
+5.  Trust is maintained through transparency-freshness indicators, sync statuses, and clear metric ownership.<sup>3</sup>
 
 ### chart-selection-matrix.md
 
@@ -479,6 +479,6 @@ The Dashboard and Data-Vis Expert is a logic module designed to govern the produ
 
 37. Failure Modes Taxonomy - Emergent Mind, accessed April 8, 2026, [<u>https://www.emergentmind.com/topics/taxonomy-of-failure-modes</u>](https://www.emergentmind.com/topics/taxonomy-of-failure-modes)
 
-38. Why Most Data Visualization Dashboards Fail — And How to Make Yours Succeed \| by Grow.com \| Medium, accessed April 8, 2026, [<u>https://medium.com/@grow.com/why-most-data-visualization-dashboards-fail-and-how-to-make-yours-succeed-313d6cbf46f7</u>](https://medium.com/@grow.com/why-most-data-visualization-dashboards-fail-and-how-to-make-yours-succeed-313d6cbf46f7)
+38. Why Most Data Visualization Dashboards Fail - And How to Make Yours Succeed \| by Grow.com \| Medium, accessed April 8, 2026, [<u>https://medium.com/@grow.com/why-most-data-visualization-dashboards-fail-and-how-to-make-yours-succeed-313d6cbf46f7</u>](https://medium.com/@grow.com/why-most-data-visualization-dashboards-fail-and-how-to-make-yours-succeed-313d6cbf46f7)
 
 39. Breadcrumbs UX Navigation - The Ultimate Design Guide - Pencil & Paper, accessed April 8, 2026, [<u>https://www.pencilandpaper.io/articles/breadcrumbs-ux</u>](https://www.pencilandpaper.io/articles/breadcrumbs-ux)

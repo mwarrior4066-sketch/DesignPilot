@@ -1,0 +1,18 @@
+{
+  "validator": "lint_pack",
+  "decision": "PASS",
+  "warn_only": false,
+  "issue_counts": {
+    "BLOCKER": 0,
+    "ERROR": 0,
+    "WARN": 0,
+    "INFO": 0
+  },
+  "issues": [],
+  "metrics": {
+    "version": "3.0",
+    "required_examples": 16,
+    "missing_examples": 0
+  },
+  "metadata": {}
+}

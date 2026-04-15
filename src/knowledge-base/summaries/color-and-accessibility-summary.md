@@ -4,7 +4,7 @@ source_reference:
   - src/knowledge-base/source-docs/Color Intelligence Systems for Global Production Libraries.md
   - src/knowledge-base/source-docs/Color Expert Agent Research.md
   - src/knowledge-base/source-docs/Technical Reference Framework for Pantone Systems and Production-Aware Design Operations.md
-  - src/knowledge-base/source-docs/pantone_color_chart.pdf
+  - src/libraries/PANTONE_NUMBERS.json
 last_updated: 2026-04-11
 synchronized: true
 domain: color-system

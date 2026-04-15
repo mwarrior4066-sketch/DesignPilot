@@ -1,3 +1,7 @@
+> **MAINTAINER REFERENCE ONLY - not compiled into the runtime deploy.**
+> This is a human-readable mirror of `src/schemas/task_contracts.json`.
+> Edit the JSON schema, not this file. Regenerate with `compile_designpilot.py`.
+
 # Output Contracts by Task
 
 > Generated from `src/schemas/task_contracts.json`, stored evals, and `tests/regression_suite.json`. Add contract changes in the schema first, then regenerate.
@@ -47,21 +51,21 @@ This is the human-readable contract catalog for the pack. Each contract entry sh
 - fail-23 (fail-hollow-compliance)
 
 ### Forbidden shortcuts
-- `cosmetic_cleanup_only` — Cosmetic cleanup cannot stand in for structure.
+- `cosmetic_cleanup_only` - Cosmetic cleanup cannot stand in for structure.
   - signal: make it prettier
   - signal: just add whitespace
   - signal: looks great as-is
   - signal: visual polish only
-- `generic_hierarchy_advice` — Generic hierarchy language cannot pass without naming a winner.
+- `generic_hierarchy_advice` - Generic hierarchy language cannot pass without naming a winner.
   - signal: improve hierarchy
   - signal: make the cta stronger
   - signal: more emphasis everywhere
 
 ### Overclaim rules
-- `no_fake_validation` — Do not imply validation or proof without receipts.
+- `no_fake_validation` - Do not imply validation or proof without receipts.
   - blocked terms: validated, proven, confirmed
   - evidence escape hatch: benchmark, threshold, [file:, test, evidence
-- `no_claimed_user_testing` — Do not imply user evidence that is not actually present.
+- `no_claimed_user_testing` - Do not imply user evidence that is not actually present.
   - blocked terms: user-tested, users proved, research proved
   - evidence escape hatch: interview, survey, benchmark, [file:
 
@@ -112,17 +116,17 @@ This is the human-readable contract catalog for the pack. Each contract entry sh
 - pass-02 (smoke)
 
 ### Forbidden shortcuts
-- `state_tbd` — State logic cannot be deferred.
+- `state_tbd` - State logic cannot be deferred.
   - signal: states tbd
   - signal: state later
   - signal: states later
-- `accessibility_later` — Accessibility cannot be postponed.
+- `accessibility_later` - Accessibility cannot be postponed.
   - signal: accessibility later
   - signal: keyboard later
   - signal: aria later
 
 ### Overclaim rules
-- `no_unearned_reusability` — Do not call the component reusable without state-safe boundaries.
+- `no_unearned_reusability` - Do not call the component reusable without state-safe boundaries.
   - blocked terms: fully reusable, production-ready
   - evidence escape hatch: state matrix, variant, prop, token
 
@@ -175,15 +179,15 @@ This is the human-readable contract catalog for the pack. Each contract entry sh
 - fail-01 (fail-depth)
 
 ### Forbidden shortcuts
-- `more_charts` — Adding more charts is not a hierarchy strategy.
+- `more_charts` - Adding more charts is not a hierarchy strategy.
   - signal: add more charts
   - signal: show everything above the fold
-- `visual_cleanup_only` — Visual cleanup cannot replace KPI logic.
+- `visual_cleanup_only` - Visual cleanup cannot replace KPI logic.
   - signal: clean up visually
   - signal: make it look modern
 
 ### Overclaim rules
-- `no_fake_performance_claims` — Do not claim efficiency gains without real metric logic.
+- `no_fake_performance_claims` - Do not claim efficiency gains without real metric logic.
   - blocked terms: validated dashboard, proven dashboard
   - evidence escape hatch: metric, benchmark, threshold, [file:
 
@@ -232,16 +236,16 @@ This is the human-readable contract catalog for the pack. Each contract entry sh
 - pass-04 (smoke)
 
 ### Forbidden shortcuts
-- `visual_only_reframe` — The task cannot be reframed as visual-only.
+- `visual_only_reframe` - The task cannot be reframed as visual-only.
   - signal: purely visual change
   - signal: no backend impact
   - signal: front-end only
-- `handwave_feasibility` — Feasibility cannot be waved through.
+- `handwave_feasibility` - Feasibility cannot be waved through.
   - signal: should be straightforward
   - signal: easy backend task
 
 ### Overclaim rules
-- `no_security_overclaim` — Do not imply safety or scalability without actual constraints.
+- `no_security_overclaim` - Do not imply safety or scalability without actual constraints.
   - blocked terms: secure by default, scales automatically
   - evidence escape hatch: permission, audit, retention, queue, limit, [file:
 
@@ -290,16 +294,16 @@ This is the human-readable contract catalog for the pack. Each contract entry sh
 - pass-05 (compound)
 
 ### Forbidden shortcuts
-- `destructive_repair` — Destructive repair cannot be the main fix.
+- `destructive_repair` - Destructive repair cannot be the main fix.
   - signal: flatten the pdf
   - signal: rasterize the page
   - signal: just use ocr only
-- `semantic_blur` — The plan cannot blur semantics into visual cleanup.
+- `semantic_blur` - The plan cannot blur semantics into visual cleanup.
   - signal: make it accessible somehow
   - signal: looks correct visually so it is fine
 
 ### Overclaim rules
-- `no_compliance_overclaim` — Do not call the file compliant or accessible without verification.
+- `no_compliance_overclaim` - Do not call the file compliant or accessible without verification.
   - blocked terms: compliant, accessible, pdf/ua ready
   - evidence escape hatch: verification, check, screen reader, extract, [file:
 
@@ -350,16 +354,16 @@ This is the human-readable contract catalog for the pack. Each contract entry sh
 - fail-02 (fail-depth)
 
 ### Forbidden shortcuts
-- `adjective_stack` — Adjective stacks cannot stand in for positioning.
+- `adjective_stack` - Adjective stacks cannot stand in for positioning.
   - signal: best-in-class brand
   - signal: premium modern innovative
   - signal: strong brand presence
-- `tone_without_audience` — Tone advice cannot float without audience logic.
+- `tone_without_audience` - Tone advice cannot float without audience logic.
   - signal: cool tone
   - signal: make it feel premium
 
 ### Overclaim rules
-- `no_market_superiority` — Do not imply superiority without real proof.
+- `no_market_superiority` - Do not imply superiority without real proof.
   - blocked terms: best, leading, category-defining
   - evidence escape hatch: segment, evidence, benchmark, [file:
 
@@ -409,16 +413,16 @@ This is the human-readable contract catalog for the pack. Each contract entry sh
 - fail-03 (fail-proof)
 
 ### Forbidden shortcuts
-- `storytelling_only` — Storytelling cannot replace proof calibration.
+- `storytelling_only` - Storytelling cannot replace proof calibration.
   - signal: storytelling only
   - signal: portfolio polish only
   - signal: this shows my passion
-- `findings_without_rebuild` — A findings-only rewrite does not satisfy the task.
+- `findings_without_rebuild` - A findings-only rewrite does not satisfy the task.
   - signal: findings only
   - signal: just summarize
 
 ### Overclaim rules
-- `no_external_validation_claim` — Do not imply external validation without external artifacts.
+- `no_external_validation_claim` - Do not imply external validation without external artifacts.
   - blocked terms: validated, proven in production, externally validated
   - evidence escape hatch: external, reviewer, benchmark, confidence artifact, [file:
 
@@ -468,17 +472,17 @@ This is the human-readable contract catalog for the pack. Each contract entry sh
 - fail-04 (fail-accessibility)
 
 ### Forbidden shortcuts
-- `defer_accessibility` — Accessibility cannot be postponed until later.
+- `defer_accessibility` - Accessibility cannot be postponed until later.
   - signal: accessibility later
   - signal: screen reader later
   - signal: keyboard later
-- `paint_only_fix` — Color-only fixes cannot stand in for semantic repair.
+- `paint_only_fix` - Color-only fixes cannot stand in for semantic repair.
   - signal: just make focus blue
   - signal: increase contrast only
   - signal: change the color and it is fixed
 
 ### Overclaim rules
-- `no_claimed_compliance` — Do not claim compliance without a standard or test receipt.
+- `no_claimed_compliance` - Do not claim compliance without a standard or test receipt.
   - blocked terms: wcag compliant, accessible, fully accessible, validated
   - evidence escape hatch: wcag, apca, test, verify, screen reader, benchmark, [file:
 
@@ -530,16 +534,16 @@ This is the human-readable contract catalog for the pack. Each contract entry sh
 - fail-05 (fail-color)
 
 ### Forbidden shortcuts
-- `palette_without_roles` — A color list without semantic roles cannot pass.
+- `palette_without_roles` - A color list without semantic roles cannot pass.
   - signal: pick nicer colors
   - signal: palette only
   - signal: brand color everywhere
-- `color_only_state` — Status meaning cannot rely on color alone.
+- `color_only_state` - Status meaning cannot rely on color alone.
   - signal: use red and green only
   - signal: the color itself explains it
 
 ### Overclaim rules
-- `no_fake_accessibility` — Do not call the color system accessible without thresholds or fallback rules.
+- `no_fake_accessibility` - Do not call the color system accessible without thresholds or fallback rules.
   - blocked terms: accessible palette, wcag compliant, validated color system
   - evidence escape hatch: 4.5:1, apca, contrast, non-color, test, [file:
 
@@ -591,17 +595,17 @@ This is the human-readable contract catalog for the pack. Each contract entry sh
 - fail-06 (fail-graphic)
 
 ### Forbidden shortcuts
-- `taste_only` — Taste commentary cannot replace communication diagnosis.
+- `taste_only` - Taste commentary cannot replace communication diagnosis.
   - signal: looks cool
   - signal: make it pop
   - signal: be more bold
-- `style_without_goal` — Style comments without a communication goal cannot pass.
+- `style_without_goal` - Style comments without a communication goal cannot pass.
   - signal: nicer font
   - signal: better colors only
   - signal: more modern style
 
 ### Overclaim rules
-- `no_claimed_readability` — Do not claim readability gains without a legibility rule or testable reason.
+- `no_claimed_readability` - Do not claim readability gains without a legibility rule or testable reason.
   - blocked terms: readable now, fixed readability, validated hierarchy
   - evidence escape hatch: distance, scan, legibility, test, threshold, [file:
 
@@ -656,17 +660,17 @@ This is the human-readable contract catalog for the pack. Each contract entry sh
 - fail-24 (fail-visual-boundary)
 
 ### Forbidden shortcuts
-- `redraw_without_boundary` — Redrawing from scratch ignores the reconstruction brief.
+- `redraw_without_boundary` - Redrawing from scratch ignores the reconstruction brief.
   - signal: redraw it from scratch
   - signal: reimagine the layout
   - signal: just clean it up
-- `eyeballed_geometry` — Eyeballed spacing cannot stand in for structure.
+- `eyeballed_geometry` - Eyeballed spacing cannot stand in for structure.
   - signal: eyeball the spacing
   - signal: approximate it
   - signal: close enough
 
 ### Overclaim rules
-- `no_exactness_without_receipt` — Do not claim exact preservation without measured comparison or explicit inference labeling.
+- `no_exactness_without_receipt` - Do not claim exact preservation without measured comparison or explicit inference labeling.
   - blocked terms: exact match, identical, mathematically identical
   - evidence escape hatch: overlay, measurement, compare, estimate, inference, [file:
 
@@ -718,16 +722,16 @@ This is the human-readable contract catalog for the pack. Each contract entry sh
 - fail-08 (fail-specificity)
 
 ### Forbidden shortcuts
-- `font_swap_only` — A font swap is not a type system.
+- `font_swap_only` - A font swap is not a type system.
   - signal: pick a nicer font
   - signal: just tighten tracking
   - signal: use inter at 12px
-- `taste_only_type` — Taste language cannot replace readability rules.
+- `taste_only_type` - Taste language cannot replace readability rules.
   - signal: more elegant font
   - signal: sharper type only
 
 ### Overclaim rules
-- `no_fake_readability_proof` — Do not claim readability is solved without measurable rules or context.
+- `no_fake_readability_proof` - Do not claim readability is solved without measurable rules or context.
   - blocked terms: readability fixed, perfectly readable, validated type scale
   - evidence escape hatch: line length, threshold, contrast, density, test, [file:
 
@@ -779,16 +783,16 @@ This is the human-readable contract catalog for the pack. Each contract entry sh
 - fail-09 (fail-research)
 
 ### Forbidden shortcuts
-- `generic_research_advice` — Generic 'do interviews' advice cannot pass.
+- `generic_research_advice` - Generic 'do interviews' advice cannot pass.
   - signal: just do some interviews
   - signal: talk to users
   - signal: research later
-- `no_gap_priority` — Unranked wish lists are not research plans.
+- `no_gap_priority` - Unranked wish lists are not research plans.
   - signal: collect more data
   - signal: do more research
 
 ### Overclaim rules
-- `no_fake_user_evidence` — Do not imply user evidence that has not been collected.
+- `no_fake_user_evidence` - Do not imply user evidence that has not been collected.
   - blocked terms: users proved, research proved, validated by users
   - evidence escape hatch: interview, survey, usability test, artifact, [file:
 
@@ -846,17 +850,17 @@ This is the human-readable contract catalog for the pack. Each contract entry sh
 - fail-22 (filter-bloat)
 
 ### Forbidden shortcuts
-- `framework_swap_only` — A framework swap cannot stand in for an architectural decision.
+- `framework_swap_only` - A framework swap cannot stand in for an architectural decision.
   - signal: just convert it to react
   - signal: rewrite in next
   - signal: move it into components
-- `hook_sprawl` — More hooks is not an architectural answer.
+- `hook_sprawl` - More hooks is not an architectural answer.
   - signal: use more hooks
   - signal: add a useeffect
   - signal: componentize it later
 
 ### Overclaim rules
-- `no_production_ready_without_costs` — Do not call the implementation production-ready without boundary, state, and cost logic.
+- `no_production_ready_without_costs` - Do not call the implementation production-ready without boundary, state, and cost logic.
   - blocked terms: production-ready, scalable, performant
   - evidence escape hatch: hydration, bundle, boundary, state machine, rollback, benchmark, test
 
@@ -915,17 +919,17 @@ This is the human-readable contract catalog for the pack. Each contract entry sh
 - fail-19 (actionability)
 
 ### Forbidden shortcuts
-- `endpoint_theater` — Endpoint count is not architecture.
+- `endpoint_theater` - Endpoint count is not architecture.
   - signal: just add an endpoint
   - signal: just add a table
   - signal: just add redis
-- `security_by_identifier` — Identifiers do not replace authorization.
+- `security_by_identifier` - Identifiers do not replace authorization.
   - signal: use uuid and it is secure
   - signal: security by obscurity
   - signal: unguessable ids solve it
 
 ### Overclaim rules
-- `no_scalability_without_tax` — Do not call the system scalable or enterprise-ready without naming the architecture tax and authority model.
+- `no_scalability_without_tax` - Do not call the system scalable or enterprise-ready without naming the architecture tax and authority model.
   - blocked terms: scalable, enterprise-ready, globally distributed
   - evidence escape hatch: tenant, outbox, cursor, trace, consistency, rebac, observability
 
@@ -979,17 +983,17 @@ This is the human-readable contract catalog for the pack. Each contract entry sh
 - fail-12 (fail-api-reliability)
 
 ### Forbidden shortcuts
-- `retry_theater` — Retries without idempotency are not safe.
+- `retry_theater` - Retries without idempotency are not safe.
   - signal: just retry it
   - signal: retry until it works
   - signal: rate limit later
-- `success_envelope_failure` — Failure cannot hide inside a success envelope.
+- `success_envelope_failure` - Failure cannot hide inside a success envelope.
   - signal: return 200 with an error field
   - signal: always 200
   - signal: uuid makes it secure
 
 ### Overclaim rules
-- `no_security_or_reliability_theater` — Do not call the API secure or reliable without explicit contracts.
+- `no_security_or_reliability_theater` - Do not call the API secure or reliable without explicit contracts.
   - blocked terms: secure, reliable, production-ready, compliant
   - evidence escape hatch: rfc 9457, object-level, idempotency-key, 202 accepted, trace_id, quota, test, verify
 
@@ -1045,16 +1049,16 @@ This is the human-readable contract catalog for the pack. Each contract entry sh
 - fail-21 (humanization)
 
 ### Forbidden shortcuts
-- `difference_only` — The rewrite cannot exist only to look different.
+- `difference_only` - The rewrite cannot exist only to look different.
   - signal: rewrite for difference only
   - signal: just change the wording
   - signal: make it sound human somehow
-- `casualize_default` — Casualization cannot stand in for humanization.
+- `casualize_default` - Casualization cannot stand in for humanization.
   - signal: casualize it more
   - signal: make it more casual by default
 
 ### Overclaim rules
-- `no_humanized_claim_without_guard` — Do not claim the revision is more human without naming meaning guard and revision logic.
+- `no_humanized_claim_without_guard` - Do not claim the revision is more human without naming meaning guard and revision logic.
   - blocked terms: humanized, more human, natural now
   - evidence escape hatch: meaning-preservation, pattern, voice, drift risk, revised passage
 

@@ -1,0 +1,133 @@
+{
+  "run_id": "live-run-v2.8-haiku",
+  "run_date": "2026-04-13T22:10:41.249665+00:00",
+  "model": "claude-haiku-4-5-20251001",
+  "mode": "pack",
+  "pack_version": "2.8",
+  "tests_run": 6,
+  "n_samples": 1,
+  "pass_count": 4,
+  "pass_rate": 0.667,
+  "pass_rate_threshold": 0.75,
+  "rubric_means": {
+    "intent_alignment": null,
+    "actionability": null,
+    "structural_rigor": null,
+    "evidence_use": null,
+    "implementation_realism": null
+  },
+  "by_category": {
+    "smoke": {
+      "total": 3,
+      "passed": 2
+    },
+    "comprehension": {
+      "total": 3,
+      "passed": 2
+    }
+  },
+  "results": [
+    {
+      "test_id": "pass-14",
+      "title": "Front-end architecture canonical pass",
+      "category": "smoke",
+      "sample": 0,
+      "mode": "pack",
+      "expected_decision": "PASS",
+      "validator_decision": "FAIL",
+      "validator_score": 92,
+      "passed": false,
+      "latency_seconds": 17.65,
+      "issues": [
+        {
+          "id": "missing_required_decision",
+          "severity": "hard",
+          "detail": "missing required decision `cost_or_degraded_path`: Names the cost surface or degraded path."
+        }
+      ],
+      "rubric": {},
+      "output_file": "tests/live_outputs/live-run-v2.8-haiku/pass-14_s0_pack.md"
+    },
+    {
+      "test_id": "pass-15",
+      "title": "Backend architecture spec canonical pass",
+      "category": "smoke",
+      "sample": 0,
+      "mode": "pack",
+      "expected_decision": "PASS",
+      "validator_decision": "AUTO_REVISE",
+      "validator_score": 72,
+      "passed": true,
+      "latency_seconds": 47.15,
+      "issues": [],
+      "rubric": {},
+      "output_file": "tests/live_outputs/live-run-v2.8-haiku/pass-15_s0_pack.md"
+    },
+    {
+      "test_id": "pass-16",
+      "title": "API reliability and security canonical pass",
+      "category": "smoke",
+      "sample": 0,
+      "mode": "pack",
+      "expected_decision": "PASS",
+      "validator_decision": "AUTO_REVISE",
+      "validator_score": 75,
+      "passed": true,
+      "latency_seconds": 17.61,
+      "issues": [],
+      "rubric": {},
+      "output_file": "tests/live_outputs/live-run-v2.8-haiku/pass-16_s0_pack.md"
+    },
+    {
+      "test_id": "pass-17",
+      "title": "Adaptive explanation tiers preserve route truth",
+      "category": "comprehension",
+      "sample": 0,
+      "mode": "pack",
+      "expected_decision": "PASS",
+      "validator_decision": "FAIL",
+      "validator_score": 75,
+      "passed": false,
+      "latency_seconds": 57.8,
+      "issues": [
+        {
+          "id": "missing_section",
+          "severity": "hard",
+          "detail": "missing section: Rendering and mutation strategy"
+        }
+      ],
+      "rubric": {},
+      "output_file": "tests/live_outputs/live-run-v2.8-haiku/pass-17_s0_pack.md"
+    },
+    {
+      "test_id": "pass-18",
+      "title": "Designer response filter preserves backend constraints",
+      "category": "comprehension",
+      "sample": 0,
+      "mode": "pack",
+      "expected_decision": "PASS",
+      "validator_decision": "AUTO_REVISE",
+      "validator_score": 73,
+      "passed": true,
+      "latency_seconds": 17.6,
+      "issues": [],
+      "rubric": {},
+      "output_file": "tests/live_outputs/live-run-v2.8-haiku/pass-18_s0_pack.md"
+    },
+    {
+      "test_id": "pass-19",
+      "title": "Text humanization canonical pass",
+      "category": "comprehension",
+      "sample": 0,
+      "mode": "pack",
+      "expected_decision": "PASS",
+      "validator_decision": "AUTO_REVISE",
+      "validator_score": 88,
+      "passed": true,
+      "latency_seconds": 37.82,
+      "issues": [],
+      "rubric": {},
+      "output_file": "tests/live_outputs/live-run-v2.8-haiku/pass-19_s0_pack.md"
+    }
+  ]
+}

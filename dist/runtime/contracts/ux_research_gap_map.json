@@ -1,0 +1,62 @@
+{
+  "task_id": "ux_research_gap_map",
+  "title": "UX Research Gap Map",
+  "required_sections": [
+    {
+      "name": "Known evidence",
+      "min_words": 25,
+      "rationale": "Separates what is already known from assumption."
+    },
+    {
+      "name": "Critical gaps",
+      "min_words": 45,
+      "rationale": "Names the highest-risk unknowns that block good decisions."
+    },
+    {
+      "name": "Research plan",
+      "min_words": 45,
+      "rationale": "Maps each gap to a method, sample, and output."
+    },
+    {
+      "name": "Decision impact",
+      "min_words": 25,
+      "rationale": "Shows what product or narrative decision each study unlocks."
+    }
+  ],
+  "required_evidence_types": [
+    "research artifact",
+    "gap priority",
+    "decision linkage"
+  ],
+  "required_decisions": [
+    "known_vs_unknown",
+    "gap_priority",
+    "method_mapping",
+    "decision_linkage"
+  ],
+  "hard_fail_patterns": [
+    "just do some interviews",
+    "research later",
+    "talk to users"
+  ],
+  "soft_fail_patterns": [
+    "probably enough",
+    "might learn something"
+  ],
+  "required_skills": [
+    "ux-research-expert.md",
+    "content-and-case-study-expert.md"
+  ],
+  "allowed_modes": [
+    "PEER",
+    "AUDIT"
+  ],
+  "allowed_phases": [
+    "research",
+    "strategy"
+  ],
+  "canonical_contract": "src/schemas/task_contracts.json#ux_research_gap_map",
+  "task_weight_default": "standard",
+  "supports_lightweight_response": true,
+  "trace_visibility_default": "recoverable"
+}

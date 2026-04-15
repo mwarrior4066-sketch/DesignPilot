@@ -1,0 +1,16 @@
+{
+  "example": "real-brief-backend-feasibility-review",
+  "task_contract": "backend_feasibility_review",
+  "validator_decision": "PASS",
+  "rubric_scores": {
+    "structural_clarity": 9,
+    "specificity": 8,
+    "implementation_realism": 9,
+    "constraint_handling": 8,
+    "production_usefulness": 8
+  },
+  "strongest_dimension": "implementation_realism",
+  "weakest_dimension": "specificity",
+  "pass_justification": "The example turns a portfolio-facing UI idea into an implementation-aware feasibility decision, names hidden dependencies, and gives a safer release order.",
+  "residual_reviewer_doubt": "The brief is realistic but still lightly anonymized, so it is stronger than a synthetic fixture but not equivalent to shipped product evidence."
+}

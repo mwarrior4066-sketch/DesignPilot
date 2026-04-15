@@ -1,16 +1,20 @@
 #!/usr/bin/env python3
 import json
+import re
 from pathlib import Path
 import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
 DIST = ROOT / 'dist'
+DIST_RUNTIME = DIST / 'runtime'
+DIST_TASK_LAUNCHERS = DIST_RUNTIME / 'task_launchers'
+DIST_RUNTIME_SUMMARIES = DIST_RUNTIME / 'summaries'
 DOCS_OPERATOR = ROOT / 'docs' / 'operator'
 EXAMPLES_LIGHT = ROOT / 'examples' / 'lightweight'
 CONFIG = ROOT / 'config' / 'deploy_manifest.yaml'
 PROFILE_CONFIG = ROOT / 'config' / 'profile_map.yaml'
 
-for path in [DIST, DOCS_OPERATOR, EXAMPLES_LIGHT, DIST / 'lite_routes', DIST / 'lite_contracts', DIST / 'lite_starters']:
+for path in [DIST, DIST_RUNTIME, DIST_TASK_LAUNCHERS, DIST_RUNTIME_SUMMARIES, DOCS_OPERATOR, EXAMPLES_LIGHT, DIST / 'runtime' / 'route_cards', DIST / 'runtime' / 'contracts_lite', DIST / 'runtime' / 'starters', DIST / 'runtime' / 'contracts', DIST / 'runtime' / 'routes', DIST / 'runtime' / 'skills', DIST / 'runtime' / 'loading']:
     path.mkdir(parents=True, exist_ok=True)
 
 
@@ -48,13 +52,47 @@ def parse_frontmatter(text: str):
     return meta, body
 
 
+def parse_sections(body: str):
+    sections = {}
+    current = '_root'
+    buf = []
+    for line in body.splitlines():
+        m = re.match(r'^(#{1,6})\s+(.+?)\s*$', line)
+        if m:
+            sections[current] = '\n'.join(buf).strip()
+            current = m.group(2).strip()
+            buf = []
+        else:
+            buf.append(line)
+    sections[current] = '\n'.join(buf).strip()
+    return sections
+
+
 def slug_title(value: str) -> str:
     value = value.replace('rt_', '').replace('.md', '').replace('_', ' ').replace('-', ' ').strip()
     return ' '.join(part.capitalize() for part in value.split())
 
 
 def bullet_list(items):
-    return [f'- {item}' for item in items] if items else ['- none']
+    def _label(item):
+        if isinstance(item, dict):
+            return item.get('name') or item.get('id') or str(item)
+        return item
+    return [f'- {_label(item)}' for item in items] if items else ['- none']
+
+
+def extract_runtime_summary(skill_path: Path) -> str:
+    """Extract the ## Runtime summary section from a canonical skill file,
+    or return the full file content if no section exists."""
+    content = read(skill_path)
+    if '## Runtime summary' in content:
+        idx = content.index('## Runtime summary')
+        section = content[idx:].strip()
+        # Remove auto-generated comment
+        import re as _re
+        section = _re.sub(r'<!--[^>]*-->\n\n', '', section)
+        return section
+    return content
 
 
 def skill_purpose(path: Path):
@@ -74,6 +112,70 @@ def skill_purpose(path: Path):
     if not purpose:
         purpose = str(meta.get('domain', path.stem)).replace('-', ' ')
     return path.stem, purpose
+
+
+
+def runtime_summary_operator_path(summary_ref: str) -> str:
+    return f"dist/runtime/summaries/{Path(summary_ref).name}"
+
+
+def runtime_summary_display(summary_ref: str) -> str:
+    return f"`{runtime_summary_operator_path(summary_ref)}`"
+
+
+def build_runtime_summary_doc(summary_name: str) -> str:
+    source_path = ROOT / 'src' / 'knowledge-base' / 'summaries' / summary_name
+    text = read(source_path)
+    _, body = parse_frontmatter(text)
+    sections = parse_sections(body)
+
+    title = None
+    for line in body.splitlines():
+        if line.startswith('# '):
+            title = line[2:].strip()
+            break
+    if not title:
+        title = slug_title(summary_name)
+
+    def section_bullets(name: str, fallback: list[str]) -> list[str]:
+        content = sections.get(name, '').strip()
+        bullets = []
+        if content:
+            for line in content.splitlines():
+                line = line.strip()
+                if re.match(r'^[-*]\s+', line):
+                    bullets.append(re.sub(r'^[-*]\s+', '', line).strip())
+        return bullets or fallback
+
+    decision_rules = section_bullets('Decision rules', ['No extracted decision rules; escalate to a profile or the full kernel when thresholds or exact source detail matter.'])
+    failure_traps = section_bullets('Failure traps', ['No extracted failure traps; escalate if the runtime summary is not specific enough for the task.'])
+    escalate_when = section_bullets('Escalate when', [
+        'exact thresholds, standards wording, or measurable criteria are required',
+        'the governing route conflicts with other evidence or another route',
+        'the task becomes proof-sensitive, standards-grade, or release-sensitive',
+        'you need deeper canonical evidence beyond the compiled runtime layer',
+    ])
+
+    lines = [
+        f"# {title}",
+        '',
+        'This is the operator-safe compiled mirror of a runtime summary.',
+        'Use it for quick runtime context. Escalate to a profile or `dist/DESIGNPILOT_DEPLOY.md` when deeper canonical evidence is needed.',
+        '',
+        '## Decision rules',
+        *[f"- {item}" for item in decision_rules],
+        '',
+        '## Failure traps',
+        *[f"- {item}" for item in failure_traps],
+        '',
+        '## Escalate when',
+        *[f"- {item}" for item in escalate_when],
+        '',
+        '## Deeper fallback',
+        '- `dist/DESIGNPILOT_DEPLOY.md` for full compiled authority',
+        '- the recommended profile launcher when the task widens inside one domain',
+    ]
+    return '\n'.join(lines).strip() + '\n'
 
 
 def excerpt_from_file(rel_path: str) -> str:
@@ -104,12 +206,12 @@ def compact_protocol_summary(rel_path: str) -> list[str]:
 
 
 def load_runtime_routes() -> list[dict]:
-    route_dir = ROOT / 'src' / 'runtime' / 'cards' / 'routes'
+    route_dir = ROOT / 'dist' / 'runtime' / 'routes'
     return sorted([json.loads(p.read_text(encoding='utf-8')) for p in route_dir.glob('*.json')], key=lambda x: x['route_id'])
 
 
 def load_runtime_contracts() -> list[dict]:
-    contract_dir = ROOT / 'src' / 'runtime' / 'cards' / 'contracts'
+    contract_dir = ROOT / 'dist' / 'runtime' / 'contracts'
     return sorted([json.loads(p.read_text(encoding='utf-8')) for p in contract_dir.glob('*.json')], key=lambda x: x['task_id'])
 
 
@@ -157,6 +259,24 @@ def build_kernel(config, profiles):
             _, purpose = skill_purpose(ROOT / 'src' / 'skills' / skill_file)
             lines.append(f"- `{skill_file}` - {purpose}")
         lines.append('')
+    # Auto-generate required output headings table from task contracts
+    # This block is regenerated every compile — do not edit DESIGNPILOT_DEPLOY.md by hand
+    try:
+        contracts_data = json.loads((ROOT / 'src' / 'schemas' / 'task_contracts.json').read_text())
+        lines.append('')
+        lines.append('## Required output headings by task')
+        lines.append('When you identify the governing task from the user prompt, use these section headings exactly.')
+        lines.append('These headings are required for automated validation. Do not rename, merge, or skip them.')
+        lines.append('')
+        for task in contracts_data.get('tasks', []):
+            tid = task['task_id']
+            secs = task.get('required_sections', [])
+            heading_names = [s['name'] if isinstance(s, dict) else s for s in secs]
+            if heading_names:
+                lines.append(f"**{tid}:** " + ' | '.join(heading_names))
+    except Exception as e:
+        lines.append(f'<!-- heading table generation failed: {e} -->')
+
     return '\n'.join(lines).strip() + '\n'
 
 
@@ -204,10 +324,16 @@ def build_lite(config):
         '- low-to-medium risk work where the output shape is already known',
         '- sessions where you want DesignPilot discipline without loading the whole package',
         '',
-        '## What to load',
+        '## Preferred operator path',
+        '1. `dist/runtime/START_HERE.md` if you are starting fresh',
+        '2. one single-file launcher from `dist/runtime/task_launchers/` when the task type is known',
+        '3. `dist/SESSION_ZERO.md`',
+        '',
+        '## Manual fallback load order',
+        'Use this only when you are maintaining the pack or debugging a launcher.',
         '1. `dist/DEPLOY_LITE.md`',
-        '2. one route card from `dist/lite_routes/`',
-        '3. the matching contract card from `dist/lite_contracts/`',
+        '2. one route card from `dist/runtime/route_cards/`',
+        '3. the matching contract card from `dist/runtime/contracts_lite/`',
         '4. only the governing skill cards and truly needed supporting skill cards',
         '5. `dist/SESSION_ZERO.md`',
         '',
@@ -250,20 +376,36 @@ def build_lite(config):
 
 
 def build_session_zero(profiles):
-    profile_list = ', '.join(f"`{p}`" for p in profiles)
-    return f'''# SESSION_ZERO
+    return '''# SESSION_ZERO
 
-I am starting a DesignPilot session.
+You are starting a DesignPilot session.
 
-Please do the following before answering in depth:
-1. confirm what deploy files appear to be loaded
-2. identify the most likely work type and governing route
-3. tell me whether this looks like a `lightweight`, `profile-only`, or `full` startup
-4. tell me whether the active profile should be one of {profile_list}
-5. ask only for the minimum missing context that would materially change routing, proof honesty, or implementation realism
-6. do not explain internal architecture unless I ask for it
+Before answering in depth:
+1. acknowledge the task naturally in plain language
+2. infer the likely governing job internally instead of foregrounding routing language
+3. begin useful work immediately unless one missing detail would materially change the answer
+4. ask for only the minimum missing context that affects structure, implementation realism, or proof honesty
+5. do not front-load internal architecture, startup modes, route IDs, or profile logic unless the user asks
+6. sound like a capable helper: direct, calm, useful, and not sycophantic
+7. keep internal rigor internal unless surfacing it materially improves trust or clarity
+8. use the exact section headings listed in the launcher Output expectations -- do not rename them or invent alternatives
+9. each required section must have substantive content -- at least two paragraphs of original analysis, not a heading with a single sentence underneath
+10. do not begin your response with Mode, Phase, Route, or Skills lines. Your first output
+    token must be substantive content. Operator metadata belongs in the [SESSION_STATE] block
+    at the end of your response only. Never in visible output.
+11. every recommendation must name one explicit tradeoff -- what is preserved and what is
+    sacrificed. Use at least one of: "rather than", "instead of", "at the cost of",
+    "this means accepting", "one downside is", "the risk is", "you sacrifice X to gain Y."
+    A direction without a named tradeoff will fail validation.
+12. every claim of necessity, constraint, or cause must be expressed with explicit causal
+    grounding. Use at least one of: "because", "without which", "this requires",
+    "the constraint is", "by doing so", "if you skip this", "the reason is",
+    "this enables", "this prevents."
+    A conclusion without causal grounding will fail rationale validation.
+
+If the task is ambiguous, use one short clarifying question.
+If it is not ambiguous, do not turn startup into intake ceremony.
 '''
-
 
 def contract_for_route(route: dict, contract_map: dict) -> dict:
     return contract_map.get(route['task_id'], {
@@ -305,7 +447,7 @@ def build_route_doc(route: dict, contract: dict, profiles: dict) -> str:
         '',
         '## Startup recommendation',
         f"- Recommended mode: {recommended_mode}",
-        f"- Default contract: `dist/lite_contracts/{route['task_id']}.md`" if is_contract_backed else '- Default contract: no dedicated task contract; treat this as a pre-pass helper and escalate quickly',
+        f"- Default contract: `dist/runtime/contracts_lite/{route['task_id']}.md`" if is_contract_backed else '- Default contract: no dedicated task contract; treat this as a pre-pass helper and escalate quickly',
         f"- Recommended profile if you escalate: `dist/DEPLOY_{recommended_profile.upper()}.md`",
         f"- Visual input supported: {'yes' if route.get('visual_input_supported') else 'no'}",
         '',
@@ -313,13 +455,13 @@ def build_route_doc(route: dict, contract: dict, profiles: dict) -> str:
     ]
     for skill_file in route.get('governing_skills', []):
         _, purpose = skill_purpose(ROOT / 'src' / 'skills' / skill_file)
-        lines.append(f"- `src/runtime/cards/skills/{skill_file}` — {purpose}")
+        lines.append(f"- `dist/runtime/skills/{skill_file}` - {purpose}")
     lines.extend(['', '## Optional supporting skills'])
     for skill_file in route.get('supporting_skills', []):
         _, purpose = skill_purpose(ROOT / 'src' / 'skills' / skill_file)
-        lines.append(f"- `src/runtime/cards/skills/{skill_file}` — {purpose}")
+        lines.append(f"- `dist/runtime/skills/{skill_file}` - {purpose}")
     lines.extend(['', '## Runtime summaries'])
-    lines.extend(bullet_list([f"`{summary}`" for summary in route.get('required_summary_ids', [])]))
+    lines.extend(bullet_list([runtime_summary_display(summary) for summary in route.get('required_summary_ids', [])]))
     lines.extend(['', '## Contract shape'])
     lines.extend(bullet_list(contract.get('required_sections', [])))
     lines.extend(['', '## Escalate when'])
@@ -361,10 +503,10 @@ def build_contract_doc(contract: dict) -> str:
 
 def estimate_lite_words(route: dict) -> int:
     total = words(read(DIST / 'DEPLOY_LITE.md')) + words(read(DIST / 'SESSION_ZERO.md'))
-    total += words(read(DIST / 'lite_routes' / f"{route['route_id']}.md"))
-    total += words(read(DIST / 'lite_contracts' / f"{route['task_id']}.md"))
+    total += words(read(DIST / 'runtime' / 'route_cards' / f"{route['route_id']}.md"))
+    total += words(read(DIST / 'runtime' / 'contracts_lite' / f"{route['task_id']}.md"))
     for skill in route.get('governing_skills', []):
-        total += words(read(ROOT / 'src' / 'runtime' / 'cards' / 'skills' / skill))
+        total += words(read(ROOT / 'dist' / 'runtime' / 'skills' / skill))
     return total
 
 
@@ -379,10 +521,10 @@ def build_starter_doc(route: dict, contract: dict, profiles: dict) -> str:
         '',
         '## Load order',
         '- `dist/DEPLOY_LITE.md`',
-        f"- `dist/lite_routes/{route['route_id']}.md`",
-        f"- `dist/lite_contracts/{route['task_id']}.md`",
-        *[f"- `src/runtime/cards/skills/{skill}`" for skill in route.get('governing_skills', [])],
-        *[f"- optional: `src/runtime/cards/skills/{skill}`" for skill in route.get('supporting_skills', [])[:2]],
+        f"- `dist/runtime/route_cards/{route['route_id']}.md`",
+        f"- `dist/runtime/contracts_lite/{route['task_id']}.md`",
+        *[f"- `dist/runtime/skills/{skill}`" for skill in route.get('governing_skills', [])],
+        *[f"- optional: `dist/runtime/skills/{skill}`" for skill in route.get('supporting_skills', [])[:2]],
         '- `dist/SESSION_ZERO.md`',
         '',
         '## Best for',
@@ -417,9 +559,9 @@ def build_lite_index(routes: list[dict], contracts: list[dict], profiles: dict) 
         record = {
             'task_id': task_id,
             'title': contract.get('title', slug_title(task_id)),
-            'route_doc': f'dist/lite_routes/{route["route_id"]}.md',
-            'contract_doc': f'dist/lite_contracts/{task_id}.md' if task_id in contract_map else '',
-            'starter_doc': f'dist/lite_starters/{task_id}.md' if lightweight_ok else '',
+            'route_doc': f'dist/runtime/route_cards/{route["route_id"]}.md',
+            'contract_doc': f'dist/runtime/contracts_lite/{task_id}.md' if task_id in contract_map else '',
+            'starter_doc': f'dist/runtime/starters/{task_id}.md' if lightweight_ok else '',
             'recommended_profile': f'dist/DEPLOY_{recommend_profile(route, profiles).upper()}.md',
             'lightweight_eligible': lightweight_ok,
             'visual_input_supported': bool(route.get('visual_input_supported', False)),
@@ -468,14 +610,19 @@ Use this when:
 ## 3. Lightweight mode
 Use for bounded route-specific work.
 
-Load:
-- `dist/DEPLOY_LITE.md`
-- one route card from `dist/lite_routes/`
-- one contract card from `dist/lite_contracts/`
-- only the needed skill cards from `src/runtime/cards/skills/`
+Normal operator path:
+- `dist/runtime/START_HERE.md`
+- one launcher from `dist/runtime/task_launchers/`
 - `dist/SESSION_ZERO.md`
 
-Use this when:
+Advanced manual path only:
+- `dist/DEPLOY_LITE.md`
+- one route card from `dist/runtime/route_cards/`
+- one contract card from `dist/runtime/contracts_lite/`
+- only the needed runtime skill cards
+- `dist/SESSION_ZERO.md`
+
+Use lightweight mode when:
 - the task has one clear governing route
 - the output is bounded and low-to-medium risk
 - the task does not need deep cross-domain coordination
@@ -491,14 +638,20 @@ def build_lightweight_quickstart(routes, contracts):
     contract_map = {c['task_id']: c for c in contracts}
     example_route = next((r for r in routes if r.get('route_id') == 'rt_ui_structure_critique'), routes[0])
     example_contract = contract_for_route(example_route, contract_map)
-    governing = '\n'.join(f'- `src/runtime/cards/skills/{skill}`' for skill in example_route.get('governing_skills', []))
-    optional = '\n'.join(f'- `src/runtime/cards/skills/{skill}`' for skill in example_route.get('supporting_skills', [])[:2]) or '- none'
     return f'''# Lightweight Quickstart
 
 Use this path when the task is narrow enough that one route can govern it honestly.
 Start broad, then narrow.
 
-## 1. Confirm the task is a lightweight fit
+## 1. Prefer the launcher-first path
+Normal operators should start with a single-file launcher rather than assembling route, contract, and skill cards by hand.
+
+Load:
+- `dist/runtime/START_HERE.md`
+- `dist/runtime/task_launchers/{example_contract['task_id']}.md` or another matching launcher
+- `dist/SESSION_ZERO.md`
+
+## 2. Confirm the task is a lightweight fit
 Use lightweight mode when:
 - one route clearly governs the task
 - the output shape is bounded
@@ -506,25 +659,20 @@ Use lightweight mode when:
 
 If that is not true, use a profile or the full kernel instead.
 
-## 2. Pick the route from the task type
-Start with `docs/operator/ROUTE_PICKER.md`.
-Choose the route that best matches the governing job.
+## 3. Pick the launcher from the task type
+Start with `dist/runtime/TASK_CHOOSER.md`.
+Choose the launcher that best matches the governing job.
 
-Example route:
-- `dist/lite_routes/{example_route['route_id']}.md`
+Example launcher:
+- `dist/runtime/task_launchers/{example_contract['task_id']}.md`
 
-## 3. Load the lite bootstrap and matching contract
-Load:
+## 4. Use manual runtime assembly only as a fallback
+If you are debugging, maintaining, or checking launcher internals, the manual path is:
 - `dist/DEPLOY_LITE.md`
-- `dist/lite_routes/{example_route['route_id']}.md`
-- `dist/lite_contracts/{example_contract['task_id']}.md`
-
-## 4. Add only the skill cards that materially matter
-Governing cards for `{example_route['route_id']}`:
-{governing}
-
-Optional supporting cards:
-{optional}
+- `dist/runtime/route_cards/{example_route['route_id']}.md`
+- `dist/runtime/contracts_lite/{example_contract['task_id']}.md`
+- the needed runtime skill cards
+- `dist/SESSION_ZERO.md`
 
 ## 5. Start with session zero
 Send the prompt in `dist/SESSION_ZERO.md`.
@@ -535,9 +683,6 @@ Switch to a profile or the kernel when:
 - architecture or proof sensitivity becomes central
 - the route or contract explicitly says lightweight is unsafe
 - the answer would otherwise depend on hidden assumptions
-
-## Shortcut
-Use a prebuilt starter from `dist/lite_starters/` if one matches your task.
 '''
 
 
@@ -560,7 +705,7 @@ def build_route_picker(routes, contracts, profiles):
     for route in lite_routes:
         contract = contract_for_route(route, contract_map)
         grouped.setdefault(classify(route, contract), []).append((route, contract))
-    lines = ['# Route Picker', '', 'Use this file to choose the right startup path without reading internal architecture.', '', 'Start broad, then narrow:', '- first choose the task cluster that matches the job', '- then choose the route inside that cluster', '- then load the matching contract and only the needed skill cards', '']
+    lines = ['# Route Picker', '', 'Use this file to choose the right launcher without reading internal architecture.', '', 'Start broad, then narrow:', '- first choose the task cluster that matches the job', '- then choose the launcher inside that cluster', '- then load the launcher plus `dist/SESSION_ZERO.md`', '', 'Manual route + contract + skill assembly is a maintainer/debug path only.', '']
     for cluster in ['UI and system structure', 'Brand and communication', 'Research and planning', 'Other specialized routes']:
         items = grouped.get(cluster, [])
         if not items:
@@ -569,10 +714,10 @@ def build_route_picker(routes, contracts, profiles):
         for route, contract in items:
             use_when = route.get('trigger_summary') or f"Use when {contract.get('title', slug_title(route['task_id'])).lower()} is the governing job."
             lines.append(f"### {contract.get('title', slug_title(route['task_id']))}")
-            lines.append(f"- Route card: `dist/lite_routes/{route['route_id']}.md`")
-            lines.append(f"- Contract card: `dist/lite_contracts/{route['task_id']}.md`")
-            lines.append(f"- Starter pack: `dist/lite_starters/{route['task_id']}.md`")
-            lines.append(f"- Use when: {use_when}")
+            lines.append(f"- Single-file launcher: `dist/runtime/task_launchers/{route['task_id']}.md`")
+            lines.append(f"- Manual route card: `dist/runtime/route_cards/{route['route_id']}.md`")
+            lines.append(f"- Manual contract card: `dist/runtime/contracts_lite/{route['task_id']}.md`")
+            lines.append(f"- Best fit: {use_when}")
             lines.append('')
     lines.extend(['## Routes that should usually escalate', ''])
     for route in heavy_routes:
@@ -582,9 +727,9 @@ def build_route_picker(routes, contracts, profiles):
         if route.get('role') == 'prepass':
             use_when = 'Use when you need visual evidence extraction before deciding the real governing route.'
         lines.append(f"### {contract.get('title', slug_title(route['task_id']))}")
+        lines.append(f"- Launcher: `dist/runtime/task_launchers/{route['task_id']}.md`")
         lines.append(f"- Recommended startup: `dist/DEPLOY_{profile.upper()}.md` or full kernel")
-        lines.append(f"- Route card: `dist/lite_routes/{route['route_id']}.md`")
-        lines.append(f"- Use when: {use_when}")
+        lines.append(f"- Best fit: {use_when}")
         lines.append('')
     return '\n'.join(lines).strip() + '\n'
 
@@ -592,19 +737,26 @@ def build_route_picker(routes, contracts, profiles):
 def build_operator_quickstart():
     return '''# Operator Quickstart
 
-Start with `docs/operator/STARTUP_MODES.md`.
+Start with `dist/runtime/START_HERE.md`.
 Choose the narrowest honest startup mode for the task.
 
 ## Startup selector
+- **Fastest normal path**: `dist/runtime/START_HERE.md` -> one launcher in `dist/runtime/task_launchers/` -> `dist/SESSION_ZERO.md`
 - **Full mode**: `dist/DESIGNPILOT_DEPLOY.md` + one profile + `dist/SESSION_ZERO.md`
 - **Profile-only mode**: one profile + `dist/SESSION_ZERO.md`
-- **Lightweight mode**: `dist/DEPLOY_LITE.md` + one route card + one contract card + only the needed skill cards + `dist/SESSION_ZERO.md`
+- **Manual lightweight mode**: `dist/DEPLOY_LITE.md` + one route card + one contract card + only the needed runtime skill cards + `dist/SESSION_ZERO.md`
 
 ## Read next
-- `docs/operator/STARTUP_MODES.md`
-- `docs/operator/LIGHTWEIGHT_QUICKSTART.md`
+- `dist/runtime/START_HERE.md`
+- `dist/runtime/TASK_CHOOSER.md`
+- `docs/operator/DEPLOYMENT_GUIDE.md`
 - `docs/operator/PROFILE_GUIDE.md`
 - `docs/operator/ROUTE_PICKER.md`
+
+## Startup authority
+- Operator entrypoint: `dist/runtime/START_HERE.md`
+- Compiled full-kernel authority: `dist/DESIGNPILOT_DEPLOY.md`
+- Source startup authority for maintainers: `src/operator/core/MASTER_CHAT_OPERATOR.md`
 
 ## Guardrail
 Do not default to the full kernel unless the task is truly compound, cross-domain, remediation-heavy, or proof-sensitive.
@@ -620,21 +772,256 @@ def build_profile_guide(profiles):
         lines.append('Best for:')
         for skill in profile.get('skill_files', [])[:5]:
             _, purpose = skill_purpose(ROOT / 'src' / 'skills' / skill)
-            lines.append(f"- `{skill}` — {purpose}")
+            lines.append(f"- `{skill}` - {purpose}")
         lines.append('')
     lines.append('Escalate to the full kernel when more than one domain is central or proof sensitivity rises.')
     return '\n'.join(lines).strip() + '\n'
 
 
+
+
+def build_start_here() -> str:
+    return '''# START_HERE
+
+This is the simplest runtime front door for normal use.
+
+## Fastest normal path
+1. Open `dist/runtime/TASK_CHOOSER.md` if the task type is not obvious.
+2. Load one launcher from `dist/runtime/task_launchers/`.
+3. Start with `dist/SESSION_ZERO.md`.
+
+## What this is for
+Use this path when you want DesignPilot to help with a real task without manually assembling the system.
+
+## Escalate only when needed
+- Use a profile file from `dist/` when the job is clearly inside one domain but grows beyond a lightweight pass.
+- Use `dist/DESIGNPILOT_DEPLOY.md` when multiple domains compete or proof-sensitive conflicts matter.
+- Use manual lightweight assembly only for debugging, maintenance, or runtime inspection.
+
+## Guardrails
+- Do not manually assemble route + contract + skills for normal use.
+- Prefer the smallest correct startup path.
+- If the task widens, escalate instead of patching around ambiguity.
+- DesignPilot improves structure and decision quality, but it does not replace research, engineering review, accessibility testing, or real-world validation.
+'''
+
+def build_task_chooser(routes, contracts, profiles) -> str:
+    contract_map = {c['task_id']: c for c in contracts}
+    lite_routes = [r for r in routes if r['task_id'] in contract_map]
+    cluster_map = [
+        ('UI and system structure', ['ui', 'layout', 'dashboard', 'component', 'type', 'color', 'accessibility']),
+        ('Brand and communication', ['brand', 'case study', 'text humanization']),
+        ('Research and planning', ['research gap']),
+    ]
+    def classify(route, contract):
+        hay = f"{contract.get('title', '')} {route.get('trigger_summary', '')}".lower()
+        for label, keys in cluster_map:
+            if any(k in hay for k in keys):
+                return label
+        return 'Other specialized routes'
+    grouped = {}
+    for route in lite_routes:
+        contract = contract_for_route(route, contract_map)
+        grouped.setdefault(classify(route, contract), []).append((route, contract))
+    lines = [
+        '# TASK_CHOOSER',
+        '',
+        'Use this file to pick the launcher that best matches the main job you need done.',
+        '',
+        'Start with the user-level question, not the internal route:',
+        '- what are you trying to do',
+        '- what is the main failure, decision, or deliverable',
+        '- which launcher best fits that job',
+        '',
+        'Use launcher-first startup whenever possible.',
+    ]
+    for cluster in ['UI and system structure', 'Brand and communication', 'Research and planning', 'Other specialized routes']:
+        items = grouped.get(cluster, [])
+        if not items:
+            continue
+        lines.extend(['', f'## {cluster}', ''])
+        for route, contract in items:
+            profile = recommend_profile(route, profiles)
+            use_when = route.get('trigger_summary') or f"Use when {contract.get('title', slug_title(route['task_id'])).lower()} is the governing job."
+            lines.append(f"### {contract.get('title', slug_title(route['task_id']))}")
+            lines.append(f"- Launcher: `dist/runtime/task_launchers/{route['task_id']}.md`")
+            lines.append(f"- Default mode: {'lightweight' if route.get('lightweight_eligible', False) else 'profile-only or full'}")
+            lines.append(f"- Recommended profile on escalation: `dist/DEPLOY_{profile.upper()}.md`")
+            lines.append(f"- Best fit: {use_when}")
+            lines.append('')
+    return '\n'.join(lines).strip() + '\n'
+
+
+def build_task_launcher(route: dict, contract: dict, profiles: dict) -> str:
+    recommended_profile = recommend_profile(route, profiles)
+    route_title = contract.get('title', slug_title(route['task_id']))
+    lightweight_ok = bool(route.get('lightweight_eligible', False) and contract.get('required_sections'))
+    mode = 'lightweight' if lightweight_ok else 'profile-only or full'
+    skills = []
+    for skill_file in route.get('governing_skills', []):
+        _, purpose = skill_purpose(ROOT / 'src' / 'skills' / skill_file)
+        skills.append(f"- Governing: `{skill_file}` - {purpose}")
+    for skill_file in route.get('supporting_skills', [])[:3]:
+        _, purpose = skill_purpose(ROOT / 'src' / 'skills' / skill_file)
+        skills.append(f"- Optional support: `{skill_file}` - {purpose}")
+    required_secs = contract.get('required_sections', [])
+    output_expectations = []
+    if required_secs:
+        # Explicit format block: model must use these exact headings for automated validation
+        output_expectations.append('Use these section headings exactly -- matching them enables automated validation:')
+        for section in required_secs:
+            name = section if isinstance(section, str) else section.get('name', str(section))
+            rationale = section.get('rationale', '') if isinstance(section, dict) else ''
+            if rationale:
+                output_expectations.append(f'  ## {name}  ({rationale})')
+            else:
+                output_expectations.append(f'  ## {name}')
+        output_expectations.append('')
+    output_expectations.extend([f"- Required section: {section if isinstance(section,str) else section.get('name',section)}" for section in required_secs] or ['- Required sections are not explicitly codified; escalate if the deliverable shape becomes ambiguous.'])
+    output_expectations.extend([f"- Required evidence: {item}" for item in contract.get('required_evidence_types', [])])
+    output_expectations.extend([f"- Required decision: {item}" for item in contract.get('required_decisions', [])])
+    output_expectations.extend([f"- Hard fail signal: {item}" for item in contract.get('hard_fail_patterns', [])])
+    output_expectations.extend([f"- Soft fail signal: {item}" for item in contract.get('soft_fail_patterns', [])])
+    lines = [
+        f"# LAUNCH_{route['task_id'].upper()}",
+        '',
+        f"Use this as the single-file launcher for **{route_title}**.",
+        '',
+        '## Startup path',
+        f"- Default mode: {mode}",
+        '- Normal path: load this launcher, then start with `dist/SESSION_ZERO.md`.',
+        '- Manual runtime assembly is not needed for normal use.',
+        f"- Escalate to `dist/DEPLOY_{recommended_profile.upper()}.md` if the task stays in one domain but grows beyond a lightweight pass.",
+        '- Escalate to `dist/DESIGNPILOT_DEPLOY.md` if multiple domains compete or proof-sensitive conflicts become central.',
+        '',
+        '## Route logic',
+        f"- Governing route: `{route['route_id']}`",
+        f"- Use when: {route.get('trigger_summary', 'This is the governing task type.')}",
+        f"- Visual input supported: {'yes' if route.get('visual_input_supported') else 'no'}",
+        *[f"- Known tension: {item}" for item in route.get('known_tensions', [])],
+        *[f"- Escalate when: {item}" for item in route.get('escalation_conditions', [])],
+        f"- Fallback route: `{route.get('fallback_route')}`" if route.get('fallback_route') else '- Fallback route: none',
+        '',
+        '## Included skill logic',
+        *skills,
+        '',
+        '## Runtime summaries',
+        *([f"- {runtime_summary_display(summary)}" for summary in route.get('required_summary_ids', [])] or ['- none']),
+        '',
+        '## Output expectations',
+        *output_expectations,
+        '',
+        '## Kickoff behavior',
+        '- After loading this launcher, start with `dist/SESSION_ZERO.md`.',
+        '- Acknowledge the task naturally, frame the job in plain language, and begin useful work as early as possible.',
+        '- Ask for only the minimum missing context that would materially change structure, implementation realism, or proof honesty.',
+        '- Do not surface route IDs, startup modes, or profile logic unless they materially improve trust or clarity.',
+        '- User-facing wording should sound like a capable helper: direct, calm, useful, and not sycophantic.',
+        f"- Suggested kickoff prompt: I am starting a DesignPilot session for {route_title}. Treat this launcher as the governing fit, keep the startup light, and ask only for the missing context that would materially change the answer.",
+    ]
+    return '\n'.join(lines).strip() + '\n'
+
+
+def build_runtime_index(routes: list[dict], contracts: list[dict], profiles: dict) -> dict:
+    contract_map = {c['task_id']: c for c in contracts}
+    launchers = {}
+    for route in routes:
+        contract = contract_for_route(route, contract_map)
+        launchers[route['task_id']] = {
+            'title': contract.get('title', slug_title(route['task_id'])),
+            'launcher': f'dist/runtime/task_launchers/{route["task_id"]}.md',
+            'route_doc': f'dist/runtime/route_cards/{route["route_id"]}.md',
+            'contract_doc': f'dist/runtime/contracts_lite/{route["task_id"]}.md' if route['task_id'] in contract_map else '',
+            'recommended_profile': f'dist/DEPLOY_{recommend_profile(route, profiles).upper()}.md',
+            'lightweight_eligible': bool(route.get('lightweight_eligible', False) and contract.get('required_sections')),
+            'governing_skills': route.get('governing_skills', []),
+        }
+    return {'version': '1.0', 'launchers': launchers}
+
 def build_example_file(task_id: str, title: str) -> str:
-    return f'''# Lightweight Example — {title}
+    return f'''# Lightweight Example - {title}
 
 Use starter pack:
-- `dist/lite_starters/{task_id}.md`
+- `dist/runtime/starters/{task_id}.md`
 
 Then start with:
 > I am starting a lightweight DesignPilot session for {title}. Ask only for the minimum missing context and keep the route narrow unless the task clearly needs escalation.
 '''
+
+
+
+def _build_readme_health_badge(root: Path) -> str:
+    """Generate a pack health section from the latest batch run."""
+    import glob, os
+    batch_dir = root / 'tests' / 'live_outputs' / 'batch'
+    if not batch_dir.exists():
+        return ''
+    valid_runs = []
+    for run_dir in sorted(batch_dir.iterdir(), reverse=True):
+        if not run_dir.is_dir(): continue
+        ctx_file = run_dir / 'run_context.json'
+        cr_file = run_dir / 'comparative_report.json'
+        if not cr_file.exists(): continue
+        ctx = json.loads(ctx_file.read_text()) if ctx_file.exists() else {}
+        if ctx.get('is_valid_quality_signal', True):
+            valid_runs.append((run_dir.name, cr_file))
+            break
+    if not valid_runs:
+        return ''
+    run_id, cr_file = valid_runs[0]
+    report = json.loads(cr_file.read_text())
+    rows = []
+    for r in report.get('ranking', []):
+        comp = r.get('avg_composite')
+        comp_str = f"{comp:.0f}" if comp else '—'
+        gate = '✓' if r.get('gate_passed') else '✗'
+        rows.append(f"| {r['provider']:12} | {comp_str:9} | {r.get('pass_rate', 0):.0%}       | {gate}    |")
+    table = '\n'.join(rows)
+    return f"""
+## Pack health
+
+Latest validated run: `{run_id}`
+
+| Provider     | Composite | Pass rate | Gate |
+|-------------|-----------|-----------|------|
+{table}
+
+*Composite = 60% validator + 40% rubric judge, 0–100. Gate = ≥ 70% pass rate.*  
+Full history: `tests/reports/v2-tests/MASTER_SUMMARY.html`
+"""
+
+
+
+def _build_task_index(root: Path) -> None:
+    """Compile route + contract data into a single TASK_INDEX.json/md."""
+    tasks_raw = json.loads((root / 'src/schemas/task_contracts.json').read_text())['tasks']
+    routes_raw = json.loads((root / 'src/schemas/routing_registry.json').read_text())
+    route_by_task = {r.get('task_id', ''): r for r in routes_raw.get('routes', [])}
+    idx = {'version': '1.0', 'generated_from': ['src/schemas/task_contracts.json', 'src/schemas/routing_registry.json'], 'tasks': {}}
+    for task in tasks_raw:
+        tid = task['task_id']
+        route = route_by_task.get(tid, {})
+        idx['tasks'][tid] = {
+            'title': task['title'], 'task_group': task.get('task_group', ''),
+            'lightweight_eligible': route.get('lightweight_eligible', False),
+            'governing_skills': route.get('governing_skills', []),
+            'supporting_skills': route.get('supporting_skills', []),
+            'runtime_summaries': route.get('runtime_summaries', []),
+            'required_sections': [s['name'] for s in task.get('required_sections', [])],
+            'required_decisions': [d['id'] for d in task.get('required_decisions', [])],
+            'require_tradeoff': task.get('require_tradeoff', False),
+            'require_rationale': task.get('require_rationale', False),
+            'launcher': f'dist/runtime/task_launchers/{tid}.md',
+            'route_id': route.get('route_id', f'rt_{tid}'),
+        }
+    (root / 'dist/runtime/TASK_INDEX.json').write_text(json.dumps(idx, indent=2))
+    lines = ['# Task Index\n\n']
+    for tid, t in idx['tasks'].items():
+        lines.append(f"## {t['title']}\n**ID:** `{tid}` | **Group:** {t['task_group']} | **Lightweight:** {'yes' if t['lightweight_eligible'] else 'no'}\n\n")
+        if t['required_sections']:
+            lines.append(f"**Sections:** {', '.join(t['required_sections'])}\n\n")
+        lines.append('---\n\n')
+    (root / 'dist/runtime/TASK_INDEX.md').write_text(''.join(lines))
 
 
 def main():
@@ -667,31 +1054,67 @@ def main():
     for route in routes:
         contract = contract_for_route(route, contract_map)
         route_text = build_route_doc(route, contract, profiles)
-        route_path = DIST / 'lite_routes' / f"{route['route_id']}.md"
+        route_path = DIST / 'runtime' / 'route_cards' / f"{route['route_id']}.md"
         write(route_path, route_text)
-        manifest['artifacts'][f'lite_routes/{route_path.name}'] = {'word_count': words(route_text), 'path': f'dist/lite_routes/{route_path.name}', 'token_estimate': token_estimate(route_text)}
+        manifest['artifacts'][f'dist/runtime/route_cards/{route_path.name}'] = {'word_count': words(route_text), 'path': f'dist/runtime/route_cards/{route_path.name}', 'token_estimate': token_estimate(route_text)}
 
     for contract in contracts:
         contract_text = build_contract_doc(contract)
-        contract_path = DIST / 'lite_contracts' / f"{contract['task_id']}.md"
+        contract_path = DIST / 'runtime' / 'contracts_lite' / f"{contract['task_id']}.md"
         write(contract_path, contract_text)
-        manifest['artifacts'][f'lite_contracts/{contract_path.name}'] = {'word_count': words(contract_text), 'path': f'dist/lite_contracts/{contract_path.name}', 'token_estimate': token_estimate(contract_text)}
+        manifest['artifacts'][f'dist/runtime/contracts_lite/{contract_path.name}'] = {'word_count': words(contract_text), 'path': f'dist/runtime/contracts_lite/{contract_path.name}', 'token_estimate': token_estimate(contract_text)}
 
     for route in routes:
         if route.get('lightweight_eligible', False) and route['task_id'] in contract_map:
             contract = contract_for_route(route, contract_map)
             starter_text = build_starter_doc(route, contract, profiles)
-            starter_path = DIST / 'lite_starters' / f"{route['task_id']}.md"
+            starter_path = DIST / 'runtime' / 'starters' / f"{route['task_id']}.md"
             write(starter_path, starter_text)
-            manifest['artifacts'][f'lite_starters/{starter_path.name}'] = {'word_count': words(starter_text), 'path': f'dist/lite_starters/{starter_path.name}', 'token_estimate': token_estimate(starter_text)}
+            manifest['artifacts'][f'dist/runtime/starters/{starter_path.name}'] = {'word_count': words(starter_text), 'path': f'dist/runtime/starters/{starter_path.name}', 'token_estimate': token_estimate(starter_text)}
 
     lite_index = build_lite_index(routes, contracts, profiles)
-    write(DIST / 'lite_index.json', json.dumps(lite_index, indent=2))
-    manifest['artifacts']['lite_index.json'] = {'word_count': 0, 'path': 'dist/lite_index.json'}
+    write(DIST / 'runtime' / 'lite_index.json', json.dumps(lite_index, indent=2))
+    manifest['artifacts']['dist/runtime/lite_index.json'] = {'word_count': 0, 'path': 'dist/runtime/lite_index.json'}
+
+    runtime_docs = {
+        DIST_RUNTIME / 'START_HERE.md': build_start_here(),
+        DIST_RUNTIME / 'TASK_CHOOSER.md': build_task_chooser(routes, contracts, profiles),
+    }
+
+    runtime_summary_index = {'version': '1.0', 'summaries': {}}
+    summary_names = sorted({Path(summary).name for route in routes for summary in route.get('required_summary_ids', [])})
+    for summary_name in summary_names:
+        summary_text = build_runtime_summary_doc(summary_name)
+        summary_path = DIST_RUNTIME_SUMMARIES / summary_name
+        write(summary_path, summary_text)
+        rel = summary_path.relative_to(DIST).as_posix()
+        manifest['artifacts'][rel] = {'word_count': words(summary_text), 'path': f'dist/{rel}', 'token_estimate': token_estimate(summary_text)}
+        runtime_summary_index['summaries'][summary_name] = {
+            'compiled_path': f'dist/runtime/summaries/{summary_name}',
+            'source_runtime_summary': f'src/knowledge-base/summaries/{summary_name}',
+        }
+
+    write(DIST_RUNTIME / 'summaries_index.json', json.dumps(runtime_summary_index, indent=2))
+    manifest['artifacts']['runtime/summaries_index.json'] = {'word_count': 0, 'path': 'dist/runtime/summaries_index.json'}
+    for path, text in runtime_docs.items():
+        write(path, text)
+        rel = path.relative_to(DIST).as_posix()
+        manifest['artifacts'][rel] = {'word_count': words(text), 'path': f'dist/{rel}', 'token_estimate': token_estimate(text)}
+
+    runtime_index = build_runtime_index(routes, contracts, profiles)
+    write(DIST_RUNTIME / 'launchers_index.json', json.dumps(runtime_index, indent=2))
+    manifest['artifacts']['runtime/launchers_index.json'] = {'word_count': 0, 'path': 'dist/runtime/launchers_index.json'}
+
+    for route in routes:
+        contract = contract_for_route(route, contract_map)
+        launcher_text = build_task_launcher(route, contract, profiles)
+        launcher_path = DIST_TASK_LAUNCHERS / f"{route['task_id']}.md"
+        write(launcher_path, launcher_text)
+        manifest['artifacts'][f'runtime/task_launchers/{launcher_path.name}'] = {'word_count': words(launcher_text), 'path': f'dist/runtime/task_launchers/{launcher_path.name}', 'token_estimate': token_estimate(launcher_text)}
 
     docs = {
-        ROOT / 'docs' / 'operator' / 'STARTUP_MODES.md': build_startup_modes_doc(routes, contracts),
-        ROOT / 'docs' / 'operator' / 'LIGHTWEIGHT_QUICKSTART.md': build_lightweight_quickstart(routes, contracts),
+        ROOT / 'docs' / 'operator' / 'DEPLOYMENT_GUIDE.md': build_startup_modes_doc(routes, contracts),
+        ROOT / 'docs' / 'operator' / 'DEPLOYMENT_GUIDE.md': build_lightweight_quickstart(routes, contracts),
         ROOT / 'docs' / 'operator' / 'ROUTE_PICKER.md': build_route_picker(routes, contracts, profiles),
         ROOT / 'docs' / 'operator' / 'OPERATOR_QUICKSTART.md': build_operator_quickstart(),
         ROOT / 'docs' / 'operator' / 'PROFILE_GUIDE.md': build_profile_guide(profiles),
@@ -712,9 +1135,9 @@ def main():
 
     tier_profile['DEPLOY_LITE.md'] = {
         'word_count': words(outputs['DEPLOY_LITE.md']),
-        'route_doc_count': len(list((DIST / 'lite_routes').glob('*.md'))),
-        'contract_doc_count': len(list((DIST / 'lite_contracts').glob('*.md'))),
-        'starter_doc_count': len(list((DIST / 'lite_starters').glob('*.md'))),
+        'route_doc_count': len(list((DIST / 'runtime' / 'route_cards').glob('*.md'))),
+        'contract_doc_count': len(list((DIST / 'runtime' / 'contracts_lite').glob('*.md'))),
+        'starter_doc_count': len(list((DIST / 'runtime' / 'starters').glob('*.md'))),
     }
     validation_report['checks'].append({
         'artifact': 'DEPLOY_LITE.md',
@@ -724,15 +1147,42 @@ def main():
     })
     validation_report['checks'].append({
         'artifact': 'lite_overlay_docs',
-        'route_docs': len(list((DIST / 'lite_routes').glob('*.md'))),
-        'contract_docs': len(list((DIST / 'lite_contracts').glob('*.md'))),
-        'starter_docs': len(list((DIST / 'lite_starters').glob('*.md'))),
+        'route_docs': len(list((DIST / 'runtime' / 'route_cards').glob('*.md'))),
+        'contract_docs': len(list((DIST / 'runtime' / 'contracts_lite').glob('*.md'))),
+        'starter_docs': len(list((DIST / 'runtime' / 'starters').glob('*.md'))),
+        'status': 'ok'
+    })
+    validation_report['checks'].append({
+        'artifact': 'runtime_launchers',
+        'launcher_docs': len(list(DIST_TASK_LAUNCHERS.glob('*.md'))),
         'status': 'ok'
     })
 
     write(DIST / 'manifest.json', json.dumps(manifest, indent=2))
     write(DIST / 'tier_profile.yaml', yaml.safe_dump(tier_profile, sort_keys=False))
     write(DIST / 'validation_report.json', json.dumps(validation_report, indent=2))
+    # Build unified TASK_INDEX.json
+    _build_task_index(ROOT)
+
+    # Update README.md with health badge
+    readme_path = ROOT / 'README.md'
+    if readme_path.exists():
+        badge = _build_readme_health_badge(ROOT)
+        if badge:
+            readme_txt = readme_path.read_text()
+            marker = '## Pack health'
+            if marker in readme_txt:
+                start = readme_txt.index(marker)
+                rest = readme_txt[start + len(marker):]
+                next_sec = rest.find('\n## ')
+                readme_txt = (readme_txt[:start] + badge.strip() + '\n\n' + readme_txt[start + len(marker) + next_sec + 1:]) if next_sec >= 0 else (readme_txt[:start] + badge.strip() + '\n')
+            else:
+                readme_txt = readme_txt.rstrip() + '\n\n' + badge.strip() + '\n'
+            readme_path.write_text(readme_txt)
+
+    manifest['artifacts']['TASK_INDEX.json'] = {'path': 'dist/runtime/TASK_INDEX.json', 'type': 'compiled_index'}
+    manifest['artifacts']['TASK_INDEX.md'] = {'path': 'dist/runtime/TASK_INDEX.md', 'type': 'compiled_index'}
+
     print(json.dumps({'generated_artifact_count': len(manifest['artifacts'])}, indent=2))
 
 

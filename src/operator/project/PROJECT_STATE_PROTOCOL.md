@@ -60,3 +60,10 @@ Continuity files must state what is:
 - not allowed to claim yet
 
 That keeps the case-study layer aligned with the real evidence state.
+
+
+## Canonical structured state
+- `context/state/continuity_evergreen.json` is the evergreen continuity source of truth for project identity, goal, and stable proof boundaries
+- `context/state/release_state.json` is the release-specific continuity source of truth for current version, freshness, active next steps, blockers, and proof counts
+- human-readable continuity docs are rendered from those structured state files
+- workspace validation must check both the structured state and the rendered markdown outputs together

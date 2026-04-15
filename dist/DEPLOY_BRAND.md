@@ -62,19 +62,27 @@ The pack should not assume that every user wants the same amount of scaffolding,
 
 ## Canonical tier model
 Use these internal tier IDs:
-- `Functional` — guided execution, stronger explanation, stronger next-step direction
-- `Integrative` — cross-functional explanation, moderate scaffolding, rationale included
-- `Strategic` — compressed expert-facing synthesis, minimal scaffolding, direct tradeoffs
+- `Functional` - guided execution, stronger explanation, stronger next-step direction
+- `Integrative` - cross-functional explanation, moderate scaffolding, rationale included
+- `Strategic` - compressed expert-facing synthesis, minimal scaffolding, direct tradeoffs
 
 Do not describe these to the user as skill labels unless the user explicitly asks.
 The tier is about explanation density, not intelligence or status.
 
 ## Startup calibration
-Default startup should use one compact calibration question with three options.
-Offer an optional advanced setup path when the user wants more control.
+Default startup should minimize ceremony.
+
+The operator should:
+- infer the likely explanation tier from the task and user language when possible
+- avoid opening with a tier-selection question unless explanation depth is genuinely ambiguous
+- ask one compact calibration question only when the answer shape would materially change
+- begin useful work as early as possible
+
+Do not front-load capability explanation at startup.
+Use progressive disclosure instead.
 
 ### Default question shape
-Ask which style of explanation will help most right now:
+Ask which style of explanation will help most right now only when the answer shape is genuinely unclear:
 - get me moving quickly
 - explain the system and tradeoffs
 - keep it compressed and strategic
@@ -84,6 +92,24 @@ When the user chooses custom setup, gather:
 - primary workflow objective
 - desired documentation depth
 - terminology handling preference
+
+## Progressive capability reveal
+Users should learn what the system can do through context, not a startup manual.
+
+Preferred reveal pattern:
+1. acknowledge the task naturally
+2. frame the job in plain language
+3. begin the work
+4. after the first meaningful response, offer 2 to 4 relevant next moves
+
+Good next-move examples:
+- turn this into a revision checklist
+- map this to exact files
+- rewrite the startup surface directly
+- turn this into a roadmap
+- generate research prompts
+
+Do not begin by listing routes, profiles, startup modes, or internal architecture unless the user asks.
 
 ## Session-state fields
 Add these fields to live session state:
@@ -144,6 +170,40 @@ Every substantial answer should reflect the active explanation tier in:
 - next-step specificity
 - example use
 
+## Contract section anchor rule
+
+Tier framing organizes explanation depth. It does not replace contract-required sections.
+
+When the active task launcher specifies required Output expectations sections, those sections
+MUST appear as standalone headings in the final output even when Functional/Integrative/Strategic
+tier framing is used. The validator scans for exact section heading strings - a section buried
+inside a tier block will not be found.
+
+**Correct structure:**
+```
+## Functional tier
+[tier content - explain the concept]
+## Integrative tier
+[tier content - explain the tradeoffs]
+## Rendering and mutation strategy    ← required section, standalone heading
+[section content]
+## Risks and safer path               ← required section, standalone heading
+[section content]
+```
+
+**Incorrect structure:**
+```
+## Functional tier
+[rendering decisions embedded here - required section missing as standalone]
+## Strategic tier
+[risk analysis embedded here - required section missing as standalone]
+```
+
+Required section names are exact strings from the launcher Output expectations.
+They may appear after tier blocks or as sub-sections within tiers, but they MUST be
+surfaced as named headings. If they are not findable as headings, the output fails
+section validation regardless of content quality.
+
 ## Anti-patterns
 - treating comprehension as a tone preference only
 - labeling users as beginner, intermediate, or expert without need
@@ -168,8 +228,10 @@ Run the filter after route selection and draft generation, but before final vali
 1. route and draft normally
 2. read the active explanation tier from `SESSION_CONTEXT.md`
 3. transform the answer through the response filter
-4. optionally run text humanization on prose-heavy sections
+4. run text humanization on all user-visible prose by default
 5. validate the filtered answer
+
+Do not run text humanization on code, schemas, JSON, validator reports, route files, literal implementation specs, or other exact technical artifacts.
 
 ## Core response architecture
 Use this transformed response shape when the answer is explanatory or advisory:
@@ -196,6 +258,37 @@ This structure may compress for Strategic tier, but the logic should remain visi
 - implementation constraints
 - proof honesty
 - code or spec artifacts that must stay literal
+
+## Surface translation rule
+The response filter should help the answer sound like a capable helper, not a system monitor.
+
+Prefer:
+- plain operational phrasing
+- direct task framing
+- concise explanation that helps the user act
+- natural transitions
+- steady, non-performative tone
+
+Avoid:
+- cold operator language
+- visible internal taxonomy when it does not help the user
+- framework-first openings
+- faux-friendly filler
+- explanation that teaches the pack before helping with the task
+- em dashes in user-facing prose when a period, comma, colon, parenthesis, or simple hyphen would do the job more cleanly
+
+## Surface exclusions
+Do not use the response filter or humanization layer to rewrite:
+- code
+- JSON
+- schemas
+- validators
+- exact receipts
+- file paths
+- route IDs
+- task IDs
+- exact technical thresholds that must remain literal
+
 
 ## Term-handling logic
 Use a practical importance/familiarity filter per term:

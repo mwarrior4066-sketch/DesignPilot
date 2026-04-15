@@ -1,0 +1,66 @@
+{
+  "task_id": "frontend_implementation_review",
+  "title": "Front-End Implementation Review",
+  "required_sections": [
+    {
+      "name": "Architectural framing",
+      "min_words": 25,
+      "rationale": "Name the real front-end architectural problem and its user-facing consequence."
+    },
+    {
+      "name": "Boundary and state model",
+      "min_words": 45,
+      "rationale": "Make server/client and state ownership explicit."
+    },
+    {
+      "name": "Rendering and mutation strategy",
+      "min_words": 45,
+      "rationale": "Choose rendering, fetching, and mutation handling instead of generic implementation advice."
+    },
+    {
+      "name": "Risks and safer path",
+      "min_words": 30,
+      "rationale": "Expose the cost surface and safer implementation order."
+    }
+  ],
+  "required_evidence_types": [
+    "rendering rule",
+    "state model",
+    "implementation constraint"
+  ],
+  "required_decisions": [
+    "rendering_model",
+    "state_ownership",
+    "boundary_placement",
+    "semantic_contract",
+    "cost_or_degraded_path"
+  ],
+  "hard_fail_patterns": [
+    "just convert it to react",
+    "componentize it later",
+    "use more hooks"
+  ],
+  "soft_fail_patterns": [
+    "should be simple",
+    "probably fine"
+  ],
+  "required_skills": [
+    "front-end-architecture-expert.md",
+    "front-end-handoff-expert.md",
+    "accessibility-feedback-expert.md"
+  ],
+  "allowed_modes": [
+    "AUDIT",
+    "PEER",
+    "STRUCTURE"
+  ],
+  "allowed_phases": [
+    "implementation",
+    "ui",
+    "specs"
+  ],
+  "canonical_contract": "src/schemas/task_contracts.json#frontend_implementation_review",
+  "task_weight_default": "compound",
+  "supports_lightweight_response": false,
+  "trace_visibility_default": "recoverable"
+}

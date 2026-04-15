@@ -1,0 +1,15 @@
+{
+  "purpose": "First v3.0 pack run \u2014 all 6 providers, 19 tests",
+  "pack_version": "3.0",
+  "is_diagnostic": false,
+  "is_valid_quality_signal": false,
+  "known_issues": [
+    "Gemini used wrong model (gemini-2.5-flash) \u2014 thinking mode caused near-zero scores on many tests",
+    "Gemini 21% reflects model/thinking config error, not pack quality",
+    "thinking_config parameter rejected by OpenAI-compatible endpoint (400 error on some tests)"
+  ],
+  "fixed_from": "v3.0 pack deployed: 47% deploy size reduction, composite scoring, routing preamble fix",
+  "note": "All providers except Gemini are valid quality signals. Gemini scores invalid due to wrong model.",
+  "run_id": "batch-20260414-0609",
+  "written_at": "2026-04-14"
+}

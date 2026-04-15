@@ -1,0 +1,10 @@
+{
+  "run_id": "batch-20260415-0008",
+  "written_at": "2026-04-15T00:32:27.833977+00:00",
+  "purpose": "Batch run batch-20260415-0008",
+  "pack_version": "2.9",
+  "is_diagnostic": false,
+  "is_valid_quality_signal": true,
+  "known_issues": [],
+  "note": ""
+}

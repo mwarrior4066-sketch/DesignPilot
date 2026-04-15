@@ -1,0 +1,62 @@
+{
+  "task_id": "accessibility_feedback_audit",
+  "title": "Accessibility Feedback Audit",
+  "required_sections": [
+    {
+      "name": "Access failure framing",
+      "min_words": 25,
+      "rationale": "Name the blocked user action or assistive-tech failure."
+    },
+    {
+      "name": "Barrier inventory",
+      "min_words": 45,
+      "rationale": "List concrete barriers, not generic usability discomfort."
+    },
+    {
+      "name": "Repair priorities",
+      "min_words": 45,
+      "rationale": "Turn findings into an ordered fix plan."
+    },
+    {
+      "name": "Verification method",
+      "min_words": 25,
+      "rationale": "Show how the fix will be verified."
+    }
+  ],
+  "required_evidence_types": [
+    "standards rule",
+    "interaction behavior",
+    "verification method"
+  ],
+  "required_decisions": [
+    "blocked_user_action",
+    "priority_order",
+    "behavior_rule",
+    "verification_step"
+  ],
+  "hard_fail_patterns": [
+    "accessibility later",
+    "screen reader later",
+    "just make focus blue"
+  ],
+  "soft_fail_patterns": [
+    "probably accessible",
+    "seems fine"
+  ],
+  "required_skills": [
+    "accessibility-feedback-expert.md",
+    "ui-system-expert.md"
+  ],
+  "allowed_modes": [
+    "AUDIT",
+    "PEER"
+  ],
+  "allowed_phases": [
+    "accessibility",
+    "ui"
+  ],
+  "canonical_contract": "src/schemas/task_contracts.json#accessibility_feedback_audit",
+  "task_weight_default": "standard",
+  "supports_lightweight_response": true,
+  "trace_visibility_default": "recoverable"
+}

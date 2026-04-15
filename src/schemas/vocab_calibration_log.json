@@ -1,0 +1,250 @@
+{
+  "schema_version": "1.0.0",
+  "purpose": "Living log of token expansions made to evidence_class patterns and decision any_of lists. Add an entry whenever a live run reveals that a correct model output was scored as missing evidence or a decision due to vocabulary mismatch.",
+  "entries": [
+    {
+      "date": "2026-04-13",
+      "target_type": "evidence_class",
+      "target_id": "implementation_constraint",
+      "tokens_added": [
+        "trust",
+        "category",
+        "convention",
+        "cannot",
+        "must not",
+        "breaking change"
+      ],
+      "observed_in_task": "brand_positioning_pass",
+      "observed_in_output": "trust signal, category convention, you cannot claim",
+      "run_id": "live-run-2026-04-13",
+      "reason": "brand positioning uses trust and category as real constraints; patterns were calibrated for UI/tech domains only"
+    },
+    {
+      "date": "2026-04-13",
+      "target_type": "evidence_class",
+      "target_id": "rendering_boundary_rule",
+      "tokens_added": [
+        "local state",
+        "global state",
+        "component boundary",
+        "re-render",
+        "state boundary",
+        "prop drilling",
+        "state locality"
+      ],
+      "observed_in_task": "frontend_implementation_review",
+      "observed_in_output": "local state vs global state, component boundary, re-render cost",
+      "run_id": "live-run-2026-04-13",
+      "reason": "original patterns were Next.js-specific (use client, server action); state management questions use different vocabulary"
+    },
+    {
+      "date": "2026-04-13",
+      "target_type": "evidence_class",
+      "target_id": "file_backed_receipt",
+      "tokens_added": [
+        "measurement",
+        "open gap",
+        "proof artifact",
+        "proof boundary",
+        "separates proof",
+        "trust signal"
+      ],
+      "observed_in_task": "case_study_rewrite",
+      "observed_in_output": "separates proof from open gaps, what remains open, measurement vs claim",
+      "run_id": "live-run-2026-04-13",
+      "reason": "case study proof language differs from benchmark/artifact language; model uses narrative proof vocabulary"
+    },
+    {
+      "date": "2026-04-13",
+      "target_type": "decision",
+      "target_id": "boundary_placement",
+      "task_id": "frontend_implementation_review",
+      "tokens_added": [
+        "local state",
+        "global state",
+        "state decision",
+        "state choice",
+        "where state lives",
+        "state ownership",
+        "component boundary",
+        "prop drilling"
+      ],
+      "observed_in_task": "frontend_implementation_review",
+      "observed_in_output": "local state + context vs Redux, where state lives, component boundary",
+      "run_id": "live-run-2026-04-13",
+      "reason": "boundary_placement was calibrated for Next.js rendering boundary only; React state management uses different vocabulary for the same concept"
+    },
+    {
+      "date": "2026-04-13",
+      "target_type": "decision",
+      "target_id": "migration_strategy",
+      "task_id": "color_system_spec",
+      "tokens_added": [
+        "adoption path",
+        "how to move",
+        "existing palette",
+        "current tokens",
+        "what changes",
+        "transition",
+        "swap"
+      ],
+      "observed_in_task": "color_system_spec",
+      "observed_in_output": "how to adopt this system, what changes when you switch, existing palette tokens",
+      "run_id": "live-run-sonnet-2026-04-13",
+      "reason": "migrate/deprecate vocabulary is too narrow; models describe migration in adoption and transition terms"
+    },
+    {
+      "date": "2026-04-13",
+      "target_type": "section_alias_batch",
+      "target_id": "findings",
+      "tokens_added": [
+        "audit results",
+        "key deficiencies",
+        "diagnostic summary",
+        "evidence synthesis",
+        "logic discrepancies",
+        "problems found",
+        "error localization",
+        "reference extraction",
+        "semantic pairs"
+      ],
+      "observed_in_task": "cross-model",
+      "observed_in_output": "cross-model calibration research April 2026",
+      "run_id": "cross-model-calibration-v1",
+      "reason": "GPT-5.4 uses formal noun-phrases; Gemini uses synthesis/insights vocabulary; Llama 4 Maverick uses legalistic terminology; Nova uses RAG attribution vocabulary"
+    },
+    {
+      "date": "2026-04-13",
+      "target_type": "section_alias_batch",
+      "target_id": "recommendations",
+      "tokens_added": [
+        "remediation strategy",
+        "actionable moves",
+        "strategic interventions",
+        "fix steps",
+        "proposed patches",
+        "solution steps",
+        "fix list",
+        "suggested moves",
+        "first-response actions"
+      ],
+      "observed_in_task": "cross-model",
+      "observed_in_output": "cross-model calibration research April 2026",
+      "run_id": "cross-model-calibration-v1",
+      "reason": "GPT formal register; Llama Maverick legalistic; Grok conversational; DeepSeek process-step; Nova remediation vocabulary"
+    },
+    {
+      "date": "2026-04-13",
+      "target_type": "section_alias_batch",
+      "target_id": "problem framing",
+      "tokens_added": [
+        "initial assessment",
+        "contextual overview",
+        "the job",
+        "project context",
+        "situation analysis",
+        "thought process",
+        "task decomposition",
+        "goal summary"
+      ],
+      "observed_in_task": "cross-model",
+      "observed_in_output": "cross-model calibration research April 2026",
+      "run_id": "cross-model-calibration-v1",
+      "reason": "GPT formal noun-phrase; Grok conversational; DeepSeek process; Nova decomposition vocabulary"
+    },
+    {
+      "date": "2026-04-13",
+      "target_type": "section_alias_batch",
+      "target_id": "tradeoffs",
+      "tokens_added": [
+        "risk-benefit analysis",
+        "optimization considerations",
+        "strategic considerations",
+        "optimization decisions",
+        "architecture tax",
+        "things to watch for"
+      ],
+      "observed_in_task": "cross-model",
+      "observed_in_output": "cross-model calibration research April 2026",
+      "run_id": "cross-model-calibration-v1",
+      "reason": "GPT and Gemini optimization vocabulary; Nova architecture tax; Grok conversational alternatives"
+    },
+    {
+      "date": "2026-04-13",
+      "target_type": "context_override",
+      "target_id": "permission_rule",
+      "tokens_added": [
+        "rbac implementation",
+        "attribute-based access",
+        "deny by default",
+        "owner-only",
+        "enforce tenant isolation",
+        "ask permission only if",
+        "auth handshake",
+        "cursor ownership"
+      ],
+      "observed_in_task": "backend_feasibility_review",
+      "observed_in_output": "cross-model calibration research April 2026",
+      "run_id": "cross-model-calibration-v1",
+      "reason": "Llama 4 Maverick uses RBAC/ABAC vocabulary; Qwen uses owner-only patterns; Grok uses tenant isolation; GPT uses pre-flight/irreversible framing"
+    },
+    {
+      "date": "2026-04-13",
+      "target_type": "evidence_class_global",
+      "target_id": "resilience_rule",
+      "tokens_added": [
+        "mttr",
+        "mean time to resolution",
+        "incident prevention",
+        "proactive response",
+        "reliability metrics",
+        "exponential backoff",
+        "circuit breaker threshold",
+        "graceful degradation protocol"
+      ],
+      "observed_in_task": "api_reliability_security_review",
+      "observed_in_output": "cross-model calibration research April 2026",
+      "run_id": "cross-model-calibration-v1",
+      "reason": "Amazon Nova uses AWS-native MTTR vocabulary; Grok uses EQ-inflected reliability terms; Llama 4 Maverick uses sophisticated backoff patterns"
+    },
+    {
+      "date": "2026-04-13",
+      "target_type": "evidence_class_global",
+      "target_id": "implementation_constraint",
+      "tokens_added": [
+        "pre-flight",
+        "post-flight",
+        "cannot proceed",
+        "irreversible",
+        "require manual",
+        "trust without",
+        "category convention",
+        "step-by-step verification",
+        "constraint satisfaction"
+      ],
+      "observed_in_task": "brand_positioning_pass, pdf_remediation_plan",
+      "observed_in_output": "cross-model calibration research April 2026",
+      "run_id": "cross-model-calibration-v1",
+      "reason": "GPT uses pre-flight/post-flight gating; brand tasks require trust/convention vocabulary; DeepSeek uses constraint satisfaction framing"
+    },
+    {
+      "date": "2026-04-13",
+      "target_type": "new_evidence_class",
+      "target_id": "grounding_citation",
+      "tokens_added": [
+        "based on search results",
+        "retrieved from",
+        "citation",
+        "per the document",
+        "the report shows",
+        "semantic analysis shows",
+        "extracted metadata",
+        "character-level comparison"
+      ],
+      "observed_in_task": "cross-model (Nova, Gemini)",
+      "observed_in_output": "cross-model calibration research April 2026",
+      "run_id": "cross-model-calibration-v1",
+      "reason": "Amazon Nova and Gemini 3.1 in Deep Research mode produce RAG-style attribution vocabulary not covered by file_backed_receipt patterns"
+    }
+  ]
+}

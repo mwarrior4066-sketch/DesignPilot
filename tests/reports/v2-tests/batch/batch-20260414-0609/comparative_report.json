@@ -1,0 +1,1856 @@
+{
+  "run_id": "batch-20260414-0609",
+  "run_date": "2026-04-14T10:23:00.678859+00:00",
+  "mode": "pack",
+  "providers_tested": [
+    "claude",
+    "deepseek",
+    "gemini",
+    "mistral",
+    "openai",
+    "xai"
+  ],
+  "tests_run": 19,
+  "cross_model_gate": 0.7,
+  "ranking": [
+    {
+      "provider": "claude",
+      "model": "claude-sonnet-4-6",
+      "mode": "pack",
+      "tests_run": 19,
+      "errors": 0,
+      "pass_count": 19,
+      "pass_rate": 1.0,
+      "gate_passed": true,
+      "rubric_means": {
+        "intent_alignment": 5,
+        "actionability": 4.53,
+        "structural_rigor": 5,
+        "evidence_use": 4.42,
+        "implementation_realism": 4.68
+      },
+      "passed_by_rubric_only": 3,
+      "avg_composite": 91.3,
+      "rubric_decisive_count": 3
+    },
+    {
+      "provider": "deepseek",
+      "model": "deepseek-chat",
+      "mode": "pack",
+      "tests_run": 19,
+      "errors": 0,
+      "pass_count": 19,
+      "pass_rate": 1.0,
+      "gate_passed": true,
+      "rubric_means": {
+        "intent_alignment": 5,
+        "actionability": 4.32,
+        "structural_rigor": 5,
+        "evidence_use": 3.89,
+        "implementation_realism": 4.42
+      },
+      "passed_by_rubric_only": 6,
+      "avg_composite": 88.0,
+      "rubric_decisive_count": 6
+    },
+    {
+      "provider": "mistral",
+      "model": "mistral-large-latest",
+      "mode": "pack",
+      "tests_run": 18,
+      "errors": 1,
+      "pass_count": 18,
+      "pass_rate": 1.0,
+      "gate_passed": true,
+      "rubric_means": {
+        "intent_alignment": 4.83,
+        "actionability": 4.22,
+        "structural_rigor": 4.94,
+        "evidence_use": 4.06,
+        "implementation_realism": 4.22
+      },
+      "passed_by_rubric_only": 4,
+      "avg_composite": 87.0,
+      "rubric_decisive_count": 5
+    },
+    {
+      "provider": "xai",
+      "model": "grok-3-fast",
+      "mode": "pack",
+      "tests_run": 19,
+      "errors": 0,
+      "pass_count": 18,
+      "pass_rate": 0.947,
+      "gate_passed": true,
+      "rubric_means": {
+        "intent_alignment": 4.42,
+        "actionability": 3.63,
+        "structural_rigor": 4.79,
+        "evidence_use": 3.16,
+        "implementation_realism": 3.95
+      },
+      "passed_by_rubric_only": 8,
+      "avg_composite": 86.9,
+      "rubric_decisive_count": 7
+    },
+    {
+      "provider": "openai",
+      "model": "gpt-4.1",
+      "mode": "pack",
+      "tests_run": 19,
+      "errors": 0,
+      "pass_count": 17,
+      "pass_rate": 0.895,
+      "gate_passed": true,
+      "rubric_means": {
+        "intent_alignment": 4.63,
+        "actionability": 3.84,
+        "structural_rigor": 4.84,
+        "evidence_use": 3.32,
+        "implementation_realism": 4.26
+      },
+      "passed_by_rubric_only": 7,
+      "avg_composite": 84.7,
+      "rubric_decisive_count": 6
+    },
+    {
+      "provider": "gemini",
+      "model": "gemini-2.5-flash",
+      "mode": "pack",
+      "tests_run": 19,
+      "errors": 0,
+      "pass_count": 4,
+      "pass_rate": 0.211,
+      "gate_passed": false,
+      "rubric_means": {
+        "intent_alignment": 2.78,
+        "actionability": 1.72,
+        "structural_rigor": 2.39,
+        "evidence_use": 1.72,
+        "implementation_realism": 2.22
+      },
+      "passed_by_rubric_only": 5,
+      "avg_composite": 39.9,
+      "rubric_decisive_count": 3
+    }
+  ],
+  "test_comparison": [
+    {
+      "test_id": "pass-01",
+      "title": "UI structure critique canonical pass",
+      "task": "ui_structure_critique",
+      "providers": {
+        "claude": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 89.6,
+          "rubric_decisive": false,
+          "validator_score": 88,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": 4.6,
+          "latency_seconds": 44.5,
+          "issues": []
+        },
+        "deepseek": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 96.8,
+          "rubric_decisive": false,
+          "validator_score": 100,
+          "validator_decision": "PASS",
+          "rubric_mean": 4.6,
+          "latency_seconds": 23.78,
+          "issues": []
+        },
+        "gemini": {
+          "passed": false,
+          "passed_by": "none",
+          "composite_score": 63.2,
+          "rubric_decisive": false,
+          "validator_score": 68,
+          "validator_decision": "FAIL",
+          "rubric_mean": 2.8,
+          "latency_seconds": 11.64,
+          "issues": [
+            "missing_tradeoff",
+            "missing_required_decision",
+            "missing_required_decision"
+          ]
+        },
+        "mistral": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 89.6,
+          "rubric_decisive": false,
+          "validator_score": 88,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": 4.6,
+          "latency_seconds": 85.64,
+          "issues": []
+        },
+        "openai": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 96.8,
+          "rubric_decisive": false,
+          "validator_score": 100,
+          "validator_decision": "PASS",
+          "rubric_mean": 4.6,
+          "latency_seconds": 17.76,
+          "issues": []
+        },
+        "xai": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 96.8,
+          "rubric_decisive": false,
+          "validator_score": 100,
+          "validator_decision": "PASS",
+          "rubric_mean": 4.6,
+          "latency_seconds": 18.36,
+          "issues": []
+        }
+      },
+      "all_passed": false,
+      "all_failed": false,
+      "split": true,
+      "passed_count": 5
+    },
+    {
+      "test_id": "pass-02",
+      "title": "Component specification canonical pass",
+      "task": "component_spec",
+      "providers": {
+        "claude": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 94.8,
+          "rubric_decisive": false,
+          "validator_score": 94,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": 4.8,
+          "latency_seconds": 40.74,
+          "issues": []
+        },
+        "deepseek": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 93.6,
+          "rubric_decisive": false,
+          "validator_score": 100,
+          "validator_decision": "PASS",
+          "rubric_mean": 4.2,
+          "latency_seconds": 32.6,
+          "issues": []
+        },
+        "gemini": {
+          "passed": false,
+          "passed_by": "none",
+          "composite_score": 13.2,
+          "rubric_decisive": false,
+          "validator_score": 6,
+          "validator_decision": "FAIL",
+          "rubric_mean": 1.2,
+          "latency_seconds": 197.96,
+          "issues": [
+            "low_information_density",
+            "insufficient_evidence",
+            "missing_rationale",
+            "missing_required_decision",
+            "missing_required_decision",
+            "missing_evidence_class",
+            "missing_evidence_class"
+          ]
+        },
+        "mistral": {
+          "passed": true,
+          "passed_by": "rubric",
+          "composite_score": 91.2,
+          "rubric_decisive": true,
+          "validator_score": 88,
+          "validator_decision": "FAIL",
+          "rubric_mean": 4.8,
+          "latency_seconds": 105.77,
+          "issues": [
+            "missing_evidence_class"
+          ]
+        },
+        "openai": {
+          "passed": true,
+          "passed_by": "rubric",
+          "composite_score": 90.4,
+          "rubric_decisive": true,
+          "validator_score": 92,
+          "validator_decision": "FAIL",
+          "rubric_mean": 4.4,
+          "latency_seconds": 99.56,
+          "issues": [
+            "missing_evidence_class"
+          ]
+        },
+        "xai": {
+          "passed": true,
+          "passed_by": "rubric",
+          "composite_score": 88.8,
+          "rubric_decisive": true,
+          "validator_score": 92,
+          "validator_decision": "FAIL",
+          "rubric_mean": 4.2,
+          "latency_seconds": 25.01,
+          "issues": [
+            "missing_evidence_class"
+          ]
+        }
+      },
+      "all_passed": false,
+      "all_failed": false,
+      "split": true,
+      "passed_count": 5
+    },
+    {
+      "test_id": "pass-03",
+      "title": "Dashboard audit canonical pass",
+      "task": "dashboard_audit",
+      "providers": {
+        "claude": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 84.4,
+          "rubric_decisive": false,
+          "validator_score": 74,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": 5.0,
+          "latency_seconds": 41.36,
+          "issues": []
+        },
+        "deepseek": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 91.6,
+          "rubric_decisive": false,
+          "validator_score": 94,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": 4.4,
+          "latency_seconds": 31.18,
+          "issues": []
+        },
+        "gemini": {
+          "passed": true,
+          "passed_by": "none",
+          "composite_score": 72.0,
+          "rubric_decisive": true,
+          "validator_score": 88,
+          "validator_decision": "FAIL",
+          "rubric_mean": 2.4,
+          "latency_seconds": 33.56,
+          "issues": [
+            "missing_required_decision"
+          ]
+        },
+        "mistral": {
+          "passed": true,
+          "passed_by": "rubric",
+          "composite_score": 72.4,
+          "rubric_decisive": true,
+          "validator_score": 62,
+          "validator_decision": "FAIL",
+          "rubric_mean": 4.4,
+          "latency_seconds": 71.99,
+          "issues": [
+            "missing_section",
+            "missing_section",
+            "missing_required_decision"
+          ]
+        },
+        "openai": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 86.8,
+          "rubric_decisive": false,
+          "validator_score": 94,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": 3.8,
+          "latency_seconds": 84.31,
+          "issues": []
+        },
+        "xai": {
+          "passed": true,
+          "passed_by": "rubric",
+          "composite_score": 86.4,
+          "rubric_decisive": true,
+          "validator_score": 80,
+          "validator_decision": "FAIL",
+          "rubric_mean": 4.8,
+          "latency_seconds": 12.17,
+          "issues": [
+            "missing_rationale"
+          ]
+        }
+      },
+      "all_passed": true,
+      "all_failed": false,
+      "split": false,
+      "passed_count": 6
+    },
+    {
+      "test_id": "pass-04",
+      "title": "Backend feasibility canonical pass",
+      "task": "backend_feasibility_review",
+      "providers": {
+        "claude": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 87.2,
+          "rubric_decisive": false,
+          "validator_score": 84,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": 4.6,
+          "latency_seconds": 50.49,
+          "issues": []
+        },
+        "deepseek": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 81.8,
+          "rubric_decisive": false,
+          "validator_score": 75,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": 4.6,
+          "latency_seconds": 56.71,
+          "issues": []
+        },
+        "gemini": {
+          "passed": false,
+          "passed_by": "none",
+          "composite_score": 14.0,
+          "rubric_decisive": false,
+          "validator_score": 2,
+          "validator_decision": "FAIL",
+          "rubric_mean": 1.6,
+          "latency_seconds": 12.9,
+          "issues": [
+            "low_information_density",
+            "insufficient_evidence",
+            "missing_tradeoff",
+            "missing_required_decision",
+            "missing_required_decision",
+            "missing_required_decision",
+            "missing_evidence_class",
+            "missing_evidence_class",
+            "missing_evidence_class"
+          ]
+        },
+        "mistral": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 89.6,
+          "rubric_decisive": false,
+          "validator_score": 88,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": 4.6,
+          "latency_seconds": 89.8,
+          "issues": []
+        },
+        "openai": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 90.8,
+          "rubric_decisive": false,
+          "validator_score": 90,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": 4.6,
+          "latency_seconds": 45.93,
+          "issues": []
+        },
+        "xai": {
+          "passed": true,
+          "passed_by": "rubric",
+          "composite_score": 87.6,
+          "rubric_decisive": true,
+          "validator_score": 90,
+          "validator_decision": "FAIL",
+          "rubric_mean": 4.2,
+          "latency_seconds": 19.19,
+          "issues": [
+            "unsupported_superlative"
+          ]
+        }
+      },
+      "all_passed": false,
+      "all_failed": false,
+      "split": true,
+      "passed_count": 5
+    },
+    {
+      "test_id": "pass-05",
+      "title": "PDF plus accessibility compound ask",
+      "task": "pdf_remediation_plan",
+      "providers": {
+        "claude": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 93.2,
+          "rubric_decisive": false,
+          "validator_score": 94,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": 4.6,
+          "latency_seconds": 52.93,
+          "issues": []
+        },
+        "deepseek": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 96.8,
+          "rubric_decisive": false,
+          "validator_score": 100,
+          "validator_decision": "PASS",
+          "rubric_mean": 4.6,
+          "latency_seconds": 34.95,
+          "issues": []
+        },
+        "gemini": {
+          "passed": false,
+          "passed_by": "rubric",
+          "composite_score": 52.0,
+          "rubric_decisive": false,
+          "validator_score": 52,
+          "validator_decision": "FAIL",
+          "rubric_mean": null,
+          "latency_seconds": 10.98,
+          "issues": [
+            "low_information_density",
+            "missing_tradeoff",
+            "missing_required_decision"
+          ]
+        },
+        "mistral": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 98.4,
+          "rubric_decisive": false,
+          "validator_score": 100,
+          "validator_decision": "PASS",
+          "rubric_mean": 4.8,
+          "latency_seconds": 71.51,
+          "issues": []
+        },
+        "openai": {
+          "passed": true,
+          "passed_by": "rubric",
+          "composite_score": 84.4,
+          "rubric_decisive": true,
+          "validator_score": 90,
+          "validator_decision": "FAIL",
+          "rubric_mean": 3.8,
+          "latency_seconds": 36.28,
+          "issues": [
+            "missing_tradeoff"
+          ]
+        },
+        "xai": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 88.8,
+          "rubric_decisive": false,
+          "validator_score": 100,
+          "validator_decision": "PASS",
+          "rubric_mean": 3.6,
+          "latency_seconds": 9.51,
+          "issues": []
+        }
+      },
+      "all_passed": false,
+      "all_failed": false,
+      "split": true,
+      "passed_count": 5
+    },
+    {
+      "test_id": "pass-06",
+      "title": "Brand positioning canonical pass",
+      "task": "brand_positioning_pass",
+      "providers": {
+        "claude": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 91.2,
+          "rubric_decisive": false,
+          "validator_score": 96,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": 4.2,
+          "latency_seconds": 34.63,
+          "issues": []
+        },
+        "deepseek": {
+          "passed": true,
+          "passed_by": "rubric",
+          "composite_score": 78.0,
+          "rubric_decisive": true,
+          "validator_score": 74,
+          "validator_decision": "FAIL",
+          "rubric_mean": 4.2,
+          "latency_seconds": 22.18,
+          "issues": [
+            "missing_evidence_class"
+          ]
+        },
+        "gemini": {
+          "passed": false,
+          "passed_by": "none",
+          "composite_score": 17.2,
+          "rubric_decisive": false,
+          "validator_score": 10,
+          "validator_decision": "FAIL",
+          "rubric_mean": 1.4,
+          "latency_seconds": 10.84,
+          "issues": [
+            "low_information_density",
+            "insufficient_evidence",
+            "missing_tradeoff",
+            "missing_required_decision",
+            "missing_required_decision",
+            "missing_evidence_class",
+            "missing_evidence_class",
+            "missing_evidence_class"
+          ]
+        },
+        "mistral": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 82.0,
+          "rubric_decisive": false,
+          "validator_score": 78,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": 4.4,
+          "latency_seconds": 85.51,
+          "issues": []
+        },
+        "openai": {
+          "passed": true,
+          "passed_by": "rubric",
+          "composite_score": 80.8,
+          "rubric_decisive": true,
+          "validator_score": 92,
+          "validator_decision": "FAIL",
+          "rubric_mean": 3.2,
+          "latency_seconds": 66.66,
+          "issues": [
+            "missing_evidence_class"
+          ]
+        },
+        "xai": {
+          "passed": false,
+          "passed_by": "rubric",
+          "composite_score": 68.8,
+          "rubric_decisive": false,
+          "validator_score": 72,
+          "validator_decision": "FAIL",
+          "rubric_mean": 3.2,
+          "latency_seconds": 10.72,
+          "issues": [
+            "missing_rationale",
+            "missing_evidence_class",
+            "overclaim_without_evidence"
+          ]
+        }
+      },
+      "all_passed": false,
+      "all_failed": false,
+      "split": true,
+      "passed_count": 4
+    },
+    {
+      "test_id": "pass-07",
+      "title": "Case study plus brand framing compound ask",
+      "task": "case_study_rewrite",
+      "providers": {
+        "claude": {
+          "passed": true,
+          "passed_by": "rubric",
+          "composite_score": 90.0,
+          "rubric_decisive": true,
+          "validator_score": 86,
+          "validator_decision": "FAIL",
+          "rubric_mean": 4.8,
+          "latency_seconds": 24.64,
+          "issues": [
+            "missing_evidence_class"
+          ]
+        },
+        "deepseek": {
+          "passed": true,
+          "passed_by": "rubric",
+          "composite_score": 85.2,
+          "rubric_decisive": true,
+          "validator_score": 78,
+          "validator_decision": "FAIL",
+          "rubric_mean": 4.8,
+          "latency_seconds": 27.6,
+          "issues": [
+            "missing_required_decision",
+            "missing_evidence_class"
+          ]
+        },
+        "gemini": {
+          "passed": false,
+          "passed_by": "none",
+          "composite_score": 16.0,
+          "rubric_decisive": false,
+          "validator_score": 0,
+          "validator_decision": "FAIL",
+          "rubric_mean": 2.0,
+          "latency_seconds": 23.51,
+          "issues": [
+            "missing_section",
+            "missing_section",
+            "missing_section",
+            "low_information_density",
+            "missing_tradeoff",
+            "missing_rationale",
+            "missing_required_decision",
+            "missing_required_decision",
+            "missing_required_decision",
+            "missing_evidence_class",
+            "missing_evidence_class",
+            "missing_evidence_class"
+          ]
+        },
+        "mistral": {
+          "passed": true,
+          "passed_by": "rubric",
+          "composite_score": 74.4,
+          "rubric_decisive": true,
+          "validator_score": 60,
+          "validator_decision": "FAIL",
+          "rubric_mean": 4.8,
+          "latency_seconds": 85.9,
+          "issues": [
+            "placeholder_text",
+            "missing_section",
+            "missing_evidence_class"
+          ]
+        },
+        "openai": {
+          "passed": false,
+          "passed_by": "rubric",
+          "composite_score": 42.0,
+          "rubric_decisive": false,
+          "validator_score": 22,
+          "validator_decision": "FAIL",
+          "rubric_mean": 3.6,
+          "latency_seconds": 67.41,
+          "issues": [
+            "missing_tradeoff",
+            "missing_rationale",
+            "missing_required_decision",
+            "missing_required_decision",
+            "missing_required_decision",
+            "missing_evidence_class",
+            "missing_evidence_class"
+          ]
+        },
+        "xai": {
+          "passed": true,
+          "passed_by": "rubric",
+          "composite_score": 85.6,
+          "rubric_decisive": true,
+          "validator_score": 92,
+          "validator_decision": "FAIL",
+          "rubric_mean": 3.8,
+          "latency_seconds": 6.2,
+          "issues": [
+            "missing_required_decision"
+          ]
+        }
+      },
+      "all_passed": false,
+      "all_failed": false,
+      "split": true,
+      "passed_count": 4
+    },
+    {
+      "test_id": "pass-08",
+      "title": "Accessibility audit canonical pass",
+      "task": "accessibility_feedback_audit",
+      "providers": {
+        "claude": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 100.0,
+          "rubric_decisive": false,
+          "validator_score": 100,
+          "validator_decision": "PASS",
+          "rubric_mean": 5.0,
+          "latency_seconds": 42.25,
+          "issues": []
+        },
+        "deepseek": {
+          "passed": true,
+          "passed_by": "rubric",
+          "composite_score": 92.4,
+          "rubric_decisive": true,
+          "validator_score": 90,
+          "validator_decision": "FAIL",
+          "rubric_mean": 4.8,
+          "latency_seconds": 26.3,
+          "issues": [
+            "missing_tradeoff"
+          ]
+        },
+        "gemini": {
+          "passed": false,
+          "passed_by": "none",
+          "composite_score": 28.0,
+          "rubric_decisive": false,
+          "validator_score": 28,
+          "validator_decision": "FAIL",
+          "rubric_mean": 1.4,
+          "latency_seconds": 15.56,
+          "issues": [
+            "low_information_density",
+            "missing_tradeoff",
+            "missing_required_decision",
+            "missing_required_decision",
+            "missing_evidence_class",
+            "missing_evidence_class"
+          ]
+        },
+        "mistral": {
+          "passed": null,
+          "error": true
+        },
+        "openai": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 93.2,
+          "rubric_decisive": false,
+          "validator_score": 94,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": 4.6,
+          "latency_seconds": 72.42,
+          "issues": []
+        },
+        "xai": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 91.2,
+          "rubric_decisive": false,
+          "validator_score": 96,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": 4.2,
+          "latency_seconds": 9.46,
+          "issues": []
+        }
+      },
+      "all_passed": false,
+      "all_failed": false,
+      "split": true,
+      "passed_count": 4
+    },
+    {
+      "test_id": "pass-09",
+      "title": "Color system canonical pass",
+      "task": "color_system_spec",
+      "providers": {
+        "claude": {
+          "passed": true,
+          "passed_by": "rubric",
+          "composite_score": 76.8,
+          "rubric_decisive": true,
+          "validator_score": 64,
+          "validator_decision": "FAIL",
+          "rubric_mean": 4.8,
+          "latency_seconds": 31.91,
+          "issues": [
+            "missing_section",
+            "missing_required_decision"
+          ]
+        },
+        "deepseek": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 88.8,
+          "rubric_decisive": false,
+          "validator_score": 84,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": 4.8,
+          "latency_seconds": 54.78,
+          "issues": []
+        },
+        "gemini": {
+          "passed": false,
+          "passed_by": "rubric",
+          "composite_score": 61.6,
+          "rubric_decisive": false,
+          "validator_score": 60,
+          "validator_decision": "FAIL",
+          "rubric_mean": 3.2,
+          "latency_seconds": 10.8,
+          "issues": [
+            "missing_required_decision",
+            "missing_required_decision",
+            "missing_evidence_class"
+          ]
+        },
+        "mistral": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 83.6,
+          "rubric_decisive": false,
+          "validator_score": 78,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": 4.6,
+          "latency_seconds": 82.69,
+          "issues": []
+        },
+        "openai": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 96.0,
+          "rubric_decisive": false,
+          "validator_score": 96,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": 4.8,
+          "latency_seconds": 102.32,
+          "issues": []
+        },
+        "xai": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 86.4,
+          "rubric_decisive": false,
+          "validator_score": 96,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": 3.6,
+          "latency_seconds": 17.47,
+          "issues": []
+        }
+      },
+      "all_passed": false,
+      "all_failed": false,
+      "split": true,
+      "passed_count": 5
+    },
+    {
+      "test_id": "pass-10",
+      "title": "Graphic critique canonical pass",
+      "task": "graphic_critique",
+      "providers": {
+        "claude": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 98.4,
+          "rubric_decisive": false,
+          "validator_score": 100,
+          "validator_decision": "PASS",
+          "rubric_mean": 4.8,
+          "latency_seconds": 26.24,
+          "issues": []
+        },
+        "deepseek": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 95.2,
+          "rubric_decisive": false,
+          "validator_score": 100,
+          "validator_decision": "PASS",
+          "rubric_mean": 4.4,
+          "latency_seconds": 18.4,
+          "issues": []
+        },
+        "gemini": {
+          "passed": false,
+          "passed_by": "none",
+          "composite_score": 32.0,
+          "rubric_decisive": false,
+          "validator_score": 32,
+          "validator_decision": "FAIL",
+          "rubric_mean": 1.6,
+          "latency_seconds": 23.95,
+          "issues": [
+            "low_information_density",
+            "missing_tradeoff",
+            "missing_rationale",
+            "missing_required_decision",
+            "missing_evidence_class",
+            "missing_evidence_class"
+          ]
+        },
+        "mistral": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 93.6,
+          "rubric_decisive": false,
+          "validator_score": 100,
+          "validator_decision": "PASS",
+          "rubric_mean": 4.2,
+          "latency_seconds": 123.99,
+          "issues": []
+        },
+        "openai": {
+          "passed": true,
+          "passed_by": "rubric",
+          "composite_score": 76.8,
+          "rubric_decisive": true,
+          "validator_score": 72,
+          "validator_decision": "FAIL",
+          "rubric_mean": 4.2,
+          "latency_seconds": 27.71,
+          "issues": [
+            "missing_section",
+            "missing_section"
+          ]
+        },
+        "xai": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 90.0,
+          "rubric_decisive": false,
+          "validator_score": 94,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": 4.2,
+          "latency_seconds": 8.8,
+          "issues": []
+        }
+      },
+      "all_passed": false,
+      "all_failed": false,
+      "split": true,
+      "passed_count": 5
+    },
+    {
+      "test_id": "pass-11",
+      "title": "Layout reconstruction from legacy artifact",
+      "task": "layout_reconstruction_plan",
+      "providers": {
+        "claude": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 94.0,
+          "rubric_decisive": false,
+          "validator_score": 90,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": 5.0,
+          "latency_seconds": 83.18,
+          "issues": []
+        },
+        "deepseek": {
+          "passed": true,
+          "passed_by": "rubric",
+          "composite_score": 76.8,
+          "rubric_decisive": true,
+          "validator_score": 72,
+          "validator_decision": "FAIL",
+          "rubric_mean": 4.2,
+          "latency_seconds": 45.17,
+          "issues": [
+            "missing_section",
+            "missing_section"
+          ]
+        },
+        "gemini": {
+          "passed": false,
+          "passed_by": "none",
+          "composite_score": 34.8,
+          "rubric_decisive": false,
+          "validator_score": 42,
+          "validator_decision": "FAIL",
+          "rubric_mean": 1.2,
+          "latency_seconds": 26.55,
+          "issues": [
+            "low_information_density",
+            "missing_tradeoff",
+            "missing_rationale",
+            "missing_required_decision",
+            "missing_evidence_class"
+          ]
+        },
+        "mistral": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 94.4,
+          "rubric_decisive": false,
+          "validator_score": 96,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": 4.6,
+          "latency_seconds": 78.38,
+          "issues": []
+        },
+        "openai": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 92.8,
+          "rubric_decisive": false,
+          "validator_score": 96,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": 4.4,
+          "latency_seconds": 105.79,
+          "issues": []
+        },
+        "xai": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 88.0,
+          "rubric_decisive": false,
+          "validator_score": 96,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": 3.8,
+          "latency_seconds": 17.96,
+          "issues": []
+        }
+      },
+      "all_passed": false,
+      "all_failed": false,
+      "split": true,
+      "passed_count": 5
+    },
+    {
+      "test_id": "pass-12",
+      "title": "Type system canonical pass",
+      "task": "type_system_recommendation",
+      "providers": {
+        "claude": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 96.4,
+          "rubric_decisive": false,
+          "validator_score": 94,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": 5.0,
+          "latency_seconds": 47.12,
+          "issues": []
+        },
+        "deepseek": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 96.0,
+          "rubric_decisive": false,
+          "validator_score": 96,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": 4.8,
+          "latency_seconds": 40.61,
+          "issues": []
+        },
+        "gemini": {
+          "passed": false,
+          "passed_by": "none",
+          "composite_score": 14.8,
+          "rubric_decisive": false,
+          "validator_score": 6,
+          "validator_decision": "FAIL",
+          "rubric_mean": 1.4,
+          "latency_seconds": 32.81,
+          "issues": [
+            "low_information_density",
+            "missing_tradeoff",
+            "missing_rationale",
+            "missing_required_decision",
+            "missing_required_decision",
+            "missing_required_decision",
+            "missing_evidence_class",
+            "missing_evidence_class"
+          ]
+        },
+        "mistral": {
+          "passed": true,
+          "passed_by": "rubric",
+          "composite_score": 88.8,
+          "rubric_decisive": true,
+          "validator_score": 84,
+          "validator_decision": "FAIL",
+          "rubric_mean": 4.8,
+          "latency_seconds": 83.95,
+          "issues": [
+            "missing_evidence_class"
+          ]
+        },
+        "openai": {
+          "passed": true,
+          "passed_by": "rubric",
+          "composite_score": 84.8,
+          "rubric_decisive": true,
+          "validator_score": 80,
+          "validator_decision": "FAIL",
+          "rubric_mean": 4.6,
+          "latency_seconds": 25.9,
+          "issues": [
+            "missing_rationale"
+          ]
+        },
+        "xai": {
+          "passed": true,
+          "passed_by": "rubric",
+          "composite_score": 86.0,
+          "rubric_decisive": true,
+          "validator_score": 90,
+          "validator_decision": "FAIL",
+          "rubric_mean": 4.0,
+          "latency_seconds": 21.63,
+          "issues": [
+            "missing_tradeoff"
+          ]
+        }
+      },
+      "all_passed": false,
+      "all_failed": false,
+      "split": true,
+      "passed_count": 5
+    },
+    {
+      "test_id": "pass-13",
+      "title": "UX research gap map canonical pass",
+      "task": "ux_research_gap_map",
+      "providers": {
+        "claude": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 91.2,
+          "rubric_decisive": false,
+          "validator_score": 88,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": 4.8,
+          "latency_seconds": 42.59,
+          "issues": []
+        },
+        "deepseek": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 96.8,
+          "rubric_decisive": false,
+          "validator_score": 100,
+          "validator_decision": "PASS",
+          "rubric_mean": 4.6,
+          "latency_seconds": 32.41,
+          "issues": []
+        },
+        "gemini": {
+          "passed": true,
+          "passed_by": "rubric",
+          "composite_score": 75.2,
+          "rubric_decisive": true,
+          "validator_score": 80,
+          "validator_decision": "FAIL",
+          "rubric_mean": 3.4,
+          "latency_seconds": 140.58,
+          "issues": [
+            "missing_tradeoff"
+          ]
+        },
+        "mistral": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 94.8,
+          "rubric_decisive": false,
+          "validator_score": 94,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": 4.8,
+          "latency_seconds": 79.37,
+          "issues": []
+        },
+        "openai": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 94.4,
+          "rubric_decisive": false,
+          "validator_score": 96,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": 4.6,
+          "latency_seconds": 26.16,
+          "issues": []
+        },
+        "xai": {
+          "passed": true,
+          "passed_by": "rubric",
+          "composite_score": 82.8,
+          "rubric_decisive": true,
+          "validator_score": 90,
+          "validator_decision": "FAIL",
+          "rubric_mean": 3.6,
+          "latency_seconds": 13.29,
+          "issues": [
+            "missing_tradeoff"
+          ]
+        }
+      },
+      "all_passed": true,
+      "all_failed": false,
+      "split": false,
+      "passed_count": 6
+    },
+    {
+      "test_id": "pass-14",
+      "title": "Front-end architecture canonical pass",
+      "task": "frontend_implementation_review",
+      "providers": {
+        "claude": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 85.6,
+          "rubric_decisive": false,
+          "validator_score": 84,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": 4.4,
+          "latency_seconds": 40.29,
+          "issues": []
+        },
+        "deepseek": {
+          "passed": true,
+          "passed_by": "rubric",
+          "composite_score": 79.6,
+          "rubric_decisive": true,
+          "validator_score": 74,
+          "validator_decision": "FAIL",
+          "rubric_mean": 4.4,
+          "latency_seconds": 36.02,
+          "issues": [
+            "missing_rationale"
+          ]
+        },
+        "gemini": {
+          "passed": false,
+          "passed_by": "none",
+          "composite_score": 35.6,
+          "rubric_decisive": false,
+          "validator_score": 38,
+          "validator_decision": "FAIL",
+          "rubric_mean": 1.6,
+          "latency_seconds": 26.37,
+          "issues": [
+            "low_information_density",
+            "prompt_restatement",
+            "missing_tradeoff",
+            "missing_required_decision",
+            "missing_evidence_class",
+            "missing_evidence_class"
+          ]
+        },
+        "mistral": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 82.6,
+          "rubric_decisive": false,
+          "validator_score": 79,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": 4.4,
+          "latency_seconds": 76.48,
+          "issues": []
+        },
+        "openai": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 80.4,
+          "rubric_decisive": false,
+          "validator_score": 78,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": 4.2,
+          "latency_seconds": 92.7,
+          "issues": []
+        },
+        "xai": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 83.2,
+          "rubric_decisive": false,
+          "validator_score": 96,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": 3.2,
+          "latency_seconds": 12.54,
+          "issues": []
+        }
+      },
+      "all_passed": false,
+      "all_failed": false,
+      "split": true,
+      "passed_count": 5
+    },
+    {
+      "test_id": "pass-15",
+      "title": "Backend architecture spec canonical pass",
+      "task": "backend_architecture_spec",
+      "providers": {
+        "claude": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 88.0,
+          "rubric_decisive": false,
+          "validator_score": 88,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": 4.4,
+          "latency_seconds": 43.22,
+          "issues": []
+        },
+        "deepseek": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 83.6,
+          "rubric_decisive": false,
+          "validator_score": 78,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": 4.6,
+          "latency_seconds": 60.69,
+          "issues": []
+        },
+        "gemini": {
+          "passed": true,
+          "passed_by": "rubric",
+          "composite_score": 70.8,
+          "rubric_decisive": true,
+          "validator_score": 78,
+          "validator_decision": "FAIL",
+          "rubric_mean": 3.0,
+          "latency_seconds": 36.14,
+          "issues": [
+            "missing_rationale",
+            "missing_evidence_class"
+          ]
+        },
+        "mistral": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 89.2,
+          "rubric_decisive": false,
+          "validator_score": 90,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": 4.4,
+          "latency_seconds": 98.32,
+          "issues": []
+        },
+        "openai": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 91.0,
+          "rubric_decisive": false,
+          "validator_score": 93,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": 4.4,
+          "latency_seconds": 41.51,
+          "issues": []
+        },
+        "xai": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 91.2,
+          "rubric_decisive": false,
+          "validator_score": 96,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": 4.2,
+          "latency_seconds": 22.48,
+          "issues": []
+        }
+      },
+      "all_passed": true,
+      "all_failed": false,
+      "split": false,
+      "passed_count": 6
+    },
+    {
+      "test_id": "pass-16",
+      "title": "API reliability and security canonical pass",
+      "task": "api_reliability_security_review",
+      "providers": {
+        "claude": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 97.6,
+          "rubric_decisive": false,
+          "validator_score": 96,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": 5.0,
+          "latency_seconds": 42.93,
+          "issues": []
+        },
+        "deepseek": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 78.4,
+          "rubric_decisive": false,
+          "validator_score": 72,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": 4.4,
+          "latency_seconds": 63.78,
+          "issues": []
+        },
+        "gemini": {
+          "passed": false,
+          "passed_by": "none",
+          "composite_score": 11.2,
+          "rubric_decisive": false,
+          "validator_score": 0,
+          "validator_decision": "FAIL",
+          "rubric_mean": 1.4,
+          "latency_seconds": 18.11,
+          "issues": [
+            "low_information_density",
+            "insufficient_evidence",
+            "missing_tradeoff",
+            "missing_rationale",
+            "missing_required_decision",
+            "missing_required_decision",
+            "missing_required_decision",
+            "missing_required_decision",
+            "missing_required_decision",
+            "missing_evidence_class",
+            "missing_evidence_class",
+            "missing_evidence_class",
+            "overclaim_without_evidence"
+          ]
+        },
+        "mistral": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 91.0,
+          "rubric_decisive": false,
+          "validator_score": 93,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": 4.4,
+          "latency_seconds": 113.35,
+          "issues": []
+        },
+        "openai": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 94.4,
+          "rubric_decisive": false,
+          "validator_score": 96,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": 4.6,
+          "latency_seconds": 71.62,
+          "issues": []
+        },
+        "xai": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 94.4,
+          "rubric_decisive": false,
+          "validator_score": 96,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": 4.6,
+          "latency_seconds": 19.52,
+          "issues": []
+        }
+      },
+      "all_passed": false,
+      "all_failed": false,
+      "split": true,
+      "passed_count": 5
+    },
+    {
+      "test_id": "pass-17",
+      "title": "Adaptive explanation tiers preserve route truth",
+      "task": "frontend_implementation_review",
+      "providers": {
+        "claude": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 92.6,
+          "rubric_decisive": false,
+          "validator_score": 93,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": 4.6,
+          "latency_seconds": 32.8,
+          "issues": []
+        },
+        "deepseek": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 87.4,
+          "rubric_decisive": false,
+          "validator_score": 87,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": 4.4,
+          "latency_seconds": 38.3,
+          "issues": []
+        },
+        "gemini": {
+          "passed": false,
+          "passed_by": "none",
+          "composite_score": 26.8,
+          "rubric_decisive": false,
+          "validator_score": 26,
+          "validator_decision": "FAIL",
+          "rubric_mean": 1.4,
+          "latency_seconds": 23.0,
+          "issues": [
+            "missing_section",
+            "low_information_density",
+            "missing_rationale",
+            "missing_required_decision",
+            "missing_required_decision",
+            "missing_evidence_class"
+          ]
+        },
+        "mistral": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 83.8,
+          "rubric_decisive": false,
+          "validator_score": 81,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": 4.4,
+          "latency_seconds": 101.85,
+          "issues": []
+        },
+        "openai": {
+          "passed": true,
+          "passed_by": "rubric",
+          "composite_score": 73.4,
+          "rubric_decisive": true,
+          "validator_score": 77,
+          "validator_decision": "FAIL",
+          "rubric_mean": 3.4,
+          "latency_seconds": 82.86,
+          "issues": [
+            "missing_section",
+            "missing_required_decision"
+          ]
+        },
+        "xai": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 74.0,
+          "rubric_decisive": false,
+          "validator_score": 86,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": 2.8,
+          "latency_seconds": 17.81,
+          "issues": []
+        }
+      },
+      "all_passed": false,
+      "all_failed": false,
+      "split": true,
+      "passed_count": 5
+    },
+    {
+      "test_id": "pass-18",
+      "title": "Designer response filter preserves backend constraints",
+      "task": "api_reliability_security_review",
+      "providers": {
+        "claude": {
+          "passed": true,
+          "passed_by": "rubric",
+          "composite_score": 89.6,
+          "rubric_decisive": true,
+          "validator_score": 88,
+          "validator_decision": "FAIL",
+          "rubric_mean": 4.6,
+          "latency_seconds": 34.66,
+          "issues": [
+            "missing_required_decision"
+          ]
+        },
+        "deepseek": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 92.8,
+          "rubric_decisive": false,
+          "validator_score": 96,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": 4.4,
+          "latency_seconds": 30.83,
+          "issues": []
+        },
+        "gemini": {
+          "passed": false,
+          "passed_by": "rubric",
+          "composite_score": 25.6,
+          "rubric_decisive": false,
+          "validator_score": 0,
+          "validator_decision": "FAIL",
+          "rubric_mean": 3.2,
+          "latency_seconds": 10.34,
+          "issues": [
+            "missing_section",
+            "missing_section",
+            "missing_section",
+            "low_information_density",
+            "missing_tradeoff",
+            "missing_rationale",
+            "missing_required_decision",
+            "missing_required_decision",
+            "missing_required_decision",
+            "missing_required_decision",
+            "missing_evidence_class",
+            "missing_evidence_class",
+            "missing_evidence_class"
+          ]
+        },
+        "mistral": {
+          "passed": true,
+          "passed_by": "none",
+          "composite_score": 71.4,
+          "rubric_decisive": true,
+          "validator_score": 87,
+          "validator_decision": "FAIL",
+          "rubric_mean": 2.4,
+          "latency_seconds": 95.51,
+          "issues": [
+            "unsupported_superlative"
+          ]
+        },
+        "openai": {
+          "passed": false,
+          "passed_by": "none",
+          "composite_score": 64.4,
+          "rubric_decisive": false,
+          "validator_score": 70,
+          "validator_decision": "FAIL",
+          "rubric_mean": 2.8,
+          "latency_seconds": 36.07,
+          "issues": [
+            "missing_required_decision"
+          ]
+        },
+        "xai": {
+          "passed": true,
+          "passed_by": "rubric",
+          "composite_score": 90.4,
+          "rubric_decisive": true,
+          "validator_score": 92,
+          "validator_decision": "FAIL",
+          "rubric_mean": 4.4,
+          "latency_seconds": 12.52,
+          "issues": [
+            "missing_required_decision"
+          ]
+        }
+      },
+      "all_passed": false,
+      "all_failed": false,
+      "split": true,
+      "passed_count": 4
+    },
+    {
+      "test_id": "pass-19",
+      "title": "Text humanization canonical pass",
+      "task": "text_humanization_revision",
+      "providers": {
+        "claude": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 94.8,
+          "rubric_decisive": false,
+          "validator_score": 94,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": 4.8,
+          "latency_seconds": 16.13,
+          "issues": []
+        },
+        "deepseek": {
+          "passed": true,
+          "passed_by": "rubric",
+          "composite_score": 80.4,
+          "rubric_decisive": true,
+          "validator_score": 70,
+          "validator_decision": "FAIL",
+          "rubric_mean": 4.8,
+          "latency_seconds": 10.46,
+          "issues": [
+            "missing_rationale",
+            "missing_evidence_class"
+          ]
+        },
+        "gemini": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 94.8,
+          "rubric_decisive": false,
+          "validator_score": 94,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": 4.8,
+          "latency_seconds": 14.69,
+          "issues": []
+        },
+        "mistral": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 94.8,
+          "rubric_decisive": false,
+          "validator_score": 94,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": 4.8,
+          "latency_seconds": 86.17,
+          "issues": []
+        },
+        "openai": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 94.8,
+          "rubric_decisive": false,
+          "validator_score": 94,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": 4.8,
+          "latency_seconds": 63.55,
+          "issues": []
+        },
+        "xai": {
+          "passed": true,
+          "passed_by": "validator",
+          "composite_score": 91.2,
+          "rubric_decisive": false,
+          "validator_score": 88,
+          "validator_decision": "AUTO_REVISE",
+          "rubric_mean": 4.8,
+          "latency_seconds": 7.55,
+          "issues": []
+        }
+      },
+      "all_passed": true,
+      "all_failed": false,
+      "split": false,
+      "passed_count": 6
+    }
+  ],
+  "rubric_comparison": {
+    "intent_alignment": {
+      "claude": 5,
+      "deepseek": 5,
+      "gemini": 2.78,
+      "mistral": 4.83,
+      "openai": 4.63,
+      "xai": 4.42
+    },
+    "actionability": {
+      "claude": 4.53,
+      "deepseek": 4.32,
+      "gemini": 1.72,
+      "mistral": 4.22,
+      "openai": 3.84,
+      "xai": 3.63
+    },
+    "structural_rigor": {
+      "claude": 5,
+      "deepseek": 5,
+      "gemini": 2.39,
+      "mistral": 4.94,
+      "openai": 4.84,
+      "xai": 4.79
+    },
+    "evidence_use": {
+      "claude": 4.42,
+      "deepseek": 3.89,
+      "gemini": 1.72,
+      "mistral": 4.06,
+      "openai": 3.32,
+      "xai": 3.16
+    },
+    "implementation_realism": {
+      "claude": 4.68,
+      "deepseek": 4.42,
+      "gemini": 2.22,
+      "mistral": 4.22,
+      "openai": 4.26,
+      "xai": 3.95
+    }
+  },
+  "alias_drift_candidates": {
+    "Solution": [
+      "gemini",
+      "mistral"
+    ]
+  },
+  "consistency": {
+    "all_passed": 4,
+    "all_failed": 0,
+    "split": 15
+  }
+}
